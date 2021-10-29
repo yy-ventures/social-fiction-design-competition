@@ -1,0 +1,62 @@
+@import "../../../../global.scss";
+
+.sfdc-header{
+    padding: 5% 1% 20% 1%;
+    .fiction-art-one{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .fiction-art-two{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .sfdc-header-logo{
+        img{
+            height: 40vmin;
+        }
+    }
+    .sfdc-header-body{
+        h3{
+            color: $primaryColor;
+            font-weight: 900;
+            font-size: 4.5vmin;
+        }
+        p{
+            color: $text;
+            padding: 3% 2%;
+        }
+        h2{
+            color: $deepOrange;
+            font-weight: 900;
+            font-size: 4.5vmin;
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    .sfdc-header{
+        background-image: url("../../../../assets//mobile-back.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .fiction-art-one, 
+        .fiction-art-two{
+            display: none;
+        }
+        .sfdc-header-body{
+            h3{
+                font-size: 1.6rem;
+            }
+            p{
+                padding: 3% 5%;
+                margin-top: 2rem;
+            }
+            h2{
+                font-size: 1.6rem;
+                padding: 3% 2%;
+            }
+        }
+    }
+}

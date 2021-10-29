@@ -1,6 +1,6 @@
 import React from 'react';
 import "./SbdcHeader.scss";
-import socialFictionLogo from "../../../../assets/social_fiction_logo.svg"
+import socialFictionLogo from "../../../../assets/sbdc_logo.svg"
 
 const SbdcHeader = () => {
     return (

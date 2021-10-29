@@ -1,0 +1,46 @@
+@import "../../../../global.scss";
+
+.sfdc-who-can-apply{
+    padding: 6% 10%;
+    background-image: linear-gradient(to bottom, #FFC35A, #F16145);
+    h2{
+        font-weight: 900;
+        color: $white;
+        margin-top: 4rem;
+        font-size: 2.4rem;
+    }
+    .sfdc-who-can-apply-body{
+        padding: 5% 10%;
+        background-color: #FFC35A;
+        box-shadow: 3px 3px 3px rgba($color: #000000, $alpha: 0.1);
+        border-radius: 15px;
+        position: relative;
+        margin-top: -30%;
+        img{
+            width: 80%;
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+        .sfdc-who-can-apply-list{
+            ul{
+                padding: 8% 0;
+                li{
+                    padding: 0.5rem 0 0.5rem 3em;
+                    vertical-align: middle;
+                    background: url("../../../../assets/sfdc-list-style.svg") no-repeat 5px 5px transparent;
+                    list-style-type: none;
+                    margin: 0;
+                    h6{
+                        font-weight: 900;
+                        color: $text;
+                    }
+                    p{
+                        color: $text;
+                    }
+                }
+            }
+        }
+    }
+}
