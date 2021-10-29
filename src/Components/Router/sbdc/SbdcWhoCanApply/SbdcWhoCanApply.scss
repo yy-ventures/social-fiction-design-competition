@@ -1,0 +1,102 @@
+@import "../../../../global.scss";
+
+.who-can-apply{
+    position: relative;
+    .fictionOne{
+        position: absolute;
+        height: auto;
+        right: 0;
+        top: 0; 
+        height: 50%;
+    }
+    .fictionTwo{
+        position: absolute;
+        height: auto;
+        left: 0;
+        bottom: 0; 
+        height: 50%;
+    }
+    .who-can-apply-header{
+        width: 85%;
+        margin: 0 auto;
+        h2{
+            color: $primaryColor;
+            font-size: 2.4rem;
+            font-weight: 900;
+        }
+        h3{
+            color: $secondaryColor;
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+    }
+    .who-can-apply-body{
+        padding: 2rem 2rem 2rem 2rem;
+        width: 50%;
+        background-color: $skyBlue;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        z-index: 10000;
+        position: relative;
+        .who-can-apply-body-container{
+            width: 85%;
+            margin: 0 auto;
+            ul{
+                margin-top: 2rem;
+                li{
+                    padding: 0.5rem 0 0.5rem 2.5em;
+                    color: $primaryColor;
+                    font-weight: 600;
+                    vertical-align: middle;
+                    background: url("../../../../assets/list-style.svg") no-repeat 7px 7px transparent;
+                    list-style-type: none;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .who-can-apply-footer{
+        .who-can-apply-list{
+            ul{
+                margin-left: -2rem;
+                margin-top: 5rem;
+                li{
+                    padding: 1rem 0 1rem 5em;
+                    color: $primaryColor;
+                    font-weight: 600;
+                    vertical-align: middle;
+                    background: url("../../../../assets/list-arrow.svg") no-repeat 7px 7px transparent;
+                    list-style-type: none;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    .who-can-apply{
+        img{
+            display: none;
+        }
+        .who-can-apply-body{
+            width: 100%;
+            padding: 3rem 2rem 3rem 0;
+            border-radius: 0;
+            .who-can-apply-body-container{
+                width: 100%;
+            }
+        }
+        .who-can-apply-footer{
+            .who-can-apply-list{
+                padding: 0 1rem;
+                ul{
+                    margin-top: 3rem;
+                    li{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
