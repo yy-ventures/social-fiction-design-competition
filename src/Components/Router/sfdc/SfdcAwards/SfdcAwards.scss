@@ -15,3 +15,9 @@
         text-transform: capitalize;
     }
 }
+
+@media screen and (min-height:1441) {
+    .sfdc-awards{
+        height: 600px;
+    }
+}

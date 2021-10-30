@@ -12,7 +12,7 @@ const SfdcWhoCanApply = () => {
                         <div>
                             <img src={sfdcBanner} alt="sfdc-banner" />
                         </div>
-                        <div className="sfdc-who-can-apply-list">
+                        <div className="sfdc-who-can-apply-list d-flex align-items-center">
                             <ul>
                                 <li>
                                     <h6>You have an idea to solve any of the following issues:</h6>
