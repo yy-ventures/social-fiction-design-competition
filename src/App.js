@@ -5,8 +5,8 @@ import SfdcRoute from './Components/Router/sfdc/SfdcRoute';
 function App() {
   return (
     <div className="App">
-      {/* <SbdcRoute/> */}
-      <SfdcRoute/>
+      <SbdcRoute/>
+      {/* <SfdcRoute/> */}
     </div>
   );
 }
