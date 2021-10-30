@@ -1,0 +1,56 @@
+@import "../../../../global.scss";
+.sfdc-category{
+    padding: 10% 15%;
+    .sfdc-category-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1em;
+        .sfdc-category-card{
+            padding: 10%;
+            border: 1px solid #eee;
+            cursor: pointer;
+            background-image: $white;
+            &:hover{
+                background-image: linear-gradient(to bottom, $deepOrange, $secondaryColor);
+                .sfdc-category-icon{
+                    fill: $white;
+                    stroke: $white;
+                }
+                h5{
+                    color: $white;
+                }
+                p{
+                    color: $white;
+                }
+            }
+            .sfdc-category-icon{
+                fill: $deepOrange;
+                stroke: $deepOrange;
+                height: 90px;
+            }
+            h5{
+                font-weight: 700;
+                color: $text;
+            }
+            p{
+                color: $text;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .sfdc-category{
+        .sfdc-category-list{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sfdc-category{
+        .sfdc-category-list{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

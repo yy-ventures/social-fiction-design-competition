@@ -2,7 +2,7 @@
 
 .sfdc-who-can-apply{
     padding: 6% 10%;
-    background-image: linear-gradient(to bottom, #FFC35A, #F16145);
+    background-image: linear-gradient(to bottom, $secondaryColor, $deepOrange);
     h2{
         font-weight: 900;
         color: $white;
