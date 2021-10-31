@@ -1,0 +1,26 @@
+@import "../../../global";
+
+.navigation{
+    padding: 1% 0;
+    background-image: linear-gradient(to right, $primaryColor, #356AA0);
+    border-bottom: 8px solid $form;
+    .navigation-container{
+        width: 80%;
+        margin: 0 auto;
+        .navigation-logo{
+            width: 100%;
+        }
+        .navigation-menu{
+            a{
+                text-decoration: none;
+                color: $white;
+                font-weight: 900;
+                text-transform: uppercase;
+                // background-color: $form;
+                padding: 10px 16px;
+                margin: 0 1rem;
+                border-radius: 3px;
+            }
+        }
+    }
+}

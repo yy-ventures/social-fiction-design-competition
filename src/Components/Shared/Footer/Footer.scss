@@ -1,0 +1,39 @@
+@import "../../../global.scss";
+.main-footer{
+    padding: 5% 10%;
+    background-color: $primaryColor;
+    .footer-logo{
+        p{
+            color: $white;
+            margin-top: 4rem;
+        }
+    }
+    .footer-content{
+        p{
+            color: $white;
+        }
+    }
+    .footer-leaf{
+        position: absolute;
+        bottom: 0;
+        right: 5%;
+        img{
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-footer{
+        padding: 15% 5%;
+        flex-direction: column;
+        .footer-logo{
+            p{
+                margin-top: 1rem;
+            }
+        }
+        .footer-content{
+            margin-top: 3rem;
+        }
+    }
+}

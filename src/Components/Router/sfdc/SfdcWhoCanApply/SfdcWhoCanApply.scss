@@ -1,0 +1,104 @@
+@import "../../../../global.scss";
+
+.sfdc-who-can-apply{
+    height: $measure * 4;
+    background-image: linear-gradient(to bottom, $secondaryColor, $deepOrange);
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $deepOrange;
+        width: 45px;
+        height: 30px;
+        clip-path: polygon(100% 0, 0 0, 50% 100%);
+    }
+    h2{
+        font-weight: 900;
+        color: $white;
+        margin-top: 3rem;
+        font-size: 2.4rem;
+    }
+    .sfdc-who-can-apply-body{
+        height: $measure * 4;
+        background-color: #FFC35A;
+        box-shadow: 4px 4px 4px rgba($color: #000000, $alpha: 0.1);
+        border-radius: 25px;
+        position: relative;
+        margin-top: -($measure * 2);
+        img{
+            height: $measure * 1.5;
+            position: absolute;
+            top: -($measure * 0.75);
+            left: 50%;
+            // transform: translate(-50%, 50%);
+            transform: translateX(-50%);
+        }
+        .sfdc-who-can-apply-list{
+            height: 100%;
+            padding: 0 10%;
+            ul{
+                li{
+                    padding: 0.5rem 0 0.5rem 3em;
+                    vertical-align: middle;
+                    background: url("../../../../assets/sfdc-list-style.svg") no-repeat 5px 5px transparent;
+                    list-style-type: none;
+                    margin: 0;
+                    h6{
+                        font-weight: 900;
+                        color: $text;
+                    }
+                    p{
+                        color: $text;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1441px){
+    .sfdc-who-can-apply{
+        height: $measure * 5;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .sfdc-who-can-apply{
+        h2{
+            font-size: 1.5rem;
+            margin: 0;
+            padding-top: 2.5rem;
+        }
+        height: $measure * 3;
+        .sfdc-who-can-apply-body{
+            border-radius: 0;
+            height: $measure * 3;
+            margin-top: -($measure * 1.5);
+            img{
+                height: $measure; 
+                top: -($measure * 0.5);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sfdc-who-can-apply{
+        margin-top: $measure * 1.5;
+        .sfdc-who-can-apply-body{
+            img{
+                top: -($measure * 0.75);
+            }
+            .sfdc-who-can-apply-list{
+                ul{
+                    padding: 0;
+                    padding-top: 5%;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

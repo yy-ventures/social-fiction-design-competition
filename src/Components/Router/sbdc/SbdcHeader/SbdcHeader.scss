@@ -1,0 +1,55 @@
+@import "../../../../global.scss";
+
+.sbdc-header{
+    .sbdc-header-left{
+        padding: 10% 8% 10% 12%;
+        p{
+            font-size: 1rem;
+            font-weight: 400;
+            .deep-blue{
+                font-weight: 900;
+                color: $primaryColor;
+            }
+        }
+    }
+    .sbdc-header-right{
+        padding: 10%;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media screen and (min-width: 1441px){
+    .sbdc-header{
+        .sbdc-header-left{
+            padding: 10% 12% 10% 8%;
+            p{
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    .sbdc-header{
+        .sbdc-header-right{
+            padding: 5%;
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .sbdc-header{
+        .sbdc-header-left{
+            padding: 10%;
+            p{
+                font-size: 1rem;
+            }
+        }
+        .sbdc-header-right{
+            padding: 10%;
+        }
+    }
+}

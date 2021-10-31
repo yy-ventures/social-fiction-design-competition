@@ -1,0 +1,105 @@
+@import "../../../../global.scss";
+
+.sbdc-track{
+    .track-header{
+        h3{
+            text-transform: capitalize;
+            color: $deepSkyBlue;
+            font-weight: 600;
+            font-size: 2.4rem;
+        }
+        h2{
+            color: $secondaryColor;
+            font-weight: 900;
+            font-size: 2.8rem;
+        }
+    }
+    .track-body{
+        .track-card{
+            position: relative;
+            padding: 6% 4% 4% 4%;
+            h4{
+                color: $primaryColor;
+                font-weight: 900;
+                padding-bottom: 1.5rem;
+                text-transform: capitalize;
+                position: relative;
+                &::after{
+                    content: "";
+                    height: 5px;
+                    width: 25%;
+                    background-color: $white;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+            p{
+                color: $primaryColor;
+                font-weight: 500;
+            }
+            .bold{
+                font-weight: 900;
+            }
+
+        }
+        .track-card-one{
+            background-color: $lightGreen;
+            position: relative;
+            z-index: 600;
+            &::after{
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -30px;
+                background: $lightGreen;
+                width: 30px;
+                height: 45px;
+                clip-path: polygon(100% 50%, 0 0, 0 100%);
+                transform: translateY(-50%);
+            }
+        }
+        .track-card-two{
+            background-color: $secondaryColor;
+            position: relative;
+            z-index: 500;
+            &::after{
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -30px;
+                background: $secondaryColor;
+                width: 30px;
+                height: 45px;
+                clip-path: polygon(100% 50%, 0 0, 0 100%);
+                transform: translateY(-50%);
+            }
+        }
+        .track-card-three{
+            background-color: $deepSkyBlue;
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    .sbdc-track{
+        .track-body{
+            .track-card{
+                padding: 5%;
+                p{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .sbdc-track{
+        .track-body{
+            .track-card{
+                padding: 10% 14% 4% 14%;
+            }
+        }
+    }
+}
