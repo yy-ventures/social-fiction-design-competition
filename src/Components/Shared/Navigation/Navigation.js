@@ -8,7 +8,7 @@ const Navigation = () => {
         <nav className="navigation">
             <div className="navigation-container d-flex align-items-center justify-content-between">
                 <div className="navigation-logo">
-                    <img src={yunusLogo} alt="yunus-center" />
+                    <Link to="/"><img src={yunusLogo} alt="yunus-center" /></Link>
                 </div>
                 <div className="navigation-menu">
                     <Link to="/about">about</Link>
