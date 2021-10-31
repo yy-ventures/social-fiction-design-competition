@@ -23,9 +23,6 @@ const SfdcForm = () => {
                                     <input type="text" placeholder="Name of Your Organization" />
                                 </div>
                                 <div>
-                                    <input type="text" placeholder="Your Subject" />
-                                </div>
-                                <div>
                                     <input type="email" placeholder="Your Email" />
                                 </div>
                                 <div>

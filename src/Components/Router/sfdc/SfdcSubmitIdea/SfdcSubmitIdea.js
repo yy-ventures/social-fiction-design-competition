@@ -11,7 +11,7 @@ const SfdcSubmitIdea = () => {
             <div className="text-center sfdc-submit-idea-content">
                 <h2>Got any innovative solution?</h2>
                 <h3>Join our competition!</h3>
-                <button>submmit your idea</button>
+                <button>submit your idea</button>
             </div>
         </section>
     );
