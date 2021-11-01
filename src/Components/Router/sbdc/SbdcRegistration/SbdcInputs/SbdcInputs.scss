@@ -1,0 +1,140 @@
+@import "../../../../../global";
+
+.sbdc-registration-input{
+    padding: 2% 3%;
+    .form-input-header{
+        padding: 2%;
+        p{
+            color: #505252;
+            font-style: italic;
+        }
+        .bold{
+            font-weight: 900;
+            font-style: normal;
+        }
+    }
+    .registration-main-form{
+        input, textarea{
+            outline: 0;
+            border: 0;
+            background-color: inherit;
+            padding: 10px 16px;
+            border-bottom: 1px solid #8BB8E5;
+            width: 100%;
+            &::placeholder{
+                color: #356AA0;
+                opacity: 1;
+                font-weight: 500;
+            }
+        }
+        .registration-radio-top{
+            input{
+                width: fit-content;
+                padding: 10px;
+                border: 1px solid #8BB8E5;
+            }
+            h5{
+                color: #356AA0;
+            }
+            p{
+                color: #64A0DC;
+                font-style: italic;
+            }
+        }
+        .registration-co-founder{
+            h5{
+                color: #356AA0;
+            }
+            p{
+                color: #64A0DC;
+                font-style: italic;
+            }
+            input{
+                margin-top: 2rem;
+                &::placeholder{
+                    font-style: italic;
+                }
+            }
+            select, option{
+                outline: none;
+                border: 0;
+                border-bottom: 1px solid #8BB8E5;
+                padding: 10px 16px;
+                margin-top: 2rem;
+                width: 100%;
+                &::placeholder{
+                    color: #64A0DC;
+                }
+            }
+        }
+        .register-focus{
+            select, option{
+                outline: none;
+                border: 0;
+                border: 2px solid #8BB8E5;
+                border-radius: 5px;
+                padding: 10px 20px;
+                width: 100%;
+                &::placeholder{
+                    color: #64A0DC;
+                }
+            }
+            label{
+                font-size: 14px;
+                color: #356AA0;
+            }
+            h5{
+                color: #356AA0;
+            }
+        }
+        .registration-law{
+            input{
+                width: fit-content;
+                padding: 10px;
+                border: 1px solid #8BB8E5;
+            }
+        }
+        .registration-law-curve{
+            input{
+                &::placeholder{
+                    color: #64A0DC;
+                    font-style: italic;
+                }
+            }
+        }
+        button{
+            outline: 0;
+            border: 3px solid $primaryColor;
+            padding: 10px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            color: $primaryColor;
+            background-color: $white;
+        }
+        h5{
+            color: #356AA0;
+            font-weight: 400;
+            .bold{
+                color: #64A0DC;
+                font-style: italic;
+            }
+        }
+        select, option{
+            outline: none;
+            border: 0;
+            border: 2px solid #8BB8E5;
+            border-radius: 5px;
+            padding: 10px 20px;
+            width: 100%;
+            &::placeholder{
+                color: #64A0DC;
+            }
+        }
+        p{
+            font-size: 15px;
+            color: #64A0DC;
+            font-style: italic;
+        }
+    }
+}

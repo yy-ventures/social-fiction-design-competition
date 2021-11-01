@@ -1,0 +1,37 @@
+@import "../../../../global";
+
+.sbdc-registration{
+    .sbdc-registration-header{
+        background: #EBFDFF;
+        .sbdc-registration-header-left{
+            padding: 10% 8% 10% 15%;
+            p{
+                color: $text;
+            }
+        }
+        .sbdc-registration-header-right{
+            padding: 10% 15% 10% 10%;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .sbdc-registration-header-headline{
+            position: absolute;
+            bottom: -33.5px;
+            left: 50%;
+            transform: translateX(-50%);
+            p{
+                color: $white;
+                background: $primaryColor;
+                padding: 20px 60px;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: 900;
+                text-transform: capitalize;
+                font-size: 24px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
