@@ -1,20 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import "resets";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-$primaryColor: #224B75;
-$secondaryColor: #DF8B48;
-$skyBlue: #BCEBF1;
-$deepSkyBlue: #48C9D8;
+$primaryColor: #224b75;
+$secondaryColor: #df8b48;
+$skyBlue: #bcebf1;
+$deepSkyBlue: #48c9d8;
 $white: #ffffff;
-$lightGreen: #ACE08A;
-$lightBlue: #EBFDFF;
-$form: #64A0DC;
+$lightGreen: #ace08a;
+$lightBlue: #ebfdff;
+$form: #64a0dc;
 $text: #373737;
-$deepOrange: #F16145;
-$cream: #FFF5E4;
+$deepOrange: #f16145;
+$cream: #fff5e4;
 
 $measure: 100px;
-
 
 $darkblue: #1c4065;
 $blue: #356aa0;
@@ -23,40 +21,22 @@ $bg-light: #fbfbfb;
 $font-collection: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
+html,
 body {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
-.button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0.5em;
-    z-index: 5;
-    @media screen and (min-width: 480px) {
-        flex-direction: row;
-    }
-}
-.btn {
-    border: 3px solid $form;
-    text-decoration: none;
-    padding: 0.6em 0.8em;
-    border-radius: 5px;
-    font-family: $font-collection;
-    font-weight: bold;
-    font-size: 1rem;
-    color: $white;
-    text-transform: uppercase;
-}
-.btn ~ .btn {
-    margin: 0;
-}
-.btn-blue {
-    background-color: $darkblue;
-}
-.btn-lightblue {
-    background-color: $blue;
-}
-
-
+// .button-container {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: flex-start;
+//     gap: 0.5em;
+//     z-index: 5;
+//     @media screen and (min-width: 480px) {
+//         flex-direction: row;
+//     }
+// }
