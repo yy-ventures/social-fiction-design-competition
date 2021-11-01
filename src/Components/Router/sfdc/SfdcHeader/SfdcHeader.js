@@ -22,6 +22,9 @@ const SfdcHeader = () => {
                             <p>The Social Fiction Design Competition is an exciting global competition looking for students and young people to re-imagine and create for themselves a world without social problems. Imagine a world 100 years from now. Take real social challenges and share your fictional solutions. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation, or poster presentation.</p>
                         </div>
                         <div>
+                            <button>apply now</button>
+                        </div>
+                        <div>
                             <h2>
                                 We shape your entrepreneurship journey! Learn how social problems and fiction align from our online webinar.
                             </h2>

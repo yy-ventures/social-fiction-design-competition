@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import Footer from './Components/Shared/Footer/Footer';
+import SbdcRegistration from './Components/Router/sbdc/SbdcRegistration/SbdcRegistration';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/sfdc">
             <SfdcRoute/>
+          </Route>
+          <Route path="/sbdc-registration">
+            <SbdcRegistration/>
           </Route>
         </Switch>
         <Footer/>
