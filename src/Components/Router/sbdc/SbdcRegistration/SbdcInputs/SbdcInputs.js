@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     const [isCheckedOne, setIsCheckedOne] = useState(false)
     const [isCheckedTwo, setIsCheckedTwo] = useState(false)
