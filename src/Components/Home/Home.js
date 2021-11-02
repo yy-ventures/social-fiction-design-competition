@@ -24,8 +24,8 @@ export default function Home() {
                     Yunus Centre, in collaboration with YY Ventures, Yunus and
                     You- The YY Foundation and Catholic University of Zimbabwe,
                     is launching the
-                    <a href="#">Social Business Design Competition</a> and
-                    <a href="#">Social Fiction Design Competition</a> to nurture
+                    <a href="/">Social Business Design Competition</a> and
+                    <a href="/">Social Fiction Design Competition</a> to nurture
                     social innovation and entrepreneurship among next generation
                     of young talent. Our mission is to create a world of three
                     zeros - zero net carbon emission, zero wealth concentration
@@ -65,10 +65,10 @@ export default function Home() {
                         models that combat real challenges.
                     </h4>
                     <div className="button-container">
-                        <a href="" className="btn btn-blue">
+                        <a href="/" className="btn btn-blue">
                             Explore
                         </a>
-                        <a className="btn btn-lightblue" href="">
+                        <a className="btn btn-lightblue" href="/">
                             Apply Now
                         </a>
                     </div>
@@ -91,10 +91,10 @@ export default function Home() {
                         poster presentation.
                     </h4>
                     <div className="button-container">
-                        <a href="#" className="btn btn-blue">
+                        <a href="/" className="btn btn-blue">
                             EXPLORE
                         </a>
-                        <a className="btn btn-lightblue" href="#">
+                        <a className="btn btn-lightblue" href="/">
                             APPLY NOW
                         </a>
                     </div>

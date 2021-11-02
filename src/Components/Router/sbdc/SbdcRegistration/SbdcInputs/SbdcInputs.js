@@ -7,6 +7,7 @@ const SbdcInputs = () => {
     const onSubmit = data => console.log(data);
     const [isCheckedOne, setIsCheckedOne] = useState(false)
     const [isCheckedTwo, setIsCheckedTwo] = useState(false)
+    const [isUnderLaw, setIsUnderLaw] = useState(false)
     const handleCheckBoxOne = (e) => {
         setIsCheckedOne(true)
         setIsCheckedTwo(true)
@@ -15,6 +16,12 @@ const SbdcInputs = () => {
         setIsCheckedTwo(true)
         setIsCheckedOne(false)
     }
+    const handleUnderLawYes = e => {
+        setIsUnderLaw(true)
+    } 
+    const handleUnderLawNo = e => {
+        setIsUnderLaw(false)
+    } 
     return (
         <div className="sbdc-registration-input">
             <div className="form-input-header text-center mt-5">
@@ -31,14 +38,14 @@ const SbdcInputs = () => {
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
                             <div className="col-lg-6">
-                                <input type="text" placeholder="What is your vision for the Social Business/Idea?" {...register("YourVision")} required maxLength="100"/>
+                                <input type="text" placeholder="What is your vision for the Social Business/Idea?" {...register("YourVision")} required/>
                                 {errors.name && errors.name.type === "required" && <span>Please fill this field</span>}
                                 {errors.name && errors.name.type === "maxLength" && <span>Please write between 10 words</span> }
                             </div>
                         </div>
                         <div className="row mt-5">
                             <div className="col-lg-12">
-                                <textarea type="text" placeholder="Tell us a bit more about your initiative (100 words max)" {...register("YourInitiative")} required maxLength="100"></textarea>
+                                <textarea type="text" placeholder="Tell us a bit more about your initiative (100 words max)" {...register("YourInitiative")} required></textarea>
                             </div>
                         </div>
                         <div className="row mt-5 registration-radio-top">
@@ -170,30 +177,67 @@ const SbdcInputs = () => {
                             <div className="col-lg-6">
                                 <h5>Is the Social Business registered as an entity under the law?</h5>
                             </div>
-                            <div className="col-lg-6">
-                                <div>
-                                    <input type="radio" id="team" checked />
-                                    <label htmlFor="team">Team</label>
+                            <div className="col-lg-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="yes" id="flexCheckDefault" {...register("UnderTheLaw")}  onChange={handleUnderLawYes} defaultChecked={true}/>
+                                    <label class ="form-check-label" for="flexCheckDefault">
+                                    Yes
+                                    </label>
                                 </div>
-                                <div>
-                                    <input type="radio" />
-                                    <label htmlFor="individual">Individual</label>
+                            </div>
+                            <div className="col-lg-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="no" id="flexCheckDefault" {...register("UnderTheLaw")}  onChange={handleUnderLawNo}/>
+                                    <label class ="form-check-label" for="flexCheckDefault">
+                                    No
+                                    </label>
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-5 registration-law-curve">
-                            <input placeholder="If yes, please specify which law your Social Business is registered under."></input>
-                        </div>
+                        {isUnderLaw && <div className="mt-5 registration-law-curve">
+                            <input placeholder="If yes, please specify which law your Social Business is registered under." {...register("YesUnderTheLaw")} ></input>
+                        </div>}
                         <div className="mt-5">
                             <p>**Our program has primarily been designed for the needs of Social Businesses; however, non-profits, <br/> for-profits, co-operatives, and community contribution businesses are all eligible as long as they serve <br/> a crucial social or environmental cause and are willing to incorporate a Social Business model moving forward.</p>
                         </div>
                         <div className="mt-5 registration-law-curve">
                             <h5>How does your Social Business plan to make money?</h5>
-                            <input></input>
+                            <input {...register("MakeMoney")} ></input>
                         </div>
-                        <div className="mt-5">
-                            <h5>Is there a way through which we can learn more about your Social Business/Idea? (Website, News Article, Publication, Press Release, Interview)</h5>
-
+                        <div className="mt-5 link-input">
+                            <h5>Is there a way through which we can learn more about your Social Business/Idea? <span className="bold">(Website, News Article, Publication, Press Release, Interview)</span></h5>
+                            <div className="mt-5">
+                                <div className="row">
+                                    <div className="col-lg-1"><h5>Link 1</h5></div>
+                                    <div className="col-lg-6"><input type="url" {...register("FirstLink")} /></div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-1"><h5>Link 2</h5></div>
+                                    <div className="col-lg-6"><input type="url" {...register("SecondLink")} /></div>
+                                </div>
+                            </div>
+                            <div className="mt-5">
+                                <button>+ Add more</button>
+                            </div>
+                        </div>
+                        <div className="mt-5 file-upload">
+                            <div className="row">
+                                <div className="col-lg-3"><h5>Please upload your Pitch Deck</h5></div>
+                                <div className="col-lg-5">
+                                    <input class="form-control" type="file" id="formFile" {...register("UploadedFile")}/>
+                                </div>
+                                <div className="col-lg-3">
+                                    <div className="file-upload-condition">
+                                        <p>PPT - Pitch Deck (10 slides max)</p>
+                                        <p>PDF - Flyer (2 pages max)</p>
+                                        <p>DOC - 800 Words</p>
+                                        <p>MOV/AVI - 3 mins (max)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="registration-footer mt-5">
+                            <p>***Submit an introduction to your team and Social Business idea. Mention the problem you aim to address and the proposed solution. <br/> Briefly highlight any relevant information regarding Beneficiaries, Value Proposition, Achievements, Financial forecasts etc. </p>
                         </div>
                         <div className="mt-5 text-center">
                             <button type="submit">Submit Application</button>

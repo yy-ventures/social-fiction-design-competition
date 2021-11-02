@@ -35,3 +35,17 @@
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .sbdc-registration{
+        .sbdc-registration-header{
+            .sbdc-registration-header-headline{
+                bottom: -74px;
+                p{
+                    font-size: 18px;
+                    padding: 10px 60px;
+                }
+            }
+        }
+    }
+}
