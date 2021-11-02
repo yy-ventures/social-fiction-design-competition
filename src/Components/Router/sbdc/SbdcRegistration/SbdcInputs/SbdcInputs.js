@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
+    const [isCheckedOne, setIsCheckedOne] = useState(false)
+    const [isCheckedTwo, setIsCheckedTwo] = useState(false)
+    const handleCheckBoxOne = (e) => {
+        setIsCheckedOne(true)
+        setIsCheckedTwo(true)
+    }
+    const handleCheckBoxTwo = (e) => {
+        setIsCheckedTwo(true)
+        setIsCheckedOne(false)
+    }
     return (
         <div className="sbdc-registration-input">
             <div className="form-input-header text-center mt-5">
@@ -35,23 +45,29 @@ const SbdcInputs = () => {
                             <div className="col-lg-4">
                                 <h5>Are you are applying as an individual or a team? </h5>
                             </div>
-                            <div className="col-lg-4">
-                                <div>
-                                    <input type="radio" id="team" checked/>
-                                    <label htmlFor="team">Team</label>
+                            <div className="col-lg-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={handleCheckBoxOne} defaultChecked={false}/>
+                                    <label class ="form-check-label" for="flexCheckDefault">
+                                    Team
+                                    </label>
                                 </div>
-                                <div>
-                                    <input type="radio" />
-                                    <label htmlFor="individual">Individual</label>
+                            </div>
+                            <div className="col-lg-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={handleCheckBoxTwo}/>
+                                    <label class ="form-check-label" for="flexCheckDefault">
+                                    Individual
+                                    </label>
                                 </div>
                             </div>
                         </div>
                         <div className="row mt-5 registration-co-founder">
                             <div className="col-lg-4">
                                 <h5>Founder(s) Information</h5>
-                                <p>*Your team may have more than two co-founders. Please provide basic contact info of two c-founders, including one female co-founder.</p>
+                                <p>*Your team may have more than two co-founders.</p>
                             </div>
-                            <div className="col-lg-4 pe-5">
+                            {isCheckedOne && <div className="col-lg-4 pe-5">
                                 <h5>CO-Founder 1</h5>
                                 <div>
                                     <div>
@@ -74,9 +90,9 @@ const SbdcInputs = () => {
                                         <input type="number" placeholder="Number" {...register("CoFounderOneNumber")}></input>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <h5>CO-Founder 2</h5>
+                            </div>}
+                            {isCheckedTwo && <div className="col-lg-4">
+                                <h5>{isCheckedOne ? "CO-Founder 2" : "Founder"}</h5>
                                 <div>
                                     <div>
                                         <input type="text" placeholder="Name" {...register("CoFounderTwoName")}></input>
@@ -98,7 +114,7 @@ const SbdcInputs = () => {
                                         <input type="number" placeholder="Number" {...register("CoFounderTwoNumber")}></input>
                                     </div>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                         {/* area of focus */}
                         <div className="row mt-5 register-focus d-flex align-items-center">
