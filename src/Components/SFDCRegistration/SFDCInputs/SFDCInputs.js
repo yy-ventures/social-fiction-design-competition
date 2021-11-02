@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import "./SFDCInputs.scss";
 
 const SFDCInputs = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div className="sfdc-registration-input">
