@@ -3,6 +3,7 @@ import "./SfdcHeader.scss";
 import sfdcLogo from "../../../../assets/sfdc_logo.png";
 import fictionArtOne from "../../../../assets/fiction_art_1.png";
 import fictionArtTwo from "../../../../assets/fiction_art_2.png";
+import {Link} from 'react-router-dom';
 
 const SfdcHeader = () => {
     return (
@@ -22,7 +23,7 @@ const SfdcHeader = () => {
                             <p>The Social Fiction Design Competition is an exciting global competition looking for students and young people to re-imagine and create for themselves a world without social problems. Imagine a world 100 years from now. Take real social challenges and share your fictional solutions. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation, or poster presentation.</p>
                         </div>
                         <div>
-                            <button>apply now</button>
+                            <Link to="/sfdc-registration"><button>apply now</button></Link>
                         </div>
                         <div>
                             <h2>
