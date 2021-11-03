@@ -20,7 +20,7 @@ const SfdcHeader = () => {
                             <h3>What is the Social Fiction <br/> Design Competition?</h3>
                         </div>
                         <div>
-                            <p>The <span className="deep-blue">Social Fiction Design Competition</span> is an exciting global competition looking for students and young people to re-imagine and create for themselves a world without social problems. Imagine a world 100 years from now. Take real social challenges and share your fictional solutions. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation, or poster presentation.</p>
+                            <p>The <span className="deep-blue">Social Fiction Design Competition</span> is an exciting global competition looking for students and young people to re-imagine and create for themselves a world without social problems. Imagine a world 50 years from now. Take real social challenges and share your fictional solutions. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation, or poster presentation.</p>
                         </div>
                         <div>
                             <Link to="/sfdc-registration"><button>apply now</button></Link>

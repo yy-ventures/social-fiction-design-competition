@@ -8,7 +8,7 @@ const SFDCInputs = () => {
     return (
         <div className="sfdc-registration-input">
             <div className="form-input-header text-center mt-5">
-                <p>*Please fill up this form to submit your idea if you are of <span className="bold">age 12 to 35 and have at least one female co-founder.</span></p>
+                <p>*Please fill up this form to submit your idea if you are of <span className="bold">age 12 to 35.</span></p>
             </div>
             <div className="row">
                 <div className="col-lg-2"></div>
@@ -16,36 +16,42 @@ const SFDCInputs = () => {
                     <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="mt-5 col-lg-6">
-                                <input type="text" placeholder="Name of Applicant" {...register("NameOfApplicant")} required />
+                                <h5>Name of Applicant</h5>
+                                <input type="text" {...register("NameOfApplicant")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
                             <div className="mt-5 col-lg-6">
-                                <input type="text" placeholder="Name of Institution" {...register("NameOfInstitution")} required maxLength="100"/>
+                                <h5>Name of Institution</h5>
+                                <input type="text"  {...register("NameOfInstitution")} required maxLength="100"/>
                                 {errors.name && errors.name.type === "required" && <span>Please fill this field</span>}
                                 {errors.name && errors.name.type === "maxLength" && <span>Please write between 10 words</span> }
                             </div>
                         </div>
                         <div className="row ">
                             <div className="mt-5 col-lg-6">
-                                <input type="date" placeholder="Date of Birth of Applicant" {...register("ApplicantDateOfBirth")} required />
+                                <h5>Date of Birth of Applicant</h5>
+                                <input type="date"  {...register("ApplicantDateOfBirth")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
                             <div className="mt-5 col-lg-6">
-                                <input type="text" placeholder="Country" {...register("ApplicantCountry")} required maxLength="100"/>
+                                <h5>Country</h5>
+                                <input type="text"  {...register("ApplicantCountry")} required maxLength="100"/>
                                 {errors.name && errors.name.type === "required" && <span>Please fill this field</span>}
                                 {errors.name && errors.name.type === "maxLength" && <span>Please write between 10 words</span> }
                             </div>
                         </div>
                         <div className="row ">
                             <div className="mt-5 col-lg-6">
-                                <input type="email" placeholder="E-mail" {...register("ApplicantEmail")} required />
+                                <h5>E-mail</h5>
+                                <input type="email" {...register("ApplicantEmail")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
                             <div className="mt-5 col-lg-6">
-                                <input type="text" placeholder="Phone" {...register("ApplicantPhone")} required maxLength="100"/>
+                                <h5>Phone</h5>
+                                <input type="text"  {...register("ApplicantPhone")} required maxLength="100"/>
                                 {errors.name && errors.name.type === "required" && <span>Please fill this field</span>}
                                 {errors.name && errors.name.type === "maxLength" && <span>Please write between 10 words</span> }
                             </div>
@@ -57,10 +63,10 @@ const SFDCInputs = () => {
                             </div>
                             <div className="col-lg-4">
                                 <select {...register("AreaOfFocus")} className="form-select">
-                                    <option selected value="writing">Writing</option>
                                     <option value="circulareconomy">Circular Economy</option>
+                                    <option value="agriculture">Agriculture</option>
                                     <option value="employment">Employment</option>
-                                    <option value="environmentandclimatechange">Environment and Climate Change</option>
+                                    <option value="environmentandclimatechange" selected>Environment and Climate Change</option>
                                     <option value="healthandwellbeing">Health and Well-being</option>
                                     <option value="microcredit">Microcredit</option>
                                     <option value="technologyandinnovation">Technology and Innovation</option>
@@ -100,8 +106,11 @@ const SFDCInputs = () => {
                             <div className="col-lg-4">
                                 <select {...register("CreativeCategory")} className="form-select">
                                     <option selected value="writing">Writing</option>
-                                    <option value="feasibility">Feasibility</option>
-                                    <option value="earlystage">Early-stage</option>
+                                    <option value="rhetoric">Rhetoric</option>
+                                    <option value="poster-presentation">Poster Presentation</option>
+                                    <option value="animation">Animation</option>
+                                    <option value="illustration">Illustration</option>
+                                    <option value="cinematography">Cinematography</option>
                                 </select>
                             </div>
                         </div>

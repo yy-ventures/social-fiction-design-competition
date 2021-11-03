@@ -25,7 +25,7 @@ const SbdcInputs = () => {
     return (
         <div className="sbdc-registration-input">
             <div className="form-input-header text-center mt-5">
-                <p>*Please fill up this form to submit your idea if you are of <span className="bold">age 12 to 35 and have at least one female co-founder.</span></p>
+                <p>*Please fill up this form to submit your idea if you are of <span className="bold">age 12 to 35.</span></p>
             </div>
             <div className="row">
                 <div className="col-lg-2"></div>
@@ -33,7 +33,7 @@ const SbdcInputs = () => {
                     <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="col-lg-6">
-                            <h5>Name of Social Business/Idea</h5>
+                            <h5 className="mt-5">Name of Social Business/Idea</h5>
                                 <input type="text" {...register("NameOfSocialBusiness")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
@@ -234,7 +234,7 @@ const SbdcInputs = () => {
                                         <p>PPT - Pitch Deck (10 slides max)</p>
                                         <p>PDF - Flyer (2 pages max)</p>
                                         <p>DOC - 800 Words</p>
-                                        <p>MOV/AVI - 3 mins (max)</p>
+                                        <p>MOV/MP4 - 3 mins (max)</p>
                                     </div>
                                 </div>
                             </div>

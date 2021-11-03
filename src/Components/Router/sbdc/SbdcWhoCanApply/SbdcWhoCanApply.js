@@ -29,7 +29,7 @@ const SbdcWhoCanApply = () => {
                         <div className="who-can-apply-list">
                             <ul>
                                 <li>You are an individual or a team of 5 with a creative but viable social business idea to solve any of the following issues:</li>
-                                <li>Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and well-being.</li>
+                                <li>Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being.</li>
                                 <li>You and your team members are between ages 12 to 35.</li>
                                 <li>You and your team members are students, alums, academics or researchers with an entrepreneurial solution in the form of an idea, a work-in-progress prototype or an early-stage startup.</li>
                                 <li>Any social business enthusiasts.</li>
