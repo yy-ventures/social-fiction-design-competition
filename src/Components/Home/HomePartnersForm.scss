@@ -1,6 +1,9 @@
 @import "../../global.scss";
 
 .home-partners-form{
+    .row{
+        z-index: 2;
+    }
     padding: 10%;
     background-color: #fbfbfb;
     position: relative;
@@ -20,6 +23,11 @@
             top: 0;
             transform: translate(50%, -50%);
             z-index: 1;
+            @media screen and (max-width: 990px) {
+                background-color: $form;
+                width: 500px;
+            height: 300px;
+            }
     }
     .form-rectangle {
         position: absolute;
@@ -31,8 +39,14 @@
             bottom: 0;
             transform: translate(-50%, 50%);
             z-index: 1;
+            @media screen and (max-width: 990px) {
+                background-color: $darkblue;
+                width: 250px;
+            height: 600px;
+            }
     }
     .home-partners-form-header{
+        z-index: 5;
         h2{
             color: $blue;
             font-weight: 900;
@@ -45,6 +59,7 @@
         }
     }
     .home-partners-form-body{
+        z-index: 5;
         input, textarea{
             padding: 10px 16px;
             outline: none;

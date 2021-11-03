@@ -15,20 +15,20 @@ const SfdcHeader = () => {
                     <div className="sfdc-header-logo text-center">
                         <img src={sfdcLogo} alt="sfdc"/>
                     </div>
-                    <div className="sfdc-header-body">
+                    <div className="sfdc-header-body mb-5">
                         <div className="mt-5">
                             <h3>What is the Social Fiction <br/> Design Competition?</h3>
                         </div>
                         <div>
-                            <p>The Social Fiction Design Competition is an exciting global competition looking for students and young people to re-imagine and create for themselves a world without social problems. Imagine a world 100 years from now. Take real social challenges and share your fictional solutions. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation, or poster presentation.</p>
+                            <p>The <span className="deep-blue">Social Fiction Design Competition</span> is an exciting global competition looking for students and young people to re-imagine and create for themselves a world without social problems. Imagine a world 100 years from now. Take real social challenges and share your fictional solutions. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation, or poster presentation.</p>
                         </div>
                         <div>
                             <Link to="/sfdc-registration"><button>apply now</button></Link>
                         </div>
                         <div>
-                            <h2>
+                            {/* <h2>
                                 We shape your entrepreneurship journey! Learn how social problems and fiction align from our online webinar.
-                            </h2>
+                            </h2> */}
                         </div>
                     </div>
                 </div>

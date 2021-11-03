@@ -4,7 +4,7 @@ import fictionArtOne from "../../../../assets/fiction_art_1.png";
 
 const SfdcForm = () => {
     return (
-        <section className="sfdc-form position-relative">
+        <section className="sfdc-form position-relative" id="partners-section">
             <img src={fictionArtOne} alt="fiction-art-one" />
             <div className="row">
                 <div className="col-lg-3"></div>

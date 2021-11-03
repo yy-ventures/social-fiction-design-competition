@@ -4,7 +4,7 @@ import fictionArtOne from "../../assets/fiction_art_1.png";
 
 const HomePartnersForm = () => {
     return (
-        <section className="home-partners-form position-relative">
+        <section className="home-partners-form position-relative" id="partners-section">
             <div className="blue-rectangle"></div>
             <div className="form-rectangle"></div>
             <div className="row">

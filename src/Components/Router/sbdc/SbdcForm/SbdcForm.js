@@ -3,7 +3,7 @@ import "./SbdcForm.scss";
 
 const SbdcForm = () => {
     return (
-        <section className="sbdc-form">
+        <section className="sbdc-form" id="partners-section">
             <div className="row">
                 <div className="col-lg-3"></div>
                 <div className="col-lg-6">
