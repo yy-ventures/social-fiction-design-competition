@@ -3,7 +3,7 @@
 .infobar {
     position: relative;
     overflow: hidden;
-    height: 50vh;
+    height: 70vh;
     font-family: $font-collection;
     background-color: $darkblue;
     .flex-container {
@@ -38,13 +38,16 @@
         }
     }
     h4 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: $white;
         z-index: 4;
         font-weight: bold;
         text-align: center;
         span#infobar-blue-text {
             color: $form;
+        }
+        @media screen and (min-width: 1200px) {
+            font-size: 2em;
         }
     }
     .button-container {

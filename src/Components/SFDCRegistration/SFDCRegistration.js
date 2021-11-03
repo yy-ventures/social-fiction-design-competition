@@ -10,7 +10,7 @@ const SFDCRegistration = () => {
                 <div className="row">
                     <div className="col-lg-6 sfdc-registration-header-left d-flex align-items-center justify-content-center">
                         <div>
-                            <p>The Social Business Design Competition promotes youth-driven entrepreneurial solutions to combat social challenges like water, circularity, sports, poverty, employment, etc. The competition welcomes youth from the global arena to bring unique, equitable ideas that are aligned with development goals by putting into play these ideas to achieve real solutions through the designing of their very own Social Business.</p>
+                            <p>The <span className="deepblue">Social Business Design Competition</span> promotes youth-driven entrepreneurial solutions to combat social challenges like water, circularity, sports, poverty, employment, etc. The competition welcomes youth from the global arena to bring unique, equitable ideas that are aligned with development goals by putting into play these ideas to achieve real solutions through the designing of their very own Social Business.</p>
                         </div>
                     </div>
                     <div className="col-lg-6 sfdc-registration-header-right d-flex align-items-center justify-content-center">

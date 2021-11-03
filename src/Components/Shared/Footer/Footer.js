@@ -11,8 +11,8 @@ const Footer = () => {
                 <p>&copy;2021 YunusCentre.org</p>
             </div>
             <div className="footer-content">
-                <p>Grameen Bank Bhaban <br/> 16th floor Mirpur 2, Dhaka 1216</p>
-                <p>+88 02 9023010 | info@yunuscentre.org</p>
+                <p>For More Information</p>
+                <p>Contact info@yy.ventures</p>
             </div>
             <div></div>
             <div className="footer-leaf">

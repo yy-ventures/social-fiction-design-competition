@@ -9,6 +9,7 @@ import SFDCRegistration from "./Components/SFDCRegistration/SFDCRegistration";
 import Home from "./Components/Home/Home";
 import InfoBar from "./Components/Home/InfoBar";
 import LogoBar from "./Components/Home/LogoBar";
+import HomePartnersForm from "./Components/Home/HomePartnersForm";
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
                         <Home />
                         <InfoBar />
                         <LogoBar />
+                        <HomePartnersForm/>
                     </Route>
                 </Switch>
                 <Footer />

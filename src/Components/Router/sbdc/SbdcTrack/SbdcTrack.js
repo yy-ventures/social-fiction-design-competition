@@ -23,7 +23,7 @@ const SbdcTrack = () => {
                     <div className="col-lg-4 col-md-4 col-12 track-card track-card-two">
                         <h4>Social business building</h4>
                         <div className="mt-4">
-                            <p>Shortlisted participants will undergo 4 informative and intensive workshops on Social Business Planning that shape their creativity and innovation, social business model, and storytelling.</p>
+                            <p>Shortlisted participants will undergo informative and intensive workshops on Social Business Planning that shape their creativity & innovation, social business model, and storytelling.</p>
                             <p className="bold">The participants undergo 45 days to apply these learnings to build a viable and sustainable market-driven social business model. Participants will submit their social business plan by the submission deadline. </p>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ const SbdcTrack = () => {
                         <h4>Pitch</h4>
                         <div className="mt-4">
                             <p className="bold">Top 20 Shortlisted participants from around the globe will come together in our virtual pitch event.</p>
-                            <p>They will share a 3-minute pitch about their story, social business idea, and business model to a panel of prestigious judges of entrepreneurs, investors, industry specialists, etc., who will decide the competition winners. </p>
+                            <p>They will share a 3-minute pitch about their story, social business idea, and business model to a panel of prestigious judges of entrepreneurs, investors, industry specialists etc., who will decide the competition winners. </p>
                         </div>
                     </div>
                 </div>

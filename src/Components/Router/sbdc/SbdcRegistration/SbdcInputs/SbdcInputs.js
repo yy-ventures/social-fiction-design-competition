@@ -8,6 +8,26 @@ const SbdcInputs = () => {
     const [isCheckedOne, setIsCheckedOne] = useState(false)
     const [isCheckedTwo, setIsCheckedTwo] = useState(false)
     const [isUnderLaw, setIsUnderLaw] = useState(false)
+    const [additionalLink, setAdditionalLink] = useState(0);
+    const additionalLinkArray = [];
+    const addMoreLinks = (e) => {
+        e.preventDefault();
+        setAdditionalLink((prev)=> prev+1)
+        if(additionalLink==2){
+            return
+        }else {
+            additionalLinkArray.push(<><div className="row">
+            <div className="col-lg-1"><h5>Link 2</h5></div>
+            <div className="col-lg-6"><input type="url" {...register("SecondLink")} /></div>
+            <button onClick={deleteLink}>Delete</button>
+        </div>
+        </>);
+        }
+    }
+    const deleteLink = (e) => {
+        e.preventDefault();
+        additionalLinkArray.pop();
+    }
     const handleCheckBoxOne = (e) => {
         setIsCheckedOne(true)
         setIsCheckedTwo(true)
@@ -25,7 +45,7 @@ const SbdcInputs = () => {
     return (
         <div className="sbdc-registration-input">
             <div className="form-input-header text-center mt-5">
-                <p>*Please fill up this form to submit your idea if you are of <span className="bold">age 12 to 35 and have at least one female co-founder.</span></p>
+                <p>*Please fill up this form to submit your idea if you are of <span className="bold">age 12 to 35.</span></p>
             </div>
             <div className="row">
                 <div className="col-lg-2"></div>
@@ -33,19 +53,22 @@ const SbdcInputs = () => {
                     <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="col-lg-6">
-                                <input type="text" placeholder="Name of Social Business/Idea" {...register("NameOfSocialBusiness")} required />
+                            <h5 className="mt-5 white-space-no-wrap">Name of Social Business/Idea</h5>
+                                <input type="text" {...register("NameOfSocialBusiness")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
                             <div className="col-lg-6">
-                                <input type="text" placeholder="What is your vision for the Social Business/Idea?" {...register("YourVision")} required/>
+                            <h5 className="mt-5 white-space-no-wrap" >What is your vision for the Social Business/Idea?</h5>
+                                <input type="text"  {...register("YourVision")} required/>
                                 {errors.name && errors.name.type === "required" && <span>Please fill this field</span>}
                                 {errors.name && errors.name.type === "maxLength" && <span>Please write between 10 words</span> }
                             </div>
                         </div>
                         <div className="row mt-5">
                             <div className="col-lg-12">
-                                <textarea type="text" placeholder="Tell us a bit more about your initiative (100 words max)" {...register("YourInitiative")} required></textarea>
+                                <h5>Tell us a bit more about your initiative <span className="bold">(100 words max)</span></h5>
+                                <textarea type="text" {...register("YourInitiative")} required></textarea>
                             </div>
                         </div>
                         <div className="row mt-5 registration-radio-top">
@@ -75,7 +98,7 @@ const SbdcInputs = () => {
                                 <p>*Your team may have more than two co-founders.</p>
                             </div>
                             {isCheckedOne && <div className="col-lg-4 pe-5">
-                                <h5>CO-Founder 1</h5>
+                                <h5>Co-Founder 1</h5>
                                 <div>
                                     <div>
                                         <input type="text" placeholder="Name" {...register("CoFounderOneName")}></input>
@@ -99,7 +122,7 @@ const SbdcInputs = () => {
                                 </div>
                             </div>}
                             {isCheckedTwo && <div className="col-lg-4">
-                                <h5>{isCheckedOne ? "CO-Founder 2" : "Founder"}</h5>
+                                <h5>{isCheckedOne ? "Co-Founder 2" : "Founder"}</h5>
                                 <div>
                                     <div>
                                         <input type="text" placeholder="Name" {...register("CoFounderTwoName")}></input>
@@ -150,7 +173,7 @@ const SbdcInputs = () => {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <h5>How is your Social Business reducing carbon emission, creating jobs or fighting poverty? Please tell us in 100 words.</h5>
+                            <h5>How is your Social Business reducing carbon emission, creating jobs or fighting poverty? <span className="bold"> Please tell us in 100 words.</span></h5>
                             <textarea {...register("ReducingCarbonEmission")}></textarea>
                         </div>
                         <div className="mt-5">
@@ -205,7 +228,7 @@ const SbdcInputs = () => {
                             <input {...register("MakeMoney")} ></input>
                         </div>
                         <div className="mt-5 link-input">
-                            <h5>Is there a way through which we can learn more about your Social Business/Idea? <span className="bold">(Website, News Article, Publication, Press Release, Interview)</span></h5>
+                            <h5>Is there a way through which we can learn more about your Social Business/Idea? <br/><span className="bold">(Website, News Article, Publication, Press Release, Interview)</span></h5>
                             <div className="mt-5">
                                 <div className="row">
                                     <div className="col-lg-1"><h5>Link 1</h5></div>
@@ -215,9 +238,10 @@ const SbdcInputs = () => {
                                     <div className="col-lg-1"><h5>Link 2</h5></div>
                                     <div className="col-lg-6"><input type="url" {...register("SecondLink")} /></div>
                                 </div>
+                                {additionalLinkArray}
                             </div>
                             <div className="mt-5">
-                                <button>+ Add more</button>
+                                <button onClick={addMoreLinks}>+ Add more</button>
                             </div>
                         </div>
                         <div className="mt-5 file-upload">
@@ -231,12 +255,12 @@ const SbdcInputs = () => {
                                         <p>PPT - Pitch Deck (10 slides max)</p>
                                         <p>PDF - Flyer (2 pages max)</p>
                                         <p>DOC - 800 Words</p>
-                                        <p>MOV/AVI - 3 mins (max)</p>
+                                        <p>MOV/MP4 - 3 mins (max)</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="registration-footer mt-5">
+                        <div className="registration-footer mt-1">
                             <p>***Submit an introduction to your team and Social Business idea. Mention the problem you aim to address and the proposed solution. <br/> Briefly highlight any relevant information regarding Beneficiaries, Value Proposition, Achievements, Financial forecasts etc. </p>
                         </div>
                         <div className="mt-5 text-center">
