@@ -239,7 +239,7 @@ const SbdcInputs = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="registration-footer mt-5">
+                        <div className="registration-footer mt-1">
                             <p>***Submit an introduction to your team and Social Business idea. Mention the problem you aim to address and the proposed solution. <br/> Briefly highlight any relevant information regarding Beneficiaries, Value Proposition, Achievements, Financial forecasts etc. </p>
                         </div>
                         <div className="mt-5 text-center">

@@ -7,6 +7,10 @@
             padding: 10% 8% 10% 15%;
             p{
                 color: $text;
+                .deepblue{
+                    color: $darkblue;
+                    font-weight: bold;
+                }
             }
         }
         .sfdc-registration-header-right{

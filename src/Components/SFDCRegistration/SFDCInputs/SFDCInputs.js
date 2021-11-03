@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import "./SFDCInputs.scss";
 
 const SFDCInputs = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [fileFormat, setfileFormat] = useState("In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf");
     const onSubmit = data => console.log(data);
     return (
         <div className="sfdc-registration-input">
@@ -17,9 +18,9 @@ const SFDCInputs = () => {
                         <div className="row">
                             <div className="mt-5 col-lg-6">
                                 <h5>Name of Applicant</h5>
-                                <input type="text" {...register("NameOfApplicant")} required />
+                                <input type="text" {...register("NameOfApplicant", { required: true })} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
-                                {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
+                                {errors.NameOfApplicant && <span>{errors.NameOfSocialBusiness.message} Required</span>}
                             </div>
                             <div className="mt-5 col-lg-6">
                                 <h5>Name of Institution</h5>
@@ -64,9 +65,9 @@ const SFDCInputs = () => {
                             <div className="col-lg-4">
                                 <select {...register("AreaOfFocus")} className="form-select">
                                     <option value="circulareconomy">Circular Economy</option>
-                                    <option value="agriculture">Agriculture</option>
+                                    <option value="agriculture" selected>Agriculture</option>
                                     <option value="employment">Employment</option>
-                                    <option value="environmentandclimatechange" selected>Environment and Climate Change</option>
+                                    <option value="environmentandclimatechange" >Environment and Climate Change</option>
                                     <option value="healthandwellbeing">Health and Well-being</option>
                                     <option value="microcredit">Microcredit</option>
                                     <option value="technologyandinnovation">Technology and Innovation</option>
@@ -84,7 +85,8 @@ const SFDCInputs = () => {
                         </div>
                         <div className="row mt-5">
                             <div className="col-lg-12">
-                                <textarea type="text" placeholder="Tell us a bit more about the social problem you wish to address and your fictional solution to solve it. Write in 100 words." {...register("YourSocialProblem")} required maxLength="500"></textarea>
+                                <h5>Tell us a bit more about the social problem you wish to address and your fictional solution to solve it. Write in 100 words.</h5>
+                                <textarea type="text"  {...register("YourSocialProblem")} required maxLength="500"></textarea>
                             </div>
                         </div>
                         <div className="row mt-5">
@@ -114,7 +116,18 @@ const SFDCInputs = () => {
                                 </select>
                             </div>
                         </div>
-                        
+                        <p>{fileFormat}</p>
+                        <div className="mt-5 file-upload">
+                            <div className="row">
+                                <div className="col-lg-5">
+                                    <input class="form-control" type="file" id="formFile" {...register("UploadedFile")}/>
+                                </div>
+                                <div className="col-lg-3">
+                                    <div className="file-upload-condition">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="mt-5 text-center">
                             <button type="submit">Submit Application</button>
                         </div>

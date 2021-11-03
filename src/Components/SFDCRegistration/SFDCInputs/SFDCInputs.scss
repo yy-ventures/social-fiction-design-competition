@@ -2,6 +2,7 @@
 
 .sfdc-registration-input{
     padding: 2% 3%;
+    
     .form-input-header{
         padding: 2%;
         p{
@@ -135,6 +136,24 @@
             font-size: 15px;
             color: #64A0DC;
             font-style: italic;
+        }
+    }
+    .file-upload{
+        input{
+            border: 2px solid #8BB8E5;
+            padding: 12px;
+            border-radius: 8px;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+        h5{
+            margin-top: 1rem;
+        }
+        p{
+            color: #505252;
+            margin-top: -1rem;
+            font-weight: 500;
         }
     }
 }
