@@ -30,7 +30,7 @@ const SfdcHeader = () => {
                             {/* <h2>
                                 We shape your entrepreneurship journey! Learn how social problems and fiction align from our online webinar.
                             </h2> */}
-                            <YouTube videoId="L4kU97gXWj0" className="mt-5" />
+                            <YouTube videoId="L4kU97gXWj0" className="mt-5" className="video-container"/>
                         </div>
                     </div>
                 </div>

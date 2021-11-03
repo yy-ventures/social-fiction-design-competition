@@ -43,14 +43,12 @@ const Navigation = () => {
                     <Link to="/sfdc" onClick={handleClick}>
                         sfdc
                     </Link>
-                    <Link to="/partners" onClick={handleClick}>
-                        partners
-                    </Link>
+                    <a href="#partners-section" onClick={handleClick}>partners</a>
                     <Link to="/contact" onClick={handleClick}>
                         contact
                     </Link>
                 </div>
-                <div class="navigation-hamburger-menu">
+                <div className="navigation-hamburger-menu">
                     <HamburgerMenu
                         isOpen={Hamburger}
                         menuClicked={handleClick}

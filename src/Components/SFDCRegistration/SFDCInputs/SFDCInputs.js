@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import "./SFDCInputs.scss";
 
 const SFDCInputs = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [fileFormat, setfileFormat] = useState("In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf");
+    const formatValue = useRef(null);
     const onSubmit = data => console.log(data);
+
+    const formatChange = () => {
+        console.log("hello");
+    }
+
+
     return (
         <div className="sfdc-registration-input">
             <div className="form-input-header text-center mt-5">
@@ -63,7 +70,8 @@ const SFDCInputs = () => {
                                 <h5>What social problem are you addressing?</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select {...register("AreaOfFocus")} className="form-select">
+                                <select {...register("AreaOfFocus")} className="form-select" ref={formatValue} onChange={formatChange}>
+                                    
                                     <option value="circulareconomy">Circular Economy</option>
                                     <option value="agriculture" selected>Agriculture</option>
                                     <option value="employment">Employment</option>
