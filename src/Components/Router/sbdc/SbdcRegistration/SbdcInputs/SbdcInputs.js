@@ -8,6 +8,26 @@ const SbdcInputs = () => {
     const [isCheckedOne, setIsCheckedOne] = useState(false)
     const [isCheckedTwo, setIsCheckedTwo] = useState(false)
     const [isUnderLaw, setIsUnderLaw] = useState(false)
+    const [additionalLink, setAdditionalLink] = useState(0);
+    const additionalLinkArray = [];
+    const addMoreLinks = (e) => {
+        e.preventDefault();
+        setAdditionalLink((prev)=> prev+1)
+        if(additionalLink==2){
+            return
+        }else {
+            additionalLinkArray.push(<><div className="row">
+            <div className="col-lg-1"><h5>Link 2</h5></div>
+            <div className="col-lg-6"><input type="url" {...register("SecondLink")} /></div>
+            <button onClick={deleteLink}>Delete</button>
+        </div>
+        </>);
+        }
+    }
+    const deleteLink = (e) => {
+        e.preventDefault();
+        additionalLinkArray.pop();
+    }
     const handleCheckBoxOne = (e) => {
         setIsCheckedOne(true)
         setIsCheckedTwo(true)
@@ -218,9 +238,10 @@ const SbdcInputs = () => {
                                     <div className="col-lg-1"><h5>Link 2</h5></div>
                                     <div className="col-lg-6"><input type="url" {...register("SecondLink")} /></div>
                                 </div>
+                                {additionalLinkArray}
                             </div>
                             <div className="mt-5">
-                                <button>+ Add more</button>
+                                <button onClick={addMoreLinks}>+ Add more</button>
                             </div>
                         </div>
                         <div className="mt-5 file-upload">
