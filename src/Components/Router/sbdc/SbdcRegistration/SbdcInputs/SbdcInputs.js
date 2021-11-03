@@ -33,19 +33,22 @@ const SbdcInputs = () => {
                     <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="col-lg-6">
-                                <input type="text" placeholder="Name of Social Business/Idea" {...register("NameOfSocialBusiness")} required />
+                            <h5>Name of Social Business/Idea</h5>
+                                <input type="text" {...register("NameOfSocialBusiness")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
                             <div className="col-lg-6">
-                                <input type="text" placeholder="What is your vision for the Social Business/Idea?" {...register("YourVision")} required/>
+                            <h5 className="mt-5">What is your vision for the Social Business/Idea?</h5>
+                                <input type="text"  {...register("YourVision")} required/>
                                 {errors.name && errors.name.type === "required" && <span>Please fill this field</span>}
                                 {errors.name && errors.name.type === "maxLength" && <span>Please write between 10 words</span> }
                             </div>
                         </div>
                         <div className="row mt-5">
                             <div className="col-lg-12">
-                                <textarea type="text" placeholder="Tell us a bit more about your initiative (100 words max)" {...register("YourInitiative")} required></textarea>
+                                <h5>Tell us a bit more about your initiative (100 words max)</h5>
+                                <textarea type="text" {...register("YourInitiative")} required></textarea>
                             </div>
                         </div>
                         <div className="row mt-5 registration-radio-top">
@@ -75,7 +78,7 @@ const SbdcInputs = () => {
                                 <p>*Your team may have more than two co-founders.</p>
                             </div>
                             {isCheckedOne && <div className="col-lg-4 pe-5">
-                                <h5>CO-Founder 1</h5>
+                                <h5>Co-Founder 1</h5>
                                 <div>
                                     <div>
                                         <input type="text" placeholder="Name" {...register("CoFounderOneName")}></input>
@@ -99,7 +102,7 @@ const SbdcInputs = () => {
                                 </div>
                             </div>}
                             {isCheckedTwo && <div className="col-lg-4">
-                                <h5>{isCheckedOne ? "CO-Founder 2" : "Founder"}</h5>
+                                <h5>{isCheckedOne ? "Co-Founder 2" : "Founder"}</h5>
                                 <div>
                                     <div>
                                         <input type="text" placeholder="Name" {...register("CoFounderTwoName")}></input>

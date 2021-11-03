@@ -1,38 +1,40 @@
 @import "../../../global.scss";
-.main-footer{
+.main-footer {
     padding: 5% 10%;
     background-color: $primaryColor;
-    .footer-logo{
-        p{
+    .footer-logo {
+        p {
             color: $white;
             margin-top: 4rem;
         }
     }
-    .footer-content{
-        p{
+    .footer-content {
+        z-index: 1;
+        p {
             color: $white;
         }
     }
-    .footer-leaf{
+    .footer-leaf {
         position: absolute;
         bottom: 0;
-        right: 5%;
-        img{
+        right: 0;
+        z-index: 0;
+        img {
             width: 80%;
         }
     }
 }
 
 @media screen and (max-width: 500px) {
-    .main-footer{
+    .main-footer {
         padding: 15% 5%;
         flex-direction: column;
-        .footer-logo{
-            p{
+        .footer-logo {
+            p {
                 margin-top: 1rem;
             }
         }
-        .footer-content{
+        .footer-content {
             margin-top: 3rem;
         }
     }

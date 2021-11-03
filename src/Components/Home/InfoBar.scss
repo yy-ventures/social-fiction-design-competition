@@ -46,6 +46,9 @@
         span#infobar-blue-text {
             color: $form;
         }
+        @media screen and (min-width: 1200px) {
+            font-size: 2em;
+        }
     }
     .button-container {
         margin-top: 3rem;

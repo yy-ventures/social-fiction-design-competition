@@ -24,7 +24,7 @@ const Navigation = () => {
                     <Link to="/about">about</Link>
                     <Link to="/sbdc">sbdc</Link>
                     <Link to="/sfdc">sfdc</Link>
-                    <Link to="/partners">partners</Link>
+                    <a href="#partners-section">partners</a>
                     <Link to="/contact">contact</Link>
                 </div>
                 <div
