@@ -2,6 +2,7 @@
 
 .sbdc-registration-input{
     padding: 2% 3% 10% 3%;
+
     .form-input-header{
         padding: 2%;
         p{
@@ -192,7 +193,12 @@
         }
     }
 }
-
+.white-space-no-wrap{
+    white-space: nowrap;
+    @media screen and (max-width: 1110px) {
+        white-space: unset;
+    }
+}
 @media screen and (max-width:900px) {
     .sbdc-registration-input{
         padding: 10% 10% 10% 10%;
