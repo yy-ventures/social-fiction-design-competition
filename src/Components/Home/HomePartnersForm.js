@@ -10,7 +10,7 @@ const HomePartnersForm = () => {
         formState: { errors },
     } = useForm();
     const formRef = useRef(null);
-    const onSubmit = (data) => {
+    const onsubmit = (data) => {
         let formdata = new FormData();
         formdata.append("name", data.PartnerName);
         formdata.append("email", data.PartnerEmail);
@@ -53,7 +53,7 @@ const HomePartnersForm = () => {
                         </div>
                         <div className="home-partners-form-body">
                             <form
-                                onSubmit={handleSubmit(onSubmit)}
+                                onSubmit={handleSubmit(onsubmit)}
                                 ref={formRef}
                             >
                                 <div>

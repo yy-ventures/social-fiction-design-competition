@@ -94,11 +94,11 @@ export default function Home() {
                         poster presentation.
                     </h4>
                     <div className="button-container">
-                        <Link to="/sfdc#" className="btn-home button-blue">
+                        <Link to="/sfdc" className="btn-home button-blue">
                             EXPLORE
                         </Link>
                         <Link
-                            to="/sfdc-registration#"
+                            to="/sfdc-registration"
                             className="btn-home button-skyblue"
                         >
                             APPLY NOW
