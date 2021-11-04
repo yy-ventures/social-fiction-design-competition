@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import "./InfoBar.scss";
 
 export default function InfoBar() {
@@ -16,12 +18,12 @@ export default function InfoBar() {
                     </span>
                 </h4>
                 <div className="button-container">
-                    <a href="/" className="btn-home button-blue">
+                    <Link to="/sbdc" className="btn-home button-blue">
                         COMPETE AT SBDC
-                    </a>
-                    <a className="btn-home button-blue" href="/">
+                    </Link>
+                    <Link to="/sfdc" className="btn-home button-blue">
                         COMPETE AT SFDC
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
