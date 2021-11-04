@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import "./SfdcWhoCanApply.scss";
 import sfdcBanner from "../../../../assets/sfdc_banner.png";
 
 const SfdcWhoCanApply = () => {
     return (
-        <div className="sfdc-who-can-apply">
+        <div className="sfdc-who-can-apply mt-5">
             <div className="row">
                 <div className="col-lg-2"></div>
                 <div className="col-lg-8">
@@ -15,10 +15,22 @@ const SfdcWhoCanApply = () => {
                         <div className="sfdc-who-can-apply-list d-flex align-items-center">
                             <ul>
                                 <li>
-                                    <h6>You have an idea to solve any of the following issues:</h6>
-                                    <p>Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Transport, Literature, Music, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being, and others.</p>
+                                    <h6>
+                                        You have an idea to solve any of the
+                                        following issues:
+                                    </h6>
+                                    <p>
+                                        Environment and Climate Change,
+                                        Micro-credit, Agriculture, Technology
+                                        and Innovation, Transport, Literature,
+                                        Music, Waste, Circular Economy, Tourism,
+                                        WASH, Employment, Sports, Health and
+                                        Well-being, and others.
+                                    </p>
                                 </li>
-                                <li><h6>You are between ages 12 to 35.</h6></li>
+                                <li style={{ marginBottom: "1rem" }}>
+                                    <h6>You are between ages 12 to 35.</h6>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -26,7 +38,9 @@ const SfdcWhoCanApply = () => {
                 <div className="col-lg-2"></div>
             </div>
             <div className="text-center">
-                <h2>Submit your idea <br/> using any creative category!</h2>
+                <h2>
+                    Submit your idea <br /> using any creative category!
+                </h2>
             </div>
         </div>
     );

@@ -42,7 +42,7 @@ const HomePartnersForm = () => {
             <div className="form-rectangle"></div>
             <div className="row">
                 <div className="col-lg-3"></div>
-                <div className="col-lg-6">
+                <div className="col-lg-6 come-up">
                     <div>
                         <div className="home-partners-form-header text-center p-4">
                             <h2>become a partner</h2>
