@@ -16,7 +16,7 @@ const SFDCInputs = () => {
                     <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="mt-5 col-lg-6">
-                                <input type="text" placeholder="Name of Applicant" {...register("NameOfApplicant")} required />
+                                <input maxLength="50" type="text" placeholder="Name of Applicant" {...register("NameOfApplicant")} required />
                                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                                 {errors.NameOfSocialBusiness?.message && <span>{errors.NameOfSocialBusiness.message}</span>}
                             </div>
