@@ -1,20 +1,21 @@
 import React from 'react';
-import "./SfdcForm.scss";
-import fictionArtOne from "../../../../assets/fiction_art_1.png";
+import "./HomePartnersForm.scss";
+import fictionArtOne from "../../assets/fiction_art_1.png";
 
-const SfdcForm = () => {
+const HomePartnersForm = () => {
     return (
-        <section className="sfdc-form position-relative" id="partners-section">
-            <img src={fictionArtOne} alt="fiction-art-one" />
+        <section className="home-partners-form position-relative" id="partners-section">
+            <div className="blue-rectangle"></div>
+            <div className="form-rectangle"></div>
             <div className="row">
                 <div className="col-lg-3"></div>
                 <div className="col-lg-6">
                     <div>
-                        <div className="sfdc-form-header text-center p-4">
+                        <div className="home-partners-form-header text-center p-4">
                             <h2>become a partner</h2>
                             <p>Please fill in the form below to start your journey with us!</p>
                         </div>
-                        <div className="sfdc-form-body">
+                        <div className="home-partners-form-body">
                             <form>
                                 <div>
                                     <input type="text" placeholder="Your Name" />
@@ -41,4 +42,4 @@ const SfdcForm = () => {
     );
 };
 
-export default SfdcForm;
+export default HomePartnersForm;

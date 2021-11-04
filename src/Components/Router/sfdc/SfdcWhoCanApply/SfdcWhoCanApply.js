@@ -16,7 +16,7 @@ const SfdcWhoCanApply = () => {
                             <ul>
                                 <li>
                                     <h6>You have an idea to solve any of the following issues:</h6>
-                                    <p>Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and well-being, and others.</p>
+                                    <p>Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being, and others.</p>
                                 </li>
                                 <li><h6>You are between ages 12 to 35.</h6></li>
                             </ul>

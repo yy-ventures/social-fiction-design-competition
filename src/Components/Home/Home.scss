@@ -13,7 +13,7 @@
     }
     section {
         min-height: 70vh;
-        max-height: 650px;
+        // max-height: 650px;
         text-align: center;
         img {
             width: 100%;
@@ -26,11 +26,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 1.5em;
         height: auto;
+        margin-inline: auto;
         .home-header-text {
             margin-block: 3.5em;
-            width: 80%;
+            width: 100%;
+
             h2 {
                 font-size: 1rem;
                 font-weight: bold;
@@ -43,6 +44,10 @@
                 @media screen and (min-width: 601px) {
                     font-size: 1.5rem;
                 }
+                @media screen and (min-width: 801px) {
+                    font-size: 3vw;
+                    margin-bottom: -0.3em;
+                }
             }
             h1 {
                 font-size: 1.8rem;
@@ -50,25 +55,37 @@
                 color: $blue;
                 text-transform: uppercase;
                 position: relative;
-                width: 100%;
+                display: inline-block;
+                max-width: 100%;
+                // max-width: 40ch;
+                white-space: nowrap;
                 @media screen and (min-width: 480px) {
                     font-size: 2rem;
                 }
                 @media screen and (min-width: 601px) {
                     font-size: 2.2rem;
                 }
+                @media screen and (min-width: 801px) {
+                    font-size: 5vw;
+                    margin: 0 auto;
+                }
             }
             span {
                 position: relative;
                 z-index: 0;
-
+                display: inline;
                 &::after {
                     content: url("../../assets/blue-leaf.svg");
                     position: absolute;
+                    display: inline;
                     top: 0;
-                    left: 0;
-                    transform: scale(0.5) translate(-70%, -120%);
+                    left: 50%;
+                    transform: scale(1) translate(-50%, -60%);
+                                        // width: 10px;
                     z-index: 4;
+                    @media screen and (min-width: 801px) {
+                        transform: scale(1) translate(-50%, -60%);
+                    }
                     @media screen and (max-width: 350px) {
                         display: none;
                     }
@@ -83,6 +100,10 @@
             }
             @media screen and (min-width: 601px) {
                 font-size: 1rem;
+            }
+            @media screen and (min-width: 801px) {
+                font-size: 1.2rem;
+                max-width: 60ch;
             }
             a {
                 color: $form;
@@ -120,8 +141,8 @@
         }
 
         img[alt="sbdc-logo"] {
-            width: 80%;
-            height: 80%;
+            max-width: 60%;
+            max-height: 60%;
             object-fit: contain;
         }
         #light-deco-top-left {
@@ -152,13 +173,14 @@
         height: 100vh;
 
         .flex-container {
-            width: 90%;
+            width: fit-content;
             height: 70%;
             z-index: 4;
             padding-top: 2em;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin: 0 auto;
         }
         #sbdc-blue-circle-deco {
             position: absolute;
@@ -179,6 +201,10 @@
             display: block;
             line-height: 1.8rem;
             max-width: 35ch;
+            @media screen and (min-width: 1200px) {
+                font-size: 1.6em;
+                line-height: 3rem;
+            }
         }
         .button-container {
             width: 100%;
@@ -206,8 +232,8 @@
         align-items: center;
         height: 100%;
         img[alt="sfdc-logo"] {
-            width: 80%;
-            height: 80%;
+            max-width: 60%;
+            max-height: 60%;
             object-fit: contain;
         }
         #lightblue-triangle-deco {
@@ -230,10 +256,14 @@
 
         .flex-container {
             z-index: 3;
-            padding: 1em 0em;
-            padding-left: 2.5em;
-            // width: 90%;
-            // height: 70%;
+            width: fit-content;
+            height: 70%;
+            z-index: 4;
+            padding-top: 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
         }
         h4.home-description {
             font-size: 1.2rem;
@@ -243,6 +273,10 @@
             line-height: 1.8rem;
             color: $white;
             max-width: 35ch;
+            @media screen and (min-width: 1200px) {
+                font-size: 1.6em;
+                line-height: 3rem;
+            }
         }
 
         .button-container {

@@ -28,15 +28,39 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
-// .button-container {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     align-items: flex-start;
-//     gap: 0.5em;
-//     z-index: 5;
-//     @media screen and (min-width: 480px) {
-//         flex-direction: row;
-//     }
-// }
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5em;
+    z-index: 5;
+    @media screen and (min-width: 480px) {
+        flex-direction: row;
+    }
+}
+.btn-home {
+    text-decoration: none;
+    padding: 0.6em 0.8em;
+    border-radius: 5px;
+    font-family: $font-collection;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $white;
+    text-transform: uppercase;
+    &:hover {
+        color: $white;
+    }
+}
+.button-blue {
+    background-color: $darkblue;
+    color: $white;
+    border: 3px solid $form;
+}
+.button-skyblue {
+    background-color: $blue;
+    color: $white;
+    border: 3px solid $form;
+}
