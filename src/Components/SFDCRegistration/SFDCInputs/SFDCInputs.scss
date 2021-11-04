@@ -1,109 +1,118 @@
 @import "../../../global";
 
-.sfdc-registration-input{
+.sfdc-registration-input {
     padding: 2% 3%;
-    
-    .form-input-header{
+
+    .form-input-header {
         padding: 2%;
-        p{
+        p {
             color: #505252;
             font-style: italic;
+            @media screen and (max-width: 680px) {
+                margin-top: 1rem;
+            }
         }
-        .bold{
+        .bold {
             font-weight: 900;
             font-style: normal;
         }
     }
-    .registration-main-form{
-        input, textarea{
+    .registration-main-form {
+        @media screen and (max-width: 480px) {
+            padding-inline: 1rem;
+        }
+        input,
+        textarea {
             outline: 0;
             border: 0;
             background-color: inherit;
             padding: 10px 16px;
-            border-bottom: 1px solid #8BB8E5;
+            border-bottom: 1px solid #8bb8e5;
             width: 100%;
-            &::placeholder{
-                color: #356AA0;
+            &::placeholder {
+                color: #356aa0;
                 opacity: 1;
                 font-weight: 500;
             }
         }
-        .registration-radio-top{
-            input{
+        .registration-radio-top {
+            input {
                 width: fit-content;
                 padding: 10px;
-                border: 1px solid #8BB8E5;
+                border: 1px solid #8bb8e5;
             }
-            h5{
-                color: #356AA0;
+            h5 {
+                color: #356aa0;
             }
-            p{
-                color: #64A0DC;
+            p {
+                color: #64a0dc;
                 font-style: italic;
             }
         }
-        .registration-co-founder{
-            h5{
-                color: #356AA0;
+        .registration-co-founder {
+            h5 {
+                color: #356aa0;
             }
-            p{
-                color: #64A0DC;
+            p {
+                color: #64a0dc;
                 font-style: italic;
             }
-            input{
+            input {
                 margin-top: 2rem;
-                &::placeholder{
+                &::placeholder {
                     font-style: italic;
                 }
             }
-            select, option{
+            select,
+            option {
                 outline: none;
                 border: 0;
-                border-bottom: 1px solid #8BB8E5;
+                border-bottom: 1px solid #8bb8e5;
                 padding: 10px 16px;
                 margin-top: 2rem;
                 width: 100%;
-                &::placeholder{
-                    color: #64A0DC;
+                &::placeholder {
+                    color: #64a0dc;
                 }
             }
         }
-        .register-focus{
-            select, option{
+        .register-focus {
+            select,
+            option {
                 outline: none;
                 border: 0;
-                border: 2px solid #8BB8E5;
+                border: 2px solid #8bb8e5;
                 border-radius: 5px;
                 padding: 10px 20px;
                 width: 100%;
-                &::placeholder{
-                    color: #64A0DC;
+                &::placeholder {
+                    color: #64a0dc;
                 }
             }
-            label{
+            label {
                 font-size: 14px;
-                color: #356AA0;
+                color: #356aa0;
             }
-            h5{
-                color: #356AA0;
+            h5 {
+                color: #356aa0;
             }
         }
-        .registration-law{
-            input{
+        .registration-law {
+            input {
                 width: fit-content;
                 padding: 10px;
-                border: 1px solid #8BB8E5;
+                border: 1px solid #8bb8e5;
             }
         }
-        .registration-law-curve{
-            input{
-                &::placeholder{
-                    color: #64A0DC;
+        .registration-law-curve {
+            input {
+                &::placeholder {
+                    color: #64a0dc;
                     font-style: italic;
                 }
             }
         }
-        button{
+        button {
             outline: 0;
             border: 3px solid $primaryColor;
             padding: 10px 30px;
@@ -113,47 +122,53 @@
             color: $primaryColor;
             background-color: $white;
         }
-        h5{
-            color: #356AA0;
+        h5 {
+            color: #356aa0;
             font-weight: 400;
-            .bold{
-                color: #64A0DC;
+            .bold {
+                color: #64a0dc;
                 font-style: italic;
             }
         }
-        select, option{
+        select,
+        option {
             outline: none;
             border: 0;
-            border: 2px solid #8BB8E5;
+            border: 2px solid #8bb8e5;
             border-radius: 5px;
             padding: 10px 20px;
             width: 100%;
-            &::placeholder{
-                color: #64A0DC;
+            &::placeholder {
+                color: #64a0dc;
             }
         }
-        p{
+        p {
             font-size: 15px;
-            color: #64A0DC;
+            color: #64a0dc;
             font-style: italic;
         }
     }
-    .file-upload{
-        input{
-            border: 2px solid #8BB8E5;
+    .file-upload {
+        input {
+            border: 2px solid #8bb8e5;
             padding: 12px;
             border-radius: 8px;
-            &:focus{
+            &:focus {
                 box-shadow: none;
             }
         }
-        h5{
+        h5 {
             margin-top: 1rem;
         }
-        p{
+        p {
             color: #505252;
             margin-top: -1rem;
             font-weight: 500;
+        }
+    }
+    .submit-button {
+        @media screen and (max-width: 600px) {
+            margin-bottom: 2rem;
         }
     }
 }
