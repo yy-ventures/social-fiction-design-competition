@@ -25,6 +25,7 @@
             bottom: -33.5px;
             left: 50%;
             transform: translateX(-50%);
+            white-space: nowrap;
             p{
                 color: $white;
                 background: $primaryColor;
@@ -35,6 +36,10 @@
                 text-transform: capitalize;
                 font-size: 24px;
                 margin-bottom: 0;
+                @media screen and (max-width: 620px) {
+                    padding: 10px 20px;
+                    font-size: 20px;
+                }
             }
         }
     }

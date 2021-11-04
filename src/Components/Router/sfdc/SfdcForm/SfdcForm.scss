@@ -1,27 +1,32 @@
 @import "../../../../global.scss";
 
-.sfdc-form{
+.sfdc-form {
     padding: 10%;
     background-color: $cream;
-    img{
+    z-index: 3;
+    img {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
     }
-    .sfdc-form-header{
-        h2{
+    .sfdc-form-header {
+        z-index: 1;
+        h2 {
             color: $deepOrange;
             font-weight: 900;
             text-transform: uppercase;
             font-size: 2.4rem;
         }
-        p{
+        p {
             color: $text;
             font-weight: 500;
         }
     }
-    .sfdc-form-body{
-        input, textarea{
+    .sfdc-form-body {
+        z-index: 1;
+        input,
+        textarea {
             padding: 10px 16px;
             outline: none;
             border: none;
@@ -30,13 +35,13 @@
             color: $text;
             border-bottom: 1px solid $text;
             margin-top: 2rem;
-            &::placeholder{
+            &::placeholder {
                 color: $text;
                 opacity: 1;
                 font-weight: 500;
             }
         }
-        button{
+        button {
             outline: 0;
             border: 2px solid $deepOrange;
             background-color: $white;

@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import "./SFDCInputs.scss";
 
 const SFDCInputs = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [fileFormat, setfileFormat] = useState("In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf");
+    const [fileFormat, setfileFormat] = useState("writing");
+
     const onSubmit = data => console.log(data);
+    const formatString = {
+        rhetoric: "Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
+        animation: "Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
+        poster_presentation: "4-page awareness poster demonstrating the social problem and a reimagined reality without those problems.",
+        writing: "In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+        illustration: "Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+        cinematography: "Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
+
+    }
+    const handleChange = (e) => {
+        setfileFormat(e.target.value);
+    }
+
+
     return (
         <div className="sfdc-registration-input">
             <div className="form-input-header text-center mt-5">
@@ -64,6 +79,7 @@ const SFDCInputs = () => {
                             </div>
                             <div className="col-lg-4">
                                 <select {...register("AreaOfFocus")} className="form-select">
+                                    
                                     <option value="circulareconomy">Circular Economy</option>
                                     <option value="agriculture" selected>Agriculture</option>
                                     <option value="employment">Employment</option>
@@ -85,7 +101,7 @@ const SFDCInputs = () => {
                         </div>
                         <div className="row mt-5">
                             <div className="col-lg-12">
-                                <h5>Tell us a bit more about the social problem you wish to address and your fictional solution to solve it. Write in 100 words.</h5>
+                                <h5>Tell us a bit more about the social problem you wish to address and your fictional solution to solve it. <span className="bold">Write in 100 words.</span></h5>
                                 <textarea type="text"  {...register("YourSocialProblem")} required maxLength="500"></textarea>
                             </div>
                         </div>
@@ -106,17 +122,17 @@ const SFDCInputs = () => {
                                 <h5>Upload your idea in any of the creative categories</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select {...register("CreativeCategory")} className="form-select">
+                                <select {...register("CreativeCategory")} className="form-select" onChange={handleChange}>
                                     <option selected value="writing">Writing</option>
                                     <option value="rhetoric">Rhetoric</option>
-                                    <option value="poster-presentation">Poster Presentation</option>
+                                    <option value="poster_presentation">Poster Presentation</option>
                                     <option value="animation">Animation</option>
                                     <option value="illustration">Illustration</option>
                                     <option value="cinematography">Cinematography</option>
                                 </select>
                             </div>
                         </div>
-                        <p>{fileFormat}</p>
+                        <p>{formatString[fileFormat]}</p>
                         <div className="mt-5 file-upload">
                             <div className="row">
                                 <div className="col-lg-5">

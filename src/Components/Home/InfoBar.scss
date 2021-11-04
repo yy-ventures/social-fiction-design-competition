@@ -3,7 +3,7 @@
 .infobar {
     position: relative;
     overflow: hidden;
-    height: 50vh;
+    height: 70vh;
     font-family: $font-collection;
     background-color: $darkblue;
     .flex-container {
@@ -38,7 +38,7 @@
         }
     }
     h4 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: $white;
         z-index: 4;
         font-weight: bold;
