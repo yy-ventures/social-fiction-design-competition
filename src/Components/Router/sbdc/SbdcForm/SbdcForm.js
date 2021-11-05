@@ -9,7 +9,6 @@ const SbdcForm = () => {
     } = useForm();
     const formRef = useRef(null);
     const onsubmit = (data) => {
-        console.log("dfgre");
         let formdata = new FormData();
         formdata.append("name", data.PartnerName);
         formdata.append("email", data.PartnerEmail);

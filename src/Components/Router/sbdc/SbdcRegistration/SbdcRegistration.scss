@@ -1,27 +1,30 @@
 @import "../../../../global";
 
-.sbdc-registration{
-    .sbdc-registration-header{
-        background: #EBFDFF;
-        .sbdc-registration-header-left{
+.sbdc-registration {
+    .sbdc-registration-header {
+        background: #ebfdff;
+        .sbdc-registration-header-left {
             padding: 10% 8% 10% 15%;
-            p{
+            p {
                 color: $text;
             }
         }
-        .sbdc-registration-header-right{
+        .sbdc-registration-header-right {
             padding: 10% 15% 10% 10%;
-            img{
+            img {
                 width: 100%;
                 object-fit: cover;
             }
         }
-        .sbdc-registration-header-headline{
+        .sbdc-registration-header-headline {
             position: absolute;
             bottom: -33.5px;
             left: 50%;
             transform: translateX(-50%);
-            p{
+            @media screen and (max-width: 601px) {
+                margin-top: 1.5rem;
+            }
+            p {
                 color: $white;
                 background: $primaryColor;
                 padding: 20px 60px;
@@ -37,11 +40,11 @@
 }
 
 @media screen and (max-width: 900px) {
-    .sbdc-registration{
-        .sbdc-registration-header{
-            .sbdc-registration-header-headline{
+    .sbdc-registration {
+        .sbdc-registration-header {
+            .sbdc-registration-header-headline {
                 bottom: -74px;
-                p{
+                p {
                     font-size: 18px;
                     padding: 10px 60px;
                 }

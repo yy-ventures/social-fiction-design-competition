@@ -1,32 +1,40 @@
 @import "../../global.scss";
 
-.sfdc-registration{
-    .sfdc-registration-header{
-        background: #FFF5E4;
-        .sfdc-registration-header-left{
-            padding: 10% 8% 10% 15%;
-            p{
+.sfdc-registration {
+    .sfdc-registration-header {
+        background: #fff5e4;
+        .sfdc-registration-header-left {
+            padding: 10% 8% 10% 8%;
+            @media screen and (max-width: 990px) {
+                padding-bottom: 5%;
+            }
+            p {
                 color: $text;
-                .deepblue{
+                .deepblue {
                     color: $darkblue;
                     font-weight: bold;
                 }
             }
         }
-        .sfdc-registration-header-right{
+        .sfdc-registration-header-right {
             padding: 10% 15% 10% 10%;
-            img{
+            @media screen and (max-width: 990px) {
+                padding-top: 0;
+            }
+            img {
                 width: 100%;
                 object-fit: cover;
             }
         }
-        .sfdc-registration-header-headline{
+        .sfdc-registration-header-headline {
             position: absolute;
             bottom: -33.5px;
             left: 50%;
             transform: translateX(-50%);
-            white-space: nowrap;
-            p{
+            @media screen and (max-width: 601px) {
+                margin-top: 1.5rem;
+            }
+            p {
                 color: $white;
                 background: $primaryColor;
                 padding: 20px 60px;
@@ -36,9 +44,19 @@
                 text-transform: capitalize;
                 font-size: 24px;
                 margin-bottom: 0;
-                @media screen and (max-width: 620px) {
-                    padding: 10px 20px;
-                    font-size: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .sfdc-registration {
+        .sfdc-registration-header {
+            .sfdc-registration-header-headline {
+                bottom: -74px;
+                p {
+                    font-size: 18px;
+                    padding: 10px 60px;
                 }
             }
         }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./Home.scss";
 
 import headerimage from "../../assets/images/header2x.jpg";
@@ -65,12 +65,15 @@ export default function Home() {
                         models that combat real challenges.
                     </h4>
                     <div className="button-container">
-                        <a href="/" className="btn-home button-blue">
+                        <Link to="/sbdc" className="btn-home button-blue">
                             Explore
-                        </a>
-                        <a className="btn-home button-skyblue" href="/">
+                        </Link>
+                        <Link
+                            to="/sbdc-registration"
+                            className="btn-home button-skyblue"
+                        >
                             Apply Now
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div id="sbdc-lightblue-circle-deco" />
@@ -91,12 +94,15 @@ export default function Home() {
                         poster presentation.
                     </h4>
                     <div className="button-container">
-                        <a href="/" className="btn-home button-blue">
+                        <Link to="/sfdc" className="btn-home button-blue">
                             EXPLORE
-                        </a>
-                        <a className="btn-home button-skyblue" href="/">
+                        </Link>
+                        <Link
+                            to="/sfdc-registration"
+                            className="btn-home button-skyblue"
+                        >
                             APPLY NOW
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div id="sfdc-skyblue-circle-deco"></div>

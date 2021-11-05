@@ -1,13 +1,15 @@
 import React from 'react';
 import "./SfdcAwards.scss";
-import fictionThreeArt from "../../../../assets/fiction_art_3.png";
+import sfdcTimelineLogo from "../../../../assets/sfdc_timeline.svg";
+import sfdcTimelineLogoMobile from "../../../../assets/sfdc_timeline_mobile.svg";
 
 const SfdcAwards = () => {
     return (
         <section className="sfdc-awards position-relative">
-            <img src={fictionThreeArt} alt="fiction-art-three" />
-            <div className="py-5 px-1 text-center">
-                <h2>winning reward</h2>
+            <div className="py-5 px-1 text-center sfdc-award-content">
+                <h2>Competition timeline</h2>
+                <img src={sfdcTimelineLogo} alt="sfdc-timeline" className="sfdc-timeline-logo"/>
+                <img src={sfdcTimelineLogoMobile} alt="sfdc-timeline-mobile" className="sfdc-timeline-logo-mobile" />
             </div>
         </section>
     );
