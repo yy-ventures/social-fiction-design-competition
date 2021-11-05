@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./SbdcRegistration.scss";
 import socialFictionLogo from "../../../../assets/sbdc_logo.svg";
 import SbdcInputs from "./SbdcInputs/SbdcInputs";

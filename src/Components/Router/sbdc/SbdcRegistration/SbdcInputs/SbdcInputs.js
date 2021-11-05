@@ -8,7 +8,20 @@ const SbdcInputs = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = data => {
+        fetch("http://localhost:5000/sbdc-application",{
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data) { alert("Thanks For Your Application")}
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    };
     const [isCheckedOne, setIsCheckedOne] = useState(false);
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
     const [isUnderLaw, setIsUnderLaw] = useState(false);
@@ -17,7 +30,7 @@ const SbdcInputs = () => {
     const addMoreLinks = (e) => {
         e.preventDefault();
         setAdditionalLink((prev) => prev + 1);
-        if (additionalLink == 2) {
+        if (additionalLink === 2) {
             return;
         } else {
             additionalLinkArray.push(
@@ -141,7 +154,7 @@ const SbdcInputs = () => {
                                     />
                                     <label
                                         class="form-check-label"
-                                        for="flexCheckDefault"
+                                        htmlFor="flexCheckDefault"
                                     >
                                         Team
                                     </label>
@@ -158,7 +171,7 @@ const SbdcInputs = () => {
                                     />
                                     <label
                                         class="form-check-label"
-                                        for="flexCheckDefault"
+                                        htmlFor="flexCheckDefault"
                                     >
                                         Individual
                                     </label>
@@ -308,32 +321,32 @@ const SbdcInputs = () => {
                                     {...register("AreaOfFocus")}
                                     className="form-select"
                                 >
-                                    <option selected value="agriculture">
+                                    <option selected defaultValue="agriculture">
                                         Agriculture
                                     </option>
-                                    <option value="circulareconomy">
+                                    <option defaultValue="circulareconomy">
                                         Circular Economy
                                     </option>
-                                    <option value="employment">
+                                    <option defaultValue="employment">
                                         Employment
                                     </option>
-                                    <option value="environmentandclimatechange">
+                                    <option defaultValue="environmentandclimatechange">
                                         Environment and Climate Change
                                     </option>
-                                    <option value="healthandwellbeing">
+                                    <option defaultValue="healthandwellbeing">
                                         Health and Well-being
                                     </option>
-                                    <option value="microcredit">
+                                    <option defaultValue="microcredit">
                                         Microcredit
                                     </option>
-                                    <option value="technologyandinnovation">
+                                    <option defaultValue="technologyandinnovation">
                                         Technology and Innovation
                                     </option>
-                                    <option value="tourism">Tourism</option>
-                                    <option value="sports">Sports</option>
-                                    <option value="wash">WASH</option>
-                                    <option value="waste">Waste</option>
-                                    <option value="others">Others</option>
+                                    <option defaultValue="tourism">Tourism</option>
+                                    <option defaultValue="sports">Sports</option>
+                                    <option defaultValue="wash">WASH</option>
+                                    <option defaultValue="waste">Waste</option>
+                                    <option defaultValue="others">Others</option>
                                 </select>
                             </div>
                             <div className="col-lg-4">
@@ -390,19 +403,19 @@ const SbdcInputs = () => {
                                     {...register("StageOfVentures")}
                                     className="form-select"
                                 >
-                                    <option selected value="ideastage">
+                                    <option selected defaultValue="ideastage">
                                         Idea-stage
                                     </option>
-                                    <option value="feasibility">
+                                    <option defaultValue="feasibility">
                                         Feasibility
                                     </option>
-                                    <option value="earlystage">
+                                    <option defaultValue="earlystage">
                                         Early-stage
                                     </option>
                                 </select>
                             </div>
                         </div>
-                        <div className="row mt-5 registration-law">
+                        {/* <div className="row mt-5 registration-law">
                             <div className="col-lg-6">
                                 <h5>
                                     Is the Social Business registered as an
@@ -454,7 +467,7 @@ const SbdcInputs = () => {
                                     {...register("YesUnderTheLaw")}
                                 ></input>
                             </div>
-                        )}
+                        )} */}
                         <div className="mt-5">
                             <p>
                                 **Our program has primarily been designed for

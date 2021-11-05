@@ -2,26 +2,35 @@
 .main-footer {
     padding: 5% 10%;
     background-color: $primaryColor;
-    .footer-logo {
-        p {
-            color: $white;
-            margin-top: 4rem;
-            text-align: center;
+    .footer-logo{
+        img{
+            width: 100%;
         }
     }
-    .footer-content {
-        z-index: 1;
-        p {
-            color: $white;
+    .footer-content{
+        color: $white;
+        h5{
+            padding-bottom: 2%;
+            font-weight: 900;
+            font-size: 1.4rem;
         }
     }
-    .footer-leaf {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 0;
-        img {
-            width: 80%;
+    .footer-leaf{
+        color: $white;
+        h5{
+            padding-bottom: 2%;
+            font-weight: 900;
+            font-size: 1.4rem;
+        }
+        p{
+            display: inline-block;
+        }
+        .leaf-para-one{
+            padding-right: 10px;
+            border-right: 2px solid $white;
+        }
+        .leaf-para-two{
+            padding-left: 10px;
         }
     }
 }
@@ -30,13 +39,31 @@
     .main-footer {
         padding: 15% 5%;
         flex-direction: column;
-        .footer-logo {
-            p {
-                margin-top: 1rem;
+        justify-content: center;
+        .footer-logo{
+            text-align: center;
+            margin-top: 10%;
+            img{
+                width: 75%;
             }
         }
-        .footer-content {
-            margin-top: 3rem;
+        .footer-content{
+            margin-top: 10%;
+            text-align: center;
+        }
+        .footer-leaf{
+            margin-top: 10%;
+            text-align: center;
+            p{
+                display: block;
+            }
+            .leaf-para-one{
+                padding-right: 0;
+                border-right: 0;
+            }
+            .leaf-para-two{
+                padding-left: 0;
+            }
         }
     }
 }

@@ -1,23 +1,45 @@
 @import "../../../../global.scss";
 .sfdc-awards{
-    height: 500px;
-    background: $cream;
-    img{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 80%;
-    }
-    h2{
-        font-weight: 900;
-        color: $deepOrange;
-        font-size: 2.8rem;
-        text-transform: capitalize;
+    padding: 5% 5%;
+    background-image: url("../../../../assets/fiction_art_3.png");
+    background-size: cover;
+    background-position: center;
+    .sfdc-award-content{
+        h2{
+            font-weight: 900;
+            color: $deepOrange;
+            font-size: 2.8rem;
+            text-transform: capitalize;
+        }
+        .sfdc-timeline-logo{
+            width: 100%;
+        }
+        .sfdc-timeline-logo-mobile{
+            display: none;
+            width: 100%;
+        }
     }
 }
 
 @media screen and (min-height:1441) {
     .sfdc-awards{
-        height: 600px;
+        // height: 600px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sfdc-awards{
+        .sfdc-award-content{
+            h2{
+                font-size: 2rem;
+            }
+            .sfdc-timeline-logo{
+                display: none;
+            }
+            .sfdc-timeline-logo-mobile{
+                display: block;
+                margin-top: 5%;
+            }
+        }
     }
 }
