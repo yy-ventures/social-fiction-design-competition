@@ -21,11 +21,11 @@ const Navigation = () => {
                     </Link>
                 </div>
                 <div className="navigation-menu">
-                    <Link to="/about">about</Link>
-                    <Link to="/sbdc">sbdc</Link>
-                    <Link to="/sfdc">sfdc</Link>
+                    <a href="#aboutRoute">about</a>
+                    <a href="#sbdcRoute">sbdc</a>
+                    <a href="#sfdcRoute">sfdc</a>
                     <a href="#partners-section">partners</a>
-                    <Link to="/contact">contact</Link>
+                    <a href="#contactRoute">contact</a>
                 </div>
                 <div
                     className={

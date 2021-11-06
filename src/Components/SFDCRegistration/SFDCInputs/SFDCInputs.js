@@ -11,12 +11,33 @@ const SFDCInputs = () => {
     const [fileFormat, setfileFormat] = useState("writing");
 
     const onSubmit = (data) => {
-        console.log(data)
-        fetch("http://localhost:5000/sfdc-application",{
+        let headers = new Headers();
+
+        var imagedata = document.querySelector('input[type="file"]').files[0];
+        
+        let formdata = new FormData();
+        formdata.append("name_of_applicant", data.NameOfApplicant);
+        formdata.append("name_of_institution", data.NameOfInstitution);
+        formdata.append("date_of_birth", data.ApplicantDateOfBirth);
+        formdata.append("email", data.ApplicantEmail);
+        formdata.append("phone", data.ApplicantPhone);
+        formdata.append("social_problems", data.YourSocialProblem);
+        formdata.append("other_social_problem", data.OtherSocialProblem);
+        formdata.append("more_about_social_problem", data.YourSocialProblem);
+
+        formdata.append("unique_solutions", data.WhatMakesItUnique);
+        formdata.append("impact_of_fictional_solution", data.SolutionImpact);
+        formdata.append("type_of_content", data.CreativeCategory);
+        formdata.append("file_of_idea", imagedata);
+        
+        let requestOptions = {
             method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        })
+            body: formdata,
+            redirect: "follow",
+            headers: headers
+        };
+        
+        fetch("http://stage-sbdc-sfdc.3zeros.club/api/sfdc/create",requestOptions)
         .then(response => response.json())
         .then(data => {
             if(data) { alert("Thanks For Your Application")}
@@ -54,7 +75,7 @@ const SFDCInputs = () => {
             <div className="row">
                 <div className="col-lg-2"></div>
                 <div className="col-lg-8">
-                    <form
+                    <form encType="multipart/form-data"
                         className="registration-main-form"
                         onSubmit={handleSubmit(onSubmit)}
                     >

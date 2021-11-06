@@ -14,7 +14,7 @@ const HomePartnersForm = () => {
         let formdata = new FormData();
         formdata.append("name", data.PartnerName);
         formdata.append("email", data.PartnerEmail);
-        formdata.append("name_of_organizations", data.PartnerOrganization);
+        formdata.append("name_of_organization", data.PartnerOrganization);
         formdata.append("message", data.PartnerMessage);
 
         let requestOptions = {
