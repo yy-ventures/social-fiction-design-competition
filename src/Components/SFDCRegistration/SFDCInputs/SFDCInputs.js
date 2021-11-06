@@ -14,6 +14,7 @@ const SFDCInputs = () => {
         let headers = new Headers();
 
         var imagedata = document.querySelector('input[type="file"]').files[0];
+        
         let formdata = new FormData();
         formdata.append("name_of_applicant", data.NameOfApplicant);
         formdata.append("name_of_institution", data.NameOfInstitution);
@@ -28,7 +29,6 @@ const SFDCInputs = () => {
         formdata.append("impact_of_fictional_solution", data.SolutionImpact);
         formdata.append("type_of_content", data.CreativeCategory);
         formdata.append("file_of_idea", imagedata);
-        
         
         let requestOptions = {
             method: "POST",
