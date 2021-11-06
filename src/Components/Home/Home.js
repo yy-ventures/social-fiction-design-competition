@@ -12,7 +12,7 @@ import randomlightbluedecoright from "../../assets/images/fiction_el_1.png";
 
 export default function Home() {
     return (
-        <section className="home-main-section">
+        <section className="home-main-section" id="aboutRoute">
             <section className="home-header">
                 <div className="home-header-text">
                     <h2>Introducing</h2>
@@ -56,7 +56,7 @@ export default function Home() {
                     id="light-deco-bottom-right"
                 />
             </section>
-            <section className="sbdc-home-section">
+            <section className="sbdc-home-section" id="sbdcRoute">
                 <div id="sbdc-blue-circle-deco" />
                 <div className="flex-container">
                     <h4 className="sbdc-home-description">
@@ -82,7 +82,7 @@ export default function Home() {
                 <img src={sfdclogo} alt="sfdc-logo" />
                 <div id="lightblue-triangle-deco"></div>
             </section>
-            <section className="sfdc-home-section">
+            <section className="sfdc-home-section" id="sfdcRoute">
                 <div id="sfdc-blue-deco"></div>
                 <div className="flex-container">
                     <h4 className="home-description">

@@ -8,12 +8,44 @@ const SbdcInputs = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
+
     const onSubmit = data => {
-        fetch("http://localhost:5000/sbdc-application",{
+        let headers = new Headers();
+        let imagedata = document.querySelector('input[type="file"]').files[0];
+        let formdata = new FormData();
+
+        formdata.append("name_of_social_business", data.NameOfSocialBusiness);
+        formdata.append("your_vision", data.YourVision);
+        formdata.append("your_initiative", data.YourInitiative);
+        formdata.append("Co_Founder_One_Name", data.CoFounderOneName);
+        formdata.append("Co_Fonder_One_Birth_Date", data.CoFonderOneBirthDate);
+        formdata.append("Co_Founder_One_Gender", data.CoFounderOneGender);
+        formdata.append("Co_Founder_One_Email", data.CoFounderOneEmail);
+        formdata.append("Co_Founder_One_Number", data.CoFounderOneNumber);
+        formdata.append("Co_Founder_Two_Name", data.CoFounderTwoName);
+        formdata.append("Co_Fonder_Two_Birth_Date", data.CoFonderTwoBirthDate);
+        formdata.append("Co_Founder_Two_Gender", data.CoFounderTwoGender);
+        formdata.append("Co_Founder_Two_Email", data.CoFounderTwoEmail);
+        formdata.append("Co_Founder_Two_Number", data.CoFounderTwoNumber);
+        formdata.append("Area_Of_Focus", data.AreaOfFocus);
+        formdata.append("Other_Area_Of_Focus", data.OtherAreaOfFocus);
+        formdata.append("Reducing_Carbon_Emission", data.ReducingCarbonEmission);
+        formdata.append("Bringing_To_Your_Market", data.BringingToYourMarket);
+        formdata.append("Enterprise_Innovation", data.EnterpriseInnovation);
+        formdata.append("Make_Money", data.MakeMoney);
+        formdata.append("Stage_Of_Ventures", data.StageOfVentures);
+        formdata.append("First_Link", data.FirstLink);
+        formdata.append("Second_Link", data.SecondLink);
+        formdata.append("file_of_idea", imagedata);
+
+        let requestOptions = {
             method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        })
+            body: formdata,
+            redirect: "follow",
+            headers: headers
+        };
+
+        fetch("http://stage-sbdc-sfdc.3zeros.club/api/sfdc/create",requestOptions)
         .then(response => response.json())
         .then(data => {
             if(data) { alert("Thanks For Your Application")}
@@ -391,7 +423,7 @@ const SbdcInputs = () => {
                                 </span>
                             </h5>
                             <textarea
-                                {...register("BringingToYourMarket")}
+                                {...register("EnterpriseInnovation")}
                             ></textarea>
                         </div>
                         <div className="row mt-5">

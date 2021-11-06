@@ -7,7 +7,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 const Footer = () => {
     return (
-        <footer className="main-footer d-flex align-items-center justify-content-between position-relative">
+        <footer className="main-footer d-flex align-items-center justify-content-between position-relative" id="contactRoute">
             <div className="footer-logo">
                 <img src={yunusLogo} alt="yunus-logo" />
             </div>
