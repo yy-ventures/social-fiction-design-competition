@@ -8,7 +8,7 @@ import YouTube from "react-youtube";
 
 const SfdcHeader = () => {
     return (
-        <section className="sfdc-header position-relative">
+        <section className="sfdc-header position-relative" id="sfdcHeaderId">
             <img
                 src={fictionArtOne}
                 alt="fiction-art-one"
