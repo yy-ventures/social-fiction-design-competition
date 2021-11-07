@@ -33,18 +33,16 @@ const SbdcInputs = () => {
         secondDataArray['mail'] = data.CoFounderTwoEmail;
         secondDataArray['mobile'] = data.CoFounderTwoNumber;
         co_founder.push(secondDataArray);
-
-        console.log(co_founder);
-
-
+        
+        // console.log(co_founder);
 
         let formdata = new FormData();
-        
+
         formdata.append("name_of_business", data.NameOfSocialBusiness);
         formdata.append("vision", data.YourVision);
         formdata.append("initiative_plan", data.YourInitiative);
         formdata.append('founder_type','team');
-        formdata.append("co_founder", co_founder);
+        formdata.append("co_founder", JSON.stringify(co_founder));
         formdata.append("focus_area", data.AreaOfFocus);
         formdata.append("other_focus_area", data.OtherAreaOfFocus);
         formdata.append("reducing_carbon_emission", data.ReducingCarbonEmission);
@@ -56,6 +54,7 @@ const SbdcInputs = () => {
         formdata.append("way_of_more_to_learn", data.FirstLink);
         // formdata.append("Second_Link", data.SecondLink);
         formdata.append("pitch_deck", imagedata);
+        console.log(formdata);
 
        let requestOptions = {
             method: "POST",
@@ -64,7 +63,7 @@ const SbdcInputs = () => {
             headers: headers
         };
 
-        fetch("http://stage-sbdc-sfdc.3zeros.club/api/sbdc/create",requestOptions)
+        fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create",requestOptions)
         .then(response => response.json())
         .then(data => {
             if(data) { alert("Thanks For Your Application")}
