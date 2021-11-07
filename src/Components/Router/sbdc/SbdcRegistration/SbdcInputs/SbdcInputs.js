@@ -13,7 +13,7 @@ const SbdcInputs = () => {
         let headers = new Headers();
         let imagedata = document.querySelector('input[type="file"]').files[0];
         let formdata = new FormData();
-
+        console.dir(data);
         formdata.append("name_of_social_business", data.NameOfSocialBusiness);
         formdata.append("your_vision", data.YourVision);
         formdata.append("your_initiative", data.YourInitiative);
@@ -58,31 +58,36 @@ const SbdcInputs = () => {
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
     const [isUnderLaw, setIsUnderLaw] = useState(false);
     const [additionalLink, setAdditionalLink] = useState(0);
-    const additionalLinkArray = [];
+    const [additionalLinkArray, setArray] = useState([]);
     const addMoreLinks = (e) => {
         e.preventDefault();
-        setAdditionalLink((prev) => prev + 1);
+        console.log(additionalLinkArray);
+        // setAdditionalLink((prev) => prev + 1);
         if (additionalLink === 2) {
             return;
         } else {
-            additionalLinkArray.push(
+            setAdditionalLink((p)=> p+1);
+            setArray([...additionalLinkArray,
                 <>
                     <div className="row">
                         <div className="col-lg-1">
-                            <h5>Link 2</h5>
+                            <h5>Additional Link(Optional)</h5>
                         </div>
                         <div className="col-lg-6">
-                            <input type="url" {...register("SecondLink")} />
+                            <input type="url" {...register("OptionalLink"+additionalLink)} />
                         </div>
-                        <button onClick={deleteLink}>Delete</button>
+                        {/* <button onClick={deleteLink}>Delete</button> */}
                     </div>
                 </>
-            );
+            ]);
         }
     };
+
     const deleteLink = (e) => {
         e.preventDefault();
+        setAdditionalLink((p)=> p-1);
         additionalLinkArray.pop();
+        setArray([...additionalLinkArray]);
     };
     const handleCheckBoxOne = (e) => {
         setIsCheckedOne(true);
@@ -553,10 +558,11 @@ const SbdcInputs = () => {
                                 </div>
                                 {additionalLinkArray}
                             </div>
-                            <div className="mt-5">
+                            <div className="mt-5 ">
                                 <button onClick={addMoreLinks}>
                                     + Add more
                                 </button>
+                                { additionalLink>0? <button className="ms-5" onClick={deleteLink}>Delete</button>: null} 
                             </div>
                         </div>
                         <div className="mt-5 file-upload">
