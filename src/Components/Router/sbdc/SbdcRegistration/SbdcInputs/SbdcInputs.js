@@ -71,7 +71,7 @@ const SbdcInputs = () => {
                 <>
                     <div className="row">
                         <div className="col-lg-1">
-                            <h5>Additional Link(Optional)</h5>
+                            <h5>{"Link "+parseInt(3+additionalLink)}</h5>
                         </div>
                         <div className="col-lg-6">
                             <input type="url" {...register("OptionalLink"+additionalLink)} />
