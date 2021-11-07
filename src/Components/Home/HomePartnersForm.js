@@ -28,7 +28,7 @@ const HomePartnersForm = () => {
             requestOptions
         )
             .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((result) =>  result)
             .catch((error) => console.log("error", error));
         formRef.current.reset();
         alert("Thank you! Your message has been sent.");

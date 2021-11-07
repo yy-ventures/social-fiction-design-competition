@@ -39,7 +39,7 @@ const SbdcInputs = () => {
 
 
         let formdata = new FormData();
-
+        
         formdata.append("name_of_business", data.NameOfSocialBusiness);
         formdata.append("vision", data.YourVision);
         formdata.append("initiative_plan", data.YourInitiative);
@@ -57,9 +57,7 @@ const SbdcInputs = () => {
         // formdata.append("Second_Link", data.SecondLink);
         formdata.append("pitch_deck", imagedata);
 
-
-        // protected $fillable=['','vision','initiative_plan','founder_type','focus_area','other_focus_area','reducing_carbon_emission','innovation','info_enterprise','stage_of_ventures','is_registered_under_law','make_money_plan','is_way_of_more_to_learn','way_of_more_to_learn','pitch_deck'];
-        let requestOptions = {
+       let requestOptions = {
             method: "POST",
             body: formdata,
             redirect: "follow",
@@ -79,31 +77,36 @@ const SbdcInputs = () => {
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
     const [isUnderLaw, setIsUnderLaw] = useState(false);
     const [additionalLink, setAdditionalLink] = useState(0);
-    const additionalLinkArray = [];
+    const [additionalLinkArray, setArray] = useState([]);
     const addMoreLinks = (e) => {
         e.preventDefault();
-        setAdditionalLink((prev) => prev + 1);
+        console.log(additionalLinkArray);
+        // setAdditionalLink((prev) => prev + 1);
         if (additionalLink === 2) {
             return;
         } else {
-            additionalLinkArray.push(
+            setAdditionalLink((p)=> p+1);
+            setArray([...additionalLinkArray,
                 <>
                     <div className="row">
                         <div className="col-lg-1">
-                            <h5>Link 2</h5>
+                            <h5>Additional Link(Optional)</h5>
                         </div>
                         <div className="col-lg-6">
-                            <input type="url" {...register("SecondLink")} />
+                            <input type="url" {...register("OptionalLink"+additionalLink)} />
                         </div>
-                        <button onClick={deleteLink}>Delete</button>
+                        {/* <button onClick={deleteLink}>Delete</button> */}
                     </div>
                 </>
-            );
+            ]);
         }
     };
+
     const deleteLink = (e) => {
         e.preventDefault();
+        setAdditionalLink((p)=> p-1);
         additionalLinkArray.pop();
+        setArray([...additionalLinkArray]);
     };
     const handleCheckBoxOne = (e) => {
         setIsCheckedOne(true);
@@ -574,10 +577,11 @@ const SbdcInputs = () => {
                                 </div>
                                 {additionalLinkArray}
                             </div>
-                            <div className="mt-5">
+                            <div className="mt-5 ">
                                 <button onClick={addMoreLinks}>
                                     + Add more
                                 </button>
+                                { additionalLink>0? <button className="ms-5" onClick={deleteLink}>Delete</button>: null} 
                             </div>
                         </div>
                         <div className="mt-5 file-upload">
