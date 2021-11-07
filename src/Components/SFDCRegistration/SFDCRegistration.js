@@ -1,6 +1,6 @@
 import React from 'react';
 import "./SFDCRegistration.scss";
-import socialFictionLogo from "../../assets/sfdc-logo.svg";
+import socialFictionLogo from "../../assets/sfdc_logo.png";
 import SFDCInputs from './SFDCInputs/SFDCInputs';
 
 const SFDCRegistration = () => {

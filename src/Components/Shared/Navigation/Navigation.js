@@ -21,11 +21,29 @@ const Navigation = () => {
                     </Link>
                 </div>
                 <div className="navigation-menu">
-                    <a href="#aboutRoute">about</a>
-                    <a href="#sbdcRoute">sbdc</a>
-                    <a href="#sfdcRoute">sfdc</a>
-                    <a href="#partners-section">partners</a>
-                    <a href="#contactRoute">contact</a>
+                    <div>
+                        <Link to="/">Home</Link>
+                    </div>
+                    <div className="sbdc-dropdown">
+                        <a href="#sbdcRoute" className="sbdc-dropbtn">sbdc <i class="fas fa-chevron-down"></i></a>
+                        <div class="sbdc-dropdown-content">
+                            <Link to="/sbdc">Explore</Link>
+                            <Link to="/sbdc-registration">Apply</Link>
+                        </div>
+                    </div>
+                    <div className="sbdc-dropdown">
+                        <a href="#sfdcRoute">sfdc <i class="fas fa-chevron-down"></i></a>
+                        <div class="sbdc-dropdown-content">
+                            <Link to="/sfdc">Explore</Link>
+                            <Link to="/sfdc-registration">Apply</Link>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#partners-section">partners</a>
+                    </div>
+                    <div>
+                        <a href="#contactRoute">contact</a>
+                    </div>
                 </div>
                 <div
                     className={
