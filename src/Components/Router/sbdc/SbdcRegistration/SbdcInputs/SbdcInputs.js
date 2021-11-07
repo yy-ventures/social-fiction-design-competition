@@ -13,7 +13,7 @@ const SbdcInputs = () => {
         let headers = new Headers();
         let imagedata = document.querySelector('input[type="file"]').files[0];
         let formdata = new FormData();
-        console.dir(data);
+        // console.dir(data);
         formdata.append("name_of_social_business", data.NameOfSocialBusiness);
         formdata.append("your_vision", data.YourVision);
         formdata.append("your_initiative", data.YourInitiative);
