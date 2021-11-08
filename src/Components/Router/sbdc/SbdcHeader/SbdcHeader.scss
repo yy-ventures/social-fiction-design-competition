@@ -1,54 +1,70 @@
 @import "../../../../global.scss";
 
-.sbdc-header{
-    .sbdc-header-left{
+.sbdc-header {
+    .sbdc-header-left {
         padding: 10% 8% 10% 12%;
-        p{
+        p {
             font-size: 1rem;
             font-weight: 400;
-            .deep-blue{
+            .deep-blue {
                 font-weight: 900;
                 color: $primaryColor;
             }
         }
+        button {
+            outline: none;
+            border: 3px solid $primaryColor;
+            padding: 8px 24px;
+            border-radius: 5px;
+            background: $primaryColor;
+            color: $white;
+            font-weight: 700;
+            text-transform: capitalize;
+            transition: 0.3s;
+            margin-top: 1rem;
+            &:hover {
+                background: $white;
+                color: $primaryColor;
+            }
+        }
     }
-    .sbdc-header-right{
+    .sbdc-header-right {
         padding: 10%;
-        img{
+        img {
             width: 100%;
             object-fit: cover;
         }
     }
 }
 
-@media screen and (min-width: 1441px){
-    .sbdc-header{
-        .sbdc-header-left{
+@media screen and (min-width: 1441px) {
+    .sbdc-header {
+        .sbdc-header-left {
             padding: 10% 12% 10% 8%;
-            p{
+            p {
                 font-size: 1.1rem;
             }
         }
     }
 }
 
-@media screen and (max-width: 900px){
-    .sbdc-header{
-        .sbdc-header-right{
+@media screen and (max-width: 900px) {
+    .sbdc-header {
+        .sbdc-header-right {
             padding: 5%;
         }
     }
 }
 
-@media screen and (max-width: 500px){
-    .sbdc-header{
-        .sbdc-header-left{
+@media screen and (max-width: 500px) {
+    .sbdc-header {
+        .sbdc-header-left {
             padding: 10%;
-            p{
+            p {
                 font-size: 1rem;
             }
         }
-        .sbdc-header-right{
+        .sbdc-header-right {
             padding: 10%;
         }
     }

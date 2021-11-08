@@ -1,60 +1,87 @@
 @import "../../../../global.scss";
 
-.sfdc-header{
+.sfdc-header {
     padding: 5% 1% 20% 1%;
-    .fiction-art-one{
+    @media screen and (max-width: 700px) {
+        margin-bottom: 10rem;
+    }
+    .video-container {
+        width: 100%;
+        margin-top: 1em;
+    }
+    .fiction-art-one {
         position: absolute;
         top: 0;
         left: 0;
     }
-    .fiction-art-two{
+    .fiction-art-two {
         position: absolute;
         bottom: 0;
         right: 0;
     }
-    .sfdc-header-logo{
-        img{
+    .sfdc-header-logo {
+        img {
             height: 40vmin;
         }
     }
-    .sfdc-header-body{
-        h3{
+    .sfdc-header-body {
+        h3 {
             color: $primaryColor;
             font-weight: 900;
             font-size: 4.5vmin;
         }
-        p{
+        p {
             color: $text;
             padding: 3% 2%;
+            .deep-blue {
+                font-weight: 900;
+                color: $primaryColor;
+            }
         }
-        h2{
+        h2 {
             color: $deepOrange;
             font-weight: 900;
             font-size: 4.5vmin;
             padding: 5rem 0;
         }
+        button {
+            outline: none;
+            border: 3px solid $primaryColor;
+            padding: 8px 24px;
+            border-radius: 5px;
+            background: $primaryColor;
+            color: $white;
+            font-weight: 700;
+            text-transform: capitalize;
+            transition: 0.3s;
+            margin-top: 1rem;
+            &:hover {
+                background: $white;
+                color: $primaryColor;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 900px){
-    .sfdc-header{
+@media screen and (max-width: 900px) {
+    .sfdc-header {
         background-image: url("../../../../assets//mobile-back.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        .fiction-art-one, 
-        .fiction-art-two{
+        .fiction-art-one,
+        .fiction-art-two {
             display: none;
         }
-        .sfdc-header-body{
-            h3{
+        .sfdc-header-body {
+            h3 {
                 font-size: 1.6rem;
             }
-            p{
+            p {
                 padding: 3% 5%;
                 margin-top: 2rem;
             }
-            h2{
+            h2 {
                 font-size: 1.6rem;
                 padding: 3% 2%;
             }
