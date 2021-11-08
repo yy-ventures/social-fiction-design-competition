@@ -36,7 +36,6 @@ const HomePartnersForm = () => {
     return (
         <section
             className="home-partners-form position-relative"
-            id="partners-section"
         >
             <div className="blue-rectangle"></div>
             <div className="form-rectangle"></div>

@@ -34,7 +34,7 @@ const SfdcForm = () => {
         alert("Thank you! Your message has been sent.");
     };
     return (
-        <section className="sfdc-form position-relative" id="partners-section">
+        <section className="sfdc-form position-relative">
             <img src={fictionArtOne} alt="fiction-art-one" />
             <div className="row">
                 <div className="col-lg-3"></div>
