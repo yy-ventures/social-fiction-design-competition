@@ -22,7 +22,7 @@ const SbdcForm = () => {
         };
         formRef.current.reset();
         fetch(
-            "http://stage-sbdc-sfdc.3zeros.club/api/partners/create",
+            "https://stage-sbdc-sfdc.3zeros.club/api/partners/create",
             requestOptions
         )
             .then((response) => response.text())

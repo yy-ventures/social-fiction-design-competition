@@ -24,11 +24,11 @@ const HomePartnersForm = () => {
         };
 
         fetch(
-            "http://stage-sbdc-sfdc.3zeros.club/api/partners/create",
+            "https://stage-sbdc-sfdc.3zeros.club/api/partners/create",
             requestOptions
         )
             .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((result) =>  result)
             .catch((error) => console.log("error", error));
         formRef.current.reset();
         alert("Thank you! Your message has been sent.");
@@ -36,7 +36,6 @@ const HomePartnersForm = () => {
     return (
         <section
             className="home-partners-form position-relative"
-            id="partners-section"
         >
             <div className="blue-rectangle"></div>
             <div className="form-rectangle"></div>

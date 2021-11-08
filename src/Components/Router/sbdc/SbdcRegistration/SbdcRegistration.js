@@ -5,7 +5,7 @@ import SbdcInputs from "./SbdcInputs/SbdcInputs";
 
 const SbdcRegistration = () => {
     return (
-        <section className="sbdc-registration">
+        <section className="sbdc-registration" id="sbdcRegId">
             <div className="sbdc-registration-header position-relative">
                 <div className="row">
                     <div className="col-lg-6 sbdc-registration-header-left d-flex align-items-center justify-content-center">

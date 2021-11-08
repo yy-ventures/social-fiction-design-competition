@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.scss";
-
 import headerimage from "../../assets/images/header2x.jpg";
 import sbdclogo from "../../assets/images/logos/sbdc2x.jpg";
 import sfdclogo from "../../assets/images/logos/sfdc2x.jpg";
-
 import randomlightbluedecoleft from "../../assets/images/fiction_el_2.png";
 import randomlightbluedecoright from "../../assets/images/fiction_el_1.png";
-// import blueleaf from "";
+import { HashLink } from "react-router-hash-link";
 
 export default function Home() {
     return (
@@ -65,15 +63,15 @@ export default function Home() {
                         models that combat real challenges.
                     </h4>
                     <div className="button-container">
-                        <Link to="/sbdc" className="btn-home button-blue">
+                        <HashLink to="/sbdc#sdbcHeaderId" className="btn-home button-blue">
                             Explore
-                        </Link>
-                        <Link
-                            to="/sbdc-registration"
+                        </HashLink>
+                        <HashLink
+                            to="/sbdc-registration#sbdcRegId"
                             className="btn-home button-skyblue"
                         >
                             Apply Now
-                        </Link>
+                        </HashLink>
                     </div>
                 </div>
                 <div id="sbdc-lightblue-circle-deco" />
@@ -94,15 +92,15 @@ export default function Home() {
                         poster presentation.
                     </h4>
                     <div className="button-container">
-                        <Link to="/sfdc" className="btn-home button-blue">
+                        <HashLink to="/sfdc#sfdcHeaderId" className="btn-home button-blue">
                             EXPLORE
-                        </Link>
-                        <Link
-                            to="/sfdc-registration"
+                        </HashLink>
+                        <HashLink
+                            to="/sfdc-registration#sfdcRegId"
                             className="btn-home button-skyblue"
                         >
                             APPLY NOW
-                        </Link>
+                        </HashLink>
                     </div>
                 </div>
                 <div id="sfdc-skyblue-circle-deco"></div>

@@ -10,42 +10,102 @@ const SbdcInputs = () => {
     } = useForm();
 
     const onSubmit = data => {
+
         let headers = new Headers();
         let imagedata = document.querySelector('input[type="file"]').files[0];
+
+        // const co_founder = [];
+
+       
+        // if(data.FounderType=='team'){
+        //     var firstDataArray = []; // Creating a new array object
+        //     firstDataArray['name'] = data.CoFounderOneName; 
+        //     firstDataArray['date_of_birth'] = data.CoFonderOneBirthDate;
+        //     firstDataArray['gender'] = data.CoFounderOneGender; 
+        //     firstDataArray['mail'] = data.CoFounderOneEmail;
+        //     firstDataArray['mobile'] = data.CoFounderOneNumber;
+        //     co_founder.concat(firstDataArray)
+        //     // co_founder.push(firstDataArray);
+        // }
+
+        // var secondDataArray = []; // Creating a new array object
+        // secondDataArray['name'] = data.CoFounderTwoName; 
+        // secondDataArray['date_of_birth'] = data.CoFonderTwoBirthDate;
+        // secondDataArray['gender'] = data.CoFounderTwoGender; 
+        // secondDataArray['mail'] = data.CoFounderTwoEmail;
+        // secondDataArray['mobile'] = data.CoFounderTwoNumber;
+        // co_founder.concat(secondDataArray);
+        // // co_founder.push(secondDataArray);
+
+
+        // var arrayToString = JSON.stringify(Object.assign({}, co_founder));  // convert array to string
+        // var stringToJsonObject = JSON.parse(arrayToString);  // convert string to jso
+
+
+
+
+        // console.log('co_founder');
+        // console.log(co_founder);
+        // console.log('co_founder_end');
+
+        // console.log('co_founder');
+        // console.log(stringToJsonObject);
+        // console.log('co_founder_end');
+
         let formdata = new FormData();
 
-        formdata.append("name_of_social_business", data.NameOfSocialBusiness);
-        formdata.append("your_vision", data.YourVision);
-        formdata.append("your_initiative", data.YourInitiative);
-        formdata.append("Co_Founder_One_Name", data.CoFounderOneName);
-        formdata.append("Co_Fonder_One_Birth_Date", data.CoFonderOneBirthDate);
-        formdata.append("Co_Founder_One_Gender", data.CoFounderOneGender);
-        formdata.append("Co_Founder_One_Email", data.CoFounderOneEmail);
-        formdata.append("Co_Founder_One_Number", data.CoFounderOneNumber);
-        formdata.append("Co_Founder_Two_Name", data.CoFounderTwoName);
-        formdata.append("Co_Fonder_Two_Birth_Date", data.CoFonderTwoBirthDate);
-        formdata.append("Co_Founder_Two_Gender", data.CoFounderTwoGender);
-        formdata.append("Co_Founder_Two_Email", data.CoFounderTwoEmail);
-        formdata.append("Co_Founder_Two_Number", data.CoFounderTwoNumber);
-        formdata.append("Area_Of_Focus", data.AreaOfFocus);
-        formdata.append("Other_Area_Of_Focus", data.OtherAreaOfFocus);
-        formdata.append("Reducing_Carbon_Emission", data.ReducingCarbonEmission);
+        formdata.append("name_of_business", data.NameOfSocialBusiness);
+        formdata.append("vision", data.YourVision);
+        formdata.append("initiative_plan", data.YourInitiative);
+        formdata.append('founder_type',data.FounderType);
+        // formdata.append("co_founder", co_founder.toString());
+        formdata.append("focus_area", data.AreaOfFocus);
+        formdata.append("other_focus_area", data.OtherAreaOfFocus);
+        formdata.append("reducing_carbon_emission", data.ReducingCarbonEmission);
         formdata.append("Bringing_To_Your_Market", data.BringingToYourMarket);
-        formdata.append("Enterprise_Innovation", data.EnterpriseInnovation);
-        formdata.append("Make_Money", data.MakeMoney);
-        formdata.append("Stage_Of_Ventures", data.StageOfVentures);
-        formdata.append("First_Link", data.FirstLink);
-        formdata.append("Second_Link", data.SecondLink);
-        formdata.append("file_of_idea", imagedata);
+        formdata.append("info_enterprise", data.EnterpriseInnovation);
+        formdata.append("make_money_plan", data.MakeMoney);
+        formdata.append("stage_of_ventures", data.StageOfVentures);
+        formdata.append('is_way_of_more_to_learn',1)
+        formdata.append("way_of_more_to_learn_one", data.FirstLink);
+        formdata.append("way_of_more_to_learn_tow", data.SecondLink);
+        formdata.append("way_of_more_to_learn_three", data.OptionalLink0);
+        formdata.append("way_of_more_to_learn_four", data.OptionalLink1);
 
-        let requestOptions = {
+        
+        // formdata.append("Second_Link", data.SecondLink);
+        if(data.FounderType=='team'){
+            formdata.append('co_founder_name_one',data.CoFounderOneName);
+            formdata.append('co_founder_dob_one',data.CoFonderOneBirthDate);
+            formdata.append('co_founder_gender_one',data.CoFounderTwoGender);
+            formdata.append('co_founder_email_one',data.CoFounderTwoEmail);
+            formdata.append('co_founder_mobile_one',data.CoFounderTwoNumber);
+        }
+
+        formdata.append('co_founder_name_two',data.CoFounderTwoName);
+        formdata.append('co_founder_dob_two',data.CoFonderOneBirthDate);
+        formdata.append('co_founder_gender_two',data.CoFounderTwoGender);
+        formdata.append('co_founder_email_two',data.CoFounderTwoEmail);
+        formdata.append('co_founder_mobile_two',data.CoFounderTwoNumber);
+
+
+        formdata.append("pitch_deck", imagedata);
+       console.log(data)
+
+
+
+
+
+        console.log(formdata);
+
+       let requestOptions = {
             method: "POST",
             body: formdata,
             redirect: "follow",
             headers: headers
         };
 
-        fetch("http://stage-sbdc-sfdc.3zeros.club/api/sfdc/create",requestOptions)
+        fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create",requestOptions)
         .then(response => response.json())
         .then(data => {
             if(data) { alert("Thanks For Your Application")}
@@ -58,31 +118,36 @@ const SbdcInputs = () => {
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
     const [isUnderLaw, setIsUnderLaw] = useState(false);
     const [additionalLink, setAdditionalLink] = useState(0);
-    const additionalLinkArray = [];
+    const [additionalLinkArray, setArray] = useState([]);
     const addMoreLinks = (e) => {
         e.preventDefault();
-        setAdditionalLink((prev) => prev + 1);
+        console.log(additionalLinkArray);
+        // setAdditionalLink((prev) => prev + 1);
         if (additionalLink === 2) {
             return;
         } else {
-            additionalLinkArray.push(
+            setAdditionalLink((p)=> p+1);
+            setArray([...additionalLinkArray,
                 <>
                     <div className="row">
                         <div className="col-lg-1">
-                            <h5>Link 2</h5>
+                            <h5>{"Link "+parseInt(3+additionalLink)}</h5>
                         </div>
                         <div className="col-lg-6">
-                            <input type="url" {...register("SecondLink")} />
+                            <input type="url" {...register("OptionalLink"+additionalLink)} />
                         </div>
-                        <button onClick={deleteLink}>Delete</button>
+                        {/* <button onClick={deleteLink}>Delete</button> */}
                     </div>
                 </>
-            );
+            ]);
         }
     };
+
     const deleteLink = (e) => {
         e.preventDefault();
+        setAdditionalLink((p)=> p-1);
         additionalLinkArray.pop();
+        setArray([...additionalLinkArray]);
     };
     const handleCheckBoxOne = (e) => {
         setIsCheckedOne(true);
@@ -178,8 +243,8 @@ const SbdcInputs = () => {
                                 <div class="form-check">
                                     <input
                                         class="form-check-input"
-                                        type="checkbox"
-                                        value=""
+                                        type="radio"
+                                        value="team" {...register("FounderType")} name="FounderType"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxOne}
                                         defaultChecked={false}
@@ -194,10 +259,10 @@ const SbdcInputs = () => {
                             </div>
                             <div className="col-lg-2">
                                 <div class="form-check">
-                                    <input
+                                    <input name="FounderType"
                                         class="form-check-input"
-                                        type="checkbox"
-                                        value=""
+                                        type="radio" {...register("FounderType")} name="FounderType"
+                                        value="individual"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxTwo}
                                     />
@@ -553,10 +618,11 @@ const SbdcInputs = () => {
                                 </div>
                                 {additionalLinkArray}
                             </div>
-                            <div className="mt-5">
+                            <div className="mt-5 ">
                                 <button onClick={addMoreLinks}>
                                     + Add more
                                 </button>
+                                { additionalLink>0? <button className="ms-5" onClick={deleteLink}>Delete</button>: null} 
                             </div>
                         </div>
                         <div className="mt-5 file-upload">

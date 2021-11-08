@@ -1,11 +1,11 @@
 import React from 'react';
 import "./SFDCRegistration.scss";
-import socialFictionLogo from "../../assets/sfdc-logo.svg";
+import socialFictionLogo from "../../assets/sfdc_logo.png";
 import SFDCInputs from './SFDCInputs/SFDCInputs';
 
 const SFDCRegistration = () => {
     return (
-        <section className="sfdc-registration">
+        <section className="sfdc-registration" id="sfdcRegId">
             <div className="sfdc-registration-header position-relative">
                 <div className="row">
                     <div className="col-lg-6 sfdc-registration-header-left d-flex align-items-center justify-content-center">

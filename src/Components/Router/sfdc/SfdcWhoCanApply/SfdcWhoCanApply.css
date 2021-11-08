@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1.5em;
+  z-index: 5;
+}
+
+@media screen and (min-width: 480px) {
+  .button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.btn-home {
+  text-decoration: none;
+  padding: 0.6em 0.8em;
+  border-radius: 5px;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.btn-home:hover {
+  color: #ffffff;
+}
+
+.button-blue {
+  background-color: #1c4065;
+  color: #ffffff;
+  border: 3px solid #64a0dc;
+}
+
+.button-skyblue {
+  background-color: #356aa0;
+  color: #ffffff;
+  border: 3px solid #64a0dc;
+}
+
+.sfdc-who-can-apply {
+  height: 400px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#df8b48), to(#f16145));
+  background-image: linear-gradient(to bottom, #df8b48, #f16145);
+  position: relative;
+}
+
+.sfdc-who-can-apply::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #f16145;
+  width: 45px;
+  height: 30px;
+  -webkit-clip-path: polygon(100% 0, 0 0, 50% 100%);
+          clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
+.sfdc-who-can-apply h2 {
+  font-weight: 900;
+  color: #ffffff;
+  margin-top: 3rem;
+  font-size: 2.4rem;
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body {
+  height: 400px;
+  background-color: #FFC35A;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  position: relative;
+  margin-top: -200px;
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body img {
+  height: 150px;
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list {
+  height: 100%;
+  padding: 0 10%;
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul {
+  margin-top: 3em;
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul li {
+  padding: 0.5rem 0 0.5rem 3em;
+  vertical-align: middle;
+  background: url("../../../../assets/sfdc-list-style.svg") no-repeat 5px 5px transparent;
+  list-style-type: none;
+  margin: 0;
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul li h6 {
+  font-weight: 900;
+  color: #373737;
+}
+
+.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul li p {
+  color: #373737;
+}
+
+@media screen and (min-width: 1441px) {
+  .sfdc-who-can-apply {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sfdc-who-can-apply {
+    height: 300px;
+  }
+  .sfdc-who-can-apply h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    padding-top: 2.5rem;
+  }
+  .sfdc-who-can-apply .sfdc-who-can-apply-body {
+    border-radius: 0;
+    height: 300px;
+    margin-top: -150px;
+  }
+  .sfdc-who-can-apply .sfdc-who-can-apply-body img {
+    height: 100px;
+    top: -50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sfdc-who-can-apply {
+    margin-top: 150px;
+  }
+  .sfdc-who-can-apply .sfdc-who-can-apply-body img {
+    top: -75px;
+  }
+  .sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list {
+    padding: 10% 0 10% 0;
+  }
+  .sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul {
+    padding: 5%;
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=SfdcWhoCanApply.css.map */
