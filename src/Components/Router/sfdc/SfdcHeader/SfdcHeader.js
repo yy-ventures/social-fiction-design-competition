@@ -23,21 +23,19 @@ const SfdcHeader = () => {
                     <div className="sfdc-header-body mb-5">
                         <div className="mt-5">
                             <h3>
-                                What is the Social Fiction <br /> Design
-                                Competition?
+                                Imagine a world in 2050.
                             </h3>
                         </div>
-                        <div>
+                        <div className="mt-3">
                             <p>
                                 The{" "}
                                 <span className="deep-blue">
                                     Social Fiction Design Competition
                                 </span>{" "}
-                                is an exciting global competition looking for
+                                 is an exciting global competition looking for
                                 students and young people to re-imagine and
                                 create for themselves a world without social
-                                problems. Imagine a world 50 years from now.
-                                Take real social challenges and share your
+                                problems. We challenge you to imagine a world in 2050. What kind of world do you want to live in? If you imagine it, you can make it happen. Take real social challenges and share your
                                 fictional solutions. Get creative and express
                                 yourself by writing, illustration, rhetoric,
                                 cinematography, animation, or poster

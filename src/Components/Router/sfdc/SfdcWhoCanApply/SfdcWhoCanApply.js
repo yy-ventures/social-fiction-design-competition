@@ -28,9 +28,9 @@ const SfdcWhoCanApply = () => {
                                         Well-being, and others.
                                     </p>
                                 </li>
-                                <li style={{ marginBottom: "1rem" }}>
+                                {/* <li style={{ marginBottom: "1rem" }}>
                                     <h6>You are between ages 12 to 35.</h6>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
