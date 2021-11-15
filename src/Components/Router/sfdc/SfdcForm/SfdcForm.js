@@ -6,7 +6,6 @@ const SfdcForm = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm();
     const formRef = useRef(null);
     const onsubmit = (data) => {
