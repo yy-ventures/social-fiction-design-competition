@@ -53,8 +53,7 @@ const SfdcHeader = () => {
                             </h2> */}
                             <YouTube
                                 videoId="L4kU97gXWj0"
-                                className="mt-5"
-                                className="video-container"
+                                className="mt-5 video-container"
                             />
                         </div>
                     </div>
