@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
             <div className="footer-content">
                 <h5><FontAwesomeIcon icon={faMapMarkerAlt} /> Find Us At</h5>
-                <p>Grameen Bank Bhaban 16th Floor<br/>Mirpur 2, Dhaka 1216</p>
+                <p>16th Floor, Grameen Bank Bhaban,<br/>Mirpur 2, Dhaka 1216, Bangladesh</p>
             </div>
             <div className="footer-leaf">
                 <h5><FontAwesomeIcon icon={faEnvelope} /> Write To Us</h5>
