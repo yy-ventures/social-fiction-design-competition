@@ -14,33 +14,51 @@ const SbdcInputs = () => {
         let headers = new Headers();
         let imagedata = document.querySelector('input[type="file"]').files[0];
 
-        const co_founder = [];
+        // const co_founder = [];
 
-        var firstDataArray = []; // Creating a new array object
-        firstDataArray['name'] = data.CoFounderOneName; 
-        firstDataArray['date_of_birth'] = data.CoFonderOneBirthDate;
-        firstDataArray['gender'] = data.CoFounderOneGender; 
-        firstDataArray['mail'] = data.CoFounderOneEmail;
-        firstDataArray['mobile'] = data.CoFounderOneNumber;
-        co_founder.push(firstDataArray);
-        
-        var secondDataArray = []; // Creating a new array object
-        secondDataArray['name'] = data.CoFounderTwoName; 
-        secondDataArray['date_of_birth'] = data.CoFonderTwoBirthDate;
-        secondDataArray['gender'] = data.CoFounderTwoGender; 
-        secondDataArray['mail'] = data.CoFounderTwoEmail;
-        secondDataArray['mobile'] = data.CoFounderTwoNumber;
-        co_founder.push(secondDataArray);
-        
+       
+        // if(data.FounderType=='team'){
+        //     var firstDataArray = []; // Creating a new array object
+        //     firstDataArray['name'] = data.CoFounderOneName; 
+        //     firstDataArray['date_of_birth'] = data.CoFonderOneBirthDate;
+        //     firstDataArray['gender'] = data.CoFounderOneGender; 
+        //     firstDataArray['mail'] = data.CoFounderOneEmail;
+        //     firstDataArray['mobile'] = data.CoFounderOneNumber;
+        //     co_founder.concat(firstDataArray)
+        //     // co_founder.push(firstDataArray);
+        // }
+
+        // var secondDataArray = []; // Creating a new array object
+        // secondDataArray['name'] = data.CoFounderTwoName; 
+        // secondDataArray['date_of_birth'] = data.CoFonderTwoBirthDate;
+        // secondDataArray['gender'] = data.CoFounderTwoGender; 
+        // secondDataArray['mail'] = data.CoFounderTwoEmail;
+        // secondDataArray['mobile'] = data.CoFounderTwoNumber;
+        // co_founder.concat(secondDataArray);
+        // // co_founder.push(secondDataArray);
+
+
+        // var arrayToString = JSON.stringify(Object.assign({}, co_founder));  // convert array to string
+        // var stringToJsonObject = JSON.parse(arrayToString);  // convert string to jso
+
+
+
+
+        // console.log('co_founder');
         // console.log(co_founder);
+        // console.log('co_founder_end');
+
+        // console.log('co_founder');
+        // console.log(stringToJsonObject);
+        // console.log('co_founder_end');
 
         let formdata = new FormData();
 
         formdata.append("name_of_business", data.NameOfSocialBusiness);
         formdata.append("vision", data.YourVision);
         formdata.append("initiative_plan", data.YourInitiative);
-        formdata.append('founder_type','team');
-        formdata.append("co_founder", JSON.stringify(co_founder));
+        formdata.append('founder_type',data.FounderType);
+        // formdata.append("co_founder", co_founder.toString());
         formdata.append("focus_area", data.AreaOfFocus);
         formdata.append("other_focus_area", data.OtherAreaOfFocus);
         formdata.append("reducing_carbon_emission", data.ReducingCarbonEmission);
@@ -49,9 +67,35 @@ const SbdcInputs = () => {
         formdata.append("make_money_plan", data.MakeMoney);
         formdata.append("stage_of_ventures", data.StageOfVentures);
         formdata.append('is_way_of_more_to_learn',1)
-        formdata.append("way_of_more_to_learn", data.FirstLink);
+        formdata.append("way_of_more_to_learn_one", data.FirstLink);
+        formdata.append("way_of_more_to_learn_tow", data.SecondLink);
+        formdata.append("way_of_more_to_learn_three", data.OptionalLink0);
+        formdata.append("way_of_more_to_learn_four", data.OptionalLink1);
+
+        
         // formdata.append("Second_Link", data.SecondLink);
+        if(data.FounderType=='team'){
+            formdata.append('co_founder_name_one',data.CoFounderOneName);
+            formdata.append('co_founder_dob_one',data.CoFonderOneBirthDate);
+            formdata.append('co_founder_gender_one',data.CoFounderTwoGender);
+            formdata.append('co_founder_email_one',data.CoFounderTwoEmail);
+            formdata.append('co_founder_mobile_one',data.CoFounderTwoNumber);
+        }
+
+        formdata.append('co_founder_name_two',data.CoFounderTwoName);
+        formdata.append('co_founder_dob_two',data.CoFonderOneBirthDate);
+        formdata.append('co_founder_gender_two',data.CoFounderTwoGender);
+        formdata.append('co_founder_email_two',data.CoFounderTwoEmail);
+        formdata.append('co_founder_mobile_two',data.CoFounderTwoNumber);
+
+
         formdata.append("pitch_deck", imagedata);
+       console.log(data)
+
+
+
+
+
         console.log(formdata);
 
        let requestOptions = {
@@ -199,8 +243,8 @@ const SbdcInputs = () => {
                                 <div class="form-check">
                                     <input
                                         class="form-check-input"
-                                        type="checkbox"
-                                        value="" name="FounderType"
+                                        type="radio"
+                                        value="team" {...register("FounderType")} name="FounderType"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxOne}
                                         defaultChecked={false}
@@ -217,8 +261,8 @@ const SbdcInputs = () => {
                                 <div class="form-check">
                                     <input name="FounderType"
                                         class="form-check-input"
-                                        type="checkbox"
-                                        value=""
+                                        type="radio" {...register("FounderType")} name="FounderType"
+                                        value="individual"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxTwo}
                                     />

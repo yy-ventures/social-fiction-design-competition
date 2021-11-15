@@ -19,7 +19,7 @@ const SfdcSubmitIdea = () => {
             <div className="text-center sfdc-submit-idea-content">
                 <h2>Got any innovative solution?</h2>
                 <h3>Join our competition!</h3>
-                <Link to="/sfdc-registration">
+                <Link to="/sfdc-registration" id="partners-section">
                     <button>submit your idea</button>
                 </Link>
             </div>

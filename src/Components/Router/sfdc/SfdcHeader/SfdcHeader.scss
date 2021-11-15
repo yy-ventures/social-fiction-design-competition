@@ -25,6 +25,10 @@
         }
     }
     .sfdc-header-body {
+        .deep-blue {
+            font-weight: 900;
+            color: $primaryColor;
+        }
         h3 {
             color: $primaryColor;
             font-weight: 900;
@@ -33,10 +37,7 @@
         p {
             color: $text;
             padding: 3% 2%;
-            .deep-blue {
-                font-weight: 900;
-                color: $primaryColor;
-            }
+            
         }
         h2 {
             color: $deepOrange;
