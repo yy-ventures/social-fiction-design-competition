@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import "./Home.scss";
 import headerimage from "../../assets/images/header2x.jpg";
 import sbdclogo from "../../assets/images/logos/sbdc2x.jpg";

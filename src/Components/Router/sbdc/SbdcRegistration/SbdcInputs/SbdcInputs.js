@@ -74,7 +74,7 @@ const SbdcInputs = () => {
 
         
         // formdata.append("Second_Link", data.SecondLink);
-        if(data.FounderType=='team'){
+        if(data.FounderType === 'team'){
             formdata.append('co_founder_name_one',data.CoFounderOneName);
             formdata.append('co_founder_dob_one',data.CoFonderOneBirthDate);
             formdata.append('co_founder_gender_one',data.CoFounderTwoGender);
@@ -116,7 +116,7 @@ const SbdcInputs = () => {
     };
     const [isCheckedOne, setIsCheckedOne] = useState(false);
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
-    const [isUnderLaw, setIsUnderLaw] = useState(false);
+    // const [setIsUnderLaw] = useState(false);
     const [additionalLink, setAdditionalLink] = useState(0);
     const [additionalLinkArray, setArray] = useState([]);
     const addMoreLinks = (e) => {
@@ -156,12 +156,6 @@ const SbdcInputs = () => {
     const handleCheckBoxTwo = (e) => {
         setIsCheckedTwo(true);
         setIsCheckedOne(false);
-    };
-    const handleUnderLawYes = (e) => {
-        setIsUnderLaw(true);
-    };
-    const handleUnderLawNo = (e) => {
-        setIsUnderLaw(false);
     };
     return (
         <div className="sbdc-registration-input">
@@ -261,7 +255,7 @@ const SbdcInputs = () => {
                                 <div class="form-check">
                                     <input name="FounderType"
                                         class="form-check-input"
-                                        type="radio" {...register("FounderType")} name="FounderType"
+                                        type="radio" {...register("FounderType")}
                                         value="individual"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxTwo}
