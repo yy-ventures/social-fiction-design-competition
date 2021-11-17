@@ -542,7 +542,9 @@ const SFDCInputs = () => {
                                         class="form-control"
                                         type="file"
                                         id="formFile"
+                                        accept="application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation"
                                         {...register("UploadedFile")}
+                                        required
                                     />
                                 </div>
                                 <div className="col-lg-3">
