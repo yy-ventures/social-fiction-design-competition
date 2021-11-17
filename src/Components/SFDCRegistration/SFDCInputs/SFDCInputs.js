@@ -48,17 +48,17 @@ const SFDCInputs = () => {
     };
     const formatString = {
         rhetoric:
-            "Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
+            "Imagine a world in 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
         animation:
-            "Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
+            "Imagine a world in 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
         poster_presentation:
-            "4-page awareness poster demonstrating the social problem and a reimagined reality without those problems.",
+            "Imagine a world in 2050. 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
         writing:
-            "In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+            "Imagine a world in 2050. In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
         illustration:
-            "Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+            "Imagine a world in 2050. Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
         cinematography:
-            "Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
+            "Imagine a world in 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
     };
     const handleChange = (e) => {
         setfileFormat(e.target.value);
@@ -542,7 +542,6 @@ const SFDCInputs = () => {
                                         class="form-control"
                                         type="file"
                                         id="formFile"
-                                        accept="application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation"
                                         {...register("UploadedFile")}
                                         required
                                     />
