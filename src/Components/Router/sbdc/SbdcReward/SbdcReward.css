@@ -167,11 +167,7 @@ body {
   }
   .sbdc-reward .sbdc-reward-body .reward-list ul li {
     padding: 0rem 0 1rem 3em;
-    color: #224b75;
-    font-weight: 500;
-    text-transform: capitalize;
     font-size: 3vmin;
-    vertical-align: middle;
     background: url("../../../../assets/list-arrow.svg") no-repeat 7px 0px transparent;
     list-style-type: none;
     margin-top: 1rem;
@@ -181,12 +177,6 @@ body {
 @media screen and (min-width: 1441px) and (max-width: 700px) {
   .sbdc-reward .sbdc-reward-body .reward-list ul li {
     background: url("../../../../assets/list-arrow.svg") no-repeat 2px 2px transparent;
-  }
-}
-
-@media screen and (min-width: 1441px) {
-  .sbdc-reward .sbdc-reward-body .reward-list ul li .usd {
-    font-weight: 900;
   }
 }
 
@@ -208,6 +198,9 @@ body {
   }
   .sbdc-reward .sbdc-reward-body .reward-list ul li {
     font-size: 2vmin;
+  }
+  .sbdc-reward .sbdc-reward-body .reward-art {
+    display: none;
   }
 }
 

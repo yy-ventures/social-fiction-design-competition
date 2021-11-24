@@ -1,10 +1,9 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState, useEffect } from "react";
 import "./Navigation.scss";
 import yunusLogo from "../../../assets/yunus_center.png";
 import { Link } from "react-router-dom";
 
 import HamburgerMenu from "react-hamburger-menu";
-import { set } from "react-hook-form";
 
 const Navigation = () => {
     const [Hamburger, setHamburger] = useState(false);
@@ -12,8 +11,6 @@ const Navigation = () => {
     let [oldY] = useState(0);
     const controlNavbar = (e) => {
         const scrollPosition = Number.parseInt(e.target.scrollTop);
-        // console.log(Number.parseInt(e.target.scrollTop));
-        // console.log(oldY);
         if (scrollPosition < 300){
             setShow(false);
             return;
@@ -21,14 +18,11 @@ const Navigation = () => {
         if (scrollPosition <= oldY) {
             setShow(false)
             oldY = scrollPosition;
-            // console.log("greater");
         } else if (scrollPosition > (oldY)) {
             setShow(true)
             oldY = scrollPosition;
-            // console.log(oldY+" "+scrollPosition+" lower");
-
         }else {
-            console.log("nothing");
+            return false 
         }
     }
 

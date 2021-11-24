@@ -4,6 +4,7 @@ import SfdcCategory from './SfdcCategory/SfdcCategory';
 import SfdcForm from './SfdcForm/SfdcForm';
 import SfdcHeader from './SfdcHeader/SfdcHeader';
 import SfdcSubmitIdea from './SfdcSubmitIdea/SfdcSubmitIdea';
+import SfdcTimeline from './SfdcTimeline/SfdcTimeline';
 import SfdcWhoCanApply from './SfdcWhoCanApply/SfdcWhoCanApply';
 
 const SfdcRoute = () => {
@@ -12,6 +13,7 @@ const SfdcRoute = () => {
             <SfdcHeader/>
             <SfdcWhoCanApply/>
             <SfdcCategory/>
+            <SfdcTimeline/>
             <SfdcAwards/>
             <SfdcSubmitIdea/>
             <SfdcForm/>
