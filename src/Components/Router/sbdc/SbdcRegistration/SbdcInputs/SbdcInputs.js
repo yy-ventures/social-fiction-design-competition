@@ -90,13 +90,6 @@ const SbdcInputs = () => {
 
 
         formdata.append("pitch_deck", imagedata);
-       console.log(data)
-
-
-
-
-
-        console.log(formdata);
 
        let requestOptions = {
             method: "POST",
@@ -560,7 +553,7 @@ const SbdcInputs = () => {
                             </div>
                         )} */}
                         <div className="mt-5">
-                            <p>
+                            {/* <p>
                                 **Our program has primarily been designed for
                                 the needs of Social Businesses; however,
                                 non-profits, <br /> for-profits, co-operatives,
@@ -569,7 +562,7 @@ const SbdcInputs = () => {
                                 social or environmental cause and are willing to
                                 incorporate a Social Business model moving
                                 forward.
-                            </p>
+                            </p> */}
                         </div>
                         <div className="mt-5 registration-law-curve">
                             <h5>
@@ -630,6 +623,8 @@ const SbdcInputs = () => {
                                         type="file"
                                         id="formFile"
                                         {...register("UploadedFile")}
+                                        required
+                                        accept="application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation, video/mp4,video/x-m4v, video/quicktime"
                                     />
                                 </div>
                                 <div className="col-lg-3">

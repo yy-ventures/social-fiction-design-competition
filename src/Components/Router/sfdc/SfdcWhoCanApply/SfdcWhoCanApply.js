@@ -4,7 +4,7 @@ import sfdcBanner from "../../../../assets/sfdc_banner.png";
 
 const SfdcWhoCanApply = () => {
     return (
-        <div className="sfdc-who-can-apply mt-5">
+        <div className="sfdc-who-can-apply">
             <div className="row">
                 <div className="col-lg-2"></div>
                 <div className="col-lg-8">
