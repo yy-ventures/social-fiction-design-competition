@@ -46,13 +46,14 @@ const SFDCInputs = () => {
             console.error(error)
         })
     };
+    const imagine_a_world = "Imagine a world in 2050. ";
     const formatString = {
         rhetoric:
             "Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
         animation:
             "Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
         poster_presentation:
-            "4-page awareness poster demonstrating the social problem and a reimagined reality without those problems.",
+            "4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
         writing:
             "In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
         illustration:
@@ -67,10 +68,10 @@ const SFDCInputs = () => {
     return (
         <div className="sfdc-registration-input">
             <div className="form-input-header text-center mt-5">
-                <p>
+                {/* <p>
                     *Please fill up this form to submit your idea if you are of{" "}
                     <span className="bold">age 12 to 35.</span>
-                </p>
+                </p> */}
             </div>
             <div className="row">
                 <div className="col-lg-2"></div>
@@ -534,7 +535,7 @@ const SFDCInputs = () => {
                                 </select>
                             </div>
                         </div>
-                        <p>{formatString[fileFormat]}</p>
+                        <p>{imagine_a_world+formatString[fileFormat]}</p>
                         <div className="mt-5 file-upload">
                             <div className="row">
                                 <div className="col-lg-5">
