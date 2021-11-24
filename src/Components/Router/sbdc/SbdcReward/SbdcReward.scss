@@ -4,40 +4,169 @@
         min-height: 400px;
         padding: 10%;
         background-color: $primaryColor;
+        position: relative;
         .winning-head{
-            font-size: 4vmin;
+            font-size: 5vmin;
             color: $deepSkyBlue;
             font-weight: 900;
             text-transform: capitalize;
         }
         .reward-head{
-            font-size: 4vmin;
+            font-size: 5vmin;
             color: $white;
             font-weight: 900;
             text-transform: capitalize;
         }
+        hr{
+            opacity: 1;
+            height: 5px;
+            width: 50%;
+            color: $deepSkyBlue;
+        }
+        .reward-coin{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            img{
+                height: 25vmin;
+            }
+        }
     }
     .sbdc-reward-body{
-        min-height: 400px;
+        max-height: 400px;
         padding: 10%;
         background-color: $lightBlue;
+        position: relative;
+        .reward-list{
+            ul{
+                width: 100%;
+                li {
+                    padding: 0rem 0 1rem 3em;
+                    color: $primaryColor;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    font-size: 3vmin;
+                    vertical-align: middle;
+                    background: url("../../../../assets/list-arrow.svg")
+                        no-repeat 7px 0px transparent;
+                    @media screen and (max-width: 700px) {
+                        background: url("../../../../assets/list-arrow.svg")
+                            no-repeat 2px 2px transparent;
+                    }
+                    list-style-type: none;
+                    margin-top: 1rem;
+                    .usd{
+                        font-weight: 900;
+                    }
+                }
+            }
+        }
+        .reward-art{
+            position: absolute;
+            right: 0;
+            top: 0;
+            img{
+                width: 100%;
+            }
+        }
     }
 }
 
 @media screen and (min-width: 1441px){
     .sbdc-reward{
-        
+        .sbdc-reward-header{
+            min-height: 600px;
+            .winning-head{
+                font-size: 6vmin;
+            }
+            .reward-head{
+                font-size: 6vmin;
+            }
+            .reward-coin{
+                img{
+                    height: 30vmin;
+                }
+            }
+        }
+        .sbdc-reward-body{
+            min-height: 600px;
+            padding: 10%;
+            background-color: $lightBlue;
+            .reward-list{
+                ul{
+                    width: 100%;
+                    li {
+                        padding: 0rem 0 1rem 3em;
+                        color: $primaryColor;
+                        font-weight: 500;
+                        text-transform: capitalize;
+                        font-size: 3vmin;
+                        vertical-align: middle;
+                        background: url("../../../../assets/list-arrow.svg")
+                            no-repeat 7px 0px transparent;
+                        @media screen and (max-width: 700px) {
+                            background: url("../../../../assets/list-arrow.svg")
+                                no-repeat 2px 2px transparent;
+                        }
+                        list-style-type: none;
+                        margin-top: 1rem;
+                        .usd{
+                            font-weight: 900;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 @media screen and (max-width: 900px) {
     .sbdc-reward{
-        
+        .sbdc-reward-header{
+            min-height: 400px;
+            .winning-head{
+                font-size: 3rem;
+            }
+            .reward-head{
+                font-size: 3rem;
+            }
+            .reward-coin{
+                img{
+                    height: 25vmin;
+                }
+            }
+        }
+        .sbdc-reward-body{
+            min-height: 400px;
+            .reward-list{
+                ul{
+                    li{
+                        font-size: 2vmin;
+                    }
+                }
+            }
+        }
     }
 }
 
 @media screen and (max-width: 500px) {
     .sbdc-reward{
-       
+        .sbdc-reward-header{
+            .reward-coin{
+                img{
+                    height: 50vmin;
+                }
+            }
+        }
+        .sbdc-reward-body{
+            .reward-list{
+                ul{
+                    li{
+                        font-size: 1.2rem;
+                        padding-left: 5rem;
+                    }
+                }
+            }
+        }
     }
 }
