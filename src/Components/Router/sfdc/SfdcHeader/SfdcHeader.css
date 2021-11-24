@@ -94,6 +94,11 @@ body {
   height: 40vmin;
 }
 
+.sfdc-header .sfdc-header-body .deep-blue {
+  font-weight: 900;
+  color: #224b75;
+}
+
 .sfdc-header .sfdc-header-body h3 {
   color: #224b75;
   font-weight: 900;
@@ -103,11 +108,6 @@ body {
 .sfdc-header .sfdc-header-body p {
   color: #373737;
   padding: 3% 2%;
-}
-
-.sfdc-header .sfdc-header-body p .deep-blue {
-  font-weight: 900;
-  color: #224b75;
 }
 
 .sfdc-header .sfdc-header-body h2 {

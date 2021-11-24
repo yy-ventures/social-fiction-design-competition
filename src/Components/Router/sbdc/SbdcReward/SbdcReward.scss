@@ -1,70 +1,43 @@
 @import "../../../../global.scss";
 .sbdc-reward{
-    padding: 10%;
-    background-color: $primaryColor;
-    .sbdc-reward-content{
-        width: 55%;
-        h4{
-            color: $white;
-            text-transform: capitalize;
+    .sbdc-reward-header{
+        min-height: 400px;
+        padding: 10%;
+        background-color: $primaryColor;
+        .winning-head{
             font-size: 4vmin;
-            position: relative;
-            padding-bottom: 4%;
-            font-weight: 900;
-            &::after{
-                content: "";
-                position: absolute;
-                width: 25%;
-                height: 5px;
-                background-color: $secondaryColor;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-        p{
             color: $deepSkyBlue;
             font-weight: 900;
-            font-size: 1.2rem;
-            margin-top: 3%;
-            .reward-orange{
-                color: $secondaryColor;
-            }
+            text-transform: capitalize;
         }
+        .reward-head{
+            font-size: 4vmin;
+            color: $white;
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+    }
+    .sbdc-reward-body{
+        min-height: 400px;
+        padding: 10%;
+        background-color: $lightBlue;
     }
 }
 
 @media screen and (min-width: 1441px){
     .sbdc-reward{
-        .sbdc-reward-content{
-            p{
-                font-size: 1.5rem;
-            }
-        }
+        
     }
 }
 
 @media screen and (max-width: 900px) {
     .sbdc-reward{
-        .sbdc-reward-content{
-            width: 100%;
-            p{
-                font-size: 1.2rem;
-            }
-        }
+        
     }
 }
 
 @media screen and (max-width: 500px) {
     .sbdc-reward{
-        .sbdc-reward-content{
-            width: 100%;
-            h4{
-                font-size: 5vmin;
-            }
-            p{
-                font-size: 1rem;
-            }
-        }
+       
     }
 }

@@ -63,71 +63,29 @@ body {
   border: 3px solid #64a0dc;
 }
 
-.sbdc-reward {
+.sbdc-reward .sbdc-reward-header {
+  min-height: 400px;
   padding: 10%;
   background-color: #224b75;
 }
 
-.sbdc-reward .sbdc-reward-content {
-  width: 55%;
-}
-
-.sbdc-reward .sbdc-reward-content h4 {
-  color: #ffffff;
-  text-transform: capitalize;
+.sbdc-reward .sbdc-reward-header .winning-head {
   font-size: 4vmin;
-  position: relative;
-  padding-bottom: 4%;
-  font-weight: 900;
-}
-
-.sbdc-reward .sbdc-reward-content h4::after {
-  content: "";
-  position: absolute;
-  width: 25%;
-  height: 5px;
-  background-color: #df8b48;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.sbdc-reward .sbdc-reward-content p {
   color: #48c9d8;
   font-weight: 900;
-  font-size: 1.2rem;
-  margin-top: 3%;
+  text-transform: capitalize;
 }
 
-.sbdc-reward .sbdc-reward-content p .reward-orange {
-  color: #df8b48;
+.sbdc-reward .sbdc-reward-header .reward-head {
+  font-size: 4vmin;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: capitalize;
 }
 
-@media screen and (min-width: 1441px) {
-  .sbdc-reward .sbdc-reward-content p {
-    font-size: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .sbdc-reward .sbdc-reward-content {
-    width: 100%;
-  }
-  .sbdc-reward .sbdc-reward-content p {
-    font-size: 1.2rem;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .sbdc-reward .sbdc-reward-content {
-    width: 100%;
-  }
-  .sbdc-reward .sbdc-reward-content h4 {
-    font-size: 5vmin;
-  }
-  .sbdc-reward .sbdc-reward-content p {
-    font-size: 1rem;
-  }
+.sbdc-reward .sbdc-reward-body {
+  min-height: 400px;
+  padding: 10%;
+  background-color: #ebfdff;
 }
 /*# sourceMappingURL=SbdcReward.css.map */
