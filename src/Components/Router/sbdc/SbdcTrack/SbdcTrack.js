@@ -15,7 +15,7 @@ const SbdcTrack = () => {
                     <div className="col-lg-4 col-md-4 col-12 track-card track-arrow track-card-one">
                         <h4>Submit your idea</h4>
                         <div className="mt-4">
-                            <p>Register your entry in our website, either individually or for your team. Fill up your personal details and submit your social business idea.</p>
+                            <p>Register your entry in our website, either individually or for your team. Fill up your personal details and submit your Social Business idea.</p>
                             <p className="bold">Get creative. Tell us your Social Business name, the problem statement, your big idea, and how you plan to do business!</p>
                             <p>Instructions are elaborated in the Application form.</p>
                         </div>
@@ -24,14 +24,14 @@ const SbdcTrack = () => {
                         <h4>Social business building</h4>
                         <div className="mt-4">
                             <p>Shortlisted participants will undergo informative and intensive workshops on Social Business Planning that shape their creativity & innovation, social business model, and storytelling.</p>
-                            <p className="bold">The participants undergo 45 days to apply these learnings to build a viable and sustainable market-driven social business model. Participants will submit their social business plan by the submission deadline. </p>
+                            <p className="bold">The participants undergo 45 days to apply these learnings to build a viable and sustainable market-driven Social Business model. Participants will submit their Social Business plan by the submission deadline. </p>
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-4 col-12 track-card track-card-three">
                         <h4>Pitch</h4>
                         <div className="mt-4">
-                            <p className="bold">Top 20 Shortlisted participants from around the globe will come together in our virtual pitch event.</p>
-                            <p>They will share a 3-minute pitch about their story, social business idea, and business model to a panel of prestigious judges of entrepreneurs, investors, industry specialists etc., who will decide the competition winners. </p>
+                            <p className="bold">Top 20 shortlisted participants from around the globe will come together in our virtual pitch event.</p>
+                            <p>They will share a 3-minute pitch about their story, Social Business idea, and business model to a panel of prestigious judges of entrepreneurs, investors, industry specialists etc., who will decide the competition winners. </p>
                         </div>
                     </div>
                 </div>
