@@ -23,7 +23,7 @@ const SfdcHeader = () => {
                     <div className="sfdc-header-body mb-5">
                         <div className="mt-5">
                             <h3>
-                                Imagine a world in 2050.
+                                life of a young person <br/> in the world of 2050.
                             </h3>
                         </div>
                         <div className="mt-3">
