@@ -35,7 +35,7 @@ const SfdcHeader = () => {
                                  is an exciting global competition looking for
                                 students and young people to re-imagine and
                                 create for themselves a world without social
-                                problems. We challenge you to imagine a world in 2050. What kind of world do you want to live in? If you imagine it, you can make it happen. Take real social challenges and share your
+                                problems. We challenge you to imagine the life of a young person in the world of 2050. What kind of world do you want to live in? If you imagine it, you can make it happen. Take real social challenges and share your
                                 fictional solutions. Get creative and express
                                 yourself by writing, illustration, rhetoric,
                                 cinematography, animation, or poster
