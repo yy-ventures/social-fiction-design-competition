@@ -31,7 +31,7 @@ const SbdcTrack = () => {
                         <h4>Pitch</h4>
                         <div className="mt-4">
                             <p className="bold">Top 20 shortlisted participants from around the globe will come together in our virtual pitch event.</p>
-                            <p>They will share a 3-minute pitch about their story, Social Business idea, and business model to a panel of prestigious judges of entrepreneurs, investors, industry specialists etc., who will decide the competition winners. </p>
+                            <p>They will share a 3-minute pitch about their story, Social Business idea, and business model to a panel of prestigious judges of entrepreneurs, investors, industry specialists etc., who will decide the competition winner. </p>
                         </div>
                     </div>
                 </div>
