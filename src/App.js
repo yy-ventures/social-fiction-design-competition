@@ -10,32 +10,35 @@ import Home from "./Components/Home/Home";
 import InfoBar from "./Components/Home/InfoBar";
 import LogoBar from "./Components/Home/LogoBar";
 import HomePartnersForm from "./Components/Home/HomePartnersForm";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
     return (
         <div className="App">
             <Router>
                 <Navigation />
-                <Switch>
-                    <Route exact path="/sbdc">
-                        <SbdcRoute />
-                    </Route>
-                    <Route exact path="/sfdc">
-                        <SfdcRoute />
-                    </Route>
-                    <Route exact path="/sbdc-registration">
-                        <SbdcRegistration />
-                    </Route>
-                    <Route exact path="/sfdc-registration">
-                        <SFDCRegistration />
-                    </Route>
-                    <Route exact path="/">
-                        <Home />
-                        <InfoBar />
-                        <LogoBar />
-                        <HomePartnersForm />
-                    </Route>
-                </Switch>
+                <ScrollToTop>
+                    <Switch>
+                        <Route exact path="/sbdc">
+                            <SbdcRoute />
+                        </Route>
+                        <Route exact path="/sfdc">
+                            <SfdcRoute />
+                        </Route>
+                        <Route exact path="/sbdc-registration">
+                            <SbdcRegistration />
+                        </Route>
+                        <Route exact path="/sfdc-registration">
+                            <SFDCRegistration />
+                        </Route>
+                        <Route exact path="/">
+                            <Home />
+                            <InfoBar />
+                            <LogoBar />
+                            <HomePartnersForm />
+                        </Route>
+                    </Switch>
+                </ScrollToTop>
                 <Footer />
             </Router>
         </div>

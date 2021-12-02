@@ -52,6 +52,7 @@ const SbdcForm = () => {
                                     <input
                                         type="text"
                                         placeholder="Your Name"
+                                        required
                                         {...register("PartnerName")}
                                     />
                                 </div>
@@ -59,6 +60,7 @@ const SbdcForm = () => {
                                     <input
                                         type="text"
                                         placeholder="Name of Your Organization"
+                                        required
                                         {...register("PartnerOrganization")}
                                     />
                                 </div>
@@ -66,12 +68,14 @@ const SbdcForm = () => {
                                     <input
                                         type="email"
                                         placeholder="Your Email"
+                                        required
                                         {...register("PartnerEmail")}
                                     />
                                 </div>
                                 <div>
                                     <textarea
                                         placeholder="Your Message"
+                                        required
                                         {...register("PartnerMessage")}
                                     ></textarea>
                                 </div>

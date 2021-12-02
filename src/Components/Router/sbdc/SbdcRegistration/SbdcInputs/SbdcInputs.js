@@ -235,6 +235,7 @@ const SbdcInputs = () => {
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxOne}
                                         defaultChecked={false}
+                                        required
                                     />
                                     <label
                                         class="form-check-label"
@@ -252,6 +253,7 @@ const SbdcInputs = () => {
                                         value="individual"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxTwo}
+                                        required
                                     />
                                     <label
                                         class="form-check-label"
@@ -278,6 +280,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Name"
+                                                required
                                                 {...register(
                                                     "CoFounderOneName"
                                                 )}
@@ -287,13 +290,14 @@ const SbdcInputs = () => {
                                             <input
                                                 type="date"
                                                 placeholder="Date"
+                                                required
                                                 {...register(
                                                     "CoFonderOneBirthDate"
                                                 )}
                                             ></input>
                                         </div>
                                         <div>
-                                            <select
+                                            <select required
                                                 {...register(
                                                     "CoFounderOneGender"
                                                 )}
@@ -313,6 +317,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="email"
                                                 placeholder="Email"
+                                                required
                                                 {...register(
                                                     "CoFounderOneEmail"
                                                 )}
@@ -322,6 +327,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="number"
                                                 placeholder="Number"
+                                                required
                                                 {...register(
                                                     "CoFounderOneNumber"
                                                 )}
@@ -342,6 +348,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Name"
+                                                required
                                                 {...register(
                                                     "CoFounderTwoName"
                                                 )}
@@ -351,13 +358,14 @@ const SbdcInputs = () => {
                                             <input
                                                 type="date"
                                                 placeholder="Date"
+                                                required
                                                 {...register(
                                                     "CoFonderTwoBirthDate"
                                                 )}
                                             ></input>
                                         </div>
                                         <div>
-                                            <select
+                                            <select required
                                                 {...register(
                                                     "CoFounderTwoGender"
                                                 )}
@@ -377,6 +385,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="email"
                                                 placeholder="Email"
+                                                required
                                                 {...register(
                                                     "CoFounderTwoEmail"
                                                 )}
@@ -386,6 +395,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="number"
                                                 placeholder="Number"
+                                                required
                                                 {...register(
                                                     "CoFounderTwoNumber"
                                                 )}
@@ -401,7 +411,7 @@ const SbdcInputs = () => {
                                 <h5>What is your Area of Focus?</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select
+                                <select required
                                     {...register("AreaOfFocus")}
                                     className="form-select"
                                 >
@@ -451,7 +461,7 @@ const SbdcInputs = () => {
                                     Please tell us in 100 words.
                                 </span>
                             </h5>
-                            <textarea
+                            <textarea required
                                 {...register("ReducingCarbonEmission")}
                             ></textarea>
                         </div>
@@ -460,7 +470,7 @@ const SbdcInputs = () => {
                                 What innovation is your Social Business bringing
                                 to your market?
                             </h5>
-                            <textarea
+                            <textarea required
                                 {...register("BringingToYourMarket")}
                             ></textarea>
                         </div>
@@ -474,7 +484,7 @@ const SbdcInputs = () => {
                                     Write in 150 words.
                                 </span>
                             </h5>
-                            <textarea
+                            <textarea required
                                 {...register("EnterpriseInnovation")}
                             ></textarea>
                         </div>
@@ -483,7 +493,7 @@ const SbdcInputs = () => {
                                 <h5>At what stage is your venture?</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select
+                                <select required
                                     {...register("StageOfVentures")}
                                     className="form-select"
                                 >
@@ -569,7 +579,7 @@ const SbdcInputs = () => {
                                 How does your Social Business plan to make
                                 money?
                             </h5>
-                            <input {...register("MakeMoney")}></input>
+                            <input required {...register("MakeMoney")}></input>
                         </div>
                         <div className="mt-5 link-input">
                             <h5>

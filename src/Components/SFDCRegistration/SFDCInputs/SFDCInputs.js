@@ -46,20 +46,19 @@ const SFDCInputs = () => {
             console.error(error)
         })
     };
-    const imagine_a_world = "Imagine a world in 2050. ";
     const formatString = {
         rhetoric:
-            "Imagine a world in 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
+            "Imagine the life of a young person in the world of 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
         animation:
-            "Imagine a world in 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
+            "Imagine the life of a young person in the world of 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
         poster_presentation:
-            "Imagine a world in 2050. 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
+            "Imagine the life of a young person in the world of 2050. 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
         writing:
-            "Imagine a world in 2050. In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+            "Imagine the life of a young person in the world of 2050. In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
         illustration:
-            "Imagine a world in 2050. Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+            "Imagine the life of a young person in the world of 2050. Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
         cinematography:
-            "Imagine a world in 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
+            "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
     };
     const handleChange = (e) => {
         setfileFormat(e.target.value);
@@ -426,7 +425,7 @@ const SFDCInputs = () => {
                                 <h5>What social problem are you addressing?</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select
+                                <select required
                                     {...register("AreaOfFocus")}
                                     className="form-select"
                                 >
@@ -488,7 +487,7 @@ const SFDCInputs = () => {
                         <div className="row mt-5">
                             <div className="col-lg-12">
                                 <h5>What makes your solution unique? </h5>
-                                <textarea
+                                <textarea required
                                     {...register("WhatMakesItUnique")}
                                 ></textarea>
                             </div>
@@ -500,7 +499,7 @@ const SFDCInputs = () => {
                                     bring to the environment, economy or
                                     communities?
                                 </h5>
-                                <textarea
+                                <textarea required
                                     {...register("SolutionImpact")}
                                 ></textarea>
                             </div>
@@ -513,7 +512,7 @@ const SFDCInputs = () => {
                                 </h5>
                             </div>
                             <div className="col-lg-4">
-                                <select
+                                <select required
                                     {...register("CreativeCategory")}
                                     className="form-select"
                                     onChange={handleChange}
@@ -535,7 +534,7 @@ const SFDCInputs = () => {
                                 </select>
                             </div>
                         </div>
-                        <p>{imagine_a_world+formatString[fileFormat]}</p>
+                        <p>{formatString[fileFormat]}</p>
                         <div className="mt-5 file-upload">
                             <div className="row">
                                 <div className="col-lg-5">
