@@ -3,11 +3,20 @@ import { useForm } from "react-hook-form";
 import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
+
+    const [areaOfFocusChange, setAreaOfFocusChange] = useState("")
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+    
+    const handleAreaOfFocus = e => {
+        e.preventDefault()
+        let areaOfFocusValue = e.target.value
+        setAreaOfFocusChange(areaOfFocusValue)
+    }
 
     const onSubmit = data => {
 
@@ -101,17 +110,21 @@ const SbdcInputs = () => {
         fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create",requestOptions)
         .then(response => response.json())
         .then(data => {
-            if(data) { alert("Thanks For Your Application")}
+            if(data) { 
+                alert("Thanks For Your Application")
+            }
         })
         .catch(error => {
             console.error(error)
         })
+        
     };
     const [isCheckedOne, setIsCheckedOne] = useState(false);
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
     // const [setIsUnderLaw] = useState(false);
     const [additionalLink, setAdditionalLink] = useState(0);
     const [additionalLinkArray, setArray] = useState([]);
+    
     const addMoreLinks = (e) => {
         e.preventDefault();
         console.log(additionalLinkArray);
@@ -414,6 +427,7 @@ const SbdcInputs = () => {
                                 <select required
                                     {...register("AreaOfFocus")}
                                     className="form-select"
+                                    onChange={handleAreaOfFocus}
                                 >
                                     <option selected defaultValue="agriculture">
                                         Agriculture
@@ -444,12 +458,15 @@ const SbdcInputs = () => {
                                 </select>
                             </div>
                             <div className="col-lg-4">
-                                <label>If others, please specify:</label>
-                                <input
-                                    type="text"
-                                    placeholder=""
-                                    {...register("OtherAreaOfFocus")}
-                                />
+                                {areaOfFocusChange === "Others" ? <div>
+                                    <label>If others, please specify:</label>
+                                    <input
+                                        type="text"
+                                        placeholder=""
+                                        required
+                                        {...register("OtherAreaOfFocus")}
+                                    />
+                                </div> : ""}
                             </div>
                         </div>
                         <div className="mt-5">
@@ -478,7 +495,7 @@ const SbdcInputs = () => {
                             <h5>
                                 We respect and welcome both product and process
                                 innovation offered by enterprises <br /> and we
-                                would love to know more about your enterprise’s
+                                would love to know more about your enterprise's
                                 innovation.{" "}
                                 <span className="bold">
                                     Write in 150 words.

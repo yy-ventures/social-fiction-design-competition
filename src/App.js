@@ -16,29 +16,28 @@ function App() {
     return (
         <div className="App">
             <Router>
+                <ScrollToTop/>
                 <Navigation />
-                <ScrollToTop>
-                    <Switch>
-                        <Route exact path="/sbdc">
-                            <SbdcRoute />
-                        </Route>
-                        <Route exact path="/sfdc">
-                            <SfdcRoute />
-                        </Route>
-                        <Route exact path="/sbdc-registration">
-                            <SbdcRegistration />
-                        </Route>
-                        <Route exact path="/sfdc-registration">
-                            <SFDCRegistration />
-                        </Route>
-                        <Route exact path="/">
-                            <Home />
-                            <InfoBar />
-                            <LogoBar />
-                            <HomePartnersForm />
-                        </Route>
-                    </Switch>
-                </ScrollToTop>
+                <Switch>
+                    <Route exact path="/sbdc">
+                        <SbdcRoute />
+                    </Route>
+                    <Route exact path="/sfdc">
+                        <SfdcRoute />
+                    </Route>
+                    <Route exact path="/sbdc-registration">
+                        <SbdcRegistration />
+                    </Route>
+                    <Route exact path="/sfdc-registration">
+                        <SFDCRegistration />
+                    </Route>
+                    <Route exact path="/">
+                        <Home />
+                        <InfoBar />
+                        <LogoBar />
+                        <HomePartnersForm />
+                    </Route>
+                </Switch>
                 <Footer />
             </Router>
         </div>
