@@ -39,8 +39,7 @@ const SbdcForm = () => {
                         <div className="sbdc-form-header text-center p-4">
                             <h2>become a partner</h2>
                             <p>
-                                Please fill in the form below to start your
-                                journey with us!
+                                If you are willing to invest, sponsor or collaborate, please fill in the form below to start your journey with us!
                             </p>
                         </div>
                         <div className="sbdc-form-body">
