@@ -19,7 +19,7 @@ export default function Home() {
                 <p className="home-header-description">
                     Yunus Centre, in collaboration with YY Ventures, Yunus and
                     You- The YY Foundation and the Catholic University of Zimbabwe,
-                    is launching the
+                    is hosting the
                     <a href="/"> Social Business Design Competition</a> and
                     <a href="/"> Social Fiction Design Competition</a> to
                     nurture social innovation and entrepreneurship among the next
