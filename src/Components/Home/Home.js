@@ -18,11 +18,11 @@ export default function Home() {
                 </div>
                 <p className="home-header-description">
                     Yunus Centre, in collaboration with YY Ventures, Yunus and
-                    You- The YY Foundation and Catholic University of Zimbabwe,
-                    is launching the
+                    You- The YY Foundation and the Catholic University of Zimbabwe,
+                    is hosting the
                     <a href="/"> Social Business Design Competition</a> and
                     <a href="/"> Social Fiction Design Competition</a> to
-                    nurture social innovation and entrepreneurship among next
+                    nurture social innovation and entrepreneurship among the next
                     generation of young talent. Our mission is to create a world
                     of three zeros - zero net carbon emission, zero wealth
                     concentration for ending poverty, and zero unemployment by
@@ -57,7 +57,7 @@ export default function Home() {
                 <div className="flex-container">
                     <h4 className="sbdc-home-description">
                         Unleash your entrepreneurial potential to create a world
-                        of three zeros by designing sustainable social business
+                        of three zeros by designing sustainable Social Business
                         models that combat real challenges.
                     </h4>
                     <div className="button-container">

@@ -44,8 +44,7 @@ const HomePartnersForm = () => {
                         <div className="home-partners-form-header text-center p-4">
                             <h2>become a partner</h2>
                             <p>
-                                Please fill in the form below to start your
-                                journey with us!
+                                If you are willing to invest, sponsor or collaborate, please fill in the form below to start your journey with us!
                             </p>
                         </div>
                         <div className="home-partners-form-body">
@@ -57,6 +56,7 @@ const HomePartnersForm = () => {
                                     <input
                                         type="text"
                                         placeholder="Your Name"
+                                        required
                                         {...register("PartnerName")}
                                     />
                                 </div>
@@ -64,6 +64,7 @@ const HomePartnersForm = () => {
                                     <input
                                         type="text"
                                         placeholder="Name of Your Organization"
+                                        required
                                         {...register("PartnerOrganization")}
                                     />
                                 </div>
@@ -71,12 +72,14 @@ const HomePartnersForm = () => {
                                     <input
                                         type="email"
                                         placeholder="Your Email"
+                                        required
                                         {...register("PartnerEmail")}
                                     />
                                 </div>
                                 <div>
                                     <textarea
                                         placeholder="Your Message"
+                                        required
                                         {...register("PartnerMessage")}
                                     ></textarea>
                                 </div>

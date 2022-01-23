@@ -24,6 +24,22 @@
         font-size: 3.5vmin;
         font-weight: 400;
     }
+    .sfdc-coin{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        img{
+            width: 100%;
+        }
+    }
+    .sfdc-art{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        img{
+            width: auto;
+        }
+    }
 }
 
 @media screen and (min-height:1441) {
@@ -34,6 +50,28 @@
 
 @media screen and (max-width: 500px) {
     .sfdc-awards{
-        
+        .sfdc-coin{
+            display: none;
+        }
+        h2{
+            font-size: 2rem;
+        }
+        h3{
+            font-size: 1.1rem;
+        }
+        h4{
+            font-size: 1.1rem;
+        }
+        h5{
+            font-size: 1.1rem;
+        }
+        h6{
+            font-size: 1.1rem;
+        }
+        .sfdc-art{
+            img{
+                height: 200px;
+            }
+        }
     }
 }

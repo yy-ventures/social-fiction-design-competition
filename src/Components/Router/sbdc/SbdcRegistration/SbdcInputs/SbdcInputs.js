@@ -3,11 +3,20 @@ import { useForm } from "react-hook-form";
 import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
+
+    const [areaOfFocusChange, setAreaOfFocusChange] = useState("")
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+    
+    const handleAreaOfFocus = e => {
+        e.preventDefault()
+        let areaOfFocusValue = e.target.value
+        setAreaOfFocusChange(areaOfFocusValue)
+    }
 
     const onSubmit = data => {
 
@@ -101,17 +110,21 @@ const SbdcInputs = () => {
         fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create",requestOptions)
         .then(response => response.json())
         .then(data => {
-            if(data) { alert("Thanks For Your Application")}
+            if(data) { 
+                alert("Thanks For Your Application")
+            }
         })
         .catch(error => {
             console.error(error)
         })
+        
     };
     const [isCheckedOne, setIsCheckedOne] = useState(false);
     const [isCheckedTwo, setIsCheckedTwo] = useState(false);
     // const [setIsUnderLaw] = useState(false);
     const [additionalLink, setAdditionalLink] = useState(0);
     const [additionalLinkArray, setArray] = useState([]);
+    
     const addMoreLinks = (e) => {
         e.preventDefault();
         console.log(additionalLinkArray);
@@ -235,6 +248,7 @@ const SbdcInputs = () => {
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxOne}
                                         defaultChecked={false}
+                                        required
                                     />
                                     <label
                                         class="form-check-label"
@@ -252,6 +266,7 @@ const SbdcInputs = () => {
                                         value="individual"
                                         id="flexCheckDefault"
                                         onChange={handleCheckBoxTwo}
+                                        required
                                     />
                                     <label
                                         class="form-check-label"
@@ -278,6 +293,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Name"
+                                                required
                                                 {...register(
                                                     "CoFounderOneName"
                                                 )}
@@ -287,13 +303,14 @@ const SbdcInputs = () => {
                                             <input
                                                 type="date"
                                                 placeholder="Date"
+                                                required
                                                 {...register(
                                                     "CoFonderOneBirthDate"
                                                 )}
                                             ></input>
                                         </div>
                                         <div>
-                                            <select
+                                            <select required
                                                 {...register(
                                                     "CoFounderOneGender"
                                                 )}
@@ -313,6 +330,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="email"
                                                 placeholder="Email"
+                                                required
                                                 {...register(
                                                     "CoFounderOneEmail"
                                                 )}
@@ -322,6 +340,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="number"
                                                 placeholder="Number"
+                                                required
                                                 {...register(
                                                     "CoFounderOneNumber"
                                                 )}
@@ -342,6 +361,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Name"
+                                                required
                                                 {...register(
                                                     "CoFounderTwoName"
                                                 )}
@@ -351,13 +371,14 @@ const SbdcInputs = () => {
                                             <input
                                                 type="date"
                                                 placeholder="Date"
+                                                required
                                                 {...register(
                                                     "CoFonderTwoBirthDate"
                                                 )}
                                             ></input>
                                         </div>
                                         <div>
-                                            <select
+                                            <select required
                                                 {...register(
                                                     "CoFounderTwoGender"
                                                 )}
@@ -377,6 +398,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="email"
                                                 placeholder="Email"
+                                                required
                                                 {...register(
                                                     "CoFounderTwoEmail"
                                                 )}
@@ -386,6 +408,7 @@ const SbdcInputs = () => {
                                             <input
                                                 type="number"
                                                 placeholder="Number"
+                                                required
                                                 {...register(
                                                     "CoFounderTwoNumber"
                                                 )}
@@ -401,9 +424,10 @@ const SbdcInputs = () => {
                                 <h5>What is your Area of Focus?</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select
+                                <select required
                                     {...register("AreaOfFocus")}
                                     className="form-select"
+                                    onChange={handleAreaOfFocus}
                                 >
                                     <option selected defaultValue="agriculture">
                                         Agriculture
@@ -434,12 +458,15 @@ const SbdcInputs = () => {
                                 </select>
                             </div>
                             <div className="col-lg-4">
-                                <label>If others, please specify:</label>
-                                <input
-                                    type="text"
-                                    placeholder=""
-                                    {...register("OtherAreaOfFocus")}
-                                />
+                                {areaOfFocusChange === "Others" ? <div>
+                                    <label>If others, please specify:</label>
+                                    <input
+                                        type="text"
+                                        placeholder=""
+                                        required
+                                        {...register("OtherAreaOfFocus")}
+                                    />
+                                </div> : ""}
                             </div>
                         </div>
                         <div className="mt-5">
@@ -451,7 +478,7 @@ const SbdcInputs = () => {
                                     Please tell us in 100 words.
                                 </span>
                             </h5>
-                            <textarea
+                            <textarea required
                                 {...register("ReducingCarbonEmission")}
                             ></textarea>
                         </div>
@@ -460,7 +487,7 @@ const SbdcInputs = () => {
                                 What innovation is your Social Business bringing
                                 to your market?
                             </h5>
-                            <textarea
+                            <textarea required
                                 {...register("BringingToYourMarket")}
                             ></textarea>
                         </div>
@@ -468,13 +495,13 @@ const SbdcInputs = () => {
                             <h5>
                                 We respect and welcome both product and process
                                 innovation offered by enterprises <br /> and we
-                                would love to know more about your enterprise’s
+                                would love to know more about your enterprise's
                                 innovation.{" "}
                                 <span className="bold">
                                     Write in 150 words.
                                 </span>
                             </h5>
-                            <textarea
+                            <textarea required
                                 {...register("EnterpriseInnovation")}
                             ></textarea>
                         </div>
@@ -483,7 +510,7 @@ const SbdcInputs = () => {
                                 <h5>At what stage is your venture?</h5>
                             </div>
                             <div className="col-lg-4">
-                                <select
+                                <select required
                                     {...register("StageOfVentures")}
                                     className="form-select"
                                 >
@@ -569,7 +596,7 @@ const SbdcInputs = () => {
                                 How does your Social Business plan to make
                                 money?
                             </h5>
-                            <input {...register("MakeMoney")}></input>
+                            <input required {...register("MakeMoney")}></input>
                         </div>
                         <div className="mt-5 link-input">
                             <h5>
