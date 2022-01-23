@@ -1,7 +1,7 @@
 import React from 'react';
 import "./SfdcTimeline.scss"
-import sfdcTimelineLogo from "../../../../assets/sfdc_timeline.svg";
-import sfdcTimelineLogoMobile from "../../../../assets/sfdc_timeline_mobile.svg";
+import sfdcTimelineLogo from "../../../../assets/sfdc_timeline.png";
+import sfdcTimelineLogoMobile from "../../../../assets/sfdc_timeline_mobile.png";
 
 const SfdcTimeline = () => {
     return (
