@@ -13,8 +13,8 @@ const SfdcRoute = () => {
             <SfdcHeader/>
             <SfdcWhoCanApply/>
             <SfdcCategory/>
-            <SfdcTimeline/>
             <SfdcAwards/>
+            <SfdcTimeline/>
             <SfdcSubmitIdea/>
             <SfdcForm/>
         </div>

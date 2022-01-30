@@ -5,6 +5,7 @@ import sfdclogo from "../../assets/images/logos/sfdc2x.jpg";
 import randomlightbluedecoleft from "../../assets/images/fiction_el_2.png";
 import randomlightbluedecoright from "../../assets/images/fiction_el_1.png";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -34,6 +35,13 @@ export default function Home() {
                     empowering our youth as they move forward and change the
                     world with their innovative ideas.
                 </p>
+                <p className="home-header-description">
+                    Get a chance to be rewarded US $10,000 by submitting your idea to create the world you want to live in! 
+                </p>
+                <div className="apply-btn-container">
+                    <Link to="/sbdc-registration">Apply to Social Business Design Competition</Link>
+                    <Link to="/sfdc-registration">Apply to Social Fiction Design Competition</Link>
+                </div>
             </section>
             <section className="home-main-image">
                 <img src={headerimage} alt="header" />

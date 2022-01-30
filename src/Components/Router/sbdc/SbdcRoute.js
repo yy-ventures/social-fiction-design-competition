@@ -11,10 +11,10 @@ const SbdcRoute = () => {
     return (
         <div>
             <SbdcHeader/>
+            <SbdcReward/>
             <SbdcWhoCanApply/>
             <SbdcTrack/>
             <SbdcTimeline/>
-            <SbdcReward/>
             <SbdcSubmitIdea/>
             <SbdcForm/>
         </div>
