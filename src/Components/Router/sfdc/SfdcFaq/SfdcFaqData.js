@@ -2,27 +2,57 @@ export const faqData = [
   {
     id: 1,
     question:
-      "What is the age requirement to participate in the Social Business Design Competition?",
+      "What is the age requirement to participate in the Social Fiction Design Competition? ",
     type: "general",
     answer: [
       {
         content:
-          "The Social Business Design Competition is looking for applicants who are between the ages 12 to 35.",
+          "The Social Fiction Design Competition is open to applicants of all ages.",
       },
     ],
   },
   {
     id: 2,
-    question: "What focus areas can my business idea address?",
+    question: "What is Social Fiction?",
     type: "general",
     answer: [
       {
         content:
-          "The applicant’s business ideas should focus on topics that address any of the following focus areas: Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being. We also welcome topics beyond the mentioned focus areas. Please specify when filling up the online application form.",
+          "Social Fiction is a creative and imaginative idea expressed through forms of art. Social Fiction relates to creating ideas, thoughts or processes that affect the social context. If we start thinking about social fiction, like science fiction, we will trigger social innovation that will help us create the economy and the society we want to live in.",
       },
       {
         content:
-          "Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being.",
+          "The Social Fiction Design Competition is looking for innovative and thought-provoking social fiction that will open our minds to give fresh perspective on how we can operate in a transformative, sustainable and equitable world.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    question: "What is the theme of the Social Fiction Design Competition?",
+    type: "general",
+    answer: [
+      {
+        content:
+          "The theme of the Social Fiction Design Competition is: “Imagine the Life of a Young Person in the World of 2050.”",
+      },
+      {
+        content:
+          "Pick a focus area. Imagine and produce a fictional solution to solve a challenge or take advantage of an opportunity. Re-create a world to demonstrate the life of a young person in the world of 2050 where your fictional solutions will create a world we want to live in.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    question: "What focus areas can my Social Fiction address?",
+    type: "general",
+    answer: [
+      {
+        content:
+          "Your Social Fiction should pick a topic that addresses one of the focus areas:",
+      },
+      {
+        content:
+          "Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being, Transport, Literature and Music.",
       },
       {
         content:
@@ -30,61 +60,71 @@ export const faqData = [
       },
     ],
   },
-  {
-    id: 3,
-    question:
-      "How many team members should I have if I want to apply as a team to the Social Business Design Competition?",
-    type: "general",
-    answer: [
-      {
-        content:
-          "You could apply to the Social Business Design Competition as a team of 5 or less. But we require information of just two co-founders in the application form. You may also apply as an individual even after applying as a team, as long as the business ideas are different.",
-      },
-    ],
-  },
-  {
-    id: 4,
-    question: "What format should I use to upload my pitch deck?",
-    type: "general",
-    answer: [
-      {
-        content:
-          "You will upload your idea pitch in any of the following formats with your online application:",
-      },
-      {
-        content: "PPT - Pitch Deck (10 slides max)",
-      },
-      {
-        content: "PDF - Flyer (2 pages max)",
-      },
-      {
-        content: "DOC - 800 Words",
-      },
-      {
-        content: "MOV/MP4 - 3 mins (max)",
-      },
-    ],
-  },
-  {
-    id: 5,
-    question:
-      "Does my idea have to solve a problem or can it take proactive measures? ",
-    type: "general",
-    answer: [
-      {
-        content:
-          "Your Social Business idea can either solve a problem or fill in a gap in opportunity that addresses one of the focus areas:",
-      },
-      {
-        content:
-          "Environment and Climate Change, Micro-credit, Agriculture, Technology and Innovation, Waste, Circular Economy, Tourism, WASH, Employment, Sports, Health and Well-being etc.",
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   question: "What are the specific requirements to submit in each category?",
+  //   type: "general",
+  //   answer: [
+  //     {
+  //       content: "Writing:",
+  //     },
+  //     {
+  //       content: "Word Limit: 1000 words.",
+  //     },
+  //     {
+  //       content: "Format: .docx or .pdf",
+  //     },
+  //     {
+  //       content: "Rhetoric:",
+  //     },
+  //     {
+  //       content: "Time Limit: 5 minutes.",
+  //     },
+  //     {
+  //       content: "Format: .mp3, .mp4, or .avi",
+  //     },
+  //     {
+  //       content: "Illustration:",
+  //     },
+  //     {
+  //       content: "Page Limit: 2-page images.",
+  //     },
+  //     {
+  //       content: "Format: .jpeg, jpg and .png",
+  //     },
+  //     {
+  //       content: "Animation:",
+  //     },
+  //     {
+  //       content: "Time Limit: 5 minutes.",
+  //     },
+  //     {
+  //       content: "Format: .mp4 and .mov",
+  //     },
+  //     {
+  //       content: "Cinematography:",
+  //     },
+  //     {
+  //       content: "Time Limit: 5 minutes.",
+  //     },
+  //     {
+  //       content: "Format: .mp4 and .mov",
+  //     },
+  //     {
+  //       content: "Poster Presentation:",
+  //     },
+  //     {
+  //       content: "Image Limit: 4-page images.",
+  //     },
+  //     {
+  //       content: "Format: .pdf, .jpeg, .jpg and, .png",
+  //     },
+  //   ],
+  // },
   {
     id: 6,
     question:
-      "Can I apply to the Social Business Design Competition if I have already applied to the Social Fiction Design Competition? ",
+      "Can I apply to the Social Fiction Design Competition if I have already applied to the Social Business Design Competition?",
     type: "general",
     answer: [
       {
@@ -99,7 +139,7 @@ export const faqData = [
     answer: [
       {
         content:
-          "Yes, you can submit multiple business ideas to the Social Business Design Competition.",
+          "Yes, you can submit multiple creative ideas to the Social Fiction Design Competition.",
       },
     ],
   },
