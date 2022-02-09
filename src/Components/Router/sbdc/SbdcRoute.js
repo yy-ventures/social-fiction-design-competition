@@ -1,4 +1,5 @@
 import React from 'react';
+import SbdcFaq from './SbdcFaq/SbdcFaq';
 import SbdcForm from './SbdcForm/SbdcForm';
 import SbdcHeader from './SbdcHeader/SbdcHeader';
 import SbdcReward from './SbdcReward/SbdcReward';
@@ -16,6 +17,7 @@ const SbdcRoute = () => {
             <SbdcTimeline/>
             <SbdcReward/>
             <SbdcSubmitIdea/>
+            <SbdcFaq/>
             <SbdcForm/>
         </div>
     );
