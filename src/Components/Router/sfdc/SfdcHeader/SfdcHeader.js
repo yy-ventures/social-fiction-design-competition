@@ -23,25 +23,16 @@ const SfdcHeader = () => {
                     <div className="sfdc-header-body mb-5">
                         <div className="mt-5">
                             <h3>
-                                What is the Social Fiction <br /> Design
-                                Competition?
+                                life of a young person <br/> in the world of 2050.
                             </h3>
                         </div>
-                        <div>
+                        <div className="mt-3">
                             <p>
                                 The{" "}
                                 <span className="deep-blue">
                                     Social Fiction Design Competition
                                 </span>{" "}
-                                is an exciting global competition looking for
-                                students and young people to re-imagine and
-                                create for themselves a world without social
-                                problems. Imagine a world 50 years from now.
-                                Take real social challenges and share your
-                                fictional solutions. Get creative and express
-                                yourself by writing, illustration, rhetoric,
-                                cinematography, animation, or poster
-                                presentation.
+                                is an exciting global competition looking for students and young people to imagine the life of a young person in the world of 2050.  What kind of world do you want to live in Take real social challenges from the world around you and share your fictional solutions! If you imagine it, you can make it happen. Get creative and express yourself by writing, illustration, rhetoric, cinematography, animation or poster presentation.  
                             </p>
                         </div>
                         <div>
@@ -55,8 +46,7 @@ const SfdcHeader = () => {
                             </h2> */}
                             <YouTube
                                 videoId="L4kU97gXWj0"
-                                className="mt-5"
-                                className="video-container"
+                                className="mt-5 video-container"
                             />
                         </div>
                     </div>

@@ -64,38 +64,34 @@ body {
 }
 
 .sfdc-awards {
-  padding: 5% 5%;
-  background-image: url("../../../../assets/fiction_art_3.png");
-  background-size: cover;
-  background-position: center;
+  padding: 10% 5%;
+  color: #373737;
 }
 
-.sfdc-awards .sfdc-award-content h2 {
-  font-weight: 900;
+.sfdc-awards h2 {
   color: #f16145;
-  font-size: 2.8rem;
+  font-weight: 900;
+  font-size: 6vmin;
   text-transform: capitalize;
 }
 
-.sfdc-awards .sfdc-award-content .sfdc-timeline-logo {
-  width: 100%;
+.sfdc-awards h3 {
+  text-transform: capitalize;
+  font-weight: 900;
+  font-size: 4.5vmin;
 }
 
-.sfdc-awards .sfdc-award-content .sfdc-timeline-logo-mobile {
-  display: none;
-  width: 100%;
+.sfdc-awards h4 {
+  font-size: 3.5vmin;
 }
 
-@media screen and (max-width: 500px) {
-  .sfdc-awards .sfdc-award-content h2 {
-    font-size: 2rem;
-  }
-  .sfdc-awards .sfdc-award-content .sfdc-timeline-logo {
-    display: none;
-  }
-  .sfdc-awards .sfdc-award-content .sfdc-timeline-logo-mobile {
-    display: block;
-    margin-top: 5%;
-  }
+.sfdc-awards h5 {
+  font-weight: bold;
+  font-size: 3.5vmin;
+}
+
+.sfdc-awards h6 {
+  font-size: 3.5vmin;
+  font-weight: 400;
 }
 /*# sourceMappingURL=SfdcAwards.css.map */

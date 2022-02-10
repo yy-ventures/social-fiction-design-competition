@@ -3,11 +3,19 @@ import { useForm } from "react-hook-form";
 import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
+  const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const handleAreaOfFocus = (e) => {
+    e.preventDefault();
+    let areaOfFocusValue = e.target.value;
+    setAreaOfFocusChange(areaOfFocusValue);
+  };
 
   const onSubmit = (data) => {
     let headers = new Headers();
@@ -68,7 +76,7 @@ const SbdcInputs = () => {
     formdata.append("way_of_more_to_learn_four", data.OptionalLink1);
 
     // formdata.append("Second_Link", data.SecondLink);
-    if (data.FounderType == "team") {
+    if (data.FounderType === "team") {
       formdata.append("co_founder_name_one", data.CoFounderOneName);
       formdata.append("co_founder_dob_one", data.CoFonderOneBirthDate);
       formdata.append("co_founder_gender_one", data.CoFounderTwoGender);
@@ -83,9 +91,6 @@ const SbdcInputs = () => {
     formdata.append("co_founder_mobile_two", data.CoFounderTwoNumber);
 
     formdata.append("pitch_deck", imagedata);
-    console.log(data);
-
-    console.log(formdata);
 
     let requestOptions = {
       method: "POST",
@@ -107,9 +112,10 @@ const SbdcInputs = () => {
   };
   const [isCheckedOne, setIsCheckedOne] = useState(false);
   const [isCheckedTwo, setIsCheckedTwo] = useState(false);
-  const [isUnderLaw, setIsUnderLaw] = useState(false);
+  // const [setIsUnderLaw] = useState(false);
   const [additionalLink, setAdditionalLink] = useState(0);
   const [additionalLinkArray, setArray] = useState([]);
+
   const addMoreLinks = (e) => {
     e.preventDefault();
     console.log(additionalLinkArray);
@@ -151,12 +157,6 @@ const SbdcInputs = () => {
   const handleCheckBoxTwo = (e) => {
     setIsCheckedTwo(true);
     setIsCheckedOne(false);
-  };
-  const handleUnderLawYes = (e) => {
-    setIsUnderLaw(true);
-  };
-  const handleUnderLawNo = (e) => {
-    setIsUnderLaw(false);
   };
   return (
     <div className="sbdc-registration-input">
@@ -229,6 +229,7 @@ const SbdcInputs = () => {
                     id="flexCheckDefault"
                     onChange={handleCheckBoxOne}
                     defaultChecked={false}
+                    required
                   />
                   <label class="form-check-label" htmlFor="flexCheckDefault">
                     Team
@@ -242,10 +243,10 @@ const SbdcInputs = () => {
                     class="form-check-input"
                     type="radio"
                     {...register("FounderType")}
-                    name="FounderType"
                     value="individual"
                     id="flexCheckDefault"
                     onChange={handleCheckBoxTwo}
+                    required
                   />
                   <label class="form-check-label" htmlFor="flexCheckDefault">
                     Individual
@@ -266,6 +267,7 @@ const SbdcInputs = () => {
                       <input
                         type="text"
                         placeholder="Name"
+                        required
                         {...register("CoFounderOneName")}
                       ></input>
                     </div>
@@ -273,11 +275,12 @@ const SbdcInputs = () => {
                       <input
                         type="date"
                         placeholder="Date"
+                        required
                         {...register("CoFonderOneBirthDate")}
                       ></input>
                     </div>
                     <div>
-                      <select {...register("CoFounderOneGender")}>
+                      <select required {...register("CoFounderOneGender")}>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="other">Other</option>
@@ -287,6 +290,7 @@ const SbdcInputs = () => {
                       <input
                         type="email"
                         placeholder="Email"
+                        required
                         {...register("CoFounderOneEmail")}
                       ></input>
                     </div>
@@ -294,6 +298,7 @@ const SbdcInputs = () => {
                       <input
                         type="number"
                         placeholder="Number"
+                        required
                         {...register("CoFounderOneNumber")}
                       ></input>
                     </div>
@@ -308,6 +313,7 @@ const SbdcInputs = () => {
                       <input
                         type="text"
                         placeholder="Name"
+                        required
                         {...register("CoFounderTwoName")}
                       ></input>
                     </div>
@@ -315,11 +321,12 @@ const SbdcInputs = () => {
                       <input
                         type="date"
                         placeholder="Date"
+                        required
                         {...register("CoFonderTwoBirthDate")}
                       ></input>
                     </div>
                     <div>
-                      <select {...register("CoFounderTwoGender")}>
+                      <select required {...register("CoFounderTwoGender")}>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="other">Other</option>
@@ -329,6 +336,7 @@ const SbdcInputs = () => {
                       <input
                         type="email"
                         placeholder="Email"
+                        required
                         {...register("CoFounderTwoEmail")}
                       ></input>
                     </div>
@@ -336,6 +344,7 @@ const SbdcInputs = () => {
                       <input
                         type="number"
                         placeholder="Number"
+                        required
                         {...register("CoFounderTwoNumber")}
                       ></input>
                     </div>
@@ -349,7 +358,12 @@ const SbdcInputs = () => {
                 <h5>What is your Area of Focus?</h5>
               </div>
               <div className="col-lg-4">
-                <select {...register("AreaOfFocus")} className="form-select">
+                <select
+                  required
+                  {...register("AreaOfFocus")}
+                  className="form-select"
+                  onChange={handleAreaOfFocus}
+                >
                   <option selected defaultValue="agriculture">
                     Agriculture
                   </option>
@@ -375,12 +389,19 @@ const SbdcInputs = () => {
                 </select>
               </div>
               <div className="col-lg-4">
-                <label>If others, please specify:</label>
-                <input
-                  type="text"
-                  placeholder=""
-                  {...register("OtherAreaOfFocus")}
-                />
+                {areaOfFocusChange === "Others" ? (
+                  <div>
+                    <label>If others, please specify:</label>
+                    <input
+                      type="text"
+                      placeholder=""
+                      required
+                      {...register("OtherAreaOfFocus")}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <div className="mt-5 col-lg-6">
@@ -667,22 +688,31 @@ const SbdcInputs = () => {
                 jobs or fighting poverty?{" "}
                 <span className="bold"> Please tell us in 100 words.</span>
               </h5>
-              <textarea {...register("ReducingCarbonEmission")}></textarea>
+              <textarea
+                required
+                {...register("ReducingCarbonEmission")}
+              ></textarea>
             </div>
             <div className="mt-5">
               <h5>
                 What innovation is your Social Business bringing to your market?
               </h5>
-              <textarea {...register("BringingToYourMarket")}></textarea>
+              <textarea
+                required
+                {...register("BringingToYourMarket")}
+              ></textarea>
             </div>
             <div className="mt-5">
               <h5>
                 We respect and welcome both product and process innovation
                 offered by enterprises <br /> and we would love to know more
-                about your enterprise’s innovation.{" "}
+                about your enterprise's innovation.{" "}
                 <span className="bold">Write in 150 words.</span>
               </h5>
-              <textarea {...register("EnterpriseInnovation")}></textarea>
+              <textarea
+                required
+                {...register("EnterpriseInnovation")}
+              ></textarea>
             </div>
             <div className="row mt-5">
               <div className="col-lg-4">
@@ -690,6 +720,7 @@ const SbdcInputs = () => {
               </div>
               <div className="col-lg-4">
                 <select
+                  required
                   {...register("StageOfVentures")}
                   className="form-select"
                 >
@@ -755,18 +786,20 @@ const SbdcInputs = () => {
                             </div>
                         )} */}
             <div className="mt-5">
-              <p>
-                **Our program has primarily been designed for the needs of
-                Social Businesses; however, non-profits, <br /> for-profits,
-                co-operatives, and community contribution businesses are all
-                eligible as long as they serve <br /> a crucial social or
-                environmental cause and are willing to incorporate a Social
-                Business model moving forward.
-              </p>
+              {/* <p>
+                                **Our program has primarily been designed for
+                                the needs of Social Businesses; however,
+                                non-profits, <br /> for-profits, co-operatives,
+                                and community contribution businesses are all
+                                eligible as long as they serve <br /> a crucial
+                                social or environmental cause and are willing to
+                                incorporate a Social Business model moving
+                                forward.
+                            </p> */}
             </div>
             <div className="mt-5 registration-law-curve">
               <h5>How does your Social Business plan to make money?</h5>
-              <input {...register("MakeMoney")}></input>
+              <input required {...register("MakeMoney")}></input>
             </div>
             <div className="mt-5 link-input">
               <h5>
@@ -815,6 +848,8 @@ const SbdcInputs = () => {
                     type="file"
                     id="formFile"
                     {...register("UploadedFile")}
+                    required
+                    accept="application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation, video/mp4,video/x-m4v, video/quicktime"
                   />
                 </div>
                 <div className="col-lg-3">

@@ -83,7 +83,7 @@ body {
   width: 100%;
   height: 50%;
   left: 0;
-  bottom: 0;
+  top: 0;
   background-color: #E1FCFF;
   z-index: 1;
 }
@@ -116,7 +116,7 @@ body {
 
 .sbdc-timeline .sbdc-timeline-logo {
   z-index: 2;
-  margin-top: -2%;
+  margin-top: -3.5%;
   width: 100%;
 }
 

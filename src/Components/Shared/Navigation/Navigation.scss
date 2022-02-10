@@ -1,9 +1,17 @@
 @import "../../../global";
 
+
+.navigation-move-above {
+    transform: translateY(-100%);
+}
 .navigation {
     padding: 1em 0;
     background-image: linear-gradient(to right, $primaryColor, #356aa0);
     border-bottom: 8px solid $form;
+    position: sticky;
+    top:0;
+    z-index: 1000000;
+    transition: transform 400ms cubic-bezier(0.47, 0, 0.745, 0.715) 100ms;
     .navigation-container {
         max-width: 85%;
         margin: 0 auto;
