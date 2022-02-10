@@ -141,7 +141,7 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Your Country</h5>
+                <h5>Country</h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afganistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
