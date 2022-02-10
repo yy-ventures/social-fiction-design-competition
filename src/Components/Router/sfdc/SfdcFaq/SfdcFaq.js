@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SfdcFaq.css";
-import { faqData } from "./SfdcFaqData";
 
 const SfdcFaq = () => {
   // State value to show or collapse the FAQ answers
   const [show, setShow] = useState(null);
+  // State variable to store the faq data coming from the backend api
+  const [faqData, setFaqData] = useState([]);
   // Toggle FAQ answers
   const toggle = (index) => {
     if (show === index) {
@@ -14,24 +15,39 @@ const SfdcFaq = () => {
     }
   };
 
+  useEffect(() => {
+    // fetch options
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    // fetch backend api data for faq section
+    fetch("https://stage-sbdc-sfdc.3zeros.club/api/get-faq?type=sfdc", options)
+      .then((response) => response.json())
+      .then((data) => setFaqData(data.responses))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <section className="sfdc-faq-section">
-      <h1>Frequently Asked Question</h1>
+      <h1>Frequently Asked Questions</h1>
       <div className="sfdc-faq-wrapper">
-        {faqData.map(({ question, answer }, index) => {
+        {faqData.map(({ id, content, title }, index) => {
           return (
-            <div className="sfdc-faq">
+            <div className="sfdc-faq" key={id}>
               <div className="question" onClick={() => toggle(index)}>
-                <h4>{question}</h4>
+                <h4>{title}</h4>
                 <span className={show === index ? "close" : "open"}>
                   {show === index ? "-" : "+"}
                 </span>
               </div>
-              <div className={show === index ? "answer show" : "answer"}>
-                {answer.map(({ content }) => (
-                  <p>{content}</p>
-                ))}
-              </div>
+              {/* Rich Text Data */}
+              <div
+                className={show === index ? "answer show" : "answer"}
+                dangerouslySetInnerHTML={{ __html: content }}
+              ></div>
             </div>
           );
         })}

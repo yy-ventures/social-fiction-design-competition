@@ -95,7 +95,7 @@
 .sfdc-faq .answer {
   font-family: "Roboto", sans-serif;
   color: var(--sfdc-font-color-secondary);
-  transition: all 0.35s cubic-bezier(0, 1, 0, 1);
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
   max-height: 0;
   overflow: hidden;
   margin: 1em;
