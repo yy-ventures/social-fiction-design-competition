@@ -122,12 +122,7 @@ const SFDCInputs = () => {
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>Name of Institution</h5>
-                <input
-                  type="text"
-                  {...register("NameOfInstitution")}
-                  required
-                  maxLength="100"
-                />
+                <input type="text" {...register("NameOfInstitution")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
                 )}
@@ -139,23 +134,15 @@ const SFDCInputs = () => {
             <div className="row ">
               <div className="mt-5 col-lg-6">
                 <h5>Date of Birth of Applicant</h5>
-                <input
-                  type="date"
-                  {...register("ApplicantDateOfBirth")}
-                  required
-                />
+                <input type="date" {...register("ApplicantDateOfBirth")} required />
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
                   <span>{errors.NameOfSocialBusiness.message}</span>
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Country</h5>
-                <select
-                  className="form-select"
-                  {...register("ApplicantCountry")}
-                  required
-                >
+                <h5>Your Country</h5>
+                <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afganistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
@@ -182,14 +169,10 @@ const SFDCInputs = () => {
                   <option value="Bhutan">Bhutan</option>
                   <option value="Bolivia">Bolivia</option>
                   <option value="Bonaire">Bonaire</option>
-                  <option value="Bosnia & Herzegovina">
-                    Bosnia & Herzegovina
-                  </option>
+                  <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
                   <option value="Botswana">Botswana</option>
                   <option value="Brazil">Brazil</option>
-                  <option value="British Indian Ocean Ter">
-                    British Indian Ocean Ter
-                  </option>
+                  <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
                   <option value="Brunei">Brunei</option>
                   <option value="Bulgaria">Bulgaria</option>
                   <option value="Burkina Faso">Burkina Faso</option>
@@ -200,9 +183,7 @@ const SFDCInputs = () => {
                   <option value="Canary Islands">Canary Islands</option>
                   <option value="Cape Verde">Cape Verde</option>
                   <option value="Cayman Islands">Cayman Islands</option>
-                  <option value="Central African Republic">
-                    Central African Republic
-                  </option>
+                  <option value="Central African Republic">Central African Republic</option>
                   <option value="Chad">Chad</option>
                   <option value="Channel Islands">Channel Islands</option>
                   <option value="Chile">Chile</option>
@@ -239,9 +220,7 @@ const SFDCInputs = () => {
                   <option value="France">France</option>
                   <option value="French Guiana">French Guiana</option>
                   <option value="French Polynesia">French Polynesia</option>
-                  <option value="French Southern Ter">
-                    French Southern Ter
-                  </option>
+                  <option value="French Southern Ter">French Southern Ter</option>
                   <option value="Gabon">Gabon</option>
                   <option value="Gambia">Gambia</option>
                   <option value="Georgia">Georgia</option>
@@ -315,12 +294,8 @@ const SFDCInputs = () => {
                   <option value="Nambia">Nambia</option>
                   <option value="Nauru">Nauru</option>
                   <option value="Nepal">Nepal</option>
-                  <option value="Netherland Antilles">
-                    Netherland Antilles
-                  </option>
-                  <option value="Netherlands">
-                    Netherlands (Holland, Europe)
-                  </option>
+                  <option value="Netherland Antilles">Netherland Antilles</option>
+                  <option value="Netherlands">Netherlands (Holland, Europe)</option>
                   <option value="Nevis">Nevis</option>
                   <option value="New Caledonia">New Caledonia</option>
                   <option value="New Zealand">New Zealand</option>
@@ -344,9 +319,7 @@ const SFDCInputs = () => {
                   <option value="Portugal">Portugal</option>
                   <option value="Puerto Rico">Puerto Rico</option>
                   <option value="Qatar">Qatar</option>
-                  <option value="Republic of Montenegro">
-                    Republic of Montenegro
-                  </option>
+                  <option value="Republic of Montenegro">Republic of Montenegro</option>
                   <option value="Republic of Serbia">Republic of Serbia</option>
                   <option value="Reunion">Reunion</option>
                   <option value="Romania">Romania</option>
@@ -358,19 +331,13 @@ const SFDCInputs = () => {
                   <option value="St Kitts-Nevis">St Kitts-Nevis</option>
                   <option value="St Lucia">St Lucia</option>
                   <option value="St Maarten">St Maarten</option>
-                  <option value="St Pierre & Miquelon">
-                    St Pierre & Miquelon
-                  </option>
-                  <option value="St Vincent & Grenadines">
-                    St Vincent & Grenadines
-                  </option>
+                  <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                  <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
                   <option value="Saipan">Saipan</option>
                   <option value="Samoa">Samoa</option>
                   <option value="Samoa American">Samoa American</option>
                   <option value="San Marino">San Marino</option>
-                  <option value="Sao Tome & Principe">
-                    Sao Tome & Principe
-                  </option>
+                  <option value="Sao Tome & Principe">Sao Tome & Principe</option>
                   <option value="Saudi Arabia">Saudi Arabia</option>
                   <option value="Senegal">Senegal</option>
                   <option value="Seychelles">Seychelles</option>
@@ -406,9 +373,7 @@ const SFDCInputs = () => {
                   <option value="Uganda">Uganda</option>
                   <option value="United Kingdom">United Kingdom</option>
                   <option value="Ukraine">Ukraine</option>
-                  <option value="United Arab Erimates">
-                    United Arab Emirates
-                  </option>
+                  <option value="United Arab Erimates">United Arab Emirates</option>
                   <option selected value="United States of America">
                     United States of America
                   </option>
@@ -418,12 +383,8 @@ const SFDCInputs = () => {
                   <option value="Vatican City State">Vatican City State</option>
                   <option value="Venezuela">Venezuela</option>
                   <option value="Vietnam">Vietnam</option>
-                  <option value="Virgin Islands (Brit)">
-                    Virgin Islands (Brit)
-                  </option>
-                  <option value="Virgin Islands (USA)">
-                    Virgin Islands (USA)
-                  </option>
+                  <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                  <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
                   <option value="Wake Island">Wake Island</option>
                   <option value="Wallis & Futana Is">Wallis & Futana Is</option>
                   <option value="Yemen">Yemen</option>
@@ -444,12 +405,7 @@ const SFDCInputs = () => {
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>Phone</h5>
-                <input
-                  type="text"
-                  {...register("ApplicantPhone")}
-                  required
-                  maxLength="100"
-                />
+                <input type="text" {...register("ApplicantPhone")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
                 )}
@@ -478,13 +434,9 @@ const SFDCInputs = () => {
                   <option value="environmentandclimatechange">
                     Environment and Climate Change
                   </option>
-                  <option value="healthandwellbeing">
-                    Health and Well-being
-                  </option>
+                  <option value="healthandwellbeing">Health and Well-being</option>
                   <option value="microcredit">Microcredit</option>
-                  <option value="technologyandinnovation">
-                    Technology and Innovation
-                  </option>
+                  <option value="technologyandinnovation">Technology and Innovation</option>
                   <option value="tourism">Tourism</option>
                   <option value="sports">Sports</option>
                   <option value="wash">WASH</option>
@@ -496,11 +448,7 @@ const SFDCInputs = () => {
                 {areaOfFocusChange === "others" ? (
                   <div>
                     <label>If others, please specify:</label>
-                    <input
-                      type="text"
-                      placeholder=""
-                      {...register("OtherSocialProblem")}
-                    />
+                    <input type="text" placeholder="" {...register("OtherSocialProblem")} />
                   </div>
                 ) : (
                   ""
@@ -510,9 +458,8 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>
-                  Tell us a bit more about the social problem you wish to
-                  address and your fictional solution to solve it.{" "}
-                  <span className="bold">Write in 100 words.</span>
+                  Tell us a bit more about the social problem you wish to address and your fictional
+                  solution to solve it. <span className="bold">Write in 100 words.</span>
                 </h5>
                 <textarea
                   type="text"
@@ -525,17 +472,14 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>What makes your solution unique? </h5>
-                <textarea
-                  required
-                  {...register("WhatMakesItUnique")}
-                ></textarea>
+                <textarea required {...register("WhatMakesItUnique")}></textarea>
               </div>
             </div>
             <div className="mt-5">
               <div className="col-lg-12">
                 <h5>
-                  What impact can your fictional solution bring to the
-                  environment, economy or communities?
+                  What impact can your fictional solution bring to the environment, economy or
+                  communities?
                 </h5>
                 <textarea required {...register("SolutionImpact")}></textarea>
               </div>
@@ -555,9 +499,7 @@ const SFDCInputs = () => {
                     Writing
                   </option>
                   <option value="rhetoric">Rhetoric</option>
-                  <option value="poster_presentation">
-                    Poster Presentation
-                  </option>
+                  <option value="poster_presentation">Poster Presentation</option>
                   <option value="animation">Animation</option>
                   <option value="illustration">Illustration</option>
                   <option value="cinematography">Cinematography</option>
