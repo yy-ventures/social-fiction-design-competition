@@ -169,9 +169,7 @@ const SbdcInputs = () => {
           <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
-                <h5>Country</h5>
-              </div>
-              <div className="col-lg-4">
+                <h5>Your Country</h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afganistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
