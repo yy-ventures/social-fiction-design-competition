@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SbdcFaq.css";
-import { faqData } from "./SbdcFaqData";
 
 const SbdcFaq = () => {
-  // State value to show or collapse the FAQ answers
+  // State variable to show or collapse the FAQ answers
   const [show, setShow] = useState(null);
+  // State variable to store the faq data coming from the backend api
+  const [faqData, setFaqData] = useState([]);
   // Toggle FAQ answers
   const toggle = (index) => {
     if (show === index) {
@@ -14,24 +15,39 @@ const SbdcFaq = () => {
     }
   };
 
+  useEffect(() => {
+    // fetch options
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    // fetch backend api data for faq section
+    fetch("https://stage-sbdc-sfdc.3zeros.club/api/get-faq?type=sbdc", options)
+      .then((response) => response.json())
+      .then((data) => setFaqData(data.responses))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <section className="sbdc-faq-section">
-      <h1>Frequently Asked Question</h1>
+      <h1>Frequently Asked Questions</h1>
       <div className="sbdc-faq-wrapper">
-        {faqData.map(({ question, answer }, index) => {
+        {faqData.map(({ id, content, title }, index) => {
           return (
-            <div className="sbdc-faq">
+            <div className="sbdc-faq" key={id}>
               <div className="question" onClick={() => toggle(index)}>
-                <h4>{question}</h4>
+                <h4>{title}</h4>
                 <span className={show === index ? "close" : "open"}>
                   {show === index ? "-" : "+"}
                 </span>
               </div>
-              <div className={show === index ? "answer show" : "answer"}>
-                {answer.map(({ content }) => (
-                  <p>{content}</p>
-                ))}
-              </div>
+              {/* Rich text data */}
+              <div
+                className={show === index ? "answer show" : "answer"}
+                dangerouslySetInnerHTML={{ __html: content }}
+              ></div>
             </div>
           );
         })}

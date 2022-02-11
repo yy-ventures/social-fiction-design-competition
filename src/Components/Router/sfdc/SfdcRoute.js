@@ -20,5 +20,4 @@ const SfdcRoute = () => {
     </div>
   );
 };
-
 export default SfdcRoute;

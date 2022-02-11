@@ -10,6 +10,18 @@ const SFDCInputs = () => {
   } = useForm();
   const [fileFormat, setfileFormat] = useState("writing");
 
+  const [fileAcceptStr, setFileAcceptStr] = useState(
+    "audio/*, video/mp4,video/x-m4v, video/quicktime"
+  );
+
+  const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
+
+  const handleAreaOfFocus = (e) => {
+    e.preventDefault();
+    let areaOfFocusValue = e.target.value;
+    setAreaOfFocusChange(areaOfFocusValue);
+  };
+
   const onSubmit = (data) => {
     let headers = new Headers();
 
@@ -24,11 +36,12 @@ const SFDCInputs = () => {
     formdata.append("social_problems", data.YourSocialProblem);
     formdata.append("other_social_problem", data.OtherSocialProblem);
     formdata.append("more_about_social_problem", data.YourSocialProblem);
-    formdata.append("country", data.ApplicantCountry);
+
     formdata.append("unique_solutions", data.WhatMakesItUnique);
     formdata.append("impact_of_fictional_solution", data.SolutionImpact);
     formdata.append("type_of_content", data.CreativeCategory);
     formdata.append("file_of_idea", imagedata);
+    formdata.append("country", data.ApplicantCountry);
 
     let requestOptions = {
       method: "POST",
@@ -50,29 +63,39 @@ const SFDCInputs = () => {
   };
   const formatString = {
     rhetoric:
-      "Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
+      "Imagine the life of a young person in the world of 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
     animation:
-      "Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
+      "Imagine the life of a young person in the world of 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
     poster_presentation:
-      "4-page awareness poster demonstrating the social problem and a reimagined reality without those problems.",
+      "Imagine the life of a young person in the world of 2050. 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
     writing:
-      "In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+      "Imagine the life of a young person in the world of 2050. In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
     illustration:
-      "Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+      "Imagine the life of a young person in the world of 2050. Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
     cinematography:
-      "Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
+      "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
+  };
+  const formatAccept = {
+    rhetoric: "audio/*,video/mp4,video/x-m4v,video/quicktime",
+    animation: "video/mp4,video/x-m4v,video/quicktime",
+    poster_presentation: ".pdf, .jpeg, .jpg, .png",
+    writing:
+      "application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    illustration: ".jpeg,.jpg,.png",
+    cinematography: "video/mp4,video/x-m4v,video/quicktime",
   };
   const handleChange = (e) => {
     setfileFormat(e.target.value);
+    setFileAcceptStr(e.target.value);
   };
 
   return (
     <div className="sfdc-registration-input">
       <div className="form-input-header text-center mt-5">
-        <p>
-          *Please fill up this form to submit your idea if you are of{" "}
-          <span className="bold">age 12 to 35.</span>
-        </p>
+        {/* <p>
+                    *Please fill up this form to submit your idea if you are of{" "}
+                    <span className="bold">age 12 to 35.</span>
+                </p> */}
       </div>
       <div className="row">
         <div className="col-lg-2"></div>
@@ -99,12 +122,7 @@ const SFDCInputs = () => {
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>Name of Institution</h5>
-                <input
-                  type="text"
-                  {...register("NameOfInstitution")}
-                  required
-                  maxLength="100"
-                />
+                <input type="text" {...register("NameOfInstitution")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
                 )}
@@ -116,11 +134,7 @@ const SFDCInputs = () => {
             <div className="row ">
               <div className="mt-5 col-lg-6">
                 <h5>Date of Birth of Applicant</h5>
-                <input
-                  type="date"
-                  {...register("ApplicantDateOfBirth")}
-                  required
-                />
+                <input type="date" {...register("ApplicantDateOfBirth")} required />
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
                   <span>{errors.NameOfSocialBusiness.message}</span>
@@ -128,11 +142,7 @@ const SFDCInputs = () => {
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>Country</h5>
-                <select
-                  className="form-select"
-                  {...register("ApplicantCountry")}
-                  required
-                >
+                <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afganistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
@@ -159,14 +169,10 @@ const SFDCInputs = () => {
                   <option value="Bhutan">Bhutan</option>
                   <option value="Bolivia">Bolivia</option>
                   <option value="Bonaire">Bonaire</option>
-                  <option value="Bosnia & Herzegovina">
-                    Bosnia & Herzegovina
-                  </option>
+                  <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
                   <option value="Botswana">Botswana</option>
                   <option value="Brazil">Brazil</option>
-                  <option value="British Indian Ocean Ter">
-                    British Indian Ocean Ter
-                  </option>
+                  <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
                   <option value="Brunei">Brunei</option>
                   <option value="Bulgaria">Bulgaria</option>
                   <option value="Burkina Faso">Burkina Faso</option>
@@ -177,9 +183,7 @@ const SFDCInputs = () => {
                   <option value="Canary Islands">Canary Islands</option>
                   <option value="Cape Verde">Cape Verde</option>
                   <option value="Cayman Islands">Cayman Islands</option>
-                  <option value="Central African Republic">
-                    Central African Republic
-                  </option>
+                  <option value="Central African Republic">Central African Republic</option>
                   <option value="Chad">Chad</option>
                   <option value="Channel Islands">Channel Islands</option>
                   <option value="Chile">Chile</option>
@@ -216,9 +220,7 @@ const SFDCInputs = () => {
                   <option value="France">France</option>
                   <option value="French Guiana">French Guiana</option>
                   <option value="French Polynesia">French Polynesia</option>
-                  <option value="French Southern Ter">
-                    French Southern Ter
-                  </option>
+                  <option value="French Southern Ter">French Southern Ter</option>
                   <option value="Gabon">Gabon</option>
                   <option value="Gambia">Gambia</option>
                   <option value="Georgia">Georgia</option>
@@ -292,12 +294,8 @@ const SFDCInputs = () => {
                   <option value="Nambia">Nambia</option>
                   <option value="Nauru">Nauru</option>
                   <option value="Nepal">Nepal</option>
-                  <option value="Netherland Antilles">
-                    Netherland Antilles
-                  </option>
-                  <option value="Netherlands">
-                    Netherlands (Holland, Europe)
-                  </option>
+                  <option value="Netherland Antilles">Netherland Antilles</option>
+                  <option value="Netherlands">Netherlands (Holland, Europe)</option>
                   <option value="Nevis">Nevis</option>
                   <option value="New Caledonia">New Caledonia</option>
                   <option value="New Zealand">New Zealand</option>
@@ -321,9 +319,7 @@ const SFDCInputs = () => {
                   <option value="Portugal">Portugal</option>
                   <option value="Puerto Rico">Puerto Rico</option>
                   <option value="Qatar">Qatar</option>
-                  <option value="Republic of Montenegro">
-                    Republic of Montenegro
-                  </option>
+                  <option value="Republic of Montenegro">Republic of Montenegro</option>
                   <option value="Republic of Serbia">Republic of Serbia</option>
                   <option value="Reunion">Reunion</option>
                   <option value="Romania">Romania</option>
@@ -335,19 +331,13 @@ const SFDCInputs = () => {
                   <option value="St Kitts-Nevis">St Kitts-Nevis</option>
                   <option value="St Lucia">St Lucia</option>
                   <option value="St Maarten">St Maarten</option>
-                  <option value="St Pierre & Miquelon">
-                    St Pierre & Miquelon
-                  </option>
-                  <option value="St Vincent & Grenadines">
-                    St Vincent & Grenadines
-                  </option>
+                  <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                  <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
                   <option value="Saipan">Saipan</option>
                   <option value="Samoa">Samoa</option>
                   <option value="Samoa American">Samoa American</option>
                   <option value="San Marino">San Marino</option>
-                  <option value="Sao Tome & Principe">
-                    Sao Tome & Principe
-                  </option>
+                  <option value="Sao Tome & Principe">Sao Tome & Principe</option>
                   <option value="Saudi Arabia">Saudi Arabia</option>
                   <option value="Senegal">Senegal</option>
                   <option value="Seychelles">Seychelles</option>
@@ -383,9 +373,7 @@ const SFDCInputs = () => {
                   <option value="Uganda">Uganda</option>
                   <option value="United Kingdom">United Kingdom</option>
                   <option value="Ukraine">Ukraine</option>
-                  <option value="United Arab Erimates">
-                    United Arab Emirates
-                  </option>
+                  <option value="United Arab Erimates">United Arab Emirates</option>
                   <option selected value="United States of America">
                     United States of America
                   </option>
@@ -395,12 +383,8 @@ const SFDCInputs = () => {
                   <option value="Vatican City State">Vatican City State</option>
                   <option value="Venezuela">Venezuela</option>
                   <option value="Vietnam">Vietnam</option>
-                  <option value="Virgin Islands (Brit)">
-                    Virgin Islands (Brit)
-                  </option>
-                  <option value="Virgin Islands (USA)">
-                    Virgin Islands (USA)
-                  </option>
+                  <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                  <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
                   <option value="Wake Island">Wake Island</option>
                   <option value="Wallis & Futana Is">Wallis & Futana Is</option>
                   <option value="Yemen">Yemen</option>
@@ -421,12 +405,7 @@ const SFDCInputs = () => {
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>Phone</h5>
-                <input
-                  type="text"
-                  {...register("ApplicantPhone")}
-                  required
-                  maxLength="100"
-                />
+                <input type="text" {...register("ApplicantPhone")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
                 )}
@@ -441,7 +420,12 @@ const SFDCInputs = () => {
                 <h5>What social problem are you addressing?</h5>
               </div>
               <div className="col-lg-4">
-                <select {...register("AreaOfFocus")} className="form-select">
+                <select
+                  required
+                  {...register("AreaOfFocus")}
+                  className="form-select"
+                  onChange={handleAreaOfFocus}
+                >
                   <option value="circulareconomy">Circular Economy</option>
                   <option value="agriculture" selected>
                     Agriculture
@@ -450,13 +434,9 @@ const SFDCInputs = () => {
                   <option value="environmentandclimatechange">
                     Environment and Climate Change
                   </option>
-                  <option value="healthandwellbeing">
-                    Health and Well-being
-                  </option>
+                  <option value="healthandwellbeing">Health and Well-being</option>
                   <option value="microcredit">Microcredit</option>
-                  <option value="technologyandinnovation">
-                    Technology and Innovation
-                  </option>
+                  <option value="technologyandinnovation">Technology and Innovation</option>
                   <option value="tourism">Tourism</option>
                   <option value="sports">Sports</option>
                   <option value="wash">WASH</option>
@@ -465,20 +445,21 @@ const SFDCInputs = () => {
                 </select>
               </div>
               <div className="col-lg-4">
-                <label>If others, please specify:</label>
-                <input
-                  type="text"
-                  placeholder=""
-                  {...register("OtherSocialProblem")}
-                />
+                {areaOfFocusChange === "others" ? (
+                  <div>
+                    <label>If others, please specify:</label>
+                    <input type="text" placeholder="" {...register("OtherSocialProblem")} />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>
-                  Tell us a bit more about the social problem you wish to
-                  address and your fictional solution to solve it.{" "}
-                  <span className="bold">Write in 100 words.</span>
+                  Tell us a bit more about the social problem you wish to address and your fictional
+                  solution to solve it. <span className="bold">Write in 100 words.</span>
                 </h5>
                 <textarea
                   type="text"
@@ -491,16 +472,16 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>What makes your solution unique? </h5>
-                <textarea {...register("WhatMakesItUnique")}></textarea>
+                <textarea required {...register("WhatMakesItUnique")}></textarea>
               </div>
             </div>
             <div className="mt-5">
               <div className="col-lg-12">
                 <h5>
-                  What impact can your fictional solution bring to the
-                  environment, economy or communities?
+                  What impact can your fictional solution bring to the environment, economy or
+                  communities?
                 </h5>
-                <textarea {...register("SolutionImpact")}></textarea>
+                <textarea required {...register("SolutionImpact")}></textarea>
               </div>
             </div>
             <div className="row mt-5">
@@ -509,6 +490,7 @@ const SFDCInputs = () => {
               </div>
               <div className="col-lg-4">
                 <select
+                  required
                   {...register("CreativeCategory")}
                   className="form-select"
                   onChange={handleChange}
@@ -517,31 +499,48 @@ const SFDCInputs = () => {
                     Writing
                   </option>
                   <option value="rhetoric">Rhetoric</option>
-                  <option value="poster_presentation">
-                    Poster Presentation
-                  </option>
+                  <option value="poster_presentation">Poster Presentation</option>
                   <option value="animation">Animation</option>
                   <option value="illustration">Illustration</option>
                   <option value="cinematography">Cinematography</option>
                 </select>
               </div>
-            </div>
-            <p>{formatString[fileFormat]}</p>
-            <div className="mt-5 file-upload">
-              <div className="row">
-                <div className="col-lg-5">
-                  <input
-                    class="form-control"
-                    type="file"
-                    id="formFile"
-                    {...register("UploadedFile")}
-                  />
-                </div>
-                <div className="col-lg-3">
-                  <div className="file-upload-condition"></div>
+              <div className="col-lg-4">
+                <div className="file-upload">
+                  <div>
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="formFile"
+                      {...register("UploadedFile")}
+                      required
+                      accept={formatAccept[fileAcceptStr]}
+                    />
+                  </div>
+                  <div className="col-lg-3">
+                    <div className="file-upload-condition"></div>
+                  </div>
                 </div>
               </div>
             </div>
+            <p className="mt-5">{formatString[fileFormat]}</p>
+            {/* <div className="mt-5 file-upload">
+                            <div className="row">
+                                <div className="col-lg-5">
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="formFile"
+                                        {...register("UploadedFile")}
+                                        required
+                                        accept={formatAccept[fileAcceptStr]}
+                                    />
+                                </div>
+                                <div className="col-lg-3">
+                                    <div className="file-upload-condition"></div>
+                                </div>
+                            </div>
+                        </div> */}
             <div className="mt-5 text-center submit-button">
               <button type="submit">Submit Application</button>
             </div>

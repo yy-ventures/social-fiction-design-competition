@@ -63,71 +63,154 @@ body {
   border: 3px solid #64a0dc;
 }
 
-.sbdc-reward {
+.sbdc-reward .sbdc-reward-header {
+  min-height: 400px;
   padding: 10%;
   background-color: #224b75;
-}
-
-.sbdc-reward .sbdc-reward-content {
-  width: 55%;
-}
-
-.sbdc-reward .sbdc-reward-content h4 {
-  color: #ffffff;
-  text-transform: capitalize;
-  font-size: 4vmin;
   position: relative;
-  padding-bottom: 4%;
-  font-weight: 900;
 }
 
-.sbdc-reward .sbdc-reward-content h4::after {
-  content: "";
-  position: absolute;
-  width: 25%;
-  height: 5px;
-  background-color: #df8b48;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.sbdc-reward .sbdc-reward-content p {
+.sbdc-reward .sbdc-reward-header .winning-head {
+  font-size: 5vmin;
   color: #48c9d8;
   font-weight: 900;
-  font-size: 1.2rem;
-  margin-top: 3%;
+  text-transform: capitalize;
 }
 
-.sbdc-reward .sbdc-reward-content p .reward-orange {
-  color: #df8b48;
+.sbdc-reward .sbdc-reward-header .reward-head {
+  font-size: 5vmin;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.sbdc-reward .sbdc-reward-header hr {
+  opacity: 1;
+  height: 5px;
+  width: 50%;
+  color: #48c9d8;
+}
+
+.sbdc-reward .sbdc-reward-header .reward-coin {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.sbdc-reward .sbdc-reward-header .reward-coin img {
+  height: 25vmin;
+}
+
+.sbdc-reward .sbdc-reward-body {
+  max-height: 400px;
+  padding: 10%;
+  background-color: #ebfdff;
+  position: relative;
+}
+
+.sbdc-reward .sbdc-reward-body .reward-list ul {
+  width: 100%;
+}
+
+.sbdc-reward .sbdc-reward-body .reward-list ul li {
+  padding: 0rem 0 1rem 3em;
+  color: #224b75;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 3vmin;
+  vertical-align: middle;
+  background: url("../../../../assets/list-arrow.svg") no-repeat 7px 0px transparent;
+  list-style-type: none;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  .sbdc-reward .sbdc-reward-body .reward-list ul li {
+    background: url("../../../../assets/list-arrow.svg") no-repeat 2px 2px transparent;
+  }
+}
+
+.sbdc-reward .sbdc-reward-body .reward-list ul li .usd {
+  font-weight: 900;
+}
+
+.sbdc-reward .sbdc-reward-body .reward-art {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.sbdc-reward .sbdc-reward-body .reward-art img {
+  width: 100%;
 }
 
 @media screen and (min-width: 1441px) {
-  .sbdc-reward .sbdc-reward-content p {
-    font-size: 1.5rem;
+  .sbdc-reward .sbdc-reward-header {
+    min-height: 600px;
+  }
+  .sbdc-reward .sbdc-reward-header .winning-head {
+    font-size: 6vmin;
+  }
+  .sbdc-reward .sbdc-reward-header .reward-head {
+    font-size: 6vmin;
+  }
+  .sbdc-reward .sbdc-reward-header .reward-coin img {
+    height: 30vmin;
+  }
+  .sbdc-reward .sbdc-reward-body {
+    min-height: 600px;
+    padding: 10%;
+    background-color: #ebfdff;
+  }
+  .sbdc-reward .sbdc-reward-body .reward-list ul {
+    width: 100%;
+  }
+  .sbdc-reward .sbdc-reward-body .reward-list ul li {
+    padding: 0rem 0 1rem 3em;
+    font-size: 3vmin;
+    background: url("../../../../assets/list-arrow.svg") no-repeat 7px 0px transparent;
+    list-style-type: none;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 700px) {
+  .sbdc-reward .sbdc-reward-body .reward-list ul li {
+    background: url("../../../../assets/list-arrow.svg") no-repeat 2px 2px transparent;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .sbdc-reward .sbdc-reward-content {
-    width: 100%;
+  .sbdc-reward .sbdc-reward-header {
+    min-height: 400px;
   }
-  .sbdc-reward .sbdc-reward-content p {
-    font-size: 1.2rem;
+  .sbdc-reward .sbdc-reward-header .winning-head {
+    font-size: 3rem;
+  }
+  .sbdc-reward .sbdc-reward-header .reward-head {
+    font-size: 3rem;
+  }
+  .sbdc-reward .sbdc-reward-header .reward-coin img {
+    height: 25vmin;
+  }
+  .sbdc-reward .sbdc-reward-body {
+    min-height: 400px;
+  }
+  .sbdc-reward .sbdc-reward-body .reward-list ul li {
+    font-size: 2vmin;
+  }
+  .sbdc-reward .sbdc-reward-body .reward-art {
+    display: none;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .sbdc-reward .sbdc-reward-content {
-    width: 100%;
+  .sbdc-reward .sbdc-reward-header .reward-coin img {
+    height: 50vmin;
   }
-  .sbdc-reward .sbdc-reward-content h4 {
-    font-size: 5vmin;
-  }
-  .sbdc-reward .sbdc-reward-content p {
-    font-size: 1rem;
+  .sbdc-reward .sbdc-reward-body .reward-list ul li {
+    font-size: 1.2rem;
+    padding-left: 5rem;
   }
 }
 /*# sourceMappingURL=SbdcReward.css.map */
