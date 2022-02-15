@@ -12,8 +12,8 @@ const Footer = () => {
                 <img src={yunusLogo} alt="yunus-logo" />
             </div>
             <div className="footer-content">
-                <h5><FontAwesomeIcon icon={faMapMarkerAlt} /> Fine Us At</h5>
-                <p>Grameen Bank Bhaban <br/> Contact info@yy.ventures</p>
+                <h5><FontAwesomeIcon icon={faMapMarkerAlt} /> Find Us At</h5>
+                <p>16th Floor, Grameen Bank Bhaban,<br/>Mirpur 2, Dhaka 1216, Bangladesh</p>
             </div>
             <div className="footer-leaf">
                 <h5><FontAwesomeIcon icon={faEnvelope} /> Write To Us</h5>
