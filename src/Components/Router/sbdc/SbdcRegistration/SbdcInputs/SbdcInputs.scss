@@ -15,6 +15,9 @@
         }
     }
     .registration-main-form{
+        .red{
+            color: #ff3333;
+        }
         input, textarea{
             outline: 0;
             border: 0;
@@ -166,6 +169,11 @@
             font-weight: 700;
             color: $primaryColor;
             background-color: $white;
+            transition: 0.3s;
+            &:hover{
+                background-color: $primaryColor;
+                color: $white;
+            }
         }
         h5{
             color: #356AA0;

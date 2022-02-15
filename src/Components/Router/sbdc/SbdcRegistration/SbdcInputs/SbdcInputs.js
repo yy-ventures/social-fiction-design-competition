@@ -4,6 +4,8 @@ import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
   const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const {
     register,
@@ -20,7 +22,8 @@ const SbdcInputs = () => {
   const onSubmit = (data) => {
     let headers = new Headers();
     let imagedata = document.querySelector('input[type="file"]').files[0];
-
+    setIsSubmitting(true)
+    setIsDisabled(true)
     // const co_founder = [];
 
     // if(data.FounderType=='team'){
@@ -98,12 +101,14 @@ const SbdcInputs = () => {
       redirect: "follow",
       headers: headers,
     };
-
+    console.log("form data", formdata)
     fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
           alert("Thanks For Your Application");
+          setIsSubmitting(false)
+          setIsDisabled(false)
         }
       })
       .catch((error) => {
@@ -169,7 +174,7 @@ const SbdcInputs = () => {
           <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
-                <h5>Your Country</h5>
+                <h5>Your Country <span className="red">*</span></h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afganistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
@@ -421,20 +426,24 @@ const SbdcInputs = () => {
                   <option value="Zimbabwe">Zimbabwe</option>
                 </select>
               </div>
+              <div className="col-lg-2"></div>
+              {/* <div className="col-lg-6">
+                <h5 className="mt-5 white-space-no-wrap">Name of Your Institution <span className="red">*</span></h5>
+                <input type="text" {...register("NameOfYourInstitution")} required />
+              </div> */}
             </div>
 
             <div className="row">
               <div className="col-lg-6">
-                <h5 className="mt-5 white-space-no-wrap">Name of Social Business/Idea</h5>
+                <h5 className="mt-5 white-space-no-wrap">Name of Social Business/Idea <span className="red">*</span></h5>
                 <input type="text" {...register("NameOfSocialBusiness")} required />
-                {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
                   <span>{errors.NameOfSocialBusiness.message}</span>
                 )}
               </div>
               <div className="col-lg-6">
                 <h5 className="mt-5 white-space-no-wrap">
-                  What is your vision for the Social Business/Idea?
+                  What is your vision for the Social Business/Idea? <span className="red">*</span>
                 </h5>
                 <input type="text" {...register("YourVision")} required />
                 {errors.name && errors.name.type === "required" && (
@@ -450,13 +459,14 @@ const SbdcInputs = () => {
                 <h5>
                   Tell us a bit more about your initiative{" "}
                   <span className="bold">(100 words max)</span>
+                  <span className="red">*</span>
                 </h5>
                 <textarea type="text" {...register("YourInitiative")} required></textarea>
               </div>
             </div>
             <div className="row mt-5 registration-radio-top">
               <div className="col-lg-4">
-                <h5>Are you are applying as an individual or a team? </h5>
+                <h5>Are you are applying as an individual or a team? <span className="red">*</span></h5>
               </div>
               <div className="col-lg-2">
                 <div class="form-check">
@@ -595,7 +605,7 @@ const SbdcInputs = () => {
             {/* area of focus */}
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
-                <h5>What is your Area of Focus?</h5>
+                <h5>What is your Area of Focus? <span className="red">*</span></h5>
               </div>
               <div className="col-lg-4">
                 <select
@@ -637,12 +647,13 @@ const SbdcInputs = () => {
             <div className="mt-5">
               <h5>
                 How is your Social Business reducing carbon emission, creating jobs or fighting
-                poverty? <span className="bold"> Please tell us in 100 words.</span>
+                poverty? <span className="bold"> Please tell us in 100 words.</span> 
+                <span className="red">*</span>
               </h5>
               <textarea required {...register("ReducingCarbonEmission")}></textarea>
             </div>
             <div className="mt-5">
-              <h5>What innovation is your Social Business bringing to your market?</h5>
+              <h5>What innovation is your Social Business bringing to your market? <span className="red">*</span></h5>
               <textarea required {...register("BringingToYourMarket")}></textarea>
             </div>
             <div className="mt-5">
@@ -650,12 +661,13 @@ const SbdcInputs = () => {
                 We respect and welcome both product and process innovation offered by enterprises{" "}
                 <br /> and we would love to know more about your enterprise's innovation.{" "}
                 <span className="bold">Write in 150 words.</span>
+                <span className="red">*</span>
               </h5>
               <textarea required {...register("EnterpriseInnovation")}></textarea>
             </div>
             <div className="row mt-5">
               <div className="col-lg-4">
-                <h5>At what stage is your venture?</h5>
+                <h5>At what stage is your venture? <span className="red">*</span></h5>
               </div>
               <div className="col-lg-4">
                 <select required {...register("StageOfVentures")} className="form-select">
@@ -733,7 +745,7 @@ const SbdcInputs = () => {
                             </p> */}
             </div>
             <div className="mt-5 registration-law-curve">
-              <h5>How does your Social Business plan to make money?</h5>
+              <h5>How does your Social Business plan to make money? <span className="red">*</span></h5>
               <input required {...register("MakeMoney")}></input>
             </div>
             <div className="mt-5 link-input">
@@ -775,7 +787,7 @@ const SbdcInputs = () => {
             <div className="mt-5 file-upload">
               <div className="row">
                 <div className="col-lg-3">
-                  <h5>Please upload your Pitch Deck</h5>
+                  <h5>Please upload your Pitch Deck<span className="red">*</span></h5>
                 </div>
                 <div className="col-lg-5">
                   <input
@@ -791,7 +803,7 @@ const SbdcInputs = () => {
                   <div className="file-upload-condition">
                     <p>PPT - Pitch Deck (10 slides max)</p>
                     <p>PDF - Flyer (2 pages max)</p>
-                    <p>DOC - 800 Words</p>
+                    <p>DOC - 800 Words (max)</p>
                     <p>MOV/MP4 - 3 mins (max)</p>
                   </div>
                 </div>
@@ -806,7 +818,7 @@ const SbdcInputs = () => {
               </p>
             </div>
             <div className="mt-5 text-center">
-              <button type="submit">Submit Application</button>
+              <button type="submit" disabled={isDisabled}> {isSubmitting ? "Submitting...": "Submit Application"}</button>
             </div>
           </form>
         </div>

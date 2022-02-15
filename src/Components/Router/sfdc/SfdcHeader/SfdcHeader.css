@@ -102,7 +102,8 @@ body {
 .sfdc-header .sfdc-header-body h3 {
   color: #224b75;
   font-weight: 900;
-  font-size: 4.5vmin;
+  font-size: 4vmin;
+  text-transform: uppercase;
 }
 
 .sfdc-header .sfdc-header-body p {

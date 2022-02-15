@@ -11,17 +11,16 @@ const SbdcRegistration = () => {
                     <div className="col-lg-6 sbdc-registration-header-left d-flex align-items-center justify-content-center">
                         <div>
                             <p>
-                                The Social Business Design Competition promotes
-                                youth-driven entrepreneurial solutions to combat
-                                social challenges like water, circularity,
-                                sports, poverty, employment, etc. The
-                                competition welcomes youth from the global arena
-                                to bring unique, equitable ideas that are
-                                aligned with development goals by putting into
-                                play these ideas to achieve real solutions
-                                through the designing of their very own Social
-                                Business.
+                            The Social Business Design Competition is a global competition looking for youth-driven entrepreneurial solutions to combat some of the most pressing challenges of our time. Design your very own social business idea to solve a social or environmental issue in your community or around the world!
                             </p>
+                            <ol>
+                                <li>Fill up the Social Business Design Competition online application.</li>
+                                <li>Submit your personal information and answer all relevant questions.</li>
+                                <li>Upload your Social Business pitch in the PPT, PDF, DOC, MP4 format.
+                                    Visit the online application form to learn more about the pitch requirements we are accepting for the file format. If you have trouble submitting, try resizing your file to upload or contact <span className="highlight-left">info@yunuscentre.org</span>, <span className="highlight-left">info@yy.ventures</span>, or <span className="highlight-left">maisha@yy.ventures</span>.</li>
+                                <li>Click Submit and wait for the submission confirmation pop-up on top of the page.</li>
+                                <li>Receive a confirmation email in your inbox.</li>
+                            </ol>
                         </div>
                     </div>
                     <div className="col-lg-6 sbdc-registration-header-right d-flex align-items-center justify-content-center">

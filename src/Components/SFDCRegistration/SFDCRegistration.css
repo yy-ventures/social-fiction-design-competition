@@ -86,6 +86,19 @@ body {
   font-weight: bold;
 }
 
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left ol {
+  padding-left: 3%;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left ol li {
+  margin-top: 1%;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left ol .highlight-left {
+  font-weight: 700;
+  font-style: italic;
+}
+
 .sfdc-registration .sfdc-registration-header .sfdc-registration-header-right {
   padding: 10% 15% 10% 10%;
 }

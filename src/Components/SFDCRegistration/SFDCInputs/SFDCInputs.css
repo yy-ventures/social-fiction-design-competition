@@ -93,6 +93,10 @@ body {
   }
 }
 
+.sfdc-registration-input .registration-main-form .red {
+  color: #ff3333;
+}
+
 .sfdc-registration-input .registration-main-form input,
 .sfdc-registration-input .registration-main-form textarea {
   outline: 0;
@@ -283,6 +287,13 @@ body {
   font-weight: 700;
   color: #224b75;
   background-color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sfdc-registration-input .registration-main-form button:hover {
+  background-color: #224b75;
+  color: #ffffff;
 }
 
 .sfdc-registration-input .registration-main-form h5 {

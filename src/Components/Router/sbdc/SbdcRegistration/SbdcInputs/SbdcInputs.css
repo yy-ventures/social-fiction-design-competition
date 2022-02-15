@@ -81,6 +81,10 @@ body {
   font-style: normal;
 }
 
+.sbdc-registration-input .registration-main-form .red {
+  color: #ff3333;
+}
+
 .sbdc-registration-input .registration-main-form input, .sbdc-registration-input .registration-main-form textarea {
   outline: 0;
   border: 0;
@@ -324,6 +328,13 @@ body {
   font-weight: 700;
   color: #224b75;
   background-color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sbdc-registration-input .registration-main-form button:hover {
+  background-color: #224b75;
+  color: #ffffff;
 }
 
 .sbdc-registration-input .registration-main-form h5 {

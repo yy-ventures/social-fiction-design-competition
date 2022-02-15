@@ -15,6 +15,8 @@ const SFDCInputs = () => {
   );
 
   const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const handleAreaOfFocus = (e) => {
     e.preventDefault();
@@ -26,7 +28,8 @@ const SFDCInputs = () => {
     let headers = new Headers();
 
     var imagedata = document.querySelector('input[type="file"]').files[0];
-
+    setIsSubmitting(true)
+    setIsDisabled(true)
     let formdata = new FormData();
     formdata.append("name_of_applicant", data.NameOfApplicant);
     formdata.append("name_of_institution", data.NameOfInstitution);
@@ -55,6 +58,8 @@ const SFDCInputs = () => {
       .then((data) => {
         if (data) {
           alert("Thanks For Your Application");
+          setIsSubmitting(false)
+          setIsDisabled(false)
         }
       })
       .catch((error) => {
@@ -67,13 +72,13 @@ const SFDCInputs = () => {
     animation:
       "Imagine the life of a young person in the world of 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
     poster_presentation:
-      "Imagine the life of a young person in the world of 2050. 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
+      "Imagine the life of a young person in the world of 2050. Maximum 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
     writing:
-      "Imagine the life of a young person in the world of 2050. In 1000 words share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+      "Imagine the life of a young person in the world of 2050. In 1000 words (max) share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
     illustration:
-      "Imagine the life of a young person in the world of 2050. Showcase your creativity using a 2-page image of your Drawing or Graphic Designing to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+      "Imagine the life of a young person in the world of 2050. Showcase your creativity using your Drawing or Graphic Design (max: 2 images) to address your Social Fiction theme. Format: .jpeg, jpg and .png",
     cinematography:
-      "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. (Time limit: 5 mins) Format: .mp4 and .mov",
+      "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. Format: .mp4 and .mov",
   };
   const formatAccept = {
     rhetoric: "audio/*,video/mp4,video/x-m4v,video/quicktime",
@@ -107,7 +112,7 @@ const SFDCInputs = () => {
           >
             <div className="row">
               <div className="mt-5 col-lg-6">
-                <h5>Name of Applicant</h5>
+                <h5>Name of Applicant <span className="red">*</span></h5>
                 <input
                   type="text"
                   {...register("NameOfApplicant", {
@@ -121,7 +126,7 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Name of Institution</h5>
+                <h5>Name of Institution <span className="red">*</span></h5>
                 <input type="text" {...register("NameOfInstitution")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
@@ -133,7 +138,7 @@ const SFDCInputs = () => {
             </div>
             <div className="row ">
               <div className="mt-5 col-lg-6">
-                <h5>Date of Birth of Applicant</h5>
+                <h5>Date of Birth of Applicant <span className="red">*</span></h5>
                 <input type="date" {...register("ApplicantDateOfBirth")} required />
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
@@ -141,7 +146,7 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Country</h5>
+                <h5>Country <span className="red">*</span></h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afganistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
@@ -396,7 +401,7 @@ const SFDCInputs = () => {
             </div>
             <div className="row ">
               <div className="mt-5 col-lg-6">
-                <h5>E-mail</h5>
+                <h5>E-mail <span className="red">*</span></h5>
                 <input type="email" {...register("ApplicantEmail")} required />
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
@@ -404,7 +409,7 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Phone</h5>
+                <h5>Phone <span className="red">*</span></h5>
                 <input type="text" {...register("ApplicantPhone")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
@@ -417,7 +422,8 @@ const SFDCInputs = () => {
             {/* area of focus */}
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
-                <h5>What social problem are you addressing?</h5>
+                {/* <h5>What social problem are you addressing?</h5> */}
+                <h5>What is your focus area? <span className="red">*</span></h5>
               </div>
               <div className="col-lg-4">
                 <select
@@ -458,8 +464,9 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>
-                  Tell us a bit more about the social problem you wish to address and your fictional
-                  solution to solve it. <span className="bold">Write in 100 words.</span>
+                  Tell us a bit more about your focus area and your fictional
+                  solution to solve it. <span className="bold">100 words (max)</span>
+                  <span className="red">*</span>
                 </h5>
                 <textarea
                   type="text"
@@ -471,7 +478,7 @@ const SFDCInputs = () => {
             </div>
             <div className="row mt-5">
               <div className="col-lg-12">
-                <h5>What makes your solution unique? </h5>
+                <h5>What makes your solution unique? <span className="red">*</span></h5>
                 <textarea required {...register("WhatMakesItUnique")}></textarea>
               </div>
             </div>
@@ -479,14 +486,14 @@ const SFDCInputs = () => {
               <div className="col-lg-12">
                 <h5>
                   What impact can your fictional solution bring to the environment, economy or
-                  communities?
+                  communities? <span className="red">*</span>
                 </h5>
                 <textarea required {...register("SolutionImpact")}></textarea>
               </div>
             </div>
             <div className="row mt-5">
               <div className="col-lg-4">
-                <h5>Upload your idea in any of the creative categories</h5>
+                <h5>Upload your idea in any of the creative categories <span className="red">*</span></h5>
               </div>
               <div className="col-lg-4">
                 <select
@@ -515,6 +522,7 @@ const SFDCInputs = () => {
                       {...register("UploadedFile")}
                       required
                       accept={formatAccept[fileAcceptStr]}
+                      multiple
                     />
                   </div>
                   <div className="col-lg-3">
@@ -542,7 +550,7 @@ const SFDCInputs = () => {
                             </div>
                         </div> */}
             <div className="mt-5 text-center submit-button">
-              <button type="submit">Submit Application</button>
+              <button type="submit" disabled={isDisabled}>{isSubmitting ? "Submitting...": "Submit Application"}</button>
             </div>
           </form>
         </div>
