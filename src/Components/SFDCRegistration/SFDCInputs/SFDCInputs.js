@@ -26,8 +26,9 @@ const SFDCInputs = () => {
 
   const onSubmit = (data) => {
     let headers = new Headers();
+    // var imagedata = document.querySelector('input[type="file"]').files[0];
 
-    var imagedata = document.querySelector('input[type="file"]').files[0];
+   
     setIsSubmitting(true)
     setIsDisabled(true)
     let formdata = new FormData();
@@ -43,8 +44,12 @@ const SFDCInputs = () => {
     formdata.append("unique_solutions", data.WhatMakesItUnique);
     formdata.append("impact_of_fictional_solution", data.SolutionImpact);
     formdata.append("type_of_content", data.CreativeCategory);
-    formdata.append("file_of_idea", imagedata);
+    // formdata.append("file_of_idea", imagedata);
     formdata.append("country", data.ApplicantCountry);
+    
+    for (let i = 0; i < document.querySelector('input[type="file"]').files.length; i++) {
+      formdata.append(`file_of_idea[${i}]`,  document.querySelector('input[type="file"]').files[i]);
+    }
 
     let requestOptions = {
       method: "POST",

@@ -20,6 +20,7 @@ const SbdcInputs = () => {
   };
 
   const onSubmit = (data) => {
+    console.log(data)
     let headers = new Headers();
     let imagedata = document.querySelector('input[type="file"]').files[0];
     setIsSubmitting(true)
