@@ -115,6 +115,11 @@
                 }
             }
         }
+        .file-link-notification{
+            input{
+                outline: none;
+            }
+        }
         button {
             outline: 0;
             border: 3px solid $primaryColor;

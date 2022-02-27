@@ -6,6 +6,7 @@ const SbdcInputs = () => {
   const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
+  const [fileSizeTest, setFileSizeTest] = useState([])
 
   const {
     register,
@@ -19,44 +20,28 @@ const SbdcInputs = () => {
     setAreaOfFocusChange(areaOfFocusValue);
   };
 
+  // code test
+  const handleTestChange = (e) => {
+    let files = e.target.files[0]
+    let getLimit = 2097152
+
+    if(files.size > getLimit){
+      alert(`Please upload your file between 2MB, your file is ${Math.round(files.size / 1048576)}MB`)
+      e.target.value = ''
+    }
+    else{
+      setFileSizeTest(files)
+    }
+  }
+
+  const mainForm = document.querySelector('#sbdcInputForm')
+
   const onSubmit = (data) => {
-    console.log(data)
+
     let headers = new Headers();
-    let imagedata = document.querySelector('input[type="file"]').files[0];
+
     setIsSubmitting(true)
     setIsDisabled(true)
-    // const co_founder = [];
-
-    // if(data.FounderType=='team'){
-    //     var firstDataArray = []; // Creating a new array object
-    //     firstDataArray['name'] = data.CoFounderOneName;
-    //     firstDataArray['date_of_birth'] = data.CoFonderOneBirthDate;
-    //     firstDataArray['gender'] = data.CoFounderOneGender;
-    //     firstDataArray['mail'] = data.CoFounderOneEmail;
-    //     firstDataArray['mobile'] = data.CoFounderOneNumber;
-    //     co_founder.concat(firstDataArray)
-    //     // co_founder.push(firstDataArray);
-    // }
-
-    // var secondDataArray = []; // Creating a new array object
-    // secondDataArray['name'] = data.CoFounderTwoName;
-    // secondDataArray['date_of_birth'] = data.CoFonderTwoBirthDate;
-    // secondDataArray['gender'] = data.CoFounderTwoGender;
-    // secondDataArray['mail'] = data.CoFounderTwoEmail;
-    // secondDataArray['mobile'] = data.CoFounderTwoNumber;
-    // co_founder.concat(secondDataArray);
-    // // co_founder.push(secondDataArray);
-
-    // var arrayToString = JSON.stringify(Object.assign({}, co_founder));  // convert array to string
-    // var stringToJsonObject = JSON.parse(arrayToString);  // convert string to jso
-
-    // console.log('co_founder');
-    // console.log(co_founder);
-    // console.log('co_founder_end');
-
-    // console.log('co_founder');
-    // console.log(stringToJsonObject);
-    // console.log('co_founder_end');
 
     let formdata = new FormData();
 
@@ -64,7 +49,6 @@ const SbdcInputs = () => {
     formdata.append("vision", data.YourVision);
     formdata.append("initiative_plan", data.YourInitiative);
     formdata.append("founder_type", data.FounderType);
-    // formdata.append("co_founder", co_founder.toString());
     formdata.append("focus_area", data.AreaOfFocus);
     formdata.append("country", data.ApplicantCountry);
     formdata.append("other_focus_area", data.OtherAreaOfFocus);
@@ -79,7 +63,6 @@ const SbdcInputs = () => {
     formdata.append("way_of_more_to_learn_three", data.OptionalLink0);
     formdata.append("way_of_more_to_learn_four", data.OptionalLink1);
 
-    // formdata.append("Second_Link", data.SecondLink);
     if (data.FounderType === "team") {
       formdata.append("co_founder_name_one", data.CoFounderOneName);
       formdata.append("co_founder_dob_one", data.CoFonderOneBirthDate);
@@ -94,7 +77,7 @@ const SbdcInputs = () => {
     formdata.append("co_founder_email_two", data.CoFounderTwoEmail);
     formdata.append("co_founder_mobile_two", data.CoFounderTwoNumber);
 
-    formdata.append("pitch_deck", imagedata);
+    formdata.append("pitch_deck", fileSizeTest);
 
     let requestOptions = {
       method: "POST",
@@ -102,7 +85,7 @@ const SbdcInputs = () => {
       redirect: "follow",
       headers: headers,
     };
-    console.log("form data", formdata)
+
     fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create", requestOptions)
       .then((response) => response.json())
       .then((data) => {
@@ -110,6 +93,7 @@ const SbdcInputs = () => {
           alert("Thanks For Your Application");
           setIsSubmitting(false)
           setIsDisabled(false)
+          mainForm.reset()
         }
       })
       .catch((error) => {
@@ -124,7 +108,7 @@ const SbdcInputs = () => {
 
   const addMoreLinks = (e) => {
     e.preventDefault();
-    console.log(additionalLinkArray);
+
     // setAdditionalLink((prev) => prev + 1);
     if (additionalLink === 2) {
       return;
@@ -153,14 +137,17 @@ const SbdcInputs = () => {
     additionalLinkArray.pop();
     setArray([...additionalLinkArray]);
   };
+
   const handleCheckBoxOne = (e) => {
     setIsCheckedOne(true);
     setIsCheckedTwo(true);
   };
+
   const handleCheckBoxTwo = (e) => {
     setIsCheckedTwo(true);
     setIsCheckedOne(false);
   };
+
   return (
     <div className="sbdc-registration-input">
       <div className="form-input-header text-center mt-5">
@@ -172,12 +159,12 @@ const SbdcInputs = () => {
       <div className="row">
         <div className="col-lg-2"></div>
         <div className="col-lg-8">
-          <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)}>
+          <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)} id="sbdcInputForm">
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
                 <h5>Your Country <span className="red">*</span></h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
-                  <option value="Afganistan">Afghanistan</option>
+                  <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
                   <option value="American Samoa">American Samoa</option>
@@ -798,6 +785,7 @@ const SbdcInputs = () => {
                     {...register("UploadedFile")}
                     required
                     accept="application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation, video/mp4,video/x-m4v, video/quicktime"
+                    onChange={handleTestChange}
                   />
                 </div>
                 <div className="col-lg-3">

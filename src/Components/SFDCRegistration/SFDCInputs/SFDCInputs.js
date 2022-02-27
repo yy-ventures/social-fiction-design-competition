@@ -17,6 +17,46 @@ const SFDCInputs = () => {
   const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
+  const [showFileUpload, setShowFileUpload] = useState(true)
+  const [fileSizeTest, setFileSizeTest] = useState([])
+
+  const formatString = {
+    rhetoric:
+      "Imagine the life of a young person in the world of 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
+    animation:
+      "Imagine the life of a young person in the world of 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
+    poster_presentation:
+      "Imagine the life of a young person in the world of 2050. Maximum 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
+    writing:
+      "Imagine the life of a young person in the world of 2050. In 1000 words (max) share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+    illustration:
+      "Imagine the life of a young person in the world of 2050. Showcase your creativity using your Drawing or Graphic Design (max: 2 images) to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+    cinematography:
+      "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. Format: .mp4 and .mov",
+  };
+
+  const formatAccept = {
+    rhetoric: "audio/*,video/mp4,video/x-m4v,video/quicktime",
+    animation: "video/mp4,video/x-m4v,video/quicktime",
+    poster_presentation: ".pdf, .jpeg, .jpg, .png",
+    writing:
+      "application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    illustration: ".jpeg,.jpg,.png",
+    cinematography: "video/mp4,video/x-m4v,video/quicktime",
+  };
+
+  const handleChange = (e) => {
+    setfileFormat(e.target.value);
+    setFileAcceptStr(e.target.value);
+
+    if(formatString[e.target.value] === formatString.rhetoric || formatString[e.target.value] === formatString.animation || formatString[e.target.value] === formatString.cinematography){
+      setShowFileUpload(false)
+    }
+    else{
+      setShowFileUpload(true)
+    }
+  };
+
 
   const handleAreaOfFocus = (e) => {
     e.preventDefault();
@@ -24,11 +64,26 @@ const SFDCInputs = () => {
     setAreaOfFocusChange(areaOfFocusValue);
   };
 
+  const mainForm = document.querySelector('#sfdcInputForm')
+
+  // code test
+  const handleTestChange = (e) => {
+    let files = e.target.files
+    let getLimit = 2097152
+    for(let j = 0; j < files.length; j++){
+      if(files[j].size > getLimit){
+        alert(`Please upload your file between 2MB, your file is ${Math.round(files[j].size / 1048576)}MB`)
+        e.target.value = ''
+      }
+      else{
+        setFileSizeTest(files)
+      }
+    }
+  }
+
   const onSubmit = (data) => {
     let headers = new Headers();
-    // var imagedata = document.querySelector('input[type="file"]').files[0];
-
-   
+    // var imagedata = document.querySelector('input[type="file"]').files[0];   
     setIsSubmitting(true)
     setIsDisabled(true)
     let formdata = new FormData();
@@ -40,16 +95,29 @@ const SFDCInputs = () => {
     formdata.append("social_problems", data.YourSocialProblem);
     formdata.append("other_social_problem", data.OtherSocialProblem);
     formdata.append("more_about_social_problem", data.YourSocialProblem);
-
     formdata.append("unique_solutions", data.WhatMakesItUnique);
     formdata.append("impact_of_fictional_solution", data.SolutionImpact);
     formdata.append("type_of_content", data.CreativeCategory);
-    // formdata.append("file_of_idea", imagedata);
-    formdata.append("country", data.ApplicantCountry);
-    
-    for (let i = 0; i < document.querySelector('input[type="file"]').files.length; i++) {
-      formdata.append(`file_of_idea[${i}]`,  document.querySelector('input[type="file"]').files[i]);
+
+    let letters = ['rhetoric','animation','cinematography'];
+
+    let result = letters.includes(data.CreativeCategory);
+
+    if (result) {
+      formdata.append(`file_of_idea`, data.LargeFileLink)
+    }else{
+      for (let i = 0; i < fileSizeTest.length; i++) {
+        let getFiles =  fileSizeTest[i]
+          formdata.append(`file_of_idea[${i}]`, getFiles);
+      }
     }
+    
+
+    // formdata.append("file_of_idea", imagedata);
+    // let prev = document.querySelector('input[type="file"]').files
+
+    formdata.append("country", data.ApplicantCountry);
+     
 
     let requestOptions = {
       method: "POST",
@@ -65,38 +133,12 @@ const SFDCInputs = () => {
           alert("Thanks For Your Application");
           setIsSubmitting(false)
           setIsDisabled(false)
+          mainForm.reset()
         }
       })
       .catch((error) => {
         console.error(error);
       });
-  };
-  const formatString = {
-    rhetoric:
-      "Imagine the life of a young person in the world of 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
-    animation:
-      "Imagine the life of a young person in the world of 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
-    poster_presentation:
-      "Imagine the life of a young person in the world of 2050. Maximum 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
-    writing:
-      "Imagine the life of a young person in the world of 2050. In 1000 words (max) share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
-    illustration:
-      "Imagine the life of a young person in the world of 2050. Showcase your creativity using your Drawing or Graphic Design (max: 2 images) to address your Social Fiction theme. Format: .jpeg, jpg and .png",
-    cinematography:
-      "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. Format: .mp4 and .mov",
-  };
-  const formatAccept = {
-    rhetoric: "audio/*,video/mp4,video/x-m4v,video/quicktime",
-    animation: "video/mp4,video/x-m4v,video/quicktime",
-    poster_presentation: ".pdf, .jpeg, .jpg, .png",
-    writing:
-      "application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation",
-    illustration: ".jpeg,.jpg,.png",
-    cinematography: "video/mp4,video/x-m4v,video/quicktime",
-  };
-  const handleChange = (e) => {
-    setfileFormat(e.target.value);
-    setFileAcceptStr(e.target.value);
   };
 
   return (
@@ -114,6 +156,7 @@ const SFDCInputs = () => {
             encType="multipart/form-data"
             className="registration-main-form"
             onSubmit={handleSubmit(onSubmit)}
+            id="sfdcInputForm"
           >
             <div className="row">
               <div className="mt-5 col-lg-6">
@@ -153,7 +196,7 @@ const SFDCInputs = () => {
               <div className="mt-5 col-lg-6">
                 <h5>Country <span className="red">*</span></h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
-                  <option value="Afganistan">Afghanistan</option>
+                  <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
                   <option value="American Samoa">American Samoa</option>
@@ -518,7 +561,7 @@ const SFDCInputs = () => {
                 </select>
               </div>
               <div className="col-lg-4">
-                <div className="file-upload">
+                {showFileUpload && <div className="file-upload">
                   <div>
                     <input
                       class="form-control"
@@ -528,15 +571,16 @@ const SFDCInputs = () => {
                       required
                       accept={formatAccept[fileAcceptStr]}
                       multiple
+                      onChange={handleTestChange}
                     />
                   </div>
                   <div className="col-lg-3">
                     <div className="file-upload-condition"></div>
                   </div>
-                </div>
+                </div>}
               </div>
             </div>
-            <p className="mt-5">{formatString[fileFormat]}</p>
+            {showFileUpload && <p className="mt-5">{formatString[fileFormat]}</p>}
             {/* <div className="mt-5 file-upload">
                             <div className="row">
                                 <div className="col-lg-5">
@@ -554,6 +598,18 @@ const SFDCInputs = () => {
                                 </div>
                             </div>
                         </div> */}
+
+            {/* new link field           */}
+
+            {!showFileUpload && <div className="row mt-5 file-link-notification">
+              <h5>Upload your file to a cloud drive (we recommend google drive), then share the link with us <span className="red">*</span></h5>
+              <input
+                      class="form-control"
+                      type="text"
+                      {...register("LargeFileLink")}
+                      required
+              />
+            </div>}
             <div className="mt-5 text-center submit-button">
               <button type="submit" disabled={isDisabled}>{isSubmitting ? "Submitting...": "Submit Application"}</button>
             </div>
