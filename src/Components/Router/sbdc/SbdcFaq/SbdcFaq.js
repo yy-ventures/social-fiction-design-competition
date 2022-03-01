@@ -33,7 +33,7 @@ const SbdcFaq = () => {
         setFaqData(data.responses);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [baseUrl]);
 
   return (
     <section className="sbdc-faq-section">
