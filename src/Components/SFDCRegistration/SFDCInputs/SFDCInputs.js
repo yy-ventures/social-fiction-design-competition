@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./SFDCInputs.scss";
-
 const SFDCInputs = () => {
   const {
     register,
@@ -15,10 +14,12 @@ const SFDCInputs = () => {
   );
 
   const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isDisabled, setIsDisabled] = useState(false)
-  const [showFileUpload, setShowFileUpload] = useState(true)
-  const [fileSizeTest, setFileSizeTest] = useState([])
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [showFileUpload, setShowFileUpload] = useState(true);
+  const [fileSizeTest, setFileSizeTest] = useState([]);
+  // Base Url
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const formatString = {
     rhetoric:
@@ -49,14 +50,16 @@ const SFDCInputs = () => {
     setfileFormat(e.target.value);
     setFileAcceptStr(e.target.value);
 
-    if(formatString[e.target.value] === formatString.rhetoric || formatString[e.target.value] === formatString.animation || formatString[e.target.value] === formatString.cinematography){
-      setShowFileUpload(false)
-    }
-    else{
-      setShowFileUpload(true)
+    if (
+      formatString[e.target.value] === formatString.rhetoric ||
+      formatString[e.target.value] === formatString.animation ||
+      formatString[e.target.value] === formatString.cinematography
+    ) {
+      setShowFileUpload(false);
+    } else {
+      setShowFileUpload(true);
     }
   };
-
 
   const handleAreaOfFocus = (e) => {
     e.preventDefault();
@@ -64,28 +67,31 @@ const SFDCInputs = () => {
     setAreaOfFocusChange(areaOfFocusValue);
   };
 
-  const mainForm = document.querySelector('#sfdcInputForm')
+  const mainForm = document.querySelector("#sfdcInputForm");
 
   // code test
   const handleTestChange = (e) => {
-    let files = e.target.files
-    let getLimit = 2097152
-    for(let j = 0; j < files.length; j++){
-      if(files[j].size > getLimit){
-        alert(`Please upload your file between 2MB, your file is ${Math.round(files[j].size / 1048576)}MB`)
-        e.target.value = ''
-      }
-      else{
-        setFileSizeTest(files)
+    let files = e.target.files;
+    let getLimit = 2097152;
+    for (let j = 0; j < files.length; j++) {
+      if (files[j].size > getLimit) {
+        alert(
+          `Please upload your file between 2MB, your file is ${Math.round(
+            files[j].size / 1048576
+          )}MB`
+        );
+        e.target.value = "";
+      } else {
+        setFileSizeTest(files);
       }
     }
-  }
+  };
 
   const onSubmit = (data) => {
     let headers = new Headers();
-    // var imagedata = document.querySelector('input[type="file"]').files[0];   
-    setIsSubmitting(true)
-    setIsDisabled(true)
+    // var imagedata = document.querySelector('input[type="file"]').files[0];
+    setIsSubmitting(true);
+    setIsDisabled(true);
     let formdata = new FormData();
     formdata.append("name_of_applicant", data.NameOfApplicant);
     formdata.append("name_of_institution", data.NameOfInstitution);
@@ -99,25 +105,23 @@ const SFDCInputs = () => {
     formdata.append("impact_of_fictional_solution", data.SolutionImpact);
     formdata.append("type_of_content", data.CreativeCategory);
 
-    let letters = ['rhetoric','animation','cinematography'];
+    let letters = ["rhetoric", "animation", "cinematography"];
 
     let result = letters.includes(data.CreativeCategory);
 
     if (result) {
-      formdata.append(`file_of_idea`, data.LargeFileLink)
-    }else{
+      formdata.append(`file_of_idea`, data.LargeFileLink);
+    } else {
       for (let i = 0; i < fileSizeTest.length; i++) {
-        let getFiles =  fileSizeTest[i]
-          formdata.append(`file_of_idea[${i}]`, getFiles);
+        let getFiles = fileSizeTest[i];
+        formdata.append(`file_of_idea[${i}]`, getFiles);
       }
     }
-    
 
     // formdata.append("file_of_idea", imagedata);
     // let prev = document.querySelector('input[type="file"]').files
 
     formdata.append("country", data.ApplicantCountry);
-     
 
     let requestOptions = {
       method: "POST",
@@ -126,14 +130,14 @@ const SFDCInputs = () => {
       headers: headers,
     };
 
-    fetch("http://stage-sbdc-sfdc.3zeros.club/api/sfdc/create", requestOptions)
+    fetch(`${baseUrl}/sfdc/create`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
           alert("Thanks For Your Application");
-          setIsSubmitting(false)
-          setIsDisabled(false)
-          mainForm.reset()
+          setIsSubmitting(false);
+          setIsDisabled(false);
+          mainForm.reset();
         }
       })
       .catch((error) => {
@@ -160,7 +164,9 @@ const SFDCInputs = () => {
           >
             <div className="row">
               <div className="mt-5 col-lg-6">
-                <h5>Name of Applicant <span className="red">*</span></h5>
+                <h5>
+                  Name of Applicant <span className="red">*</span>
+                </h5>
                 <input
                   type="text"
                   {...register("NameOfApplicant", {
@@ -174,7 +180,9 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Name of Institution <span className="red">*</span></h5>
+                <h5>
+                  Name of Institution <span className="red">*</span>
+                </h5>
                 <input type="text" {...register("NameOfInstitution")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
@@ -186,7 +194,9 @@ const SFDCInputs = () => {
             </div>
             <div className="row ">
               <div className="mt-5 col-lg-6">
-                <h5>Date of Birth of Applicant <span className="red">*</span></h5>
+                <h5>
+                  Date of Birth of Applicant <span className="red">*</span>
+                </h5>
                 <input type="date" {...register("ApplicantDateOfBirth")} required />
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
@@ -194,7 +204,9 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Country <span className="red">*</span></h5>
+                <h5>
+                  Country <span className="red">*</span>
+                </h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
@@ -449,7 +461,9 @@ const SFDCInputs = () => {
             </div>
             <div className="row ">
               <div className="mt-5 col-lg-6">
-                <h5>E-mail <span className="red">*</span></h5>
+                <h5>
+                  E-mail <span className="red">*</span>
+                </h5>
                 <input type="email" {...register("ApplicantEmail")} required />
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
@@ -457,7 +471,9 @@ const SFDCInputs = () => {
                 )}
               </div>
               <div className="mt-5 col-lg-6">
-                <h5>Phone <span className="red">*</span></h5>
+                <h5>
+                  Phone <span className="red">*</span>
+                </h5>
                 <input type="text" {...register("ApplicantPhone")} required maxLength="100" />
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
@@ -471,7 +487,9 @@ const SFDCInputs = () => {
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
                 {/* <h5>What social problem are you addressing?</h5> */}
-                <h5>What is your focus area? <span className="red">*</span></h5>
+                <h5>
+                  What is your focus area? <span className="red">*</span>
+                </h5>
               </div>
               <div className="col-lg-4">
                 <select
@@ -512,8 +530,8 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>
-                  Tell us a bit more about your focus area and your fictional
-                  solution to solve it. <span className="bold">100 words (max)</span>
+                  Tell us a bit more about your focus area and your fictional solution to solve it.{" "}
+                  <span className="bold">100 words (max)</span>
                   <span className="red">*</span>
                 </h5>
                 <textarea
@@ -526,7 +544,9 @@ const SFDCInputs = () => {
             </div>
             <div className="row mt-5">
               <div className="col-lg-12">
-                <h5>What makes your solution unique? <span className="red">*</span></h5>
+                <h5>
+                  What makes your solution unique? <span className="red">*</span>
+                </h5>
                 <textarea required {...register("WhatMakesItUnique")}></textarea>
               </div>
             </div>
@@ -541,7 +561,9 @@ const SFDCInputs = () => {
             </div>
             <div className="row mt-5">
               <div className="col-lg-4">
-                <h5>Upload your idea in any of the creative categories <span className="red">*</span></h5>
+                <h5>
+                  Upload your idea in any of the creative categories <span className="red">*</span>
+                </h5>
               </div>
               <div className="col-lg-4">
                 <select
@@ -561,23 +583,25 @@ const SFDCInputs = () => {
                 </select>
               </div>
               <div className="col-lg-4">
-                {showFileUpload && <div className="file-upload">
-                  <div>
-                    <input
-                      class="form-control"
-                      type="file"
-                      id="formFile"
-                      {...register("UploadedFile")}
-                      required
-                      accept={formatAccept[fileAcceptStr]}
-                      multiple
-                      onChange={handleTestChange}
-                    />
+                {showFileUpload && (
+                  <div className="file-upload">
+                    <div>
+                      <input
+                        class="form-control"
+                        type="file"
+                        id="formFile"
+                        {...register("UploadedFile")}
+                        required
+                        accept={formatAccept[fileAcceptStr]}
+                        multiple
+                        onChange={handleTestChange}
+                      />
+                    </div>
+                    <div className="col-lg-3">
+                      <div className="file-upload-condition"></div>
+                    </div>
                   </div>
-                  <div className="col-lg-3">
-                    <div className="file-upload-condition"></div>
-                  </div>
-                </div>}
+                )}
               </div>
             </div>
             {showFileUpload && <p className="mt-5">{formatString[fileFormat]}</p>}
@@ -601,17 +625,19 @@ const SFDCInputs = () => {
 
             {/* new link field           */}
 
-            {!showFileUpload && <div className="row mt-5 file-link-notification">
-              <h5>Upload your file to a cloud drive (we recommend google drive), then share the link with us <span className="red">*</span></h5>
-              <input
-                      class="form-control"
-                      type="text"
-                      {...register("LargeFileLink")}
-                      required
-              />
-            </div>}
+            {!showFileUpload && (
+              <div className="row mt-5 file-link-notification">
+                <h5>
+                  Upload your file to a cloud drive (we recommend google drive), then share the link
+                  with us <span className="red">*</span>
+                </h5>
+                <input class="form-control" type="text" {...register("LargeFileLink")} required />
+              </div>
+            )}
             <div className="mt-5 text-center submit-button">
-              <button type="submit" disabled={isDisabled}>{isSubmitting ? "Submitting...": "Submit Application"}</button>
+              <button type="submit" disabled={isDisabled}>
+                {isSubmitting ? "Submitting..." : "Submit Application"}
+              </button>
             </div>
           </form>
         </div>

@@ -6,6 +6,8 @@ const SbdcFaq = () => {
   const [show, setShow] = useState(null);
   // State variable to store the faq data coming from the backend api
   const [faqData, setFaqData] = useState([]);
+  // Base Url
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   // Toggle FAQ answers
   const toggle = (index) => {
     if (show === index) {
@@ -24,9 +26,12 @@ const SbdcFaq = () => {
       },
     };
     // fetch backend api data for faq section
-    fetch("https://stage-sbdc-sfdc.3zeros.club/api/get-faq?type=sbdc", options)
+    fetch(`${baseUrl}/get-faq?type=sbdc`, options)
       .then((response) => response.json())
-      .then((data) => setFaqData(data.responses))
+      .then((data) => {
+        console.log(data);
+        setFaqData(data.responses);
+      })
       .catch((error) => console.error(error));
   }, []);
 

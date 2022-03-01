@@ -4,9 +4,12 @@ import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
   const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isDisabled, setIsDisabled] = useState(false)
-  const [fileSizeTest, setFileSizeTest] = useState([])
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [fileSizeTest, setFileSizeTest] = useState([]);
+
+  // Base Url
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const {
     register,
@@ -22,26 +25,26 @@ const SbdcInputs = () => {
 
   // code test
   const handleTestChange = (e) => {
-    let files = e.target.files[0]
-    let getLimit = 2097152
+    let files = e.target.files[0];
+    let getLimit = 2097152;
 
-    if(files.size > getLimit){
-      alert(`Please upload your file between 2MB, your file is ${Math.round(files.size / 1048576)}MB`)
-      e.target.value = ''
+    if (files.size > getLimit) {
+      alert(
+        `Please upload your file between 2MB, your file is ${Math.round(files.size / 1048576)}MB`
+      );
+      e.target.value = "";
+    } else {
+      setFileSizeTest(files);
     }
-    else{
-      setFileSizeTest(files)
-    }
-  }
+  };
 
-  const mainForm = document.querySelector('#sbdcInputForm')
+  const mainForm = document.querySelector("#sbdcInputForm");
 
   const onSubmit = (data) => {
-
     let headers = new Headers();
 
-    setIsSubmitting(true)
-    setIsDisabled(true)
+    setIsSubmitting(true);
+    setIsDisabled(true);
 
     let formdata = new FormData();
 
@@ -86,14 +89,14 @@ const SbdcInputs = () => {
       headers: headers,
     };
 
-    fetch("https://stage-sbdc-sfdc.3zeros.club/api/sbdc/create", requestOptions)
+    fetch(`${baseUrl}/sbdc/create`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
           alert("Thanks For Your Application");
-          setIsSubmitting(false)
-          setIsDisabled(false)
-          mainForm.reset()
+          setIsSubmitting(false);
+          setIsDisabled(false);
+          mainForm.reset();
         }
       })
       .catch((error) => {
@@ -159,10 +162,16 @@ const SbdcInputs = () => {
       <div className="row">
         <div className="col-lg-2"></div>
         <div className="col-lg-8">
-          <form className="registration-main-form" onSubmit={handleSubmit(onSubmit)} id="sbdcInputForm">
+          <form
+            className="registration-main-form"
+            onSubmit={handleSubmit(onSubmit)}
+            id="sbdcInputForm"
+          >
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
-                <h5>Your Country <span className="red">*</span></h5>
+                <h5>
+                  Your Country <span className="red">*</span>
+                </h5>
                 <select className="form-select" {...register("ApplicantCountry")} required>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
@@ -423,7 +432,9 @@ const SbdcInputs = () => {
 
             <div className="row">
               <div className="col-lg-6">
-                <h5 className="mt-5 white-space-no-wrap">Name of Social Business/Idea <span className="red">*</span></h5>
+                <h5 className="mt-5 white-space-no-wrap">
+                  Name of Social Business/Idea <span className="red">*</span>
+                </h5>
                 <input type="text" {...register("NameOfSocialBusiness")} required />
                 {errors.NameOfSocialBusiness?.message && (
                   <span>{errors.NameOfSocialBusiness.message}</span>
@@ -454,7 +465,9 @@ const SbdcInputs = () => {
             </div>
             <div className="row mt-5 registration-radio-top">
               <div className="col-lg-4">
-                <h5>Are you are applying as an individual or a team? <span className="red">*</span></h5>
+                <h5>
+                  Are you are applying as an individual or a team? <span className="red">*</span>
+                </h5>
               </div>
               <div className="col-lg-2">
                 <div class="form-check">
@@ -593,7 +606,9 @@ const SbdcInputs = () => {
             {/* area of focus */}
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
-                <h5>What is your Area of Focus? <span className="red">*</span></h5>
+                <h5>
+                  What is your Area of Focus? <span className="red">*</span>
+                </h5>
               </div>
               <div className="col-lg-4">
                 <select
@@ -635,13 +650,16 @@ const SbdcInputs = () => {
             <div className="mt-5">
               <h5>
                 How is your Social Business reducing carbon emission, creating jobs or fighting
-                poverty? <span className="bold"> Please tell us in 100 words.</span> 
+                poverty? <span className="bold"> Please tell us in 100 words.</span>
                 <span className="red">*</span>
               </h5>
               <textarea required {...register("ReducingCarbonEmission")}></textarea>
             </div>
             <div className="mt-5">
-              <h5>What innovation is your Social Business bringing to your market? <span className="red">*</span></h5>
+              <h5>
+                What innovation is your Social Business bringing to your market?{" "}
+                <span className="red">*</span>
+              </h5>
               <textarea required {...register("BringingToYourMarket")}></textarea>
             </div>
             <div className="mt-5">
@@ -655,7 +673,9 @@ const SbdcInputs = () => {
             </div>
             <div className="row mt-5">
               <div className="col-lg-4">
-                <h5>At what stage is your venture? <span className="red">*</span></h5>
+                <h5>
+                  At what stage is your venture? <span className="red">*</span>
+                </h5>
               </div>
               <div className="col-lg-4">
                 <select required {...register("StageOfVentures")} className="form-select">
@@ -733,7 +753,9 @@ const SbdcInputs = () => {
                             </p> */}
             </div>
             <div className="mt-5 registration-law-curve">
-              <h5>How does your Social Business plan to make money? <span className="red">*</span></h5>
+              <h5>
+                How does your Social Business plan to make money? <span className="red">*</span>
+              </h5>
               <input required {...register("MakeMoney")}></input>
             </div>
             <div className="mt-5 link-input">
@@ -775,7 +797,9 @@ const SbdcInputs = () => {
             <div className="mt-5 file-upload">
               <div className="row">
                 <div className="col-lg-3">
-                  <h5>Please upload your Pitch Deck<span className="red">*</span></h5>
+                  <h5>
+                    Please upload your Pitch Deck<span className="red">*</span>
+                  </h5>
                 </div>
                 <div className="col-lg-5">
                   <input
@@ -807,7 +831,10 @@ const SbdcInputs = () => {
               </p>
             </div>
             <div className="mt-5 text-center">
-              <button type="submit" disabled={isDisabled}> {isSubmitting ? "Submitting...": "Submit Application"}</button>
+              <button type="submit" disabled={isDisabled}>
+                {" "}
+                {isSubmitting ? "Submitting..." : "Submit Application"}
+              </button>
             </div>
           </form>
         </div>
