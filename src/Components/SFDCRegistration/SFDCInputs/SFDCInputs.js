@@ -68,6 +68,7 @@ const SFDCInputs = () => {
 
   // code test
   const handleTestChange = (e) => {
+    
     let files = e.target.files
     let getLimit = 2097152
     for(let j = 0; j < files.length; j++){
