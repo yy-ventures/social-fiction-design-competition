@@ -6,6 +6,7 @@ import SfdcForm from "./SfdcForm/SfdcForm";
 import SfdcHeader from "./SfdcHeader/SfdcHeader";
 import SfdcSubmitIdea from "./SfdcSubmitIdea/SfdcSubmitIdea";
 import SfdcWhoCanApply from "./SfdcWhoCanApply/SfdcWhoCanApply";
+import SfdcFocusArea from "./SfdcFocusArea/SfdcFocusArea";
 
 const SfdcRoute = () => {
   return (
@@ -15,6 +16,7 @@ const SfdcRoute = () => {
       <SfdcAwards />
       <SfdcCategory />
       <SfdcSubmitIdea />
+      <SfdcFocusArea/>
       <SfdcFaq />
       <SfdcForm />
     </div>
