@@ -1,77 +1,32 @@
 @import "../../../../global.scss";
+
 .sfdc-awards{
-    padding: 10% 5%;
-    color: $text;
-    h2{
-        color: $deepOrange;
-        font-weight: 900;
-        font-size: 6vmin;
-        text-transform: capitalize;
-    }
-    h3{
-        text-transform: capitalize;
-        font-weight: 900;
-        font-size: 4.5vmin;
+    padding: 10% 15% 5% 15%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
     }
     h4{
-        font-size: 3.5vmin;
+        font-weight: 500;
+        font-size: calc(19px + 1vw);
+        line-height: calc(12px + 1vw);
+        color: #333333;
     }
-    h5{
-        font-weight: bold;
-        font-size: 3.5vmin;
+    .marked{
+        color: #EA5B41;
+        font-weight: 700;
     }
-    h6{
-        font-size: 3.5vmin;
-        font-weight: 400;
+    img{
+        height: 200px;
+        margin-top: 2.5%;
     }
-    .sfdc-coin{
-        position: absolute;
-        bottom: 0;
-        left: 0;
+    .reward_right{
+        position: relative;
         img{
-            width: 100%;
-        }
-    }
-    .sfdc-art{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        img{
-            width: auto;
-        }
-    }
-}
-
-@media screen and (min-height:1441) {
-    .sfdc-awards{
-        // height: 600px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .sfdc-awards{
-        .sfdc-coin{
-            display: none;
-        }
-        h2{
-            font-size: 2rem;
-        }
-        h3{
-            font-size: 1.1rem;
-        }
-        h4{
-            font-size: 1.1rem;
-        }
-        h5{
-            font-size: 1.1rem;
-        }
-        h6{
-            font-size: 1.1rem;
-        }
-        .sfdc-art{
-            img{
-                height: 200px;
-            }
+            position: absolute;
+            height: 270px;
+            top: -55%;
         }
     }
 }

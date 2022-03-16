@@ -1,39 +1,58 @@
 @import "../../../../global.scss";
 .sfdc-category{
-    padding: 10% 15%;
+    padding: 5% 15%;
+    img{
+        height: 200px;
+    }
     .sfdc-category-list{
+        padding: 7.5% 0;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1em;
+        gap: 5% 2.5%;
         .sfdc-category-card{
-            padding: 10%;
-            border: 1px solid #eee;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            width: 100%;
             cursor: pointer;
-            background-image: $white;
             &:hover{
-                background-image: linear-gradient(to bottom, $deepOrange, $secondaryColor);
-                .sfdc-category-icon{
-                    fill: $white;
-                    stroke: $white;
+                .card-details{
+                    transform: translateY(0);
+                    animation: list 0.3s;
+                    ul{
+                        li{
+                            animation: list 0.6s;
+                        }
+                    }
                 }
-                h5{
-                    color: $white;
-                }
-                p{
-                    color: $white;
+                img{
+                    filter: grayscale(35%);
                 }
             }
-            .sfdc-category-icon{
-                fill: $deepOrange;
-                stroke: $deepOrange;
-                height: 90px;
+            img{
+                height: 100%;
+                object-fit: cover;
+                z-index: 1;
+                transition: 0.3s;
             }
-            h5{
-                font-weight: 700;
-                color: $text;
-            }
-            p{
-                color: $text;
+            .card-details{
+                position: absolute;
+                padding: 10% 2.5% 0 2.5%;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                background-color: linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+                transform: translateY(-100%);
+                ul{
+                    li{
+                        list-style-type: none;
+                        font-size: calc(8px + 1vw);
+                        color: #fff;
+                        font-family: 'Patrick Hand', cursive;
+                    }
+                }
             }
         }
     }
@@ -52,5 +71,16 @@
         .sfdc-category-list{
             grid-template-columns: repeat(1, 1fr);
         }
+    }
+}
+
+@keyframes list {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
