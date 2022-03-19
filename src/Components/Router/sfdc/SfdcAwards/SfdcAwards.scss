@@ -4,6 +4,7 @@
     padding: 10% 15% 5% 15%;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
+    background-color: #fff5e4;
     @media screen and (max-width: 600px) {
         grid-template-columns: 1fr;
     }
@@ -20,13 +21,23 @@
     img{
         height: 200px;
         margin-top: 2.5%;
+        @media screen and (max-width: 600px) {
+            height: 100px;
+        }
     }
     .reward_right{
         position: relative;
+        @media screen and (max-width: 600px) {
+            height: 200px;
+        }
         img{
             position: absolute;
             height: 270px;
             top: -55%;
+            @media screen and (max-width: 600px) {
+                height: 150px;
+                top: 0;
+            }
         }
     }
 }

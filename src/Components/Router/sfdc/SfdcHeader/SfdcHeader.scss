@@ -3,6 +3,7 @@
 .sfdc-header {
     width: 100%;
     height: 90vh;
+    position: relative;
     @media screen and (max-width: 600px) {
         height: 350px;
     }
@@ -10,5 +11,27 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .box1{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom: 10%;
+        right: 5%;
+        cursor: pointer;
+        img{
+            width: 100%;
+        }
+    }
+    .box2{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom: 10%;
+        right: 5%;
+        cursor: pointer;
+        img{
+            width: 100%;
+        }
     }
 }
