@@ -8,4 +8,15 @@
     img{
         width: 75%;
     }
+    .apply-poster-mobile{
+        display: none;
+    }
+    @media screen and (max-width:600px) {
+        .apply-poster{
+            display: none;
+        }
+        .apply-poster-mobile{
+            display: block;
+        }
+    }
 }

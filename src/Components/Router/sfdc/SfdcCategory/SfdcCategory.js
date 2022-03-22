@@ -1,6 +1,7 @@
 import React from 'react';
 import "./SfdcCategory.scss";
 import getCreative from '../../../../assets/get_creative.png'
+import getCreativeMobile from '../../../../assets/get_creative_mobile.png'
 import grid1 from "../../../../assets/grid/grid-1.png"
 import grid2 from "../../../../assets/grid/grid-2.png"
 import grid3 from "../../../../assets/grid/grid-3.png"
@@ -11,7 +12,8 @@ import grid6 from "../../../../assets/grid/grid-6.png"
 const SfdcCategory = () => {
     return (
         <section className="sfdc-category">
-            <img src={getCreative} alt="get-creative"/>
+            <img src={getCreative} alt="get-creative" className='get-creative'/>
+            <img src={getCreativeMobile} alt="get-creative-mobile" className='get-creative-mobile'/>
             <div className="sfdc-category-list">
                 <div className='sfdc-category-card'>
                     <img src={grid1} alt="grid"/>

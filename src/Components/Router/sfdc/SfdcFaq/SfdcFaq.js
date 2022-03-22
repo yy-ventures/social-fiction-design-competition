@@ -7,8 +7,7 @@ const SfdcFaq = () => {
   // State variable to store the faq data coming from the backend api
   const [faqData, setFaqData] = useState([]);
   // Base Url
-  //const baseUrl = process.env.REACT_APP_BASE_URL;
-  const baseUrl = 'https://stage-sbdc-sfdc.yyventures.org/api'
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   
   // Toggle FAQ answers
   const toggle = (index) => {

@@ -75,7 +75,7 @@ const SbdcInputs = () => {
     }
 
     formdata.append("co_founder_name_two", data.CoFounderTwoName);
-    formdata.append("co_founder_dob_two", data.CoFonderOneBirthDate);
+    formdata.append("co_founder_dob_two", data.CoFonderTwoBirthDate);
     formdata.append("co_founder_gender_two", data.CoFounderTwoGender);
     formdata.append("co_founder_email_two", data.CoFounderTwoEmail);
     formdata.append("co_founder_mobile_two", data.CoFounderTwoNumber);

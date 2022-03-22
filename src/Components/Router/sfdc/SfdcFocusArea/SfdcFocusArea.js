@@ -1,6 +1,7 @@
 import React from 'react';
 import './SfdcFocusArea.scss';
 import area1 from '../../../../assets/area_1.png'
+import area1mobile from '../../../../assets/area_1_mobile.png'
 import area2 from '../../../../assets/area_2.png'
 import area3 from '../../../../assets/area_3.png'
 import { Link } from 'react-router-dom';
@@ -10,6 +11,9 @@ const SfdcFocusArea = () => {
         <section className='focus_area_container'>
             <div className='area_1'>
                 <img src={area1} alt="area1" />
+            </div>
+            <div className='area_1_mobile'>
+                <img src={area1mobile} alt="area1" />
             </div>
             <div className='area_2'>
                 <img src={area2} alt="area2" />

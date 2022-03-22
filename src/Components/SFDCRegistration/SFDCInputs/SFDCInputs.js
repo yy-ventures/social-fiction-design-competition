@@ -132,7 +132,7 @@ const SFDCInputs = () => {
     fetch(`${baseUrl}/sfdc/create`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        if (data) {
+        if (data.success) {
           alert("Thanks For Your Application");
           setIsSubmitting(false);
           setIsDisabled(false);

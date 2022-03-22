@@ -10,6 +10,16 @@
         img{
             height: 300px;
             @media screen and (max-width: 600px) {
+                display: none;
+            }
+        }
+    }
+    .area_1_mobile{
+        img{
+            height: 300px;
+            display: none;
+            @media screen and (max-width: 600px) {
+                display: block;
                 height: 150px;
             }
         }
