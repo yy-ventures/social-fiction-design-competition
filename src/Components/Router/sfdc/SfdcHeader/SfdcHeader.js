@@ -16,7 +16,7 @@ const SfdcHeader = () => {
                 height="100%" 
                 controls={true} 
                 loop
-                autoPlay
+                autoPlay={true}
                 playing={playing}
                 playsInline
                 allowfullscreen
@@ -34,3 +34,6 @@ const SfdcHeader = () => {
 };
 
 export default SfdcHeader;
+
+
+//url="https://www.youtube.com/watch?v=L4kU97gXWj0?rel=0&autoplay=1&controls=0&showinfo=0"
