@@ -11,9 +11,6 @@
 # production
 /build
 
-#video
-/src/assets/hero_video.mp4
-
 # misc
 .env
 .DS_Store
