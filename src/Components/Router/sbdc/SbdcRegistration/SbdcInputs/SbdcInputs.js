@@ -13,45 +13,6 @@ const SbdcInputs = () => {
 
         let headers = new Headers();
         let imagedata = document.querySelector('input[type="file"]').files[0];
-
-        // const co_founder = [];
-
-       
-        // if(data.FounderType=='team'){
-        //     var firstDataArray = []; // Creating a new array object
-        //     firstDataArray['name'] = data.CoFounderOneName; 
-        //     firstDataArray['date_of_birth'] = data.CoFonderOneBirthDate;
-        //     firstDataArray['gender'] = data.CoFounderOneGender; 
-        //     firstDataArray['mail'] = data.CoFounderOneEmail;
-        //     firstDataArray['mobile'] = data.CoFounderOneNumber;
-        //     co_founder.concat(firstDataArray)
-        //     // co_founder.push(firstDataArray);
-        // }
-
-        // var secondDataArray = []; // Creating a new array object
-        // secondDataArray['name'] = data.CoFounderTwoName; 
-        // secondDataArray['date_of_birth'] = data.CoFonderTwoBirthDate;
-        // secondDataArray['gender'] = data.CoFounderTwoGender; 
-        // secondDataArray['mail'] = data.CoFounderTwoEmail;
-        // secondDataArray['mobile'] = data.CoFounderTwoNumber;
-        // co_founder.concat(secondDataArray);
-        // // co_founder.push(secondDataArray);
-
-
-        // var arrayToString = JSON.stringify(Object.assign({}, co_founder));  // convert array to string
-        // var stringToJsonObject = JSON.parse(arrayToString);  // convert string to jso
-
-
-
-
-        // console.log('co_founder');
-        // console.log(co_founder);
-        // console.log('co_founder_end');
-
-        // console.log('co_founder');
-        // console.log(stringToJsonObject);
-        // console.log('co_founder_end');
-
         let formdata = new FormData();
 
         formdata.append("name_of_business", data.NameOfSocialBusiness);
