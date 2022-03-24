@@ -11,7 +11,7 @@ const SfdcHeader = () => {
     return (
         <section className="sfdc-header position-relative" id="sfdcHeaderId">
             <ReactPlayer 
-                url="https://gdurl.com/Q75t"
+                url="https://www.youtube.com/watch?v=L4kU97gXWj0?rel=0&autoplay=1&controls=0&showinfo=0"
                 width="100%" 
                 height="100%" 
                 controls={true} 
