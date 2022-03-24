@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1.5em;
+  z-index: 5;
+}
+
+@media screen and (min-width: 480px) {
+  .button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.btn-home {
+  text-decoration: none;
+  padding: 0.6em 0.8em;
+  border-radius: 5px;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.btn-home:hover {
+  color: #ffffff;
+}
+
+.button-blue {
+  background-color: #1c4065;
+  color: #ffffff;
+  border: 3px solid #64a0dc;
+}
+
+.button-skyblue {
+  background-color: #356aa0;
+  color: #ffffff;
+  border: 3px solid #64a0dc;
+}
+
+.sbdc-registration-input {
+  padding: 2% 3% 10% 3%;
+}
+
+.sbdc-registration-input .form-input-header {
+  padding: 2%;
+}
+
+.sbdc-registration-input .form-input-header p {
+  color: #505252;
+  font-style: italic;
+}
+
+.sbdc-registration-input .form-input-header .bold {
+  font-weight: 900;
+  font-style: normal;
+}
+
+.sbdc-registration-input .registration-main-form .red {
+  color: #ff3333;
+}
+
+.sbdc-registration-input .registration-main-form input, .sbdc-registration-input .registration-main-form textarea {
+  outline: 0;
+  border: 0;
+  background-color: inherit;
+  padding: 10px 16px;
+  border-bottom: 1px solid #8BB8E5;
+  width: 100%;
+}
+
+.sbdc-registration-input .registration-main-form input::-webkit-input-placeholder, .sbdc-registration-input .registration-main-form textarea::-webkit-input-placeholder {
+  color: #356AA0;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.sbdc-registration-input .registration-main-form input:-ms-input-placeholder, .sbdc-registration-input .registration-main-form textarea:-ms-input-placeholder {
+  color: #356AA0;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.sbdc-registration-input .registration-main-form input::-ms-input-placeholder, .sbdc-registration-input .registration-main-form textarea::-ms-input-placeholder {
+  color: #356AA0;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.sbdc-registration-input .registration-main-form input::placeholder, .sbdc-registration-input .registration-main-form textarea::placeholder {
+  color: #356AA0;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.sbdc-registration-input .registration-main-form .registration-radio-top input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid #8BB8E5;
+}
+
+.sbdc-registration-input .registration-main-form .registration-radio-top h5 {
+  color: #356AA0;
+}
+
+.sbdc-registration-input .registration-main-form .registration-radio-top p {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-radio-top .form-check-input {
+  border-radius: 50%;
+}
+
+.sbdc-registration-input .registration-main-form .registration-radio-top .form-check-input:focus {
+  background-color: #64A0DC;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sbdc-registration-input .registration-main-form .registration-radio-top label {
+  margin-left: 0.5rem;
+  margin-top: 3px;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder h5 {
+  color: #356AA0;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder p {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder input {
+  margin-top: 2rem;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder input::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder input::placeholder {
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder select, .sbdc-registration-input .registration-main-form .registration-co-founder option {
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #8BB8E5;
+  padding: 10px 16px;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder select::-webkit-input-placeholder, .sbdc-registration-input .registration-main-form .registration-co-founder option::-webkit-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder select:-ms-input-placeholder, .sbdc-registration-input .registration-main-form .registration-co-founder option:-ms-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder select::-ms-input-placeholder, .sbdc-registration-input .registration-main-form .registration-co-founder option::-ms-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .registration-co-founder select::placeholder, .sbdc-registration-input .registration-main-form .registration-co-founder option::placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus select, .sbdc-registration-input .registration-main-form .register-focus option {
+  outline: none;
+  border: 0;
+  border: 2px solid #8BB8E5;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus select::-webkit-input-placeholder, .sbdc-registration-input .registration-main-form .register-focus option::-webkit-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus select:-ms-input-placeholder, .sbdc-registration-input .registration-main-form .register-focus option:-ms-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus select::-ms-input-placeholder, .sbdc-registration-input .registration-main-form .register-focus option::-ms-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus select::placeholder, .sbdc-registration-input .registration-main-form .register-focus option::placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus label {
+  font-size: 14px;
+  color: #356AA0;
+}
+
+.sbdc-registration-input .registration-main-form .register-focus h5 {
+  color: #356AA0;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid #8BB8E5;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law .form-check-input {
+  border-radius: 50%;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law .form-check-input:focus {
+  background-color: #64A0DC;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law label {
+  margin-left: 0.5rem;
+  margin-top: 3px;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law-curve input::-webkit-input-placeholder {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law-curve input:-ms-input-placeholder {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law-curve input::-ms-input-placeholder {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .registration-law-curve input::placeholder {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .link-input label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sbdc-registration-input .registration-main-form .link-input h5 {
+  margin-top: 1.5rem;
+}
+
+.sbdc-registration-input .registration-main-form .link-input button {
+  border: none;
+  padding: 0;
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form .file-upload input {
+  border: 2px solid #8BB8E5;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.sbdc-registration-input .registration-main-form .file-upload input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sbdc-registration-input .registration-main-form .file-upload h5 {
+  margin-top: 1rem;
+}
+
+.sbdc-registration-input .registration-main-form .file-upload p {
+  color: #505252;
+  margin-top: -1rem;
+  font-weight: 500;
+}
+
+.sbdc-registration-input .registration-main-form button {
+  outline: 0;
+  border: 3px solid #224b75;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #224b75;
+  background-color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sbdc-registration-input .registration-main-form button:hover {
+  background-color: #224b75;
+  color: #ffffff;
+}
+
+.sbdc-registration-input .registration-main-form h5 {
+  color: #356AA0;
+  font-weight: 400;
+}
+
+.sbdc-registration-input .registration-main-form h5 .bold {
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.sbdc-registration-input .registration-main-form select, .sbdc-registration-input .registration-main-form option {
+  outline: none;
+  border: 0;
+  border: 2px solid #8BB8E5;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.sbdc-registration-input .registration-main-form select::-webkit-input-placeholder, .sbdc-registration-input .registration-main-form option::-webkit-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form select:-ms-input-placeholder, .sbdc-registration-input .registration-main-form option:-ms-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form select::-ms-input-placeholder, .sbdc-registration-input .registration-main-form option::-ms-input-placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form select::placeholder, .sbdc-registration-input .registration-main-form option::placeholder {
+  color: #64A0DC;
+}
+
+.sbdc-registration-input .registration-main-form p {
+  font-size: 15px;
+  color: #64A0DC;
+  font-style: italic;
+}
+
+.white-space-no-wrap {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1110px) {
+  .white-space-no-wrap {
+    white-space: unset;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sbdc-registration-input {
+    padding: 10% 10% 10% 10%;
+  }
+  .sbdc-registration-input .registration-main-form .file-upload .file-upload-condition {
+    margin-top: 2rem;
+  }
+}
+/*# sourceMappingURL=SbdcInputs.css.map */

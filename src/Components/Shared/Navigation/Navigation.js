@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./Navigation.scss";
 import yunusLogo from "../../../assets/yunus_center.png";
 import { Link } from "react-router-dom";
@@ -7,13 +7,38 @@ import HamburgerMenu from "react-hamburger-menu";
 
 const Navigation = () => {
     const [Hamburger, setHamburger] = useState(false);
+    const [show, setShow] = useState(false);
+    let [oldY] = useState(0);
+    const controlNavbar = (e) => {
+        const scrollPosition = Number.parseInt(e.target.scrollTop);
+        if (scrollPosition < 300){
+            setShow(false);
+            return;
+        }
+        if (scrollPosition <= oldY) {
+            setShow(false)
+            oldY = scrollPosition;
+        } else if (scrollPosition > (oldY)) {
+            setShow(true)
+            oldY = scrollPosition;
+        }else {
+            return false 
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', controlNavbar, true)
+        return () => {
+            window.removeEventListener('scroll', controlNavbar, true)
+        }
+    }, [])
 
     const handleClick = () => {
         setHamburger((prev) => !prev);
     };
 
     return (
-        <nav className="navigation">
+        <nav className={`navigation ${show && 'navigation-move-above'}`}>
             <div className="navigation-container d-flex align-items-center justify-content-between">
                 <div className="navigation-logo">
                     <Link to="/">
@@ -21,11 +46,29 @@ const Navigation = () => {
                     </Link>
                 </div>
                 <div className="navigation-menu">
-                    <a href="#aboutRoute">about</a>
-                    <a href="#sbdcRoute">sbdc</a>
-                    <a href="#sfdcRoute">sfdc</a>
-                    <a href="#partners-section">partners</a>
-                    <a href="#contactRoute">contact</a>
+                    <div>
+                        <Link to="/">Home</Link>
+                    </div>
+                    <div className="sbdc-dropdown">
+                        <a href="#sbdcRoute" className="sbdc-dropbtn">sbdc <i className="fas fa-chevron-down"></i></a>
+                        <div className="sbdc-dropdown-content">
+                            <Link to="/sbdc">Explore</Link>
+                            <Link to="/sbdc-registration">Apply</Link>
+                        </div>
+                    </div>
+                    <div className="sbdc-dropdown">
+                        <a href="#sfdcRoute">sfdc <i className="fas fa-chevron-down"></i></a>
+                        <div className="sbdc-dropdown-content">
+                            <Link to="/sfdc">Explore</Link>
+                            <Link to="/sfdc-registration">Apply</Link>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#partners-section">partners</a>
+                    </div>
+                    <div>
+                        <a href="#contactRoute">contact</a>
+                    </div>
                 </div>
                 <div
                     className={

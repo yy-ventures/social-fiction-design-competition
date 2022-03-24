@@ -8,6 +8,16 @@
             p {
                 color: $text;
             }
+            ol{
+                padding-left: 3%;
+                li{
+                    margin-top: 1%;
+                }
+                .highlight-left{
+                    font-weight: 700;
+                    font-style: italic;
+                }
+            }
         }
         .sbdc-registration-header-right {
             padding: 10% 15% 10% 10%;

@@ -1,104 +1,194 @@
 @import "../../../../global.scss";
 
 .sfdc-who-can-apply{
-    height: $measure * 4;
-    background-image: linear-gradient(to bottom, $secondaryColor, $deepOrange);
+    font-size: 10px;
+    font-family: 'Graphik';
     position: relative;
-    &::after{
-        content: "";
+    .absolute-sub-heading{
         position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: $deepOrange;
-        width: 45px;
-        height: 30px;
-        clip-path: polygon(100% 0, 0 0, 50% 100%);
-    }
-    h2{
-        font-weight: 900;
-        color: $white;
-        margin-top: 3rem;
-        font-size: 2.4rem;
-    }
-    .sfdc-who-can-apply-body{
-        height: $measure * 4;
-        background-color: #FFC35A;
-        box-shadow: 4px 4px 4px rgba($color: #000000, $alpha: 0.1);
-        border-radius: 25px;
-        position: relative;
-        margin-top: -($measure * 2);
-        img{
-            height: $measure * 1.5;
-            position: absolute;
-            top: -($measure * 0.75);
-            left: 50%;
-            // transform: translate(-50%, 50%);
-            transform: translateX(-50%);
+        height: 60px;
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        z-index: 11;
+        @media screen and (max-width: 600px) {
+            width: 200px;
+            height: 50px;
+            top: 0;
         }
-        .sfdc-who-can-apply-list{
-            height: 100%;
-            padding: 0 10%;
-            ul{
-                margin-top: 3em;
-                li{
-                    padding: 0.5rem 0 0.5rem 3em;
-                    vertical-align: middle;
-                    background: url("../../../../assets/sfdc-list-style.svg") no-repeat 5px 5px transparent;
-                    list-style-type: none;
-                    margin: 0;
-                    h6{
-                        font-weight: 900;
-                        color: $text;
-                        
+        img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 60px;
+            z-index: 1;
+        }
+        h3{
+            font-size: calc(10px + 1vw);
+            color: #fff;
+            z-index: 2;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+        .bold{
+            font-weight: 700;
+        }
+    }
+    .who-can-apply-content{
+        padding-bottom: 10%;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        z-index: 10;
+        position: relative;
+        .down_arrow{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            @media screen and (max-width: 600px) {
+                display: none;
+            }
+            img{
+                height: 250px;
+                @media screen and (min-width: 1441px) {
+                    height: 100%;
+                }
+            }
+        }
+        @media screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+        .who-can-apply-content-left{
+            padding: 10% 0 0 25%;
+            @media screen and (max-width: 600px) {
+                padding: 15% 5%;
+            }
+            position: relative;
+            .absolute-image{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                @media screen and (max-width: 600px) {
+                    padding: 10%;
+                    background-color: #3a73aa;
+                }
+                img{
+                    width: 100%;
+                }
+            }
+            .who-can-apply-text{
+                width: fit-content;
+                z-index: 10;
+                @media screen and (max-width: 600px) {
+                    margin-top: 5%;
+                }
+                h4{
+                    font-weight: 600; 
+                    font-size: calc(16px + 1vw);
+                    line-height: calc(9px + 1vw);
+                    color: #fff;
+                    margin-left: 20%;
+                    z-index: 10;
+                }
+                h2{
+                    font-size: calc(30px + 1vw);
+                    font-weight: 700;
+                    color: #fff;
+                    z-index: 10;
+                }
+                .of{
+                    font-size: calc(30px + 1vw);
+                    font-weight: 700; 
+                    line-height: calc(-10px + 2vw);
+                    color: #fff;
+                    z-index: 10;
+                }
+                h1{
+                    font-size: calc(66px + 2vw);
+                    font-weight: bold;
+                    display: flex;
+                    align-items: flex-start;
+                    line-height: calc(30px + 2vw);
+                    color: #fff;
+                }
+            }
+            .who-can-apply-text-bottom{
+                margin-top: 20%;
+                width: 90%;
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                }
+                p{
+                    font-size: calc(8px + 1vw);
+                    line-height: calc(8px + 1vw);
+                    font-weight: 500;
+                    color: #373737;
+                    @media screen and (max-width: 600px) {
+                        font-size: 16px;
+                        line-height: 16px;
                     }
-                    p{
-                        color: $text;
+                }
+                .marked{
+                    color: #EA5B41;
+                }
+                .who-can-apply-text-bottom-headline{
+                    margin-top: 5%;
+                    h4{
+                        color: #373737;
+                        font-weight: 700;
+                        font-size: calc(19px + 1vw);
+                        line-height: calc(12px + 1vw);
                     }
                 }
             }
         }
-    }
-}
-
-@media screen and (min-width: 1441px){
-    .sfdc-who-can-apply{
-        height: $measure * 5;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .sfdc-who-can-apply{
-        h2{
-            font-size: 1.5rem;
-            margin: 0;
-            padding-top: 2.5rem;
-        }
-        height: $measure * 3;
-        .sfdc-who-can-apply-body{
-            border-radius: 0;
-            height: $measure * 3;
-            margin-top: -($measure * 1.5);
-            img{
-                height: $measure; 
-                top: -($measure * 0.5);
+        .who-can-apply-content-right{
+            padding: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: #373737;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
-        }
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .sfdc-who-can-apply{
-        margin-top: $measure * 1.5;
-        .sfdc-who-can-apply-body{
-            img{
-                top: -($measure * 0.75);
+            .absolute_right{
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 75%;
+                z-index: -1;
             }
-            .sfdc-who-can-apply-list{
-                padding: 10% 0 10% 0;
-                ul{
-                    padding: 5%;
-                    font-size: 15px;
+            .sfdc_logo{
+                width: 75%;
+            }
+            a{
+                display: block;
+                width: fit-content;
+                margin-top: 10%;
+                border: 3px solid #EA5B41;
+                padding: 8px 30px;
+                font-size: calc(8px + 1vw);
+                text-decoration: none;
+                color: #EA5B41;
+                background-color: #fff;
+                text-transform: uppercase;
+                border-radius: 30px;
+                font-weight: 500;
+                transition: 0.3s;
+                &:hover{
+                    color: #fff;
+                    background-color: #EA5B41;
                 }
             }
         }

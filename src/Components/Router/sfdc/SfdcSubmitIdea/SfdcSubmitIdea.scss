@@ -1,92 +1,22 @@
 @import "../../../../global.scss";
 
 .sfdc-submit-idea{
-    height: 400px;
-    background-image: linear-gradient(to bottom, $deepOrange, $secondaryColor);
-    .fiction-leaf-one{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 30%;
-        height: 100px;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        width: 75%;
     }
-    .fiction-leaf-two{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 64%;
-        height: 80px;
+    .apply-poster-mobile{
+        display: none;
     }
-    .sfdc-submit-idea-content{
-        h2{
-            color: $white;
-            font-size: 2rem;
-        }
-        h3{
-            color: $white;
-            font-size: 2rem;
-            font-weight: 900;
-        }
-        button{
-            outline: none;
-            border: 1px solid #FFC35A;
-            padding: 13px 35px;
-            font-size: 1.1rem;
-            background-color: $white;
-            color: $deepOrange;
-            font-weight: 700;
-            text-transform: capitalize;
-            border-radius: 10px;
-            margin-top: 2rem;  
-            transition: 0.3s; 
-            &:hover{
-                color: #FFC35A;
-            } 
-        }
-    }
-}
-
-@media screen and (min-width: 1441px){
-    .sfdc-submit-idea{
-        height: 500px;
-        .fiction-leaf-one{
-            left: 31%;
-            height: 120px;
-        }
-        .fiction-leaf-two{
-            left: 64%;
-            height: 100px;
-        }
-        .sfdc-submit-idea-content{
-            h2,h3{
-                font-size: 3rem;
-            }
-        }
-    }
-}
-@media screen and (max-width: 900px){
-    .sfdc-submit-idea{
-        height: 500px;
-        .fiction-leaf-one{
-            left: 20%;
-        }
-        .fiction-leaf-two{
-            left: 72%;
-        }
-    }
-}
-
-@media screen and (max-width: 500px){
-    .sfdc-submit-idea{
-        height: 500px;
-        .fiction-leaf-one{
+    @media screen and (max-width:600px) {
+        .apply-poster{
             display: none;
         }
-        .fiction-leaf-two{
-            display: none;
-        }
-        .sfdc-submit-idea-content{
-            padding: 0 3%;
+        .apply-poster-mobile{
+            display: block;
         }
     }
 }

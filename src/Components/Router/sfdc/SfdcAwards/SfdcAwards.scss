@@ -1,44 +1,42 @@
 @import "../../../../global.scss";
+
 .sfdc-awards{
-    padding: 5% 5%;
-    background-image: url("../../../../assets/fiction_art_3.png");
-    background-size: cover;
-    background-position: center;
-    .sfdc-award-content{
-        h2{
-            font-weight: 900;
-            color: $deepOrange;
-            font-size: 2.8rem;
-            text-transform: capitalize;
-        }
-        .sfdc-timeline-logo{
-            width: 100%;
-        }
-        .sfdc-timeline-logo-mobile{
-            display: none;
-            width: 100%;
+    padding: 15% 15% 5% 15%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    background-color: #fff5e4;
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+    h4{
+        font-weight: 500;
+        font-size: calc(19px + 1vw);
+        line-height: calc(12px + 1vw);
+        color: #333333;
+    }
+    .marked{
+        color: #EA5B41;
+        font-weight: 700;
+    }
+    img{
+        height: 200px;
+        margin-top: 2.5%;
+        @media screen and (max-width: 600px) {
+            height: 100px;
         }
     }
-}
-
-@media screen and (min-height:1441) {
-    .sfdc-awards{
-        // height: 600px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .sfdc-awards{
-        .sfdc-award-content{
-            h2{
-                font-size: 2rem;
-            }
-            .sfdc-timeline-logo{
-                display: none;
-            }
-            .sfdc-timeline-logo-mobile{
-                display: block;
-                margin-top: 5%;
+    .reward_right{
+        position: relative;
+        @media screen and (max-width: 600px) {
+            height: 200px;
+        }
+        img{
+            position: absolute;
+            height: 270px;
+            top: -55%;
+            @media screen and (max-width: 600px) {
+                height: 150px;
+                top: 0;
             }
         }
     }

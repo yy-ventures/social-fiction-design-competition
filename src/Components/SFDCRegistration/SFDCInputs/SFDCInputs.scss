@@ -21,6 +21,9 @@
         @media screen and (max-width: 480px) {
             padding-inline: 1rem;
         }
+        .red{
+            color: #ff3333;
+        }
         input,
         textarea {
             outline: 0;
@@ -112,6 +115,11 @@
                 }
             }
         }
+        .file-link-notification{
+            input{
+                outline: none;
+            }
+        }
         button {
             outline: 0;
             border: 3px solid $primaryColor;
@@ -121,6 +129,11 @@
             font-weight: 700;
             color: $primaryColor;
             background-color: $white;
+            transition: 0.3s;
+            &:hover{
+                background-color: $primaryColor;
+                color: $white;
+            }
         }
         h5 {
             color: #356aa0;

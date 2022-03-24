@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1.5em;
+  z-index: 5;
+}
+
+@media screen and (min-width: 480px) {
+  .button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.btn-home {
+  text-decoration: none;
+  padding: 0.6em 0.8em;
+  border-radius: 5px;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.btn-home:hover {
+  color: #ffffff;
+}
+
+.button-blue {
+  background-color: #1c4065;
+  color: #ffffff;
+  border: 3px solid #64a0dc;
+}
+
+.button-skyblue {
+  background-color: #356aa0;
+  color: #ffffff;
+  border: 3px solid #64a0dc;
+}
+
+.sfdc-registration .sfdc-registration-header {
+  background: #fff5e4;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left {
+  padding: 10% 8% 10% 8%;
+}
+
+@media screen and (max-width: 990px) {
+  .sfdc-registration .sfdc-registration-header .sfdc-registration-header-left {
+    padding-bottom: 5%;
+  }
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left p {
+  color: #373737;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left p .deepblue {
+  color: #1c4065;
+  font-weight: bold;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left ol {
+  padding-left: 3%;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left ol li {
+  margin-top: 1%;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-left ol .highlight-left {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-right {
+  padding: 10% 15% 10% 10%;
+}
+
+@media screen and (max-width: 990px) {
+  .sfdc-registration .sfdc-registration-header .sfdc-registration-header-right {
+    padding-top: 0;
+  }
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-right img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-headline {
+  position: absolute;
+  bottom: -33.5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media screen and (max-width: 601px) {
+  .sfdc-registration .sfdc-registration-header .sfdc-registration-header-headline {
+    margin-top: 1.5rem;
+  }
+}
+
+.sfdc-registration .sfdc-registration-header .sfdc-registration-header-headline p {
+  color: #ffffff;
+  background: #224b75;
+  padding: 20px 60px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 900;
+  text-transform: capitalize;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .sfdc-registration .sfdc-registration-header .sfdc-registration-header-headline {
+    bottom: -74px;
+  }
+  .sfdc-registration .sfdc-registration-header .sfdc-registration-header-headline p {
+    font-size: 18px;
+    padding: 10px 60px;
+  }
+}
+/*# sourceMappingURL=SFDCRegistration.css.map */

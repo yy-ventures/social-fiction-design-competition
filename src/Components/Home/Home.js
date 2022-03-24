@@ -1,14 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import "./Home.scss";
-
 import headerimage from "../../assets/images/header2x.jpg";
 import sbdclogo from "../../assets/images/logos/sbdc2x.jpg";
 import sfdclogo from "../../assets/images/logos/sfdc2x.jpg";
-
 import randomlightbluedecoleft from "../../assets/images/fiction_el_2.png";
 import randomlightbluedecoright from "../../assets/images/fiction_el_1.png";
-// import blueleaf from "";
+import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -22,11 +19,11 @@ export default function Home() {
                 </div>
                 <p className="home-header-description">
                     Yunus Centre, in collaboration with YY Ventures, Yunus and
-                    You- The YY Foundation and Catholic University of Zimbabwe,
-                    is launching the
+                    You- The YY Foundation and the Catholic University of Zimbabwe,
+                    is hosting the
                     <a href="/"> Social Business Design Competition</a> and
                     <a href="/"> Social Fiction Design Competition</a> to
-                    nurture social innovation and entrepreneurship among next
+                    nurture social innovation and entrepreneurship among the next
                     generation of young talent. Our mission is to create a world
                     of three zeros - zero net carbon emission, zero wealth
                     concentration for ending poverty, and zero unemployment by
@@ -38,6 +35,13 @@ export default function Home() {
                     empowering our youth as they move forward and change the
                     world with their innovative ideas.
                 </p>
+                <p className="home-header-description">
+                    Get a chance to be rewarded US $10,000 by submitting your idea to create the world you want to live in! 
+                </p>
+                <div className="apply-btn-container">
+                    <Link to="/sbdc-registration">Apply to Social Business Design Competition</Link>
+                    <Link to="/sfdc-registration">Apply to Social Fiction Design Competition</Link>
+                </div>
             </section>
             <section className="home-main-image">
                 <img src={headerimage} alt="header" />
@@ -61,19 +65,19 @@ export default function Home() {
                 <div className="flex-container">
                     <h4 className="sbdc-home-description">
                         Unleash your entrepreneurial potential to create a world
-                        of three zeros by designing sustainable social business
+                        of three zeros by designing sustainable Social Business
                         models that combat real challenges.
                     </h4>
                     <div className="button-container">
-                        <Link to="/sbdc" className="btn-home button-blue">
+                        <HashLink to="/sbdc#sdbcHeaderId" className="btn-home button-blue">
                             Explore
-                        </Link>
-                        <Link
-                            to="/sbdc-registration"
+                        </HashLink>
+                        <HashLink
+                            to="/sbdc-registration#sbdcRegId"
                             className="btn-home button-skyblue"
                         >
                             Apply Now
-                        </Link>
+                        </HashLink>
                     </div>
                 </div>
                 <div id="sbdc-lightblue-circle-deco" />
@@ -94,15 +98,15 @@ export default function Home() {
                         poster presentation.
                     </h4>
                     <div className="button-container">
-                        <Link to="/sfdc" className="btn-home button-blue">
+                        <HashLink to="/sfdc#sfdcHeaderId" className="btn-home button-blue">
                             EXPLORE
-                        </Link>
-                        <Link
-                            to="/sfdc-registration"
+                        </HashLink>
+                        <HashLink
+                            to="/sfdc-registration#sfdcRegId"
                             className="btn-home button-skyblue"
                         >
                             APPLY NOW
-                        </Link>
+                        </HashLink>
                     </div>
                 </div>
                 <div id="sfdc-skyblue-circle-deco"></div>

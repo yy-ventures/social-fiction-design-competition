@@ -1,0 +1,71 @@
+@import "../../../../global.scss";
+
+.focus_area_container{
+    padding: 10% 5%;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .area_1{
+        img{
+            height: 300px;
+            @media screen and (max-width: 600px) {
+                display: none;
+            }
+        }
+    }
+    .area_1_mobile{
+        img{
+            height: 300px;
+            display: none;
+            @media screen and (max-width: 600px) {
+                display: block;
+                height: 150px;
+            }
+        }
+    }
+    .area_2{
+        margin-top: 5%;
+        text-align: center;
+        img{
+            height: 250px;
+            @media screen and (max-width: 600px) {
+                height: 100px;
+            }
+        }
+    }
+    .area_3{
+        margin-top: 5%;
+        text-align: center;
+        position: relative;
+        img{
+            height: 250px;
+            @media screen and (max-width: 600px) {
+                height: 150px;
+            }
+        }
+        a{
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: fit-content;
+            margin-top: 12%;
+            border: 3px solid #fff;
+            padding: 6px 30px;
+            font-size: calc(8px + 1vw);
+            text-decoration: none;
+            color: #fff;
+            background-color: inherit;
+            text-transform: uppercase;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+            &:hover{
+                color: #3A73AA;
+                background-color: #fff;
+            }
+        }
+    }
+}

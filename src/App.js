@@ -10,27 +10,28 @@ import Home from "./Components/Home/Home";
 import InfoBar from "./Components/Home/InfoBar";
 import LogoBar from "./Components/Home/LogoBar";
 import HomePartnersForm from "./Components/Home/HomePartnersForm";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
     return (
         <div className="App">
             <Router>
+                <ScrollToTop/>
                 <Navigation />
                 <Switch>
-                    <Route path="/sbdc">
+                    <Route exact path="/sbdc">
                         <SbdcRoute />
                     </Route>
-                    <Route path="/sfdc">
+                    <Route exact path="/sfdc">
                         <SfdcRoute />
                     </Route>
-                    <Route path="/sbdc-registration">
+                    <Route exact path="/sbdc-registration">
                         <SbdcRegistration />
                     </Route>
-                    <Route path="/sfdc-registration">
+                    <Route exact path="/sfdc-registration">
                         <SFDCRegistration />
                     </Route>
-                    <Route path="/">
+                    <Route exact path="/">
                         <Home />
                         <InfoBar />
                         <LogoBar />
