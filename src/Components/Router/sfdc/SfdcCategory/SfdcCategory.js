@@ -1,46 +1,81 @@
 import React from 'react';
 import "./SfdcCategory.scss";
-import { ReactComponent as IconWriting } from '../../../../assets/icon_writing.svg'; 
-import { ReactComponent as IconRhetoric } from '../../../../assets/icon_rhetoric.svg';
-import { ReactComponent as IconIllustrator } from '../../../../assets/icon_illustrator.svg';
-import { ReactComponent as IconAnimation} from '../../../../assets/icon_animation.svg';
-import { ReactComponent as IconCinema} from '../../../../assets/icon_cinema.svg';
-import { ReactComponent as IconPoster} from '../../../../assets/icon_poster.svg';
+import getCreative from '../../../../assets/get_creative.png'
+import getCreativeMobile from '../../../../assets/get_creative_mobile.png'
+import grid1 from "../../../../assets/grid/grid-1.png"
+import grid2 from "../../../../assets/grid/grid-2.png"
+import grid3 from "../../../../assets/grid/grid-3.png"
+import grid4 from "../../../../assets/grid/grid-4.png"
+import grid5 from "../../../../assets/grid/grid-5.png"
+import grid6 from "../../../../assets/grid/grid-6.png"
 
 const SfdcCategory = () => {
     return (
         <section className="sfdc-category">
+            <img src={getCreative} alt="get-creative" className='get-creative'/>
+            <img src={getCreativeMobile} alt="get-creative-mobile" className='get-creative-mobile'/>
             <div className="sfdc-category-list">
-                <div className="sfdc-category-card text-center">
-                    <IconWriting className="sfdc-category-icon"/>
-                    <h5 className="mt-4">Writing</h5>
-                    <p className="mt-4">Short paragraphs that relate to a story about a possible future without social problems. </p>
+                <div className='sfdc-category-card'>
+                    <img src={grid1} alt="grid"/>
+                    <div className='card-details'>
+                        <ul>
+                            <li>- Paragraph</li>
+                            <li>- Essay</li>
+                            <li>- Poem</li>
+                            <li>- Story</li>
+                            <li>- Letter</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="sfdc-category-card text-center">
-                    <IconRhetoric className="sfdc-category-icon"/>
-                    <h5 className="mt-4">Rhetoric</h5>
-                    <p className="mt-4">A short speech on how the solution on a particular social problem can lead to a new society.</p>
+                <div className='sfdc-category-card'>
+                    <img src={grid2} alt="grid"/>
+                    <div className='card-details'>
+                        <ul>
+                            <li>- Audio speech</li>
+                            <li>- Video speech</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="sfdc-category-card text-center">
-                    <IconIllustrator className="sfdc-category-icon"/>
-                    <h5 className="mt-4">Illustration</h5>
-                    <p className="mt-4">Showcase creativity through Drawing or Graphic Designing of their Social Fiction theme.</p>
+                <div className='sfdc-category-card'>
+                    <img src={grid3} alt="grid"/>
+                    <div className='card-details'>
+                        <ul>
+                            <li>- Sketch</li>
+                            <li>- Painting</li>
+                            <li>- Comic Strip</li>
+                            <li>- Digital Art</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="sfdc-category-card text-center">
-                    <IconAnimation className="sfdc-category-icon"/>
-                    <h5 className="mt-4">Animation</h5>
-                    <p className="mt-4">Based on a script relating to tackling social problems or a new future without social problems. </p>
+                <div className='sfdc-category-card'>
+                    <img src={grid4} alt="grid"/>
+                    <div className='card-details'>
+                        <ul>
+                            <li>- Infographic animation</li>
+                            <li>- Motion Graphics</li>
+                            <li>- 2D/3D Animation</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="sfdc-category-card text-center">
-                    <IconCinema className="sfdc-category-icon"/>
-                    <h5 className="mt-4">Cinematography</h5>
-                    <p className="mt-4">Creating their own movie, shot however they want to adhering to the concept of a Social Fiction.  </p>
+                <div className='sfdc-category-card'>
+                    <img src={grid5} alt="grid"/>
+                    <div className='card-details'>
+                        <ul>
+                            <li>- Short Film</li>
+                            <li>- Video Essay</li>
+                            <li>- Stop Motion</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="sfdc-category-card text-center">
-                    <IconPoster className="sfdc-category-icon"/>
-                    <h5 className="mt-4">Poster Presentation</h5>
-                    <p className="mt-4">
-Awareness posters demonstrating the social problem and a reimagined reality without those problems.  </p>
+                <div className='sfdc-category-card'>
+                    <img src={grid6} alt="grid"/>
+                    <div className='card-details'>
+                        <ul>
+                            <li>- Poster</li>
+                            <li>- Powerpoint</li>
+                            <li>- Photo Journal</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

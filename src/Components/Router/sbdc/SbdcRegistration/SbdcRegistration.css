@@ -75,6 +75,19 @@ body {
   color: #373737;
 }
 
+.sbdc-registration .sbdc-registration-header .sbdc-registration-header-left ol {
+  padding-left: 3%;
+}
+
+.sbdc-registration .sbdc-registration-header .sbdc-registration-header-left ol li {
+  margin-top: 1%;
+}
+
+.sbdc-registration .sbdc-registration-header .sbdc-registration-header-left ol .highlight-left {
+  font-weight: 700;
+  font-style: italic;
+}
+
 .sbdc-registration .sbdc-registration-header .sbdc-registration-header-right {
   padding: 10% 15% 10% 10%;
 }

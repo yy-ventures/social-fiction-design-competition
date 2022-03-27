@@ -10,11 +10,13 @@ import Home from "./Components/Home/Home";
 import InfoBar from "./Components/Home/InfoBar";
 import LogoBar from "./Components/Home/LogoBar";
 import HomePartnersForm from "./Components/Home/HomePartnersForm";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
     return (
         <div className="App">
             <Router>
+                <ScrollToTop/>
                 <Navigation />
                 <Switch>
                     <Route exact path="/sbdc">

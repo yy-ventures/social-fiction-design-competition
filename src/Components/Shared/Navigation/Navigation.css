@@ -63,11 +63,24 @@ body {
   border: 3px solid #64a0dc;
 }
 
+.navigation-move-above {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
 .navigation {
   padding: 1em 0;
   background-image: -webkit-gradient(linear, left top, right top, from(#224b75), to(#356aa0));
   background-image: linear-gradient(to right, #224b75, #356aa0);
   border-bottom: 8px solid #64a0dc;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000000;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.47, 0, 0.745, 0.715) 100ms;
+  transition: -webkit-transform 400ms cubic-bezier(0.47, 0, 0.745, 0.715) 100ms;
+  transition: transform 400ms cubic-bezier(0.47, 0, 0.745, 0.715) 100ms;
+  transition: transform 400ms cubic-bezier(0.47, 0, 0.745, 0.715) 100ms, -webkit-transform 400ms cubic-bezier(0.47, 0, 0.745, 0.715) 100ms;
 }
 
 .navigation .navigation-container {
