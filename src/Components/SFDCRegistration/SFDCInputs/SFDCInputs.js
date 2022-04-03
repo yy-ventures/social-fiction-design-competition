@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./SFDCInputs.scss";
+
 const SFDCInputs = () => {
   const {
     register,
@@ -86,6 +87,15 @@ const SFDCInputs = () => {
     }
   };
 
+  // other social problem
+  const [otherSocialProblem, setOtherSocialProblem] = useState('none')
+
+  const HandleOtherSocialProblem = e => {
+    setOtherSocialProblem(e.target.value)
+  }
+
+  console.log(otherSocialProblem)
+
   const onSubmit = (data) => {
     let headers = new Headers();
     // var imagedata = document.querySelector('input[type="file"]').files[0];
@@ -137,6 +147,7 @@ const SFDCInputs = () => {
           setIsSubmitting(false);
           setIsDisabled(false);
           mainForm.reset();
+          setOtherSocialProblem('')
         }
       })
       .catch((error) => {
@@ -519,7 +530,7 @@ const SFDCInputs = () => {
                 {areaOfFocusChange === "others" ? (
                   <div>
                     <label>If others, please specify:</label>
-                    <input type="text" placeholder="" {...register("OtherSocialProblem")} />
+                    <input type="text" placeholder="" {...register("OtherSocialProblem")} onChange={HandleOtherSocialProblem} value={otherSocialProblem}/>
                   </div>
                 ) : (
                   ""
