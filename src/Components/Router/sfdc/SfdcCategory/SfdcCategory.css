@@ -1,4 +1,149 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Thin.eot");
+  src: local("Graphik Thin"), local("Graphik-Thin"), url("Graphik-Thin.eot?#iefix") format("embedded-opentype"), url("Graphik-Thin.woff2") format("woff2"), url("Graphik-Thin.woff") format("woff"), url("Graphik-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-ThinItalic.eot");
+  src: local("Graphik Thin Italic"), local("Graphik-ThinItalic"), url("Graphik-ThinItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-ThinItalic.woff2") format("woff2"), url("Graphik-ThinItalic.woff") format("woff"), url("Graphik-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik Super';
+  src: url("Graphik-SuperItalic.eot");
+  src: local("Graphik Super Italic"), local("Graphik-SuperItalic"), url("Graphik-SuperItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-SuperItalic.woff2") format("woff2"), url("Graphik-SuperItalic.woff") format("woff"), url("Graphik-SuperItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Medium.eot");
+  src: local("Graphik Medium"), local("Graphik-Medium"), url("Graphik-Medium.eot?#iefix") format("embedded-opentype"), url("Graphik-Medium.woff2") format("woff2"), url("Graphik-Medium.woff") format("woff"), url("Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Black.eot");
+  src: local("Graphik Black"), local("Graphik-Black"), url("Graphik-Black.eot?#iefix") format("embedded-opentype"), url("Graphik-Black.woff2") format("woff2"), url("Graphik-Black.woff") format("woff"), url("Graphik-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Semibold.eot");
+  src: local("Graphik Semibold"), local("Graphik-Semibold"), url("Graphik-Semibold.eot?#iefix") format("embedded-opentype"), url("Graphik-Semibold.woff2") format("woff2"), url("Graphik-Semibold.woff") format("woff"), url("Graphik-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik Super';
+  src: url("Graphik-Super.eot");
+  src: local("Graphik Super"), local("Graphik-Super"), url("Graphik-Super.eot?#iefix") format("embedded-opentype"), url("Graphik-Super.woff2") format("woff2"), url("Graphik-Super.woff") format("woff"), url("Graphik-Super.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-ExtralightItalic.eot");
+  src: local("Graphik Extralight Italic"), local("Graphik-ExtralightItalic"), url("Graphik-ExtralightItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-ExtralightItalic.woff2") format("woff2"), url("Graphik-ExtralightItalic.woff") format("woff"), url("Graphik-ExtralightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-BlackItalic.eot");
+  src: local("Graphik Black Italic"), local("Graphik-BlackItalic"), url("Graphik-BlackItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-BlackItalic.woff2") format("woff2"), url("Graphik-BlackItalic.woff") format("woff"), url("Graphik-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-RegularItalic.eot");
+  src: local("Graphik Regular Italic"), local("Graphik-RegularItalic"), url("Graphik-RegularItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-RegularItalic.woff2") format("woff2"), url("Graphik-RegularItalic.woff") format("woff"), url("Graphik-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Light.eot");
+  src: local("Graphik Light"), local("Graphik-Light"), url("Graphik-Light.eot?#iefix") format("embedded-opentype"), url("Graphik-Light.woff2") format("woff2"), url("Graphik-Light.woff") format("woff"), url("Graphik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Bold.eot");
+  src: local("Graphik Bold"), local("Graphik-Bold"), url("Graphik-Bold.eot?#iefix") format("embedded-opentype"), url("Graphik-Bold.woff2") format("woff2"), url("Graphik-Bold.woff") format("woff"), url("Graphik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Regular.eot");
+  src: local("Graphik Regular"), local("Graphik-Regular"), url("Graphik-Regular.eot?#iefix") format("embedded-opentype"), url("Graphik-Regular.woff2") format("woff2"), url("Graphik-Regular.woff") format("woff"), url("Graphik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-BoldItalic.eot");
+  src: local("Graphik Bold Italic"), local("Graphik-BoldItalic"), url("Graphik-BoldItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-BoldItalic.woff2") format("woff2"), url("Graphik-BoldItalic.woff") format("woff"), url("Graphik-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-SemiboldItalic.eot");
+  src: local("Graphik Semibold Italic"), local("Graphik-SemiboldItalic"), url("Graphik-SemiboldItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-SemiboldItalic.woff2") format("woff2"), url("Graphik-SemiboldItalic.woff") format("woff"), url("Graphik-SemiboldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-LightItalic.eot");
+  src: local("Graphik Light Italic"), local("Graphik-LightItalic"), url("Graphik-LightItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-LightItalic.woff2") format("woff2"), url("Graphik-LightItalic.woff") format("woff"), url("Graphik-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Extralight.eot");
+  src: local("Graphik Extralight"), local("Graphik-Extralight"), url("Graphik-Extralight.eot?#iefix") format("embedded-opentype"), url("Graphik-Extralight.woff2") format("woff2"), url("Graphik-Extralight.woff") format("woff"), url("Graphik-Extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-MediumItalic.eot");
+  src: local("Graphik Medium Italic"), local("Graphik-MediumItalic"), url("Graphik-MediumItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-MediumItalic.woff2") format("woff2"), url("Graphik-MediumItalic.woff") format("woff"), url("Graphik-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
 html,
 body {
   width: 100%;
@@ -63,56 +208,126 @@ body {
   border: 3px solid #64a0dc;
 }
 
+a {
+  text-decoration: none;
+}
+
 .sfdc-category {
-  padding: 10% 15%;
+  padding: 5% 15%;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-category {
+    height: 2400px;
+  }
+}
+
+.sfdc-category img {
+  height: 200px;
+}
+
+.sfdc-category .get-creative {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-category .get-creative {
+    display: none;
+  }
+}
+
+.sfdc-category .get-creative-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-category .get-creative-mobile {
+    display: block;
+    height: 180px;
+  }
 }
 
 .sfdc-category .sfdc-category-list {
+  padding: 7.5% 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
+  gap: 5% 2.5%;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-category .sfdc-category-list {
+    margin-top: 5%;
+  }
 }
 
 .sfdc-category .sfdc-category-list .sfdc-category-card {
-  padding: 10%;
-  border: 1px solid #eee;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+  width: 100%;
   cursor: pointer;
-  background-image: #ffffff;
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card:hover {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f16145), to(#df8b48));
-  background-image: linear-gradient(to bottom, #f16145, #df8b48);
+@media screen and (max-width: 600px) {
+  .sfdc-category .sfdc-category-list .sfdc-category-card {
+    height: 280px;
+  }
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card:hover .sfdc-category-icon {
-  fill: #ffffff;
-  stroke: #ffffff;
+.sfdc-category .sfdc-category-list .sfdc-category-card:hover .card-details {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-animation: list 0.3s;
+          animation: list 0.3s;
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card:hover h5 {
-  color: #ffffff;
+.sfdc-category .sfdc-category-list .sfdc-category-card:hover .card-details ul li {
+  text-align: left;
+  -webkit-animation: list 0.6s;
+          animation: list 0.6s;
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card:hover p {
-  color: #ffffff;
+.sfdc-category .sfdc-category-list .sfdc-category-card:hover img {
+  -webkit-filter: grayscale(35%);
+          filter: grayscale(35%);
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card .sfdc-category-icon {
-  fill: #f16145;
-  stroke: #f16145;
-  height: 90px;
+.sfdc-category .sfdc-category-list .sfdc-category-card img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card h5 {
-  font-weight: 700;
-  color: #373737;
+.sfdc-category .sfdc-category-list .sfdc-category-card .card-details {
+  position: absolute;
+  padding: 10% 2.5% 0 2.5%;
+  top: 0;
+  left: 10%;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
-.sfdc-category .sfdc-category-list .sfdc-category-card p {
-  color: #373737;
+.sfdc-category .sfdc-category-list .sfdc-category-card .card-details ul li {
+  list-style-type: none;
+  font-size: calc(8px + 1vw);
+  color: #fff;
+  font-family: 'Patrick Hand', cursive;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-category .sfdc-category-list .sfdc-category-card .card-details ul li {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -126,6 +341,32 @@ body {
   .sfdc-category .sfdc-category-list {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@-webkit-keyframes list {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes list {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 /*# sourceMappingURL=SfdcCategory.css.map */

@@ -88,25 +88,27 @@ const SFDCInputs = () => {
   };
 
   // other social problem
-  const [otherSocialProblem, setOtherSocialProblem] = useState('none')
+  const [otherSocialProblem, setOtherSocialProblem] = useState('')
 
   const HandleOtherSocialProblem = e => {
     setOtherSocialProblem(e.target.value)
   }
-
-  console.log(otherSocialProblem)
 
   const onSubmit = (data) => {
     let headers = new Headers();
     // var imagedata = document.querySelector('input[type="file"]').files[0];
     setIsSubmitting(true);
     setIsDisabled(true);
+
     let formdata = new FormData();
+
     formdata.append("name_of_applicant", data.NameOfApplicant);
     formdata.append("name_of_institution", data.NameOfInstitution);
     formdata.append("date_of_birth", data.ApplicantDateOfBirth);
     formdata.append("email", data.ApplicantEmail);
     formdata.append("phone", data.ApplicantPhone);
+    formdata.append("gender", data.Gender);
+    formdata.append("area_of_focus", data.AreaOfFocus);
     formdata.append("social_problems", data.YourSocialProblem);
     formdata.append("other_social_problem", data.OtherSocialProblem);
     formdata.append("more_about_social_problem", data.YourSocialProblem);
@@ -493,12 +495,28 @@ const SFDCInputs = () => {
                 )}
               </div>
             </div>
+            <div className="row register-gender">
+              <div className="mt-5 col-lg-6">
+                <h5>
+                  Gender <span className="red">*</span>
+                </h5>
+                <select required {...register("Gender")} className="form-select">
+                  <option value='male'>Male</option>
+                  <option value='female'>Female</option>
+                  <option value='other'>Other</option>
+                </select>
+              </div>
+            </div>
+            <div className="extra-title">
+              <p>Imagine the life of a young person in the world of 2050.</p>
+              <p>Visualise how this fictional world of the future is different from the world we live in now.</p>
+            </div>
             {/* area of focus */}
             <div className="row mt-5 register-focus d-flex align-items-center">
               <div className="col-lg-4">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
-                  What is your focus area? <span className="red">*</span>
+                What key social or environmental issues does this fictional world address? <span className="red">*</span>
                 </h5>
               </div>
               <div className="col-lg-4">
@@ -540,10 +558,16 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>
-                  Tell us a bit more about your focus area and your fictional solution to solve it.{" "}
+                Tell us a bit about the fictional world you have designed for the year 2050.{" "}
                   <span className="bold">100 words (max)</span>
                   <span className="red">*</span>
                 </h5>
+                <div className="extra-title">
+                  <p>What does this world look like? .</p>
+                  <p>What makes it different from the world we live in now? </p>
+                  <p>What are some of the innovations and advancements made? </p>
+                  <p>Who are the key players in this fictional world?</p>
+                </div>
                 <textarea
                   type="text"
                   {...register("YourSocialProblem")}
@@ -555,7 +579,7 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12">
                 <h5>
-                  What makes your solution unique? <span className="red">*</span>
+                What makes your Social Fiction unique?  <span className="red">*</span>
                 </h5>
                 <textarea required {...register("WhatMakesItUnique")}></textarea>
               </div>
@@ -563,8 +587,7 @@ const SFDCInputs = () => {
             <div className="mt-5">
               <div className="col-lg-12">
                 <h5>
-                  What impact can your fictional solution bring to the environment, economy or
-                  communities? <span className="red">*</span>
+                What impact would your fictional world have on the environment, economy and/or communities? <span className="red">*</span>
                 </h5>
                 <textarea required {...register("SolutionImpact")}></textarea>
               </div>
@@ -572,7 +595,8 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-4">
                 <h5>
-                  Upload your idea in any of the creative categories <span className="red">*</span>
+                Visualise and design this fictional world for young people in the year 2050.
+Upload this social fiction Upload your idea in any of the creative categories. <span className="red">*</span>
                 </h5>
               </div>
               <div className="col-lg-4">

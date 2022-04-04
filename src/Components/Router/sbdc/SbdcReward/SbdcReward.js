@@ -1,7 +1,9 @@
 import React from 'react';
 import "./SbdcReward.scss";
 import rewardCoin from "../../../../assets/reward-coin.png"
-import fictionArtThree from "../../../../assets/fiction_el_3.png"
+import listArrow from '../../../../assets/list-arrow.svg'
+import rewardCup from '../../../../assets/award_reward.png'
+
 const SbdcReward = () => {
     return (
         <section className="sbdc-reward">
@@ -19,15 +21,27 @@ const SbdcReward = () => {
                     </div>
                 </div>
                 <div className="col-lg-8 col-md-6 col-12 px-0">
-                    <div className="sbdc-reward-body d-flex align-items-center justify-content-start">
-                        <div className="reward-art">
-                            <img src={fictionArtThree} alt="fiction-el"/>
+                    <div className="sbdc-reward-body">
+                        <div className='reward-body-top'>
+                            <div>
+                                <h3>The best <span className='marked'>Social Business Idea</span></h3>
+                                <h3>will be awarded with</h3>
+                                <div className='reward-prize'>
+                                    <h2>usd 10,000</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <h2>New Deadline <span><img src={listArrow} alt='list'/></span></h2>
+                                <p>Submit your <span className='marked'>Social Business idea</span> by</p>
+                            </div>
                         </div>
-                        <div className="reward-list">
-                            <ul>
-                                <li>The best Social Business Idea <br/> will be awarded with <br/> <span className="usd">USD 10,000 prize money.</span></li>
-                                <li><span className="usd">Certificate of Recognition</span> <br/> for top participants.</li>
-                            </ul>
+                        <div className='reward-body-bottom'>
+                            <div className='reward-cup'>
+                                <img src={rewardCup} alt='reward'/>
+                            </div>
+                            <div className='reward-date'>
+                                <h2>30 APRIL 2022</h2>
+                            </div>
                         </div>
                     </div>
                 </div>

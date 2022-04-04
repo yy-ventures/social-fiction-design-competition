@@ -212,65 +212,9 @@ a {
   text-decoration: none;
 }
 
-.sbdc-reward .sbdc-reward-header {
-  height: 500px;
-  padding: 10%;
-  background-color: #224b75;
-  position: relative;
-}
-
-.sbdc-reward .sbdc-reward-header .winning-head {
-  font-size: 7vmin;
-  color: #48c9d8;
-  font-weight: 900;
-  text-transform: capitalize;
-}
-
-.sbdc-reward .sbdc-reward-header .reward-head {
-  font-size: 7vmin;
-  color: #ffffff;
-  font-weight: 900;
-  text-transform: capitalize;
-}
-
-.sbdc-reward .sbdc-reward-header hr {
-  opacity: 1;
-  height: 5px;
-  width: 50%;
-  color: #48c9d8;
-}
-
-.sbdc-reward .sbdc-reward-header .reward-coin {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.sbdc-reward .sbdc-reward-header .reward-coin img {
-  height: 25vmin;
-}
-
-.sbdc-reward .sbdc-reward-body {
-  height: 500px;
-  padding: 7.5% 10%;
-  background-color: #ebfdff;
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  position: relative;
-}
-
-@media screen and (max-width: 600px) {
-  .sbdc-reward .sbdc-reward-body {
-    height: auto;
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-  }
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top {
+.focus_area_container {
+  padding: 10% 5%;
+  background-color: #F8F8F8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -283,152 +227,85 @@ a {
           justify-content: space-between;
 }
 
-@media screen and (max-width: 600px) {
-  .sbdc-reward .sbdc-reward-body .reward-body-top {
-    height: 300px;
-  }
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top h3 {
-  color: #1C4065;
-  font-size: 24px;
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top .marked {
-  color: #1C4065;
-  font-weight: 900;
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top .reward-prize {
-  padding: 2% 4%;
-  background-color: #1C4065;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 300px;
-  border-radius: 10px;
-  margin-top: 2.5%;
-  -webkit-box-shadow: 10px 10px 0 #48c9d8;
-          box-shadow: 10px 10px 0 #48c9d8;
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top .reward-prize h2 {
-  font-weight: 900;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 42px;
-  margin-bottom: 0;
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top p {
-  color: #1C4065;
-  font-size: 18px;
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-top h2 {
-  color: #1C4065;
-  font-weight: 900;
-  font-size: 36px;
-}
-
-@media screen and (max-width: 600px) {
-  .sbdc-reward .sbdc-reward-body .reward-body-bottom {
-    height: 400px;
-  }
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-cup {
-  height: 400px;
-  position: absolute;
-  width: 50%;
-  top: 0;
-  right: 0;
-}
-
-@media screen and (max-width: 600px) {
-  .sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-cup {
-    position: relative;
-  }
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-cup img {
-  position: absolute;
+.focus_area_container .area_1 img {
   height: 300px;
-  bottom: 0;
-  left: 25%;
 }
 
 @media screen and (max-width: 600px) {
-  .sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-cup img {
-    height: 350px;
-    left: 0;
-  }
-}
-
-@media screen and (min-width: 1441px) {
-  .sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-cup img {
-    height: 350px;
-    left: 50%;
-  }
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-date {
-  height: 100px;
-  padding: 3% 4%;
-  background-color: #ACE08A;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  border-top-left-radius: 50px;
-}
-
-.sbdc-reward .sbdc-reward-body .reward-body-bottom .reward-date h2 {
-  color: #1C4065;
-  font-size: 42px;
-  font-weight: 900;
-  margin-bottom: 0;
-}
-
-@media screen and (max-width: 900px) {
-  .sbdc-reward .sbdc-reward-header .winning-head {
-    font-size: 3rem;
-  }
-  .sbdc-reward .sbdc-reward-header .reward-head {
-    font-size: 3rem;
-  }
-  .sbdc-reward .sbdc-reward-header .reward-coin img {
-    height: 25vmin;
-  }
-  .sbdc-reward .sbdc-reward-body .reward-list ul li {
-    font-size: 2vmin;
-  }
-  .sbdc-reward .sbdc-reward-body .reward-art {
+  .focus_area_container .area_1 img {
     display: none;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .sbdc-reward .sbdc-reward-header .reward-coin img {
-    height: 50vmin;
-  }
-  .sbdc-reward .sbdc-reward-body .reward-list ul li {
-    font-size: 1.2rem;
-    padding-left: 5rem;
+.focus_area_container .area_1_mobile img {
+  height: 300px;
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .focus_area_container .area_1_mobile img {
+    display: block;
+    height: 150px;
   }
 }
-/*# sourceMappingURL=SbdcReward.css.map */
+
+.focus_area_container .area_2 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.focus_area_container .area_2 img {
+  height: 250px;
+}
+
+@media screen and (max-width: 600px) {
+  .focus_area_container .area_2 img {
+    height: 100px;
+  }
+}
+
+.focus_area_container .area_3 {
+  margin-top: 5%;
+  text-align: center;
+  position: relative;
+}
+
+.focus_area_container .area_3 img {
+  height: 250px;
+}
+
+@media screen and (max-width: 600px) {
+  .focus_area_container .area_3 img {
+    height: 150px;
+  }
+}
+
+.focus_area_container .area_3 a {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 12%;
+  border: 3px solid #fff;
+  padding: 6px 30px;
+  font-size: calc(8px + 1vw);
+  text-decoration: none;
+  color: #fff;
+  background-color: inherit;
+  text-transform: uppercase;
+  border-radius: 30px;
+  font-weight: 500;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.focus_area_container .area_3 a:hover {
+  color: #3A73AA;
+  background-color: #fff;
+}
+/*# sourceMappingURL=SfdcFocusArea.css.map */

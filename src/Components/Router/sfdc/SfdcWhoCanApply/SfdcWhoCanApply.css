@@ -1,4 +1,149 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Thin.eot");
+  src: local("Graphik Thin"), local("Graphik-Thin"), url("Graphik-Thin.eot?#iefix") format("embedded-opentype"), url("Graphik-Thin.woff2") format("woff2"), url("Graphik-Thin.woff") format("woff"), url("Graphik-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-ThinItalic.eot");
+  src: local("Graphik Thin Italic"), local("Graphik-ThinItalic"), url("Graphik-ThinItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-ThinItalic.woff2") format("woff2"), url("Graphik-ThinItalic.woff") format("woff"), url("Graphik-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik Super';
+  src: url("Graphik-SuperItalic.eot");
+  src: local("Graphik Super Italic"), local("Graphik-SuperItalic"), url("Graphik-SuperItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-SuperItalic.woff2") format("woff2"), url("Graphik-SuperItalic.woff") format("woff"), url("Graphik-SuperItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Medium.eot");
+  src: local("Graphik Medium"), local("Graphik-Medium"), url("Graphik-Medium.eot?#iefix") format("embedded-opentype"), url("Graphik-Medium.woff2") format("woff2"), url("Graphik-Medium.woff") format("woff"), url("Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Black.eot");
+  src: local("Graphik Black"), local("Graphik-Black"), url("Graphik-Black.eot?#iefix") format("embedded-opentype"), url("Graphik-Black.woff2") format("woff2"), url("Graphik-Black.woff") format("woff"), url("Graphik-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Semibold.eot");
+  src: local("Graphik Semibold"), local("Graphik-Semibold"), url("Graphik-Semibold.eot?#iefix") format("embedded-opentype"), url("Graphik-Semibold.woff2") format("woff2"), url("Graphik-Semibold.woff") format("woff"), url("Graphik-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik Super';
+  src: url("Graphik-Super.eot");
+  src: local("Graphik Super"), local("Graphik-Super"), url("Graphik-Super.eot?#iefix") format("embedded-opentype"), url("Graphik-Super.woff2") format("woff2"), url("Graphik-Super.woff") format("woff"), url("Graphik-Super.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-ExtralightItalic.eot");
+  src: local("Graphik Extralight Italic"), local("Graphik-ExtralightItalic"), url("Graphik-ExtralightItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-ExtralightItalic.woff2") format("woff2"), url("Graphik-ExtralightItalic.woff") format("woff"), url("Graphik-ExtralightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-BlackItalic.eot");
+  src: local("Graphik Black Italic"), local("Graphik-BlackItalic"), url("Graphik-BlackItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-BlackItalic.woff2") format("woff2"), url("Graphik-BlackItalic.woff") format("woff"), url("Graphik-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-RegularItalic.eot");
+  src: local("Graphik Regular Italic"), local("Graphik-RegularItalic"), url("Graphik-RegularItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-RegularItalic.woff2") format("woff2"), url("Graphik-RegularItalic.woff") format("woff"), url("Graphik-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Light.eot");
+  src: local("Graphik Light"), local("Graphik-Light"), url("Graphik-Light.eot?#iefix") format("embedded-opentype"), url("Graphik-Light.woff2") format("woff2"), url("Graphik-Light.woff") format("woff"), url("Graphik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Bold.eot");
+  src: local("Graphik Bold"), local("Graphik-Bold"), url("Graphik-Bold.eot?#iefix") format("embedded-opentype"), url("Graphik-Bold.woff2") format("woff2"), url("Graphik-Bold.woff") format("woff"), url("Graphik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Regular.eot");
+  src: local("Graphik Regular"), local("Graphik-Regular"), url("Graphik-Regular.eot?#iefix") format("embedded-opentype"), url("Graphik-Regular.woff2") format("woff2"), url("Graphik-Regular.woff") format("woff"), url("Graphik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-BoldItalic.eot");
+  src: local("Graphik Bold Italic"), local("Graphik-BoldItalic"), url("Graphik-BoldItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-BoldItalic.woff2") format("woff2"), url("Graphik-BoldItalic.woff") format("woff"), url("Graphik-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-SemiboldItalic.eot");
+  src: local("Graphik Semibold Italic"), local("Graphik-SemiboldItalic"), url("Graphik-SemiboldItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-SemiboldItalic.woff2") format("woff2"), url("Graphik-SemiboldItalic.woff") format("woff"), url("Graphik-SemiboldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-LightItalic.eot");
+  src: local("Graphik Light Italic"), local("Graphik-LightItalic"), url("Graphik-LightItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-LightItalic.woff2") format("woff2"), url("Graphik-LightItalic.woff") format("woff"), url("Graphik-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-Extralight.eot");
+  src: local("Graphik Extralight"), local("Graphik-Extralight"), url("Graphik-Extralight.eot?#iefix") format("embedded-opentype"), url("Graphik-Extralight.woff2") format("woff2"), url("Graphik-Extralight.woff") format("woff"), url("Graphik-Extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("Graphik-MediumItalic.eot");
+  src: local("Graphik Medium Italic"), local("Graphik-MediumItalic"), url("Graphik-MediumItalic.eot?#iefix") format("embedded-opentype"), url("Graphik-MediumItalic.woff2") format("woff2"), url("Graphik-MediumItalic.woff") format("woff"), url("Graphik-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
 html,
 body {
   width: 100%;
@@ -63,118 +208,283 @@ body {
   border: 3px solid #64a0dc;
 }
 
+a {
+  text-decoration: none;
+}
+
 .sfdc-who-can-apply {
-  height: 400px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#df8b48), to(#f16145));
-  background-image: linear-gradient(to bottom, #df8b48, #f16145);
+  font-size: 10px;
+  font-family: 'Graphik';
   position: relative;
 }
 
-.sfdc-who-can-apply::after {
-  content: "";
+.sfdc-who-can-apply .absolute-sub-heading {
   position: absolute;
-  top: 100%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background: #f16145;
-  width: 45px;
-  height: 30px;
-  -webkit-clip-path: polygon(100% 0, 0 0, 50% 100%);
-          clip-path: polygon(100% 0, 0 0, 50% 100%);
+  height: 60px;
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  z-index: 11;
 }
 
-.sfdc-who-can-apply h2 {
-  font-weight: 900;
-  color: #ffffff;
-  margin-top: 3rem;
-  font-size: 2.4rem;
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .absolute-sub-heading {
+    width: 200px;
+    height: 50px;
+    top: 0;
+  }
 }
 
-.sfdc-who-can-apply .sfdc-who-can-apply-body {
-  height: 400px;
-  background-color: #FFC35A;
-  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
+.sfdc-who-can-apply .absolute-sub-heading img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 1;
+}
+
+.sfdc-who-can-apply .absolute-sub-heading h3 {
+  font-size: calc(10px + 1vw);
+  color: #fff;
+  z-index: 2;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.sfdc-who-can-apply .absolute-sub-heading .bold {
+  font-weight: 700;
+}
+
+.sfdc-who-can-apply .who-can-apply-content {
+  padding-bottom: 10%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 1fr;
+      grid-template-columns: 1.5fr 1fr;
+  z-index: 10;
   position: relative;
-  margin-top: -200px;
 }
 
-.sfdc-who-can-apply .sfdc-who-can-apply-body img {
-  height: 150px;
+.sfdc-who-can-apply .who-can-apply-content .down_arrow {
   position: absolute;
-  top: -75px;
+  bottom: 0;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
-.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list {
-  height: 100%;
-  padding: 0 10%;
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content .down_arrow {
+    display: none;
+  }
 }
 
-.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul {
-  margin-top: 3em;
-}
-
-.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul li {
-  padding: 0.5rem 0 0.5rem 3em;
-  vertical-align: middle;
-  background: url("../../../../assets/sfdc-list-style.svg") no-repeat 5px 5px transparent;
-  list-style-type: none;
-  margin: 0;
-}
-
-.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul li h6 {
-  font-weight: 900;
-  color: #373737;
-}
-
-.sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul li p {
-  color: #373737;
+.sfdc-who-can-apply .who-can-apply-content .down_arrow img {
+  height: 250px;
 }
 
 @media screen and (min-width: 1441px) {
-  .sfdc-who-can-apply {
-    height: 500px;
+  .sfdc-who-can-apply .who-can-apply-content .down_arrow img {
+    height: 100%;
   }
 }
 
-@media screen and (max-width: 900px) {
-  .sfdc-who-can-apply {
-    height: 300px;
-  }
-  .sfdc-who-can-apply h2 {
-    font-size: 1.5rem;
-    margin: 0;
-    padding-top: 2.5rem;
-  }
-  .sfdc-who-can-apply .sfdc-who-can-apply-body {
-    border-radius: 0;
-    height: 300px;
-    margin-top: -150px;
-  }
-  .sfdc-who-can-apply .sfdc-who-can-apply-body img {
-    height: 100px;
-    top: -50px;
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .sfdc-who-can-apply {
-    margin-top: 150px;
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left {
+  padding: 10% 0 0 25%;
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left {
+    padding: 15% 5%;
   }
-  .sfdc-who-can-apply .sfdc-who-can-apply-body img {
-    top: -75px;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .absolute-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .absolute-image {
+    padding: 10%;
+    background-color: #3a73aa;
   }
-  .sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list {
-    padding: 10% 0 10% 0;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .absolute-image img {
+  width: 100%;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 10;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text {
+    margin-top: 5%;
   }
-  .sfdc-who-can-apply .sfdc-who-can-apply-body .sfdc-who-can-apply-list ul {
-    padding: 5%;
-    font-size: 15px;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text h4 {
+  font-weight: 600;
+  font-size: calc(16px + 1vw);
+  line-height: calc(9px + 1vw);
+  color: #fff;
+  margin-left: 20%;
+  z-index: 10;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text h2 {
+  font-size: calc(30px + 1vw);
+  font-weight: 700;
+  color: #fff;
+  z-index: 10;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text .of {
+  font-size: calc(30px + 1vw);
+  font-weight: 700;
+  line-height: calc(-10px + 2vw);
+  color: #fff;
+  z-index: 10;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text h1 {
+  font-size: calc(66px + 2vw);
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  line-height: calc(30px + 2vw);
+  color: #fff;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom {
+  margin-top: 20%;
+  width: 90%;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom {
+    width: 100%;
   }
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom p {
+  font-size: calc(8px + 1vw);
+  line-height: calc(8px + 1vw);
+  font-weight: 500;
+  color: #373737;
+}
+
+@media screen and (max-width: 600px) {
+  .sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom p {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom .marked {
+  color: #EA5B41;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom .who-can-apply-text-bottom-headline {
+  margin-top: 5%;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-left .who-can-apply-text-bottom .who-can-apply-text-bottom-headline h4 {
+  color: #373737;
+  font-weight: 700;
+  font-size: calc(19px + 1vw);
+  line-height: calc(12px + 1vw);
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-right {
+  padding: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-right .box {
+  width: 100px;
+  height: 100px;
+  background-color: #373737;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-right .absolute_right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+  z-index: -1;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-right .sfdc_logo {
+  width: 75%;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-right a {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 10%;
+  border: 3px solid #EA5B41;
+  padding: 8px 30px;
+  font-size: calc(8px + 1vw);
+  text-decoration: none;
+  color: #EA5B41;
+  background-color: #fff;
+  text-transform: uppercase;
+  border-radius: 30px;
+  font-weight: 500;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sfdc-who-can-apply .who-can-apply-content .who-can-apply-content-right a:hover {
+  color: #fff;
+  background-color: #EA5B41;
 }
 /*# sourceMappingURL=SfdcWhoCanApply.css.map */

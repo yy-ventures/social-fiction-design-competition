@@ -79,7 +79,29 @@
                 }
             }
         }
-        .register-focus {
+        .register-gender{
+            select,
+            option {
+                outline: none;
+                border: 0;
+                border: 2px solid #8bb8e5;
+                border-radius: 5px;
+                padding: 10px 20px;
+                width: 100%;
+                background-color: #fff;
+                &::placeholder {
+                    color: #64a0dc;
+                }
+            }
+        }
+        .extra-title{
+            padding: 5% 0;
+            p{
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+        }
+        .register-focus, .register-gender {
             select,
             option {
                 outline: none;

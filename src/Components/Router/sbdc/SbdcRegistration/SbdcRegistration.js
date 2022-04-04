@@ -2,6 +2,7 @@ import React from "react";
 import "./SbdcRegistration.scss";
 import socialFictionLogo from "../../../../assets/sbdc_logo.svg";
 import SbdcInputs from "./SbdcInputs/SbdcInputs";
+import listArrow from '../../../../assets/list-arrow.svg'
 
 const SbdcRegistration = () => {
     return (
@@ -23,12 +24,18 @@ const SbdcRegistration = () => {
                             </ol>
                         </div>
                     </div>
-                    <div className="col-lg-6 sbdc-registration-header-right d-flex align-items-center justify-content-center">
+                    <div className="col-lg-6 sbdc-registration-header-right">
                         <div>
                             <img
                                 src={socialFictionLogo}
                                 alt="social-fiction-design"
                             />
+                        </div>
+                        <div className="sbdc-registration-footer">
+                            <img src={listArrow} alt="list"/>
+                            <div className="registration-footer-content">
+                                <h2><span className="marked">win</span> usd 10,000</h2>
+                            </div>
                         </div>
                     </div>
                 </div>

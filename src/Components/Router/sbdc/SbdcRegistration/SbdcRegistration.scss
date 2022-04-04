@@ -21,9 +21,55 @@
         }
         .sbdc-registration-header-right {
             padding: 10% 15% 10% 10%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+            }
             img {
                 width: 100%;
                 object-fit: cover;
+            }
+            .sbdc-registration-footer{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 100px;
+                width: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @media screen and (max-width: 600px) {
+                    position: relative;
+                }
+                img{
+                    width: 51px;
+                    height: 50px;
+                }
+                .registration-footer-content{
+                    padding: 2.5% 5%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #48c9d8;
+                    height: 100%;
+                    border-top-left-radius: 30px;
+                    @media screen and (max-width: 600px) {
+                        margin-top: 10%;
+                    }
+                    .marked{
+                        color: #fff;
+                    }
+                    h2{
+                        color: #1C4065;
+                        font-weight: 900;
+                        font-size: 36px;
+                        text-transform: uppercase;
+                        margin-bottom: 0;
+                    }
+                }
             }
         }
         .sbdc-registration-header-headline {
