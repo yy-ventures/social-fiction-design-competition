@@ -69,9 +69,9 @@ const SbdcInputs = () => {
     if (data.FounderType === "team") {
       formdata.append("co_founder_name_one", data.CoFounderOneName);
       formdata.append("co_founder_dob_one", data.CoFonderOneBirthDate);
-      formdata.append("co_founder_gender_one", data.CoFounderTwoGender);
-      formdata.append("co_founder_email_one", data.CoFounderTwoEmail);
-      formdata.append("co_founder_mobile_one", data.CoFounderTwoNumber);
+      formdata.append("co_founder_gender_one", data.CoFounderOneGender);
+      formdata.append("co_founder_email_one", data.CoFounderOneEmail);
+      formdata.append("co_founder_mobile_one", data.CoFounderOneNumber);
     }
 
     formdata.append("co_founder_name_two", data.CoFounderTwoName);

@@ -1,28 +1,54 @@
 @import "../../../../global.scss";
 
 .sfdc-awards{
-    padding: 15% 15% 5% 15%;
+    padding: 5% 15% 5% 15%;
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    background-color: #fff5e4;
+    grid-template-columns: 2fr 1fr;
     @media screen and (max-width: 600px) {
+        background-color: #fff5e4;
         grid-template-columns: 1fr;
     }
-    h4{
-        font-weight: 500;
-        font-size: calc(19px + 1vw);
-        line-height: calc(12px + 1vw);
-        color: #333333;
-    }
-    .marked{
-        color: #EA5B41;
-        font-weight: 700;
-    }
-    img{
-        height: 200px;
-        margin-top: 2.5%;
-        @media screen and (max-width: 600px) {
-            height: 100px;
+    .reward_left{
+       padding-top: 10%;
+       @media screen and (max-width: 600px) {
+           padding-top: 1%;
+       }
+        img{
+            height: 200px;
+            margin-top: 2.5%;
+            @media screen and (max-width: 600px) {
+                height: 150px;
+            }
+        }
+        .sfdc-awards-footer{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+            }
+            img{
+                height: 20vmin;
+            }
+            .sfdc-awards-footer-content{
+                @media screen and (max-width: 600px) {
+                    padding: 5% 0;
+                }
+                h4{
+                    font-weight: 500;
+                    font-size: calc(10px + 1vw);
+                    line-height: calc(9px + 1vw);
+                    color: #333333;
+                    @media screen and (max-width: 600px) {
+                        font-size: 24px;
+                    }
+                }
+                .marked{
+                    color: #EA5B41;
+                    font-weight: 700;
+                }
+            }
         }
     }
     .reward_right{
@@ -33,10 +59,10 @@
         img{
             position: absolute;
             height: 270px;
-            top: -55%;
+            top: 0;
             @media screen and (max-width: 600px) {
                 height: 150px;
-                top: 0;
+                top: 10%;
             }
         }
     }
