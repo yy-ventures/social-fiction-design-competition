@@ -94,7 +94,39 @@ const SFDCInputs = () => {
     setOtherSocialProblem(e.target.value)
   }
 
+  // const handleStringSpace = str => {
+  //   let spaceCount = str.split(" ").length - 1
+  //   console.log(spaceCount)
+  // }
+  // handleStringSpace("hi i'm farhan from Bangladesh")
+  
+
+  // new state
+  const [draftValidPhoneNumber, setDraftValidPhoneNumber] = useState('')
+  const [draftValidEmail, setDraftValidEmail] = useState('')
+
+  const handleValidEmail = e => {
+    let emailFilter = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
+    if(emailFilter.test(e.target.value)){
+      setDraftValidEmail(e.target.value)
+    }
+    else{
+      alert('Invalid Email!')
+    }
+  }
+
+  const HandleValidPhoneNumber = e =>{
+    let phoneNumber = e.target.value;
+    if (isNaN(phoneNumber) || Number(phoneNumber) < 0) {
+      alert("Please Input a Valid number!");
+    } else {
+      setDraftValidPhoneNumber(phoneNumber);
+    }
+  }
+
+
   const onSubmit = (data) => {
+
     let headers = new Headers();
     // var imagedata = document.querySelector('input[type="file"]').files[0];
     setIsSubmitting(true);
@@ -476,7 +508,7 @@ const SFDCInputs = () => {
                 <h5>
                   E-mail <span className="red">*</span>
                 </h5>
-                <input type="email" {...register("ApplicantEmail")} required />
+                <input type="email" {...register("ApplicantEmail")} required onBlur={handleValidEmail}/>
                 {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
                 {errors.NameOfSocialBusiness?.message && (
                   <span>{errors.NameOfSocialBusiness.message}</span>
@@ -486,7 +518,7 @@ const SFDCInputs = () => {
                 <h5>
                   Phone <span className="red">*</span>
                 </h5>
-                <input type="text" {...register("ApplicantPhone")} required maxLength="100" />
+                <input type="text" {...register("ApplicantPhone")} required maxLength="100" onChange={HandleValidPhoneNumber}/>
                 {errors.name && errors.name.type === "required" && (
                   <span>Please fill this field</span>
                 )}
@@ -496,11 +528,11 @@ const SFDCInputs = () => {
               </div>
             </div>
             <div className="row register-gender">
-              <div className="mt-5 col-lg-6">
+              <div className="mt-5 col-lg-6 pb-5">
                 <h5>
                   Gender <span className="red">*</span>
                 </h5>
-                <select required {...register("Gender")} className="form-select">
+                <select required {...register("Gender")} className="form-select mt-3">
                   <option value='male'>Male</option>
                   <option value='female'>Female</option>
                   <option value='other'>Other</option>
@@ -594,9 +626,8 @@ const SFDCInputs = () => {
             </div>
             <div className="row mt-5">
               <div className="col-lg-4">
-                <h5>
-                Visualise and design this fictional world for young people in the year 2050.
-Upload this social fiction Upload your idea in any of the creative categories. <span className="red">*</span>
+                <h5 className="extra-headline">
+                <span className="extra-headline-bold">Visualise</span> and <span className="extra-headline-bold">design</span> this fictional world for young people in the year 2050. <span className="extra-headline-bold">Upload</span> this social fiction in any of the creative categories. <span className="red">*</span>
                 </h5>
               </div>
               <div className="col-lg-4">
@@ -639,25 +670,6 @@ Upload this social fiction Upload your idea in any of the creative categories. <
               </div>
             </div>
             {showFileUpload && <p className="mt-5">{formatString[fileFormat]}</p>}
-            {/* <div className="mt-5 file-upload">
-                            <div className="row">
-                                <div className="col-lg-5">
-                                    <input
-                                        class="form-control"
-                                        type="file"
-                                        id="formFile"
-                                        {...register("UploadedFile")}
-                                        required
-                                        accept={formatAccept[fileAcceptStr]}
-                                    />
-                                </div>
-                                <div className="col-lg-3">
-                                    <div className="file-upload-condition"></div>
-                                </div>
-                            </div>
-                        </div> */}
-
-            {/* new link field           */}
 
             {!showFileUpload && (
               <div className="row mt-5 file-link-notification">

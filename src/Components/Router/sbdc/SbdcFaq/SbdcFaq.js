@@ -29,7 +29,6 @@ const SbdcFaq = () => {
     fetch(`${baseUrl}/get-faq?type=sbdc`, options)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setFaqData(data.responses);
       })
       .catch((error) => console.error(error));
