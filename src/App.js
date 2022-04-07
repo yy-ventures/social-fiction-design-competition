@@ -11,6 +11,7 @@ import InfoBar from "./Components/Home/InfoBar";
 import LogoBar from "./Components/Home/LogoBar";
 import HomePartnersForm from "./Components/Home/HomePartnersForm";
 import ScrollToTop from "./Components/ScrollToTop";
+import Login from "./Components/Login/Login";
 
 function App() {
     return (
@@ -30,6 +31,9 @@ function App() {
                     </Route>
                     <Route exact path="/sfdc-registration">
                         <SFDCRegistration />
+                    </Route>
+                    <Route exact path="/login">
+                        <Login/>
                     </Route>
                     <Route exact path="/">
                         <Home />

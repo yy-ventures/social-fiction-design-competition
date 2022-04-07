@@ -1,0 +1,14 @@
+@import '../../global.scss';
+
+.login-section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form{
+        width: 500px;
+        padding: 2.5%;
+        background-color: $primaryColor;
+        border-radius: 15px;
+    }
+}

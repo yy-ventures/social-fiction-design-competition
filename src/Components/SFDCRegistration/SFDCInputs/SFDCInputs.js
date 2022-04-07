@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import "./SFDCInputs.scss";
 
 const SFDCInputs = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm();
+
+
   const [fileFormat, setfileFormat] = useState("writing");
 
   const [fileAcceptStr, setFileAcceptStr] = useState(
     "audio/*, video/mp4,video/x-m4v, video/quicktime"
   );
 
-  const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [showFileUpload, setShowFileUpload] = useState(true);
@@ -25,17 +26,17 @@ const SFDCInputs = () => {
 
   const formatString = {
     rhetoric:
-      "Imagine the life of a young person in the world of 2050. Share a short 5-minute speech on how the solution on a particular social problem can lead to a new society. Format: .mp3, .mp4, or .avi",
+      "Format: .mp3, .mp4, or .avi",
     animation:
-      "Imagine the life of a young person in the world of 2050. Share a short 5-minute animation expressing a pressing social problem of your choice or a new future without social problems. Format: .mp4 and .mov",
+      "Format: .mp4 and .mov",
     poster_presentation:
-      "Imagine the life of a young person in the world of 2050. Maximum 4-page awareness poster demonstrating the social problem and a reimagined reality without those problems. Format: .pdf, .jpeg, .jpg and, .png",
+      "Format: .pdf, .jpeg, .jpg and, .png",
     writing:
-      "Imagine the life of a young person in the world of 2050. In 1000 words (max) share your writing about a re-imagined future without social problems. Format: .docx or .pdf",
+      "Format: .docx or .pdf",
     illustration:
-      "Imagine the life of a young person in the world of 2050. Showcase your creativity using your Drawing or Graphic Design (max: 2 images) to address your Social Fiction theme. Format: .jpeg, jpg and .png",
+      "Format: .jpeg, jpg and .png",
     cinematography:
-      "Imagine the life of a young person in the world of 2050. Creating a short 5-minute movie, shot however you want to adhering to the concept of a Social Fiction. Format: .mp4 and .mov",
+      "Format: .mp4 and .mov",
   };
 
   const formatAccept = {
@@ -51,6 +52,7 @@ const SFDCInputs = () => {
   const handleChange = (e) => {
     setfileFormat(e.target.value);
     setFileAcceptStr(e.target.value);
+    setDraftCategory(e.target.value)
 
     if (
       formatString[e.target.value] === formatString.rhetoric ||
@@ -63,11 +65,7 @@ const SFDCInputs = () => {
     }
   };
 
-  const handleAreaOfFocus = (e) => {
-    e.preventDefault();
-    let areaOfFocusValue = e.target.value;
-    setAreaOfFocusChange(areaOfFocusValue);
-  };
+  
 
   const mainForm = document.querySelector("#sfdcInputForm");
 
@@ -85,29 +83,48 @@ const SFDCInputs = () => {
         setFileSizeTest(files)
       }
     }
-  };
-
-  // other social problem
-  const [otherSocialProblem, setOtherSocialProblem] = useState('')
-
-  const HandleOtherSocialProblem = e => {
-    setOtherSocialProblem(e.target.value)
-  }
-
-  // const handleStringSpace = str => {
-  //   let spaceCount = str.split(" ").length - 1
-  //   console.log(spaceCount)
-  // }
-  // handleStringSpace("hi i'm farhan from Bangladesh")
-  
+  };  
 
   // new state
+  const [draftName, setDraftName] = useState('') 
+  const [draftInstitution, setDraftInstitution] = useState('') 
   const [draftValidPhoneNumber, setDraftValidPhoneNumber] = useState('')
   const [draftValidEmail, setDraftValidEmail] = useState('')
+  const [draftDOB, setDraftDOB] = useState('')
+  const [draftCountry, setDraftCountry] = useState('')
+  const [draftGender, setDraftGender] = useState('')
+  const [draftAreaOfFocusChange, setDraftAreaOfFocusChange] = useState('');
+  const [draftOtherSocialProblem, setDraftOtherSocialProblem] = useState('')
+  const [draftYourSocialProblem, setDraftYourSocialProblem] = useState('')
+  const [draftSocialFictionUnique, setDraftSocialFictionUnique] = useState('')
+  const [draftSolutionImpact, setDraftSolutionImpact] = useState('')
+  const [draftURL, setDraftURL] = useState('')
+  const [draftCategory, setDraftCategory] = useState('')
+
+
+  const HandleOtherSocialProblem = e => {
+    setDraftOtherSocialProblem(e.target.value)
+  }
+
+  const handleName = e => {
+    if(e.target.value === ''){
+      alert('Name is required!')
+    }else{
+      setDraftName(e.target.value)
+    }
+  }
+
+  const handleInstitution = e => {
+    if(e.target.value === ''){
+      alert('Institute is required!')
+    }else{
+      setDraftInstitution(e.target.value)
+    }
+  }
 
   const handleValidEmail = e => {
     let emailFilter = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
-    if(emailFilter.test(e.target.value)){
+    if(emailFilter.test(e.target.value) && e.target.value !== ''){
       setDraftValidEmail(e.target.value)
     }
     else{
@@ -118,76 +135,268 @@ const SFDCInputs = () => {
   const HandleValidPhoneNumber = e =>{
     let phoneNumber = e.target.value;
     if (isNaN(phoneNumber) || Number(phoneNumber) < 0) {
-      alert("Please Input a Valid number!");
+      alert("Please Input a Valid number!")
     } else {
-      setDraftValidPhoneNumber(phoneNumber);
+      setDraftValidPhoneNumber(phoneNumber)
     }
   }
 
+  const handleDOB = e => {
+    if(e.target.value === ''){
+      alert('Date of Birth is required!')
+    }else{
+      setDraftDOB(e.target.value)
+    }
+  }
 
-  const onSubmit = (data) => {
+  const handleCountry = e => {
+    setDraftCountry(e.target.value)
+  }
 
-    let headers = new Headers();
-    // var imagedata = document.querySelector('input[type="file"]').files[0];
-    setIsSubmitting(true);
-    setIsDisabled(true);
+  const handleGender = e => {
+    setDraftGender(e.target.value)
+  }
 
-    let formdata = new FormData();
+  const handleAreaOfFocus = e => {
+    e.preventDefault();
+    let areaOfFocusValue = e.target.value;
+    setDraftAreaOfFocusChange(areaOfFocusValue)
+  };
 
-    formdata.append("name_of_applicant", data.NameOfApplicant);
-    formdata.append("name_of_institution", data.NameOfInstitution);
-    formdata.append("date_of_birth", data.ApplicantDateOfBirth);
-    formdata.append("email", data.ApplicantEmail);
-    formdata.append("phone", data.ApplicantPhone);
-    formdata.append("gender", data.Gender);
-    formdata.append("area_of_focus", data.AreaOfFocus);
-    formdata.append("social_problems", data.YourSocialProblem);
-    formdata.append("other_social_problem", data.OtherSocialProblem);
-    formdata.append("more_about_social_problem", data.YourSocialProblem);
-    formdata.append("unique_solutions", data.WhatMakesItUnique);
-    formdata.append("impact_of_fictional_solution", data.SolutionImpact);
-    formdata.append("type_of_content", data.CreativeCategory);
+  const handleYourSocialProblem = e => {
+    if(e.target.value.split(" ").length - 1 > 299){
+      alert('Please Describe in 300 words')
+    }else{
+      setDraftYourSocialProblem(e.target.value)
+    }
+  }
 
-    let letters = ["rhetoric", "animation", "cinematography"];
+  const handleFictionUnique = e => {
+    if(e.target.value.split(" ").length - 1 > 99){
+      alert('Please Describe in 100 words')
+    }else{
+      setDraftSocialFictionUnique(e.target.value)
+    }
+  }
 
-    let result = letters.includes(data.CreativeCategory);
+  const handleSolutionImpact = e => {
+    if(e.target.value.split(" ").length - 1 > 199){
+      alert('Please Describe in 200 words')
+    }else{
+      setDraftSolutionImpact(e.target.value)
+    }
+  }
 
-    if (result) {
-      formdata.append(`file_of_idea`, data.LargeFileLink);
-    } else {
-      for (let i = 0; i < fileSizeTest.length; i++) {
-        let getFiles = fileSizeTest[i];
-        formdata.append(`file_of_idea[${i}]`, getFiles);
+  const handleURL = e => {
+    setDraftURL(e.target.value)
+  }
+
+
+  // const onSubmit = e => {
+  //   e.preventDefault()
+
+  //   let headers = new Headers();
+  //   setIsSubmitting(true);
+  //   setIsDisabled(true);
+
+  //   let formdata = new FormData();
+
+  //   formdata.append("name_of_applicant", data.NameOfApplicant);
+  //   formdata.append("name_of_institution", data.NameOfInstitution);
+  //   formdata.append("date_of_birth", data.ApplicantDateOfBirth);
+  //   formdata.append("email", data.ApplicantEmail);
+  //   formdata.append("phone", data.ApplicantPhone);
+  //   formdata.append("gender", data.Gender);
+  //   formdata.append("area_of_focus", data.AreaOfFocus);
+  //   formdata.append("social_problems", data.YourSocialProblem);
+  //   formdata.append("other_social_problem", data.OtherSocialProblem);
+  //   formdata.append("more_about_social_problem", data.YourSocialProblem);
+  //   formdata.append("unique_solutions", data.WhatMakesItUnique);
+  //   formdata.append("impact_of_fictional_solution", data.SolutionImpact);
+  //   formdata.append("type_of_content", data.CreativeCategory);
+
+  //   let letters = ["rhetoric", "animation", "cinematography"];
+
+  //   let result = letters.includes(data.CreativeCategory);
+
+  //   if (result) {
+  //     formdata.append(`file_of_idea`, data.LargeFileLink);
+  //   } else {
+  //     for (let i = 0; i < fileSizeTest.length; i++) {
+  //       let getFiles = fileSizeTest[i];
+  //       formdata.append(`file_of_idea[${i}]`, getFiles);
+  //     }
+  //   }
+
+  //   formdata.append("country", data.ApplicantCountry);
+
+  //   let requestOptions = {
+  //     method: "POST",
+  //     body: formdata,
+  //     redirect: "follow",
+  //     headers: headers,
+  //   };
+
+  //   fetch(`${baseUrl}/sfdc/create`, requestOptions)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.success) {
+  //         alert("Thanks For Your Application");
+  //         setIsSubmitting(false);
+  //         setIsDisabled(false);
+  //         mainForm.reset();
+  //         setDraftOtherSocialProblem('')
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
+  const [formTitle, setFormTitle] = useState('submit')
+  
+  const[nameRequired, setNameRequired] = useState(true)
+  const [institutionRequired, setInstitutionRequired] = useState(false)
+  const [dobRequired, setDobRequired] = useState(false)
+  const [countryRequired, setCountryRequired] = useState(false)
+  const [emailRequired, setEmailRequired] = useState(false)
+  const [phoneRequired, setPhoneRequired] = useState(false)
+
+
+  let validity = undefined || null || ''
+
+  const handleSaveTitle = () => {
+    setFormTitle('save')
+  }
+  const handleSubmitTitle = () => {
+    setFormTitle('submit')
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    // save data
+    if(formTitle === 'save'){
+
+      let headers = new Headers();
+      let formdata = new FormData();
+
+      setIsSubmitting(true);
+      setIsDisabled(true);
+
+      formdata.append("name_of_applicant", draftName === validity ? setNameRequired(true) : draftName);
+      formdata.append("name_of_institution", draftInstitution === validity ? setInstitutionRequired(true): draftInstitution);
+      formdata.append("phone", draftValidPhoneNumber === validity ? setPhoneRequired(true): draftValidPhoneNumber);
+      formdata.append("email", draftValidEmail === validity ? setEmailRequired(true): draftValidEmail);
+      formdata.append("date_of_birth", draftDOB === validity ?setDobRequired(true): draftDOB);
+      formdata.append("gender", draftGender);
+      formdata.append("country", draftCountry === validity ? setCountryRequired(true): draftCountry);
+      formdata.append("area_of_focus", draftAreaOfFocusChange);
+      formdata.append("social_problems", draftYourSocialProblem);
+      formdata.append("other_social_problem", draftOtherSocialProblem);
+      formdata.append("unique_solutions", draftSocialFictionUnique);
+      formdata.append("impact_of_fictional_solution", draftSolutionImpact);
+      formdata.append("type_of_content", draftCategory);
+      formdata.append("submission_type", 'draft')
+      
+      let letters = ["rhetoric", "animation", "cinematography"];
+      let result = letters.includes(draftCategory);
+
+      if (result) {
+        formdata.append(`file_of_idea`, draftURL);
+      } else {
+        for (let i = 0; i < fileSizeTest.length; i++) {
+          let getFiles = fileSizeTest[i];
+          formdata.append(`file_of_idea[${i}]`, getFiles);
+        }
       }
+
+      let requestOptions = {
+        method: "POST",
+        body: formdata,
+        redirect: "follow",
+        headers: headers,
+      };
+
+      fetch(`${baseUrl}/sfdc/create`, requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Your Application Saved!");
+            setIsSubmitting(false);
+            setIsDisabled(false);
+            mainForm.reset();
+            setDraftOtherSocialProblem('')
+          }
+          if(data.success === false){
+            setIsSubmitting(false);
+            setIsDisabled(false);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
 
-    // formdata.append("file_of_idea", imagedata);
-    // let prev = document.querySelector('input[type="file"]').files
+    // submit data
+    if(formTitle === 'submit'){
 
-    formdata.append("country", data.ApplicantCountry);
+      let headers = new Headers();
+      let formdata = new FormData();
 
-    let requestOptions = {
-      method: "POST",
-      body: formdata,
-      redirect: "follow",
-      headers: headers,
-    };
+      formdata.append("name_of_applicant", draftName === '' ? alert('Name Required!'): draftName);
+      formdata.append("name_of_institution", draftInstitution === '' ? alert('Institution Required!'): draftInstitution);
+      formdata.append("phone", draftValidPhoneNumber === '' ? alert('Phone Required!'): draftValidPhoneNumber);
+      formdata.append("email", draftValidEmail === '' ? alert('Email Required!'): draftValidEmail);
+      formdata.append("date_of_birth", draftDOB === '' ? alert('Date of Birth Required!'): draftDOB);
+      formdata.append("gender", draftGender);
+      formdata.append("country", draftCountry === '' ? alert('Country Required!'): draftCountry);
+      formdata.append("area_of_focus", draftAreaOfFocusChange === '' ? alert('Area of Focus Required!'): draftAreaOfFocusChange);
+      formdata.append("social_problems", draftYourSocialProblem === '' ? alert('Tell Us Your Social Problem'): draftYourSocialProblem);
+      formdata.append("other_social_problem", draftOtherSocialProblem === ''? 'null' : draftOtherSocialProblem);
+      formdata.append("unique_solutions", draftSocialFictionUnique === '' ? alert('Why You Are Unique?'): draftSocialFictionUnique);
+      formdata.append("impact_of_fictional_solution", draftSolutionImpact === '' ? alert('What is Your Impact of Solution?'): draftSolutionImpact);
+      formdata.append("type_of_content", draftCategory === '' ? alert('Choose File Category'): draftCategory);
+      formdata.append("submission_type", 'submission')
 
-    fetch(`${baseUrl}/sfdc/create`, requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          alert("Thanks For Your Application");
-          setIsSubmitting(false);
-          setIsDisabled(false);
-          mainForm.reset();
-          setOtherSocialProblem('')
+      let letters = ["rhetoric", "animation", "cinematography"];
+      let result = letters.includes(draftCategory);
+
+      if (result) {
+        formdata.append(`file_of_idea`, draftURL);
+      } else {
+        for (let i = 0; i < fileSizeTest.length; i++) {
+          let getFiles = fileSizeTest[i];
+          formdata.append(`file_of_idea[${i}]`, getFiles === '' ? alert('Upload your File!'): getFiles);
         }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+      }
+
+      let requestOptions = {
+        method: "POST",
+        body: formdata,
+        redirect: "follow",
+        headers: headers,
+      };
+
+      fetch(`${baseUrl}/sfdc/create`, requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Thank you for the application!");
+            setIsSubmitting(false);
+            setIsDisabled(false);
+            mainForm.reset();
+            setDraftOtherSocialProblem('')
+          }
+          if(data.success === false){
+            setIsSubmitting(false);
+            setIsDisabled(false);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
 
   return (
     <div className="sfdc-registration-input">
@@ -203,8 +412,9 @@ const SFDCInputs = () => {
           <form
             encType="multipart/form-data"
             className="registration-main-form"
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit}
             id="sfdcInputForm"
+            title={formTitle}
           >
             <div className="row">
               <div className="mt-5 col-lg-6">
@@ -213,27 +423,20 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="text"
-                  {...register("NameOfApplicant", {
-                    required: true,
-                  })}
-                  required
+                  onChange={handleName}
+                  required={nameRequired}
                 />
-                {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
-                {errors.NameOfApplicant && (
-                  <span>{errors.NameOfSocialBusiness.message} Required</span>
-                )}
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Name of Institution <span className="red">*</span>
                 </h5>
-                <input type="text" {...register("NameOfInstitution")} required maxLength="100" />
-                {errors.name && errors.name.type === "required" && (
-                  <span>Please fill this field</span>
-                )}
-                {errors.name && errors.name.type === "maxLength" && (
-                  <span>Please write between 10 words</span>
-                )}
+                <input 
+                  type="text" 
+                  onChange={handleInstitution}
+                  required={institutionRequired}
+                  />
+                  
               </div>
             </div>
             <div className="row ">
@@ -241,17 +444,14 @@ const SFDCInputs = () => {
                 <h5>
                   Date of Birth of Applicant <span className="red">*</span>
                 </h5>
-                <input type="date" {...register("ApplicantDateOfBirth")} required />
-                {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
-                {errors.NameOfSocialBusiness?.message && (
-                  <span>{errors.NameOfSocialBusiness.message}</span>
-                )}
+                <input type="date" onChange={handleDOB} required={dobRequired}/>
+               
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Country <span className="red">*</span>
                 </h5>
-                <select className="form-select" {...register("ApplicantCountry")} required>
+                <select className="form-select" onChange={handleCountry} required={countryRequired}>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
@@ -508,23 +708,13 @@ const SFDCInputs = () => {
                 <h5>
                   E-mail <span className="red">*</span>
                 </h5>
-                <input type="email" {...register("ApplicantEmail")} required onBlur={handleValidEmail}/>
-                {/* {errors.name && errors.name.type === "required" && <span>Please fill this field</span>} */}
-                {errors.NameOfSocialBusiness?.message && (
-                  <span>{errors.NameOfSocialBusiness.message}</span>
-                )}
+                <input type="email" onBlur={handleValidEmail} required={emailRequired}/>
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Phone <span className="red">*</span>
                 </h5>
-                <input type="text" {...register("ApplicantPhone")} required maxLength="100" onChange={HandleValidPhoneNumber}/>
-                {errors.name && errors.name.type === "required" && (
-                  <span>Please fill this field</span>
-                )}
-                {errors.name && errors.name.type === "maxLength" && (
-                  <span>Please write between 10 words</span>
-                )}
+                <input type="text" onChange={HandleValidPhoneNumber} required={phoneRequired}/>
               </div>
             </div>
             <div className="row register-gender">
@@ -532,19 +722,19 @@ const SFDCInputs = () => {
                 <h5>
                   Gender <span className="red">*</span>
                 </h5>
-                <select required {...register("Gender")} className="form-select mt-3">
+                <select onChange={handleGender} className="form-select mt-3">
                   <option value='male'>Male</option>
                   <option value='female'>Female</option>
                   <option value='other'>Other</option>
                 </select>
               </div>
             </div>
-            <div className="extra-title">
+            <div className="extra-title mt-5">
               <p>Imagine the life of a young person in the world of 2050.</p>
               <p>Visualise how this fictional world of the future is different from the world we live in now.</p>
             </div>
             {/* area of focus */}
-            <div className="row mt-5 register-focus d-flex align-items-center">
+            <div className="row mt-3 register-focus d-flex align-items-center">
               <div className="col-lg-4">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
@@ -553,8 +743,6 @@ const SFDCInputs = () => {
               </div>
               <div className="col-lg-4">
                 <select
-                  required
-                  {...register("AreaOfFocus")}
                   className="form-select"
                   onChange={handleAreaOfFocus}
                 >
@@ -577,10 +765,10 @@ const SFDCInputs = () => {
                 </select>
               </div>
               <div className="col-lg-4">
-                {areaOfFocusChange === "others" ? (
+                {draftAreaOfFocusChange === "others" ? (
                   <div>
                     <label>If others, please specify:</label>
-                    <input type="text" placeholder="" {...register("OtherSocialProblem")} onChange={HandleOtherSocialProblem} value={otherSocialProblem}/>
+                    <input type="text" onChange={HandleOtherSocialProblem} value={draftOtherSocialProblem} />
                   </div>
                 ) : (
                   ""
@@ -588,10 +776,10 @@ const SFDCInputs = () => {
               </div>
             </div>
             <div className="row mt-5">
-              <div className="col-lg-12">
+              <div className="col-lg-12 mt-5">
                 <h5>
                 Tell us a bit about the fictional world you have designed for the year 2050.{" "}
-                  <span className="bold">100 words (max)</span>
+                  <span className="bold">300 words (max)</span>
                   <span className="red">*</span>
                 </h5>
                 <div className="extra-title">
@@ -602,38 +790,34 @@ const SFDCInputs = () => {
                 </div>
                 <textarea
                   type="text"
-                  {...register("YourSocialProblem")}
-                  required
-                  maxLength="500"
+                  onBlur={handleYourSocialProblem}
                 ></textarea>
               </div>
             </div>
             <div className="row mt-5">
-              <div className="col-lg-12">
+              <div className="col-lg-12 mt-5">
                 <h5>
-                What makes your Social Fiction unique?  <span className="red">*</span>
+                What makes your Social Fiction unique?  <span className="red">*</span> <span className="bold">100 words (max)</span>
                 </h5>
-                <textarea required {...register("WhatMakesItUnique")}></textarea>
+                <textarea onChange={handleFictionUnique} ></textarea>
               </div>
             </div>
             <div className="mt-5">
-              <div className="col-lg-12">
+              <div className="col-lg-12 pt-5">
                 <h5>
-                What impact would your fictional world have on the environment, economy and/or communities? <span className="red">*</span>
+                What impact would your fictional world have on the environment, economy and/or communities? <span className="red">*</span> <span className="bold">200 words (max)</span>
                 </h5>
-                <textarea required {...register("SolutionImpact")}></textarea>
+                <textarea onChange={handleSolutionImpact} ></textarea>
               </div>
             </div>
             <div className="row mt-5">
-              <div className="col-lg-4">
+              <div className="col-lg-4 mt-5">
                 <h5 className="extra-headline">
                 <span className="extra-headline-bold">Visualise</span> and <span className="extra-headline-bold">design</span> this fictional world for young people in the year 2050. <span className="extra-headline-bold">Upload</span> this social fiction in any of the creative categories. <span className="red">*</span>
                 </h5>
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-4 mt-5">
                 <select
-                  required
-                  {...register("CreativeCategory")}
                   className="form-select"
                   onChange={handleChange}
                 >
@@ -647,7 +831,7 @@ const SFDCInputs = () => {
                   <option value="cinematography">Cinematography</option>
                 </select>
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-4 mt-5">
                 {showFileUpload && (
                   <div className="file-upload">
                     <div>
@@ -655,8 +839,6 @@ const SFDCInputs = () => {
                         class="form-control"
                         type="file"
                         id="formFile"
-                        {...register("UploadedFile")}
-                        required
                         accept={formatAccept[fileAcceptStr]}
                         multiple
                         onChange={handleTestChange}
@@ -669,7 +851,7 @@ const SFDCInputs = () => {
                 )}
               </div>
             </div>
-            {showFileUpload && <p className="mt-5">{formatString[fileFormat]}</p>}
+            {showFileUpload && <p className="mt-5 text-center">{formatString[fileFormat]}</p>}
 
             {!showFileUpload && (
               <div className="row mt-5 file-link-notification">
@@ -677,11 +859,14 @@ const SFDCInputs = () => {
                   Upload your file to a cloud drive (we recommend google drive), then share the link
                   with us <span className="red">*</span>
                 </h5>
-                <input class="form-control" type="text" {...register("LargeFileLink")} required />
+                <input class="form-control" type="url" onBlur={handleURL}/>
               </div>
             )}
             <div className="mt-5 text-center submit-button">
-              <button type="submit" disabled={isDisabled}>
+              <button type="save" disabled={isDisabled} onClick={handleSaveTitle} className="mx-1 save">
+                {isSubmitting ? "Saving..." : "Save Application"}
+              </button>
+              <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1">
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>
             </div>
