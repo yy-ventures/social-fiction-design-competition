@@ -470,9 +470,9 @@ const SbdcInputs = () => {
                 </h5>
               </div>
               <div className="col-lg-2">
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     value="team"
                     {...register("FounderType")}
@@ -482,16 +482,16 @@ const SbdcInputs = () => {
                     defaultChecked={false}
                     required
                   />
-                  <label class="form-check-label" htmlFor="flexCheckDefault">
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
                     Team
                   </label>
                 </div>
               </div>
               <div className="col-lg-2">
-                <div class="form-check">
+                <div className="form-check">
                   <input
                     name="FounderType"
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     {...register("FounderType")}
                     value="individual"
@@ -499,7 +499,7 @@ const SbdcInputs = () => {
                     onChange={handleCheckBoxTwo}
                     required
                   />
-                  <label class="form-check-label" htmlFor="flexCheckDefault">
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
                     Individual
                   </label>
                 </div>
@@ -803,7 +803,7 @@ const SbdcInputs = () => {
                 </div>
                 <div className="col-lg-5">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="file"
                     id="formFile"
                     {...register("UploadedFile")}

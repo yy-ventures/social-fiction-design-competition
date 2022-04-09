@@ -16,8 +16,12 @@ const SFDCInputs = () => {
   );
 
   
+  const [isSaving, setIsSaving] = useState(false);
+  const [isSaveDisabled, setIsSaveDisabled] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+
   const [showFileUpload, setShowFileUpload] = useState(true);
   const [fileSizeTest, setFileSizeTest] = useState([]);
   
@@ -254,16 +258,6 @@ const SFDCInputs = () => {
   // };
 
   const [formTitle, setFormTitle] = useState('submit')
-  
-  const[nameRequired, setNameRequired] = useState(true)
-  const [institutionRequired, setInstitutionRequired] = useState(false)
-  const [dobRequired, setDobRequired] = useState(false)
-  const [countryRequired, setCountryRequired] = useState(false)
-  const [emailRequired, setEmailRequired] = useState(false)
-  const [phoneRequired, setPhoneRequired] = useState(false)
-
-
-  let validity = undefined || null || ''
 
   const handleSaveTitle = () => {
     setFormTitle('save')
@@ -280,16 +274,16 @@ const SFDCInputs = () => {
       let headers = new Headers();
       let formdata = new FormData();
 
-      setIsSubmitting(true);
-      setIsDisabled(true);
+      setIsSaving(true);
+      setIsSaveDisabled(true);
 
-      formdata.append("name_of_applicant", draftName === validity ? setNameRequired(true) : draftName);
-      formdata.append("name_of_institution", draftInstitution === validity ? setInstitutionRequired(true): draftInstitution);
-      formdata.append("phone", draftValidPhoneNumber === validity ? setPhoneRequired(true): draftValidPhoneNumber);
-      formdata.append("email", draftValidEmail === validity ? setEmailRequired(true): draftValidEmail);
-      formdata.append("date_of_birth", draftDOB === validity ?setDobRequired(true): draftDOB);
+      formdata.append("name_of_applicant", draftName);
+      formdata.append("name_of_institution", draftInstitution);
+      formdata.append("phone", draftValidPhoneNumber);
+      formdata.append("email", draftValidEmail);
+      formdata.append("date_of_birth", draftDOB);
       formdata.append("gender", draftGender);
-      formdata.append("country", draftCountry === validity ? setCountryRequired(true): draftCountry);
+      formdata.append("country", draftCountry);
       formdata.append("area_of_focus", draftAreaOfFocusChange);
       formdata.append("social_problems", draftYourSocialProblem);
       formdata.append("other_social_problem", draftOtherSocialProblem);
@@ -322,14 +316,15 @@ const SFDCInputs = () => {
         .then((data) => {
           if (data.success) {
             alert("Your Application Saved!");
-            setIsSubmitting(false);
-            setIsDisabled(false);
+            setIsSaving(false);
+            setIsSaveDisabled(false);
             mainForm.reset();
             setDraftOtherSocialProblem('')
           }
           if(data.success === false){
-            setIsSubmitting(false);
-            setIsDisabled(false);
+            setIsSaving(false);
+            setIsSaveDisabled(false);
+            alert('Something went wrong')
           }
         })
         .catch((error) => {
@@ -343,30 +338,35 @@ const SFDCInputs = () => {
       let headers = new Headers();
       let formdata = new FormData();
 
-      formdata.append("name_of_applicant", draftName === '' ? alert('Name Required!'): draftName);
-      formdata.append("name_of_institution", draftInstitution === '' ? alert('Institution Required!'): draftInstitution);
-      formdata.append("phone", draftValidPhoneNumber === '' ? alert('Phone Required!'): draftValidPhoneNumber);
-      formdata.append("email", draftValidEmail === '' ? alert('Email Required!'): draftValidEmail);
-      formdata.append("date_of_birth", draftDOB === '' ? alert('Date of Birth Required!'): draftDOB);
+      setIsSubmitting(true);
+      setIsDisabled(true);
+
+      formdata.append("name_of_applicant", draftName);
+      formdata.append("name_of_institution", draftInstitution);
+      formdata.append("phone", draftValidPhoneNumber);
+      formdata.append("email", draftValidEmail);
+      formdata.append("date_of_birth", draftDOB);
       formdata.append("gender", draftGender);
-      formdata.append("country", draftCountry === '' ? alert('Country Required!'): draftCountry);
-      formdata.append("area_of_focus", draftAreaOfFocusChange === '' ? alert('Area of Focus Required!'): draftAreaOfFocusChange);
-      formdata.append("social_problems", draftYourSocialProblem === '' ? alert('Tell Us Your Social Problem'): draftYourSocialProblem);
-      formdata.append("other_social_problem", draftOtherSocialProblem === ''? 'null' : draftOtherSocialProblem);
-      formdata.append("unique_solutions", draftSocialFictionUnique === '' ? alert('Why You Are Unique?'): draftSocialFictionUnique);
-      formdata.append("impact_of_fictional_solution", draftSolutionImpact === '' ? alert('What is Your Impact of Solution?'): draftSolutionImpact);
-      formdata.append("type_of_content", draftCategory === '' ? alert('Choose File Category'): draftCategory);
-      formdata.append("submission_type", 'submission')
+      formdata.append("country", draftCountry);
+      formdata.append("area_of_focus", draftAreaOfFocusChange)
+      formdata.append("social_problems", draftYourSocialProblem)
+      formdata.append("other_social_problem", draftOtherSocialProblem === ''? 'null' : draftOtherSocialProblem)
+      formdata.append("unique_solutions", draftSocialFictionUnique)
+      formdata.append("impact_of_fictional_solution", draftSolutionImpact)
+      formdata.append("type_of_content", draftCategory)
+      formdata.append("submission_type", 'submission')      
 
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
+
+      let getFiles;
 
       if (result) {
         formdata.append(`file_of_idea`, draftURL);
       } else {
         for (let i = 0; i < fileSizeTest.length; i++) {
-          let getFiles = fileSizeTest[i];
-          formdata.append(`file_of_idea[${i}]`, getFiles === '' ? alert('Upload your File!'): getFiles);
+          getFiles = fileSizeTest[i];
+          formdata.append(`file_of_idea[${i}]`, getFiles);
         }
       }
 
@@ -375,26 +375,34 @@ const SFDCInputs = () => {
         body: formdata,
         redirect: "follow",
         headers: headers,
-      };
+      }
 
-      fetch(`${baseUrl}/sfdc/create`, requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            alert("Thank you for the application!");
-            setIsSubmitting(false);
-            setIsDisabled(false);
-            mainForm.reset();
-            setDraftOtherSocialProblem('')
-          }
-          if(data.success === false){
-            setIsSubmitting(false);
-            setIsDisabled(false);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory && getFiles){
+
+        fetch(`${baseUrl}/sfdc/create`, requestOptions)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Thank you for the application!");
+              setIsSubmitting(false);
+              setIsDisabled(false);
+              mainForm.reset();
+              setDraftOtherSocialProblem('')
+            }
+            if(data.success === false){
+              setIsSubmitting(false);
+              setIsDisabled(false);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        
+      }else{
+        alert('Some form Fields are Missing!')
+        setIsSubmitting(false);
+        setIsDisabled(false);
+      }
     }
   }
 
@@ -424,7 +432,7 @@ const SFDCInputs = () => {
                 <input
                   type="text"
                   onChange={handleName}
-                  required={nameRequired}
+                  required
                 />
               </div>
               <div className="mt-5 col-lg-6">
@@ -434,7 +442,7 @@ const SFDCInputs = () => {
                 <input 
                   type="text" 
                   onChange={handleInstitution}
-                  required={institutionRequired}
+                  required
                   />
                   
               </div>
@@ -444,14 +452,14 @@ const SFDCInputs = () => {
                 <h5>
                   Date of Birth of Applicant <span className="red">*</span>
                 </h5>
-                <input type="date" onChange={handleDOB} required={dobRequired}/>
+                <input type="date" onChange={handleDOB} required/>
                
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Country <span className="red">*</span>
                 </h5>
-                <select className="form-select" onChange={handleCountry} required={countryRequired}>
+                <select className="form-select" onChange={handleCountry} required>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
@@ -708,13 +716,13 @@ const SFDCInputs = () => {
                 <h5>
                   E-mail <span className="red">*</span>
                 </h5>
-                <input type="email" onBlur={handleValidEmail} required={emailRequired}/>
+                <input type="email" onBlur={handleValidEmail} required/>
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Phone <span className="red">*</span>
                 </h5>
-                <input type="text" onChange={HandleValidPhoneNumber} required={phoneRequired}/>
+                <input type="text" onChange={HandleValidPhoneNumber} required/>
               </div>
             </div>
             <div className="row register-gender">
@@ -836,7 +844,7 @@ const SFDCInputs = () => {
                   <div className="file-upload">
                     <div>
                       <input
-                        class="form-control"
+                        className="form-control"
                         type="file"
                         id="formFile"
                         accept={formatAccept[fileAcceptStr]}
@@ -859,12 +867,12 @@ const SFDCInputs = () => {
                   Upload your file to a cloud drive (we recommend google drive), then share the link
                   with us <span className="red">*</span>
                 </h5>
-                <input class="form-control" type="url" onBlur={handleURL}/>
+                <input className="form-control" type="url" onBlur={handleURL}/>
               </div>
             )}
             <div className="mt-5 text-center submit-button">
-              <button type="save" disabled={isDisabled} onClick={handleSaveTitle} className="mx-1 save">
-                {isSubmitting ? "Saving..." : "Save Application"}
+              <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save">
+                {isSaving ? "Saving..." : "Save Application"}
               </button>
               <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1">
                 {isSubmitting ? "Submitting..." : "Submit Application"}
