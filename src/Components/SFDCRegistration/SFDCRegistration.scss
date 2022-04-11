@@ -25,6 +25,18 @@
                     font-style: italic;
                 }
             }
+            .login-btn{
+                a{
+                    padding: 10px 16px;
+                    border-radius: 5px;
+                    background-color: $primaryColor;
+                    color: $white;
+                    text-decoration: none;
+                    cursor: pointer;
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+            }
         }
         .sfdc-registration-header-right {
             padding: 7.5%;

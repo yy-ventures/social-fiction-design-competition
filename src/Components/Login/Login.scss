@@ -5,10 +5,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 600px) {
+        height: auto;
+        padding: 10% 5%;
+    }
     form{
         width: 500px;
         padding: 2.5%;
         background-color: $primaryColor;
         border-radius: 15px;
+        @media screen and (max-width: 600px) {
+            padding: 5%;
+        }
+        h2{
+            color: $white;
+        }
+        input{
+            border: 0;
+            outline: 0;
+            padding: 12px 16px;
+            background-color: $white;
+            width: 100%;
+            font-size: 18px;
+        }
+        button{
+            outline: 0;
+            border: 0;
+            padding: 12px 26px;
+            background-color: #64a0dc;
+            color: $white;
+            font-weight: 500;
+            font-size: 18px;
+        }
     }
 }

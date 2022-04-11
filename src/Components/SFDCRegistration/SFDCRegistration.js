@@ -28,6 +28,9 @@ const SFDCRegistration = () => {
                                 <li>Click Submit and wait for the submission confirmation pop-up on top of the page.</li>
                                 <li>Receive a confirmation email in your inbox.</li>
                             </ol>
+                            <div className='mt-5 login-btn'>
+                                <Link to='/login'>Login</Link>
+                            </div>
                         </div>
                     </div>
                     <div className="col-lg-6 sfdc-registration-header-right ">

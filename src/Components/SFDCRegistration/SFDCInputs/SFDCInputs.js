@@ -871,10 +871,10 @@ const SFDCInputs = () => {
               </div>
             )}
             <div className="mt-5 text-center submit-button">
-              <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save">
+              <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
                 {isSaving ? "Saving..." : "Save Application"}
               </button>
-              <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1">
+              <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1 mx-b">
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>
             </div>
