@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../App';
+import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import './Login.scss';
 
@@ -8,16 +7,13 @@ const Login = () => {
     const [authUserName, setAuthUserName] = useState('')
     const [authUserPass, setAuthUserPass] = useState('')
     
-    // context
-    const [userDetails, setUserDetails] = useContext(AuthContext);
-    
     // Base Url
     const baseUrl = process.env.REACT_APP_BASE_URL;
 
     // authenticate && redirect
     const history = useHistory()
     const location = useLocation()
-    const { from } = location.state || { from: { pathname: "/" } }
+    const { from } = location.state || { from: { pathname: "/sfdc-registration" } }
 
     const HandleUserName = e => {
         setAuthUserName(e.target.value)
@@ -46,7 +42,6 @@ const Login = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {
-                    setUserDetails(data)
                     setAuthUserName('')
                     setAuthUserPass('')
                     history.replace(from)

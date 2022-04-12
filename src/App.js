@@ -20,7 +20,7 @@ export const AuthContext = createContext()
 
 function App() {
 
-    const [userDetails, setUserDetails] = useState({username: 'ratul'})
+    const [userDetails, setUserDetails] = useState({app_id: ''})
 
     return (
         <div className="App">

@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./SFDCRegistration.scss";
 import socialFictionLogo from "../../assets/sfdc_logo.png";
 import SFDCInputs from './SFDCInputs/SFDCInputs';
 import Link from 'react-router-dom/Link'
 import sfdcUSD from '../../assets/sfdc-usd.png'
+import { useHistory } from "react-router-dom";
+import { AuthContext } from '../../App';
 
 const SFDCRegistration = () => {
+    const [userDetails, setUserDetails] = useContext(AuthContext)
+    const { app_id } = userDetails
+    let history = useHistory();
+    const handleLogout = () => {
+        setUserDetails({ app_id: '' })
+        history.push('/')
+        localStorage.clear()
+    }
     return (
         <section className="sfdc-registration" id="sfdcRegId">
             <div className="sfdc-registration-header position-relative">
@@ -14,10 +24,10 @@ const SFDCRegistration = () => {
                         <div>
                             {/* <p>The <span className="deepblue">Social Business Design Competition</span> promotes youth-driven entrepreneurial solutions to combat social challenges like water, circularity, sports, poverty, employment, etc. The competition welcomes youth from the global arena to bring unique, equitable ideas that are aligned with development goals by putting into play these ideas to achieve real solutions through the designing of their very own Social Business.</p> */}
                             <p>
-                            The <span className="deepblue">Social Fiction Design Competition</span> is a global competition for young creatives to imagine the life of a young person in the world of 2050. 
+                                The <span className="deepblue">Social Fiction Design Competition</span> is a global competition for young creatives to imagine the life of a young person in the world of 2050.
                             </p>
                             <p>
-                            Design a fictional world in the future with progress made in the society and environment to create a safer, just and inclusive world for young people in the year 2050.
+                                Design a fictional world in the future with progress made in the society and environment to create a safer, just and inclusive world for young people in the year 2050.
                             </p>
                             <p className='mb-0'>Before filling up the form, please go through our FAQ section in this link:</p>
                             <Link to='/sfdc'>https://competitions.yunuscentre.org/sfdc</Link>
@@ -28,9 +38,12 @@ const SFDCRegistration = () => {
                                 <li>Click Submit and wait for the submission confirmation pop-up on top of the page.</li>
                                 <li>Receive a confirmation email in your inbox.</li>
                             </ol>
-                            <div className='mt-5 login-btn'>
+                            {app_id === '' && <div className='mt-5 login-btn'>
                                 <Link to='/login'>Login</Link>
-                            </div>
+                            </div>}
+                            {!app_id === '' && <div className='mt-5 login-btn'>
+                                <button onClick={handleLogout}>Logout</button>
+                            </div>}
                         </div>
                     </div>
                     <div className="col-lg-6 sfdc-registration-header-right ">
@@ -38,7 +51,7 @@ const SFDCRegistration = () => {
                             <img src={socialFictionLogo} alt="social-fiction-design" />
                         </div>
                         <div>
-                            <img src={sfdcUSD} alt=''/>
+                            <img src={sfdcUSD} alt='' />
                         </div>
                     </div>
                 </div>
@@ -46,7 +59,7 @@ const SFDCRegistration = () => {
                     <p>application form</p>
                 </div>
             </div>
-            <SFDCInputs/>
+            <SFDCInputs />
         </section>
     );
 };
