@@ -1,18 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./SFDCRegistration.scss";
 import socialFictionLogo from "../../assets/sfdc_logo.png";
 import SFDCInputs from './SFDCInputs/SFDCInputs';
 import Link from 'react-router-dom/Link'
 import sfdcUSD from '../../assets/sfdc-usd.png'
 import { useHistory } from "react-router-dom";
-import { AuthContext } from '../../App';
 
 const SFDCRegistration = () => {
-    const [userDetails, setUserDetails] = useContext(AuthContext)
-    const { app_id } = userDetails
+    let app_id = localStorage.getItem('app_id')
     let history = useHistory();
     const handleLogout = () => {
-        setUserDetails({ app_id: '' })
         history.push('/')
         localStorage.clear()
     }
@@ -41,7 +38,7 @@ const SFDCRegistration = () => {
                             {app_id === '' && <div className='mt-5 login-btn'>
                                 <Link to='/login'>Login</Link>
                             </div>}
-                            {!app_id === '' && <div className='mt-5 login-btn'>
+                            {app_id !== null && <div className='mt-5 login-btn'>
                                 <button onClick={handleLogout}>Logout</button>
                             </div>}
                         </div>

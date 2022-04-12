@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../../App";
+import React, { useState, useEffect } from "react";
 import countries from '../../../assets/Data/country'
 import areaOfFocus from '../../../assets/Data/country'
 import typeOfContent from '../../../assets/Data/typeOfContent'
@@ -16,27 +15,26 @@ const SFDCInputs = () => {
 
   //context
   const app_id = localStorage.getItem('app_id')
-
   const [filledForm, setFilledForm] = useState([])
 
   useEffect(() => {
     fetch(`http://stage-sbdc-sfdc.yyventures.org/api/get-app-draft-data?app_id=${app_id}`)
       .then(res => res.json())
       .then(data => {
-        setFilledForm(data.data)
-        setDraftName(data.data.name_of_applicant)
-        setDraftInstitution(data.data.name_of_institution)
-        setDraftValidPhoneNumber(data.data.phone)
-        setDraftValidEmail(data.data.email)
-        setDraftDOB(data.data.date_of_birth)
-        setDraftCountry(data.data.country)
-        setDraftGender(data.data.gender)
-        setDraftAreaOfFocusChange(data.data.area_of_focus)
-        setDraftOtherSocialProblem(data.data.other_social_problem)
-        setDraftYourSocialProblem(data.data.social_problems)
-        setDraftSocialFictionUnique(data.data.unique_solutions)
-        setDraftSolutionImpact(data.data.impact_of_fictional_solution)
-        setDraftCategory(data.data.type_of_content)
+        setFilledForm(data.data && data.data)
+        setDraftName(data.data && data.data.name_of_applicant)
+        setDraftInstitution(data.data && data.data.name_of_institution)
+        setDraftValidPhoneNumber(data.data && data.data.phone)
+        setDraftValidEmail(data.data && data.data.email)
+        setDraftDOB(data.data && data.data.date_of_birth)
+        setDraftCountry(data.data && data.data.country)
+        setDraftGender(data.data && data.data.gender)
+        setDraftAreaOfFocusChange(data.data && data.data.area_of_focus)
+        setDraftOtherSocialProblem(data.data && data.data.other_social_problem)
+        setDraftYourSocialProblem(data.data && data.data.social_problems)
+        setDraftSocialFictionUnique(data.data && data.data.unique_solutions)
+        setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution)
+        setDraftCategory(data.data && data.data.type_of_content)
       })
   }, [app_id])
   
@@ -465,7 +463,7 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="text"
-                  defaultValue={filledForm.name_of_applicant}
+                  defaultValue={!filledForm === null && filledForm.name_of_applicant}
                   onChange={handleName}
                   required
                 />
@@ -476,7 +474,7 @@ const SFDCInputs = () => {
                 </h5>
                 <input 
                   type="text" 
-                  defaultValue={filledForm.name_of_institution}
+                  defaultValue={!filledForm === null && filledForm.name_of_institution}
                   onChange={handleInstitution}
                   required
                   />
@@ -488,7 +486,7 @@ const SFDCInputs = () => {
                 <h5>
                   Date of Birth of Applicant <span className="red">*</span>
                 </h5>
-                <input type="date" defaultValue={filledForm.date_of_birth} onChange={handleDOB} required/>
+                <input type="date" defaultValue={!filledForm === null && filledForm.date_of_birth} onChange={handleDOB} required/>
                
               </div>
               <div className="mt-5 col-lg-6">
@@ -496,7 +494,7 @@ const SFDCInputs = () => {
                   Country <span className="red">*</span>
                 </h5>
                 <select className="form-select" onChange={handleCountry} required>
-                  {countries.map((country, index) => <option key={index} selected={country.name === filledForm.country} value={country.name}>{country.name}</option>)}
+                  {countries.map((country, index) => <option key={index} selected={country.name === !filledForm === null && filledForm.country} value={country.name}>{country.name}</option>)}
                 </select>
               </div>
             </div>
@@ -505,13 +503,13 @@ const SFDCInputs = () => {
                 <h5>
                   E-mail <span className="red">*</span>
                 </h5>
-                <input type="email" defaultValue={filledForm.email} onBlur={handleValidEmail} required/>
+                <input type="email" defaultValue={!filledForm === null && filledForm.email} onBlur={handleValidEmail} required/>
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Phone <span className="red">*</span>
                 </h5>
-                <input type="text" defaultValue={filledForm.phone} onChange={HandleValidPhoneNumber} required/>
+                <input type="text" defaultValue={!filledForm === null && filledForm.phone} onChange={HandleValidPhoneNumber} required/>
               </div>
             </div>
             <div className="row register-gender">
@@ -520,7 +518,7 @@ const SFDCInputs = () => {
                   Gender <span className="red">*</span>
                 </h5>
                 <select onChange={handleGender} className="form-select mt-3">
-                  {gender.map(gd => <option selected={gd.value === filledForm.gender} value={gd.value}>{gd.title}</option>)}
+                  {gender.map(gd => <option selected={gd.value === !filledForm === null && filledForm.gender} value={gd.value}>{gd.title}</option>)}
                 </select>
               </div>
             </div>
@@ -541,14 +539,14 @@ const SFDCInputs = () => {
                   className="form-select"
                   onChange={handleAreaOfFocus}
                 >
-                  {areaOfFocus.map(newArea => <option selected={newArea.title === filledForm.area_of_focus} value={newArea.title}>{newArea.title}</option>)}
+                  {areaOfFocus.map(newArea => <option selected={newArea.title === !filledForm === null && filledForm.area_of_focus} value={newArea.title}>{newArea.title}</option>)}
                 </select>
               </div>
               <div className="col-lg-4">
                 {draftAreaOfFocusChange === "Others" ? (
                   <div>
                     <label>If others, please specify:</label>
-                    <input type="text" defaultValue={filledForm.other_social_problem} onChange={HandleOtherSocialProblem}/>
+                    <input type="text" defaultValue={!filledForm === null && filledForm.other_social_problem} onChange={HandleOtherSocialProblem}/>
                   </div>
                 ) : (
                   ""
@@ -570,7 +568,7 @@ const SFDCInputs = () => {
                 </div>
                 <textarea
                   type="text"
-                  defaultValue={filledForm.social_problems}
+                  defaultValue={!filledForm === null && filledForm.social_problems}
                   onBlur={handleYourSocialProblem}
                 ></textarea>
               </div>
@@ -580,7 +578,7 @@ const SFDCInputs = () => {
                 <h5>
                 What makes your Social Fiction unique?  <span className="red">*</span> <span className="bold">100 words (max)</span>
                 </h5>
-                <textarea defaultValue={filledForm.unique_solutions} onChange={handleFictionUnique} ></textarea>
+                <textarea defaultValue={!filledForm === null && filledForm.unique_solutions} onChange={handleFictionUnique} ></textarea>
               </div>
             </div>
             <div className="mt-5">
@@ -588,7 +586,7 @@ const SFDCInputs = () => {
                 <h5>
                 What impact would your fictional world have on the environment, economy and/or communities? <span className="red">*</span> <span className="bold">200 words (max)</span>
                 </h5>
-                <textarea defaultValue={filledForm.impact_of_fictional_solution} onChange={handleSolutionImpact} ></textarea>
+                <textarea defaultValue={!filledForm === null && filledForm.impact_of_fictional_solution} onChange={handleSolutionImpact} ></textarea>
               </div>
             </div>
             <div className="row mt-5">
@@ -602,7 +600,7 @@ const SFDCInputs = () => {
                   className="form-select"
                   onChange={handleChange}
                 >
-                  {typeOfContent.map(contentType => <option selected={contentType.value === filledForm.type_of_content} value={contentType.value}>{contentType.title}</option>)}
+                  {typeOfContent.map(contentType => <option selected={contentType.value === !filledForm === null && filledForm.type_of_content} value={contentType.value}>{contentType.title}</option>)}
                 </select>
               </div>
               <div className="col-lg-4 mt-5">
@@ -637,7 +635,7 @@ const SFDCInputs = () => {
               </div>
             )}
             <div className="mt-5 text-center submit-button">
-              {!app_id === '' && <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
+              {app_id === null && <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
                 {isSaving ? "Saving..." : "Save Application"}
               </button>}
               <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1 mx-b">
