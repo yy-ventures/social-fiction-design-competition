@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import countries from '../../../assets/Data/country'
-import areaOfFocus from '../../../assets/Data/country'
+import areaOfFocus from '../../../assets/Data/areaOfFocus'
 import typeOfContent from '../../../assets/Data/typeOfContent'
 import gender from '../../../assets/Data/gender'
 
@@ -224,69 +224,9 @@ const SFDCInputs = () => {
     setDraftURL(e.target.value)
   }
 
-
-  // const onSubmit = e => {
-  //   e.preventDefault()
-
-  //   let headers = new Headers();
-  //   setIsSubmitting(true);
-  //   setIsDisabled(true);
-
-  //   let formdata = new FormData();
-
-  //   formdata.append("name_of_applicant", data.NameOfApplicant);
-  //   formdata.append("name_of_institution", data.NameOfInstitution);
-  //   formdata.append("date_of_birth", data.ApplicantDateOfBirth);
-  //   formdata.append("email", data.ApplicantEmail);
-  //   formdata.append("phone", data.ApplicantPhone);
-  //   formdata.append("gender", data.Gender);
-  //   formdata.append("area_of_focus", data.AreaOfFocus);
-  //   formdata.append("social_problems", data.YourSocialProblem);
-  //   formdata.append("other_social_problem", data.OtherSocialProblem);
-  //   formdata.append("more_about_social_problem", data.YourSocialProblem);
-  //   formdata.append("unique_solutions", data.WhatMakesItUnique);
-  //   formdata.append("impact_of_fictional_solution", data.SolutionImpact);
-  //   formdata.append("type_of_content", data.CreativeCategory);
-
-  //   let letters = ["rhetoric", "animation", "cinematography"];
-
-  //   let result = letters.includes(data.CreativeCategory);
-
-  //   if (result) {
-  //     formdata.append(`file_of_idea`, data.LargeFileLink);
-  //   } else {
-  //     for (let i = 0; i < fileSizeTest.length; i++) {
-  //       let getFiles = fileSizeTest[i];
-  //       formdata.append(`file_of_idea[${i}]`, getFiles);
-  //     }
-  //   }
-
-  //   formdata.append("country", data.ApplicantCountry);
-
-  //   let requestOptions = {
-  //     method: "POST",
-  //     body: formdata,
-  //     redirect: "follow",
-  //     headers: headers,
-  //   };
-
-  //   fetch(`${baseUrl}/sfdc/create`, requestOptions)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         alert("Thanks For Your Application");
-  //         setIsSubmitting(false);
-  //         setIsDisabled(false);
-  //         mainForm.reset();
-  //         setDraftOtherSocialProblem('')
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
   const [formTitle, setFormTitle] = useState('submit')
+
+  let newApp_id = localStorage.getItem('app_id')
 
   const handleSaveTitle = () => {
     setFormTitle('save')
@@ -320,6 +260,7 @@ const SFDCInputs = () => {
       formdata.append("impact_of_fictional_solution", draftSolutionImpact);
       formdata.append("type_of_content", draftCategory);
       formdata.append("submission_type", 'draft')
+      formdata.append("app_id", newApp_id ? newApp_id : '')
       
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
@@ -344,11 +285,10 @@ const SFDCInputs = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
+            alert(`Your Application Saved! Your User ID is : ${data.responses.app_id} ${ ' and password is: ' + data.responses.generated_password === undefined ? '' : data.responses.generated_password}`);
             localStorage.setItem('app_id', data.responses.app_id)
-            alert("Your Application Saved!");
             setIsSaving(false);
             setIsSaveDisabled(false);
-            mainForm.reset();
             setDraftOtherSocialProblem('')
           }
           if(data.success === false){
@@ -365,7 +305,7 @@ const SFDCInputs = () => {
     // submit data
     if(formTitle === 'submit'){
 
-      console.log(draftName, draftInstitution, draftValidPhoneNumber, draftValidEmail, draftValidEmail, draftDOB, draftGender, draftCountry, draftAreaOfFocusChange, draftYourSocialProblem, draftSocialFictionUnique, draftSolutionImpact, draftCategory)
+      // console.log(draftName, draftInstitution, draftValidPhoneNumber, draftValidEmail, draftValidEmail, draftDOB, draftGender, draftCountry, draftAreaOfFocusChange, draftYourSocialProblem, draftSocialFictionUnique, draftSolutionImpact, draftCategory)
 
       let headers = new Headers();
       let formdata = new FormData();
@@ -431,7 +371,7 @@ const SFDCInputs = () => {
           });
         
       }else{
-        alert('Some form Fields are Missing!')
+        alert('Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!')
         setIsSubmitting(false);
         setIsDisabled(false);
       }
@@ -463,7 +403,7 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="text"
-                  defaultValue={!filledForm === null && filledForm.name_of_applicant}
+                  defaultValue={filledForm !== null ? filledForm.name_of_applicant : ''}
                   onChange={handleName}
                   required
                 />
@@ -474,7 +414,7 @@ const SFDCInputs = () => {
                 </h5>
                 <input 
                   type="text" 
-                  defaultValue={!filledForm === null && filledForm.name_of_institution}
+                  defaultValue={filledForm !== null ? filledForm.name_of_institution : ''}
                   onChange={handleInstitution}
                   required
                   />
@@ -486,7 +426,7 @@ const SFDCInputs = () => {
                 <h5>
                   Date of Birth of Applicant <span className="red">*</span>
                 </h5>
-                <input type="date" defaultValue={!filledForm === null && filledForm.date_of_birth} onChange={handleDOB} required/>
+                <input type="date" defaultValue={filledForm !== null ? filledForm.date_of_birth : ''} onChange={handleDOB} required/>
                
               </div>
               <div className="mt-5 col-lg-6">
@@ -503,13 +443,13 @@ const SFDCInputs = () => {
                 <h5>
                   E-mail <span className="red">*</span>
                 </h5>
-                <input type="email" defaultValue={!filledForm === null && filledForm.email} onBlur={handleValidEmail} required/>
+                <input type="email" defaultValue={filledForm !== null ? filledForm.email : ''} onBlur={handleValidEmail} required/>
               </div>
               <div className="mt-5 col-lg-6">
                 <h5>
                   Phone <span className="red">*</span>
                 </h5>
-                <input type="text" defaultValue={!filledForm === null && filledForm.phone} onChange={HandleValidPhoneNumber} required/>
+                <input type="text" defaultValue={filledForm !== null ? filledForm.phone : ''} onChange={HandleValidPhoneNumber} required/>
               </div>
             </div>
             <div className="row register-gender">
@@ -518,7 +458,7 @@ const SFDCInputs = () => {
                   Gender <span className="red">*</span>
                 </h5>
                 <select onChange={handleGender} className="form-select mt-3">
-                  {gender.map(gd => <option selected={gd.value === !filledForm === null && filledForm.gender} value={gd.value}>{gd.title}</option>)}
+                  {gender.map((gd, index) => <option key={index} selected={gd.value === !filledForm === null && filledForm.gender} value={gd.value}>{gd.title}</option>)}
                 </select>
               </div>
             </div>
@@ -539,14 +479,14 @@ const SFDCInputs = () => {
                   className="form-select"
                   onChange={handleAreaOfFocus}
                 >
-                  {areaOfFocus.map(newArea => <option selected={newArea.title === !filledForm === null && filledForm.area_of_focus} value={newArea.title}>{newArea.title}</option>)}
+                  {areaOfFocus.map((newArea, index) => <option key={index} selected={newArea.title === !filledForm === null && filledForm.area_of_focus} value={newArea.value}>{newArea.title}</option>)}
                 </select>
               </div>
               <div className="col-lg-4">
                 {draftAreaOfFocusChange === "Others" ? (
                   <div>
                     <label>If others, please specify:</label>
-                    <input type="text" defaultValue={!filledForm === null && filledForm.other_social_problem} onChange={HandleOtherSocialProblem}/>
+                    <input type="text" defaultValue={filledForm !== null ? filledForm.other_social_problem : ''} onChange={HandleOtherSocialProblem}/>
                   </div>
                 ) : (
                   ""
@@ -568,7 +508,7 @@ const SFDCInputs = () => {
                 </div>
                 <textarea
                   type="text"
-                  defaultValue={!filledForm === null && filledForm.social_problems}
+                  defaultValue={filledForm !== null ? filledForm.social_problems : ''}
                   onBlur={handleYourSocialProblem}
                 ></textarea>
               </div>
@@ -578,7 +518,7 @@ const SFDCInputs = () => {
                 <h5>
                 What makes your Social Fiction unique?  <span className="red">*</span> <span className="bold">100 words (max)</span>
                 </h5>
-                <textarea defaultValue={!filledForm === null && filledForm.unique_solutions} onChange={handleFictionUnique} ></textarea>
+                <textarea defaultValue={filledForm !== null ? filledForm.unique_solutions : ''} onChange={handleFictionUnique} ></textarea>
               </div>
             </div>
             <div className="mt-5">
@@ -586,7 +526,7 @@ const SFDCInputs = () => {
                 <h5>
                 What impact would your fictional world have on the environment, economy and/or communities? <span className="red">*</span> <span className="bold">200 words (max)</span>
                 </h5>
-                <textarea defaultValue={!filledForm === null && filledForm.impact_of_fictional_solution} onChange={handleSolutionImpact} ></textarea>
+                <textarea defaultValue={filledForm !== null ? filledForm.impact_of_fictional_solution : ''} onChange={handleSolutionImpact} ></textarea>
               </div>
             </div>
             <div className="row mt-5">
@@ -600,7 +540,7 @@ const SFDCInputs = () => {
                   className="form-select"
                   onChange={handleChange}
                 >
-                  {typeOfContent.map(contentType => <option selected={contentType.value === !filledForm === null && filledForm.type_of_content} value={contentType.value}>{contentType.title}</option>)}
+                  {typeOfContent.map((contentType, index) => <option key={index} selected={contentType.value === !filledForm === null && filledForm.type_of_content} value={contentType.value}>{contentType.title}</option>)}
                 </select>
               </div>
               <div className="col-lg-4 mt-5">
@@ -635,9 +575,9 @@ const SFDCInputs = () => {
               </div>
             )}
             <div className="mt-5 text-center submit-button">
-              {app_id === null && <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
+              <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
                 {isSaving ? "Saving..." : "Save Application"}
-              </button>}
+              </button>
               <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1 mx-b">
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>

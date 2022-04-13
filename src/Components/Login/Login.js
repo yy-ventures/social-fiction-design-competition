@@ -42,6 +42,7 @@ const Login = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {
+                    localStorage.setItem('app_id', authUserName)
                     localStorage.setItem('name', JSON.stringify(data.data.name))
                     localStorage.setItem('token', JSON.stringify(data.data.token))
                     setAuthUserName('')

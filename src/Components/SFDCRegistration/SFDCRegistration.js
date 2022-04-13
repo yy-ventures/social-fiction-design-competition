@@ -11,7 +11,9 @@ const SFDCRegistration = () => {
     let history = useHistory();
     const handleLogout = () => {
         history.push('/')
-        localStorage.clear()
+        localStorage.removeItem('app_id')
+        localStorage.removeItem('name')
+        localStorage.removeItem('token')
     }
     return (
         <section className="sfdc-registration" id="sfdcRegId">
@@ -35,7 +37,7 @@ const SFDCRegistration = () => {
                                 <li>Click Submit and wait for the submission confirmation pop-up on top of the page.</li>
                                 <li>Receive a confirmation email in your inbox.</li>
                             </ol>
-                            {app_id === '' && <div className='mt-5 login-btn'>
+                            {(app_id === '' || !app_id) && <div className='mt-5 login-btn'>
                                 <Link to='/login'>Login</Link>
                             </div>}
                             {app_id !== null && <div className='mt-5 login-btn'>
