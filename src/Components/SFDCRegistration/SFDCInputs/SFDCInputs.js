@@ -285,7 +285,7 @@ const SFDCInputs = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            alert(`Your Application Saved! Your User ID is : ${data.responses.app_id} ${ ' and password is: ' + data.responses.generated_password === undefined ? '' : data.responses.generated_password}`);
+            alert(`Your Application Saved! Your User ID is : ${data.responses.app_id} ${ ' and password is: ' + data.responses.generated_password === undefined ? '' : ' and password is: ' + data.responses.generated_password}`);
             localStorage.setItem('app_id', data.responses.app_id)
             setIsSaving(false);
             setIsSaveDisabled(false);
@@ -483,7 +483,7 @@ const SFDCInputs = () => {
                 </select>
               </div>
               <div className="col-lg-4">
-                {draftAreaOfFocusChange === "Others" ? (
+                {draftAreaOfFocusChange === "others" ? (
                   <div>
                     <label>If others, please specify:</label>
                     <input type="text" defaultValue={filledForm !== null ? filledForm.other_social_problem : ''} onChange={HandleOtherSocialProblem}/>

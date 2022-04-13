@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 
 const SFDCRegistration = () => {
     let app_id = localStorage.getItem('app_id')
+    let username = localStorage.getItem('name')
     let history = useHistory();
     const handleLogout = () => {
         history.push('/')
@@ -37,10 +38,10 @@ const SFDCRegistration = () => {
                                 <li>Click Submit and wait for the submission confirmation pop-up on top of the page.</li>
                                 <li>Receive a confirmation email in your inbox.</li>
                             </ol>
-                            {(app_id === '' || !app_id) && <div className='mt-5 login-btn'>
+                            {!username && <div className='mt-5 login-btn'>
                                 <Link to='/login'>Login</Link>
                             </div>}
-                            {app_id !== null && <div className='mt-5 login-btn'>
+                            {username && <div className='mt-5 login-btn'>
                                 <button onClick={handleLogout}>Logout</button>
                             </div>}
                         </div>
