@@ -92,11 +92,16 @@ const SbdcInputs = () => {
     fetch(`${baseUrl}/sbdc/create`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        if (data) {
+        if (data.success === true) {
           alert("Thanks For Your Application");
           setIsSubmitting(false);
           setIsDisabled(false);
           mainForm.reset();
+        }
+        if(data.success === false){
+          alert("Please fill up all required fields!")
+          setIsSubmitting(false);
+          setIsDisabled(false);
         }
       })
       .catch((error) => {
