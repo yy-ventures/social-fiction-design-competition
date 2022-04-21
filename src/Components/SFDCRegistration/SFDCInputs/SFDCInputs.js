@@ -571,7 +571,7 @@ const SFDCInputs = () => {
                   Upload your file to a cloud drive (we recommend google drive), then share the link
                   with us <span className="red">*</span>
                 </h5>
-                <input className="form-control" type="url" onBlur={handleURL}/>
+                <input className="form-control" type="text" onBlur={handleURL}/>
               </div>
             )}
             <div className="mt-5 text-center submit-button">
