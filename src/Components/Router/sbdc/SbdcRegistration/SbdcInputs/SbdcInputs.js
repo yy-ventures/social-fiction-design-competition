@@ -130,7 +130,7 @@ const SbdcInputs = () => {
               <h5>{"Link " + parseInt(3 + additionalLink)}</h5>
             </div>
             <div className="col-lg-6">
-              <input type="url" {...register("OptionalLink" + additionalLink)} />
+              <input type="text" {...register("OptionalLink" + additionalLink)} />
             </div>
             {/* <button onClick={deleteLink}>Delete</button> */}
           </div>
@@ -777,7 +777,7 @@ const SbdcInputs = () => {
                     <h5>Link 1</h5>
                   </div>
                   <div className="col-lg-6">
-                    <input type="url" {...register("FirstLink")} />
+                    <input type="text" {...register("FirstLink")} />
                   </div>
                 </div>
                 <div className="row">
@@ -785,7 +785,7 @@ const SbdcInputs = () => {
                     <h5>Link 2</h5>
                   </div>
                   <div className="col-lg-6">
-                    <input type="url" {...register("SecondLink")} />
+                    <input type="text" {...register("SecondLink")} />
                   </div>
                 </div>
                 {additionalLinkArray}
