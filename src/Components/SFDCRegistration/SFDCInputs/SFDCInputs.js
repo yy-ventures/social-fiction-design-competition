@@ -229,6 +229,15 @@ const SFDCInputs = () => {
   }
 
   const handleSubmit = e => {
+    let getFiles;
+    console.log(
+      draftName, draftInstitution, draftValidPhoneNumber, 
+      draftValidEmail, draftDOB, draftGender,
+      draftCountry,draftAreaOfFocusChange,draftYourSocialProblem,
+      draftYourSocialProblem,draftSocialFictionUnique,draftSolutionImpact,
+      draftCategory,draftURL, getFiles
+    )
+    
     e.preventDefault()
     // save data
     if(formTitle === 'save'){
@@ -262,7 +271,7 @@ const SFDCInputs = () => {
         formdata.append(`file_of_idea`, draftURL);
       } else {
         for (let i = 0; i < fileSizeTest.length; i++) {
-          let getFiles = fileSizeTest[i];
+          getFiles = fileSizeTest[i];
           formdata.append(`file_of_idea[${i}]`, getFiles);
         }
       }
@@ -324,13 +333,11 @@ const SFDCInputs = () => {
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
 
-      let getFiles;
-
       if (result) {
         formdata.append(`file_of_idea`, draftURL);
       } else {
         for (let i = 0; i < fileSizeTest.length; i++) {
-          getFiles = fileSizeTest[i];
+          let getFiles = fileSizeTest[i];
           formdata.append(`file_of_idea[${i}]`, getFiles);
         }
       }
@@ -342,7 +349,7 @@ const SFDCInputs = () => {
         headers: headers,
       }
 
-      if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory && getFiles){
+      if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory){
 
         fetch(`${baseUrl}/sfdc/create`, requestOptions)
           .then((response) => response.json())
