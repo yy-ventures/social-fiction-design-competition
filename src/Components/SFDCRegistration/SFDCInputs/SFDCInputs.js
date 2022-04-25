@@ -134,8 +134,6 @@ const SFDCInputs = () => {
   const [draftURL, setDraftURL] = useState('')
   const [draftCategory, setDraftCategory] = useState('')
 
-  console.log(draftName , draftInstitution , draftValidPhoneNumber , draftValidEmail , draftGender , draftDOB , draftCountry , draftAreaOfFocusChange , draftYourSocialProblem , draftYourSocialProblem , draftSocialFictionUnique , draftSolutionImpact , draftCategory)
-
   const HandleOtherSocialProblem = e => {
     setDraftOtherSocialProblem(e.target.value)
   }
@@ -144,7 +142,6 @@ const SFDCInputs = () => {
     if(e.target.value === ''){
       alert('Name is required!')
     }else{
-      console.log(e.target.value)
       setDraftName(e.target.value)
     }
   }
@@ -348,9 +345,7 @@ const SFDCInputs = () => {
         redirect: "follow",
         headers: headers,
       }
-
-      console.log(draftName , draftInstitution , draftValidPhoneNumber , draftValidEmail , draftGender , draftDOB , draftCountry , draftAreaOfFocusChange , draftYourSocialProblem , draftYourSocialProblem , draftSocialFictionUnique , draftSolutionImpact , draftCategory , getFiles)
-
+      
       if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory && getFiles){
 
         fetch(`${baseUrl}/sfdc/create`, requestOptions)
