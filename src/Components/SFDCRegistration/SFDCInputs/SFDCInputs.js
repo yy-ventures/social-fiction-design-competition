@@ -330,11 +330,12 @@ const SFDCInputs = () => {
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
 
+      let getFiles;
       if (result) {
         formdata.append(`file_of_idea`, draftURL);
       } else {
         for (let i = 0; i < fileSizeTest.length; i++) {
-          let getFiles = fileSizeTest[i];
+          getFiles = fileSizeTest[i];
           formdata.append(`file_of_idea[${i}]`, getFiles);
         }
       }
@@ -346,7 +347,9 @@ const SFDCInputs = () => {
         headers: headers,
       }
 
-      fetch(`${baseUrl}/sfdc/create`, requestOptions)
+      if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory && getFiles){
+
+        fetch(`${baseUrl}/sfdc/create`, requestOptions)
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
@@ -364,16 +367,13 @@ const SFDCInputs = () => {
           .catch((error) => {
             console.error(error);
           });
-
-      // if(draftName || draftInstitution || draftValidPhoneNumber || draftValidEmail || draftGender || draftDOB || draftCountry || draftAreaOfFocusChange || draftYourSocialProblem || draftYourSocialProblem || draftSocialFictionUnique || draftSolutionImpact || draftCategory){
-
         
         
-      // }else{
-      //   alert('Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!')
-      //   setIsSubmitting(false);
-      //   setIsDisabled(false);
-      // }
+      }else{
+        alert('Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!')
+        setIsSubmitting(false);
+        setIsDisabled(false);
+      }
     }
   }
 
