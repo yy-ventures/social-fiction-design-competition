@@ -51,7 +51,7 @@ const SFDCInputs = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const [showFileUpload, setShowFileUpload] = useState(true);
+  const [showFileUpload, setShowFileUpload] = useState(false);
   const [fileSizeTest, setFileSizeTest] = useState([]);
   
   // Base Url
@@ -134,6 +134,7 @@ const SFDCInputs = () => {
   const [draftURL, setDraftURL] = useState('')
   const [draftCategory, setDraftCategory] = useState('')
 
+  console.log(draftName , draftInstitution , draftValidPhoneNumber , draftValidEmail , draftGender , draftDOB , draftCountry , draftAreaOfFocusChange , draftYourSocialProblem , draftYourSocialProblem , draftSocialFictionUnique , draftSolutionImpact , draftCategory)
 
   const HandleOtherSocialProblem = e => {
     setDraftOtherSocialProblem(e.target.value)
@@ -143,6 +144,7 @@ const SFDCInputs = () => {
     if(e.target.value === ''){
       alert('Name is required!')
     }else{
+      console.log(e.target.value)
       setDraftName(e.target.value)
     }
   }
@@ -347,6 +349,8 @@ const SFDCInputs = () => {
         headers: headers,
       }
 
+      console.log(draftName , draftInstitution , draftValidPhoneNumber , draftValidEmail , draftGender , draftDOB , draftCountry , draftAreaOfFocusChange , draftYourSocialProblem , draftYourSocialProblem , draftSocialFictionUnique , draftSolutionImpact , draftCategory , getFiles)
+
       if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory && getFiles){
 
         fetch(`${baseUrl}/sfdc/create`, requestOptions)
@@ -433,6 +437,7 @@ const SFDCInputs = () => {
                   Country <span className="red">*</span>
                 </h5>
                 <select className="form-select" onChange={handleCountry} required>
+                  <option>Select Country</option>
                   {countries.map((country, index) => <option key={index} selected={country.name === !filledForm === null && filledForm.country} value={country.name}>{country.name}</option>)}
                 </select>
               </div>
@@ -457,6 +462,7 @@ const SFDCInputs = () => {
                   Gender <span className="red">*</span>
                 </h5>
                 <select onChange={handleGender} className="form-select mt-3">
+                  <option>Select gender</option>
                   {gender.map((gd, index) => <option key={index} selected={gd.value === !filledForm === null && filledForm.gender} value={gd.value}>{gd.title}</option>)}
                 </select>
               </div>
@@ -478,6 +484,7 @@ const SFDCInputs = () => {
                   className="form-select"
                   onChange={handleAreaOfFocus}
                 >
+                  <option>Select Area Of Focus</option>
                   {areaOfFocus.map((newArea, index) => <option key={index} selected={newArea.title === !filledForm === null && filledForm.area_of_focus} value={newArea.value}>{newArea.title}</option>)}
                 </select>
               </div>
@@ -539,6 +546,7 @@ const SFDCInputs = () => {
                   className="form-select"
                   onChange={handleChange}
                 >
+                  <option>Select Category</option>
                   {typeOfContent.map((contentType, index) => <option key={index} selected={contentType.value === !filledForm === null && filledForm.type_of_content} value={contentType.value}>{contentType.title}</option>)}
                 </select>
               </div>
