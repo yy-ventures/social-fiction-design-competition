@@ -3,7 +3,7 @@ import "./App.css";
 import SbdcRoute from "./Components/Router/sbdc/SbdcRoute";
 import SfdcRoute from "./Components/Router/sfdc/SfdcRoute";
 import Navigation from "./Components/Shared/Navigation/Navigation";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Footer from "./Components/Shared/Footer/Footer";
 import SbdcRegistration from "./Components/Router/sbdc/SbdcRegistration/SbdcRegistration";
 import SFDCRegistration from "./Components/SFDCRegistration/SFDCRegistration";
@@ -36,13 +36,16 @@ function App() {
                             <SfdcRoute />
                         </Route>
                         <Route exact path="/sbdc-registration">
-                            <SbdcRegistration />
+                            {/* <SbdcRegistration /> */}
+                            <Redirect to="/" />
                         </Route>
                         <Route exact path="/sfdc-registration">
-                            <SFDCRegistration />
+                            {/* <SFDCRegistration /> */}
+                            <Redirect to="/" />
                         </Route>
                         <Route exact path="/login">
-                            <Login />
+                            {/* <Login /> */}
+                            <Redirect to="/" />
                         </Route>
                         <PrivateRoute exact path='/profile/:id'>
                             <Profile/>
