@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
-import countries from '../../../assets/Data/country'
-import areaOfFocus from '../../../assets/Data/areaOfFocus'
-import typeOfContent from '../../../assets/Data/typeOfContent'
-import gender from '../../../assets/Data/gender'
-
+import React, { useEffect, useState } from "react";
+import areaOfFocus from '../../../assets/Data/areaOfFocus';
+import countries from '../../../assets/Data/country';
+import gender from '../../../assets/Data/gender';
+import typeOfContent from '../../../assets/Data/typeOfContent';
 import "./SFDCInputs.scss";
 
-const SFDCInputs = () => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
 
-  //context
+const SFDCInputs = () => {
   const app_id = localStorage.getItem('app_id')
   const [filledForm, setFilledForm] = useState([])
 

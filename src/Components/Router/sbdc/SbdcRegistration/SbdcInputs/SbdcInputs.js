@@ -56,7 +56,7 @@ const SbdcInputs = () => {
     formdata.append("country", data.ApplicantCountry);
     formdata.append("other_focus_area", data.OtherAreaOfFocus);
     formdata.append("reducing_carbon_emission", data.ReducingCarbonEmission);
-    formdata.append("Bringing_To_Your_Market", data.BringingToYourMarket);
+    formdata.append("innovation", data.BringingToYourMarket);
     formdata.append("info_enterprise", data.EnterpriseInnovation);
     formdata.append("make_money_plan", data.MakeMoney);
     formdata.append("stage_of_ventures", data.StageOfVentures);
