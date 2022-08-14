@@ -7,30 +7,27 @@ import typeOfContent from "../../../assets/Data/typeOfContent";
 import "./SFDCInputs.scss";
 
 const SFDCInputs = () => {
+  // Form state
+  const [draftName, setDraftName] = useState("");
+  const [draftInstitution, setDraftInstitution] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [countryCodeSelected, setCountryCodeSelected] = useState("");
+  const [draftValidPhoneNumber, setDraftValidPhoneNumber] = useState("");
+  const [draftValidEmail, setDraftValidEmail] = useState("");
+  const [draftDOB, setDraftDOB] = useState("");
+  const [draftCountry, setDraftCountry] = useState("");
+  const [draftGender, setDraftGender] = useState("");
+  const [draftAreaOfFocusChange, setDraftAreaOfFocusChange] = useState("");
+  const [draftOtherSocialProblem, setDraftOtherSocialProblem] = useState("");
+  const [draftYourSocialProblem, setDraftYourSocialProblem] = useState("");
+  const [draftSocialFictionUnique, setDraftSocialFictionUnique] = useState("");
+  const [draftSolutionImpact, setDraftSolutionImpact] = useState("");
+  const [draftURL, setDraftURL] = useState("");
+  const [draftCategory, setDraftCategory] = useState("");
+
+  // App Id
   const app_id = localStorage.getItem("app_id");
   const [filledForm, setFilledForm] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://stage-sbdc-sfdc.yyventures.org/api/get-app-draft-data?app_id=${app_id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFilledForm(data.data && data.data);
-        setDraftName(data.data && data.data.name_of_applicant);
-        setDraftInstitution(data.data && data.data.name_of_institution);
-        setCountryCode(data.data && data.data.country_code);
-        setDraftValidPhoneNumber(data.data && data.data.phone);
-        setDraftValidEmail(data.data && data.data.email);
-        setDraftDOB(data.data && data.data.date_of_birth);
-        setDraftCountry(data.data && data.data.country);
-        setDraftGender(data.data && data.data.gender);
-        setDraftAreaOfFocusChange(data.data && data.data.area_of_focus);
-        setDraftOtherSocialProblem(data.data && data.data.other_social_problem);
-        setDraftYourSocialProblem(data.data && data.data.social_problems);
-        setDraftSocialFictionUnique(data.data && data.data.unique_solutions);
-        setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution);
-        setDraftCategory(data.data && data.data.type_of_content);
-      });
-  }, [app_id]);
 
   const [fileFormat, setfileFormat] = useState("writing");
 
@@ -49,6 +46,32 @@ const SFDCInputs = () => {
 
   // Base Url
   const baseUrl = process.env.REACT_APP_BASE_URL;
+
+  useEffect(() => {
+    fetch(`${baseUrl}/get-app-draft-data?app_id=${app_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFilledForm(data.data && data.data);
+        setDraftName(data.data && data.data.name_of_applicant);
+        setDraftInstitution(data.data && data.data.name_of_institution);
+        setCountryCode(data.data && data.data.country_code);
+        setDraftValidPhoneNumber(data.data && data.data.phone);
+        setDraftValidEmail(data.data && data.data.email);
+        setDraftDOB(data.data && data.data.date_of_birth);
+        setDraftCountry(data.data && data.data.country);
+        setDraftGender(data.data && data.data.gender);
+        setDraftAreaOfFocusChange(data.data && data.data.area_of_focus);
+        setDraftOtherSocialProblem(data.data && data.data.other_social_problem);
+        data.data.social_problems !== "undefined" && setDraftYourSocialProblem(data.data?.social_problems);
+        setDraftSocialFictionUnique(data.data && data.data.unique_solutions);
+        setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution);
+        setDraftCategory(data.data && data.data.type_of_content);
+      });
+  }, [app_id]);
+
+  useEffect(() => {
+    console.log(filledForm);
+  }, [filledForm]);
 
   const formatString = {
     rhetoric: "Format: .mp3, .mp4, or .avi",
@@ -89,6 +112,9 @@ const SFDCInputs = () => {
 
   // code test
   const handleTestChange = (e) => {
+    // draft category set to "writing" only, if the number of category increases remove this piece of code
+    setDraftCategory("Writing");
+
     let files = e.target.files;
     let getLimit = 2097152;
     for (let j = 0; j < files.length; j++) {
@@ -100,24 +126,6 @@ const SFDCInputs = () => {
       }
     }
   };
-
-  // new state
-  const [draftName, setDraftName] = useState("");
-  const [draftInstitution, setDraftInstitution] = useState("");
-  const [countryCode, setCountryCode] = useState("");
-  const [countryCodeSelected, setCountryCodeSelected] = useState(null);
-  const [draftValidPhoneNumber, setDraftValidPhoneNumber] = useState("");
-  const [draftValidEmail, setDraftValidEmail] = useState("");
-  const [draftDOB, setDraftDOB] = useState("");
-  const [draftCountry, setDraftCountry] = useState("");
-  const [draftGender, setDraftGender] = useState("");
-  const [draftAreaOfFocusChange, setDraftAreaOfFocusChange] = useState("");
-  const [draftOtherSocialProblem, setDraftOtherSocialProblem] = useState("");
-  const [draftYourSocialProblem, setDraftYourSocialProblem] = useState("");
-  const [draftSocialFictionUnique, setDraftSocialFictionUnique] = useState("");
-  const [draftSolutionImpact, setDraftSolutionImpact] = useState("");
-  const [draftURL, setDraftURL] = useState("");
-  const [draftCategory, setDraftCategory] = useState("");
 
   const HandleOtherSocialProblem = (e) => {
     setDraftOtherSocialProblem(e.target.value);
@@ -168,6 +176,7 @@ const SFDCInputs = () => {
 
   const handleCountry = (e) => {
     setDraftCountry(e.target.value);
+    setCountryCodeSelected(e.target.selectedIndex);
   };
 
   const handleGender = (e) => {
@@ -229,19 +238,19 @@ const SFDCInputs = () => {
       setIsSaving(true);
       setIsSaveDisabled(true);
 
-      formdata.append("name_of_applicant", draftName);
-      formdata.append("name_of_institution", draftInstitution);
-      formdata.append("country_code", countryCode);
-      formdata.append("phone", draftValidPhoneNumber);
-      formdata.append("email", draftValidEmail);
-      formdata.append("date_of_birth", draftDOB);
-      formdata.append("gender", draftGender);
-      formdata.append("country", draftCountry);
-      formdata.append("area_of_focus", draftAreaOfFocusChange);
-      formdata.append("social_problems", draftYourSocialProblem);
-      formdata.append("other_social_problem", draftOtherSocialProblem);
-      formdata.append("unique_solutions", draftSocialFictionUnique);
-      formdata.append("impact_of_fictional_solution", draftSolutionImpact);
+      formdata.append("name_of_applicant", draftName || "");
+      formdata.append("name_of_institution", draftInstitution || "");
+      formdata.append("country_code", countryCode || "");
+      formdata.append("phone", draftValidPhoneNumber || "");
+      formdata.append("email", draftValidEmail || "");
+      formdata.append("date_of_birth", draftDOB || "");
+      formdata.append("gender", draftGender || "");
+      formdata.append("country", draftCountry || "");
+      formdata.append("area_of_focus", draftAreaOfFocusChange || "");
+      formdata.append("social_problems", draftYourSocialProblem || "");
+      formdata.append("other_social_problem", draftOtherSocialProblem || "");
+      formdata.append("unique_solutions", draftSocialFictionUnique || "");
+      formdata.append("impact_of_fictional_solution", draftSolutionImpact || "");
       formdata.append("type_of_content", draftCategory || "writing");
       formdata.append("submission_type", "draft");
       formdata.append("app_id", newApp_id ? newApp_id : "");
@@ -269,11 +278,10 @@ const SFDCInputs = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
+            console.log(data.responses);
             alert(
-              `Your Application Saved! Your User ID is : ${data.responses.app_id} ${
-                " and password is: " + data.responses.generated_password === undefined
-                  ? ""
-                  : " and password is: " + data.responses.generated_password
+              `Your Application Saved! Your User ID is : ${data.responses.app_id} and password is: ${
+                data.responses?.generated_password || ""
               }`
             );
             localStorage.setItem("app_id", data.responses.app_id);
@@ -335,6 +343,21 @@ const SFDCInputs = () => {
         redirect: "follow",
         headers: headers,
       };
+
+      // console.table(
+      //   draftName,
+      //   draftInstitution,
+      //   draftValidPhoneNumber,
+      //   draftValidEmail,
+      //   draftGender,
+      //   draftDOB,
+      //   draftAreaOfFocusChange,
+      //   draftYourSocialProblem,
+      //   draftSocialFictionUnique,
+      //   draftSolutionImpact,
+      //   draftCategory,
+      //   getFiles
+      // );
 
       if (
         draftName &&
@@ -440,11 +463,7 @@ const SFDCInputs = () => {
                 <select onChange={handleGender} className="form-select mt-3">
                   <option>Select gender</option>
                   {gender.map((gd, index) => (
-                    <option
-                      key={index}
-                      selected={(gd.value === !filledForm) === null && filledForm.gender}
-                      value={gd.value}
-                    >
+                    <option key={index} selected={gd.value === filledForm?.gender} value={gd.value}>
                       {gd.title}
                     </option>
                   ))}
@@ -458,12 +477,8 @@ const SFDCInputs = () => {
                 </h5>
                 <select className="form-select" onChange={handleCountry} required>
                   <option>Select Country</option>
-                  {countries.map((country, index) => (
-                    <option
-                      key={index}
-                      selected={(country.name === !filledForm) === null && filledForm.country}
-                      value={country.name}
-                    >
+                  {countryCodeList.map((country, index) => (
+                    <option key={index} selected={country.name === filledForm?.country} value={country.name}>
                       {country.name}
                     </option>
                   ))}
@@ -513,6 +528,7 @@ const SFDCInputs = () => {
                           key={index}
                           value={dial_code}
                           style={countryCodeSelected - 1 === index ? { textAlign: "right" } : null}
+                          selected={filledForm?.country_code === dial_code || name === draftCountry}
                         >
                           {countryCodeSelected - 1 === index ? dial_code : `${name} (${dial_code})`}
                         </option>
@@ -545,11 +561,7 @@ const SFDCInputs = () => {
                 <select className="form-select" onChange={handleAreaOfFocus}>
                   <option>Select Area Of Focus</option>
                   {areaOfFocus.map((newArea, index) => (
-                    <option
-                      key={index}
-                      selected={(newArea.title === !filledForm) === null && filledForm.area_of_focus}
-                      value={newArea.value}
-                    >
+                    <option key={index} selected={newArea.title === filledForm?.area_of_focus} value={newArea.value}>
                       {newArea.title}
                     </option>
                   ))}
@@ -579,7 +591,7 @@ const SFDCInputs = () => {
                 </h5>
                 <textarea
                   type="text"
-                  defaultValue={filledForm !== null ? filledForm.social_problems : ""}
+                  defaultValue={filledForm.social_problems !== "undefined" ? filledForm?.social_problems : ""}
                   onBlur={handleYourSocialProblem}
                 ></textarea>
               </div>
@@ -654,6 +666,19 @@ const SFDCInputs = () => {
                   </div>
                 )}
               </div>
+              {/* {filledForm?.file_of_idea?.map((data, index) => (
+                <a key={index} href={`https://stage-sbdc-sfdc.yyventures.org/${data}`}>
+                  Download
+                </a>
+              ))} */}
+              <a
+                href={`https://stage-sbdc-sfdc.yyventures.org/${filledForm?.file_of_idea
+                  ?.replace(/["[]/g, "")
+                  .replace("]", "")}`}
+              >
+                Download
+              </a>
+              {console.log()}
             </div>
             {showFileUpload && <p className="mt-3 col-lg-4">{formatString.writing}</p>}
 
