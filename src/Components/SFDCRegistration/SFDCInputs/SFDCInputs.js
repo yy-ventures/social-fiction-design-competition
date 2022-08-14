@@ -1,68 +1,62 @@
 import React, { useEffect, useState } from "react";
-import areaOfFocus from '../../../assets/Data/areaOfFocus';
-import countries from '../../../assets/Data/country';
-import gender from '../../../assets/Data/gender';
-import typeOfContent from '../../../assets/Data/typeOfContent';
+import areaOfFocus from "../../../assets/Data/areaOfFocus";
+import countries from "../../../assets/Data/country";
+import countryCodeList from "../../../assets/Data/countryCodes.json";
+import gender from "../../../assets/Data/gender";
+import typeOfContent from "../../../assets/Data/typeOfContent";
 import "./SFDCInputs.scss";
 
-
 const SFDCInputs = () => {
-  const app_id = localStorage.getItem('app_id')
-  const [filledForm, setFilledForm] = useState([])
+  const app_id = localStorage.getItem("app_id");
+  const [filledForm, setFilledForm] = useState([]);
 
   useEffect(() => {
     fetch(`http://stage-sbdc-sfdc.yyventures.org/api/get-app-draft-data?app_id=${app_id}`)
-      .then(res => res.json())
-      .then(data => {
-        setFilledForm(data.data && data.data)
-        setDraftName(data.data && data.data.name_of_applicant)
-        setDraftInstitution(data.data && data.data.name_of_institution)
-        setDraftValidPhoneNumber(data.data && data.data.phone)
-        setDraftValidEmail(data.data && data.data.email)
-        setDraftDOB(data.data && data.data.date_of_birth)
-        setDraftCountry(data.data && data.data.country)
-        setDraftGender(data.data && data.data.gender)
-        setDraftAreaOfFocusChange(data.data && data.data.area_of_focus)
-        setDraftOtherSocialProblem(data.data && data.data.other_social_problem)
-        setDraftYourSocialProblem(data.data && data.data.social_problems)
-        setDraftSocialFictionUnique(data.data && data.data.unique_solutions)
-        setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution)
-        setDraftCategory(data.data && data.data.type_of_content)
-      })
-  }, [app_id])
-  
+      .then((res) => res.json())
+      .then((data) => {
+        setFilledForm(data.data && data.data);
+        setDraftName(data.data && data.data.name_of_applicant);
+        setDraftInstitution(data.data && data.data.name_of_institution);
+        setCountryCode(data.data && data.data.country_code);
+        setDraftValidPhoneNumber(data.data && data.data.phone);
+        setDraftValidEmail(data.data && data.data.email);
+        setDraftDOB(data.data && data.data.date_of_birth);
+        setDraftCountry(data.data && data.data.country);
+        setDraftGender(data.data && data.data.gender);
+        setDraftAreaOfFocusChange(data.data && data.data.area_of_focus);
+        setDraftOtherSocialProblem(data.data && data.data.other_social_problem);
+        setDraftYourSocialProblem(data.data && data.data.social_problems);
+        setDraftSocialFictionUnique(data.data && data.data.unique_solutions);
+        setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution);
+        setDraftCategory(data.data && data.data.type_of_content);
+      });
+  }, [app_id]);
+
   const [fileFormat, setfileFormat] = useState("writing");
 
   const [fileAcceptStr, setFileAcceptStr] = useState(
-    "audio/*, video/mp4,video/x-m4v, video/quicktime"
+    "application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation"
   );
 
-  
   const [isSaving, setIsSaving] = useState(false);
   const [isSaveDisabled, setIsSaveDisabled] = useState(false);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const [showFileUpload, setShowFileUpload] = useState(false);
+  const [showFileUpload, setShowFileUpload] = useState(true);
   const [fileSizeTest, setFileSizeTest] = useState([]);
-  
+
   // Base Url
   const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const formatString = {
-    rhetoric:
-      "Format: .mp3, .mp4, or .avi",
-    animation:
-      "Format: .mp4 and .mov",
-    poster_presentation:
-      "Format: .pdf, .jpeg, .jpg and, .png",
-    writing:
-      "Format: .docx or .pdf",
-    illustration:
-      "Format: .jpeg, jpg and .png",
-    cinematography:
-      "Format: .mp4 and .mov",
+    rhetoric: "Format: .mp3, .mp4, or .avi",
+    animation: "Format: .mp4 and .mov",
+    poster_presentation: "Format: .pdf, .jpeg, .jpg and, .png",
+    writing: "Format: .docx or .pdf",
+    illustration: "Format: .jpeg, jpg and .png",
+    cinematography: "Format: .mp4 and .mov",
   };
 
   const formatAccept = {
@@ -78,7 +72,7 @@ const SFDCInputs = () => {
   const handleChange = (e) => {
     setfileFormat(e.target.value);
     setFileAcceptStr(e.target.value);
-    setDraftCategory(e.target.value)
+    setDraftCategory(e.target.value);
 
     if (
       formatString[e.target.value] === formatString.rhetoric ||
@@ -91,148 +85,144 @@ const SFDCInputs = () => {
     }
   };
 
-  
-
   const mainForm = document.querySelector("#sfdcInputForm");
 
   // code test
   const handleTestChange = (e) => {
-    
-    let files = e.target.files
-    let getLimit = 2097152
-    for(let j = 0; j < files.length; j++){
-      if(files[j].size > getLimit){
-        alert(`Please upload your file between 2MB, your file is ${Math.round(files[j].size / 1048576)}MB`)
-        e.target.value = ''
-      }
-      else{
-        setFileSizeTest(files)
+    let files = e.target.files;
+    let getLimit = 2097152;
+    for (let j = 0; j < files.length; j++) {
+      if (files[j].size > getLimit) {
+        alert(`Please upload your file between 2MB, your file is ${Math.round(files[j].size / 1048576)}MB`);
+        e.target.value = "";
+      } else {
+        setFileSizeTest(files);
       }
     }
-  };  
-
-  // new state
-  const [draftName, setDraftName] = useState('') 
-  const [draftInstitution, setDraftInstitution] = useState('') 
-  const [draftValidPhoneNumber, setDraftValidPhoneNumber] = useState('')
-  const [draftValidEmail, setDraftValidEmail] = useState('')
-  const [draftDOB, setDraftDOB] = useState('')
-  const [draftCountry, setDraftCountry] = useState('')
-  const [draftGender, setDraftGender] = useState('')
-  const [draftAreaOfFocusChange, setDraftAreaOfFocusChange] = useState('');
-  const [draftOtherSocialProblem, setDraftOtherSocialProblem] = useState('')
-  const [draftYourSocialProblem, setDraftYourSocialProblem] = useState('')
-  const [draftSocialFictionUnique, setDraftSocialFictionUnique] = useState('')
-  const [draftSolutionImpact, setDraftSolutionImpact] = useState('')
-  const [draftURL, setDraftURL] = useState('')
-  const [draftCategory, setDraftCategory] = useState('')
-
-  const HandleOtherSocialProblem = e => {
-    setDraftOtherSocialProblem(e.target.value)
-  }
-
-  const handleName = e => {
-    if(e.target.value === ''){
-      alert('Name is required!')
-    }else{
-      setDraftName(e.target.value)
-    }
-  }
-
-  const handleInstitution = e => {
-    if(e.target.value === ''){
-      alert('Institute is required!')
-    }else{
-      setDraftInstitution(e.target.value)
-    }
-  }
-
-  const handleValidEmail = e => {
-    let emailFilter = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
-    if(emailFilter.test(e.target.value) && e.target.value !== ''){
-      setDraftValidEmail(e.target.value)
-    }
-    else{
-      alert('Invalid Email!')
-    }
-  }
-
-  const HandleValidPhoneNumber = e =>{
-    let phoneNumber = e.target.value;
-    if (isNaN(phoneNumber) || Number(phoneNumber) < 0) {
-      alert("Please Input a Valid number!")
-      setDraftValidPhoneNumber('')
-    } else {
-      setDraftValidPhoneNumber(phoneNumber)
-    }
-  }
-
-  const handleDOB = e => {
-    if(e.target.value === ''){
-      alert('Date of Birth is required!')
-    }else{
-      setDraftDOB(e.target.value)
-    }
-  }
-
-  const handleCountry = e => {
-    setDraftCountry(e.target.value)
-  }
-
-  const handleGender = e => {
-    setDraftGender(e.target.value)
-  }
-
-  const handleAreaOfFocus = e => {
-    e.preventDefault();
-    let areaOfFocusValue = e.target.value;
-    setDraftAreaOfFocusChange(areaOfFocusValue)
   };
 
-  const handleYourSocialProblem = e => {
-    if(e.target.value.split(" ").length - 1 > 299){
-      alert('Please Describe in 300 words')
-    }else{
-      setDraftYourSocialProblem(e.target.value)
+  // new state
+  const [draftName, setDraftName] = useState("");
+  const [draftInstitution, setDraftInstitution] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [countryCodeSelected, setCountryCodeSelected] = useState(null);
+  const [draftValidPhoneNumber, setDraftValidPhoneNumber] = useState("");
+  const [draftValidEmail, setDraftValidEmail] = useState("");
+  const [draftDOB, setDraftDOB] = useState("");
+  const [draftCountry, setDraftCountry] = useState("");
+  const [draftGender, setDraftGender] = useState("");
+  const [draftAreaOfFocusChange, setDraftAreaOfFocusChange] = useState("");
+  const [draftOtherSocialProblem, setDraftOtherSocialProblem] = useState("");
+  const [draftYourSocialProblem, setDraftYourSocialProblem] = useState("");
+  const [draftSocialFictionUnique, setDraftSocialFictionUnique] = useState("");
+  const [draftSolutionImpact, setDraftSolutionImpact] = useState("");
+  const [draftURL, setDraftURL] = useState("");
+  const [draftCategory, setDraftCategory] = useState("");
+
+  const HandleOtherSocialProblem = (e) => {
+    setDraftOtherSocialProblem(e.target.value);
+  };
+
+  const handleName = (e) => {
+    if (e.target.value === "") {
+      alert("Name is required!");
+    } else {
+      setDraftName(e.target.value);
     }
-  }
+  };
 
-  const handleFictionUnique = e => {
-    if(e.target.value.split(" ").length - 1 > 99){
-      alert('Please Describe in 100 words')
-    }else{
-      setDraftSocialFictionUnique(e.target.value)
+  const handleInstitution = (e) => {
+    if (e.target.value === "") {
+      alert("Institute is required!");
+    } else {
+      setDraftInstitution(e.target.value);
     }
-  }
+  };
 
-  const handleSolutionImpact = e => {
-    if(e.target.value.split(" ").length - 1 > 199){
-      alert('Please Describe in 200 words')
-    }else{
-      setDraftSolutionImpact(e.target.value)
+  const handleValidEmail = (e) => {
+    let emailFilter = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
+    if (emailFilter.test(e.target.value) && e.target.value !== "") {
+      setDraftValidEmail(e.target.value);
+    } else {
+      alert("Invalid Email!");
     }
-  }
+  };
 
-  const handleURL = e => {
-    setDraftURL(e.target.value)
-  }
+  const HandleValidPhoneNumber = (e) => {
+    let phoneNumber = e.target.value;
+    if (isNaN(phoneNumber) || Number(phoneNumber) < 0) {
+      alert("Please Input a Valid number!");
+      setDraftValidPhoneNumber("");
+    } else {
+      setDraftValidPhoneNumber(phoneNumber);
+    }
+  };
 
-  const [formTitle, setFormTitle] = useState('submit')
+  const handleDOB = (e) => {
+    if (e.target.value === "") {
+      alert("Date of Birth is required!");
+    } else {
+      setDraftDOB(e.target.value);
+    }
+  };
 
-  let newApp_id = localStorage.getItem('app_id')
+  const handleCountry = (e) => {
+    setDraftCountry(e.target.value);
+  };
+
+  const handleGender = (e) => {
+    setDraftGender(e.target.value);
+  };
+
+  const handleAreaOfFocus = (e) => {
+    e.preventDefault();
+    let areaOfFocusValue = e.target.value;
+    setDraftAreaOfFocusChange(areaOfFocusValue);
+  };
+
+  const handleYourSocialProblem = (e) => {
+    if (e.target.value.split(" ").length - 1 > 99) {
+      alert("Please Describe in 100 words");
+    } else {
+      setDraftYourSocialProblem(e.target.value);
+    }
+  };
+
+  const handleFictionUnique = (e) => {
+    if (e.target.value.split(" ").length - 1 > 99) {
+      alert("Please Describe in 100 words");
+    } else {
+      setDraftSocialFictionUnique(e.target.value);
+    }
+  };
+
+  const handleSolutionImpact = (e) => {
+    if (e.target.value.split(" ").length - 1 > 99) {
+      alert("Please Describe in 100 words");
+    } else {
+      setDraftSolutionImpact(e.target.value);
+    }
+  };
+
+  const handleURL = (e) => {
+    setDraftURL(e.target.value);
+  };
+
+  const [formTitle, setFormTitle] = useState("submit");
+
+  let newApp_id = localStorage.getItem("app_id");
 
   const handleSaveTitle = () => {
-    setFormTitle('save')
-  }
+    setFormTitle("save");
+  };
   const handleSubmitTitle = () => {
-    setFormTitle('submit')
-  }
+    setFormTitle("submit");
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // save data
-    if(formTitle === 'save'){
-
+    if (formTitle === "save") {
       let headers = new Headers();
       let formdata = new FormData();
 
@@ -241,6 +231,7 @@ const SFDCInputs = () => {
 
       formdata.append("name_of_applicant", draftName);
       formdata.append("name_of_institution", draftInstitution);
+      formdata.append("country_code", countryCode);
       formdata.append("phone", draftValidPhoneNumber);
       formdata.append("email", draftValidEmail);
       formdata.append("date_of_birth", draftDOB);
@@ -251,10 +242,10 @@ const SFDCInputs = () => {
       formdata.append("other_social_problem", draftOtherSocialProblem);
       formdata.append("unique_solutions", draftSocialFictionUnique);
       formdata.append("impact_of_fictional_solution", draftSolutionImpact);
-      formdata.append("type_of_content", draftCategory);
-      formdata.append("submission_type", 'draft')
-      formdata.append("app_id", newApp_id ? newApp_id : '')
-      
+      formdata.append("type_of_content", draftCategory || "writing");
+      formdata.append("submission_type", "draft");
+      formdata.append("app_id", newApp_id ? newApp_id : "");
+
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
 
@@ -278,16 +269,22 @@ const SFDCInputs = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            alert(`Your Application Saved! Your User ID is : ${data.responses.app_id} ${ ' and password is: ' + data.responses.generated_password === undefined ? '' : ' and password is: ' + data.responses.generated_password}`);
-            localStorage.setItem('app_id', data.responses.app_id)
+            alert(
+              `Your Application Saved! Your User ID is : ${data.responses.app_id} ${
+                " and password is: " + data.responses.generated_password === undefined
+                  ? ""
+                  : " and password is: " + data.responses.generated_password
+              }`
+            );
+            localStorage.setItem("app_id", data.responses.app_id);
             setIsSaving(false);
             setIsSaveDisabled(false);
-            setDraftOtherSocialProblem('')
+            setDraftOtherSocialProblem("");
           }
-          if(data.success === false){
+          if (data.success === false) {
             setIsSaving(false);
             setIsSaveDisabled(false);
-            alert('Something went wrong')
+            alert("Something went wrong");
           }
         })
         .catch((error) => {
@@ -296,8 +293,7 @@ const SFDCInputs = () => {
     }
 
     // submit data
-    if(formTitle === 'submit'){
-
+    if (formTitle === "submit") {
       let headers = new Headers();
       let formdata = new FormData();
 
@@ -306,18 +302,19 @@ const SFDCInputs = () => {
 
       formdata.append("name_of_applicant", draftName);
       formdata.append("name_of_institution", draftInstitution);
+      formdata.append("country_code", countryCode);
       formdata.append("phone", draftValidPhoneNumber);
       formdata.append("email", draftValidEmail);
       formdata.append("date_of_birth", draftDOB);
       formdata.append("gender", draftGender);
       formdata.append("country", draftCountry);
-      formdata.append("area_of_focus", draftAreaOfFocusChange)
-      formdata.append("social_problems", draftYourSocialProblem)
-      formdata.append("other_social_problem", draftOtherSocialProblem === ''? 'null' : draftOtherSocialProblem)
-      formdata.append("unique_solutions", draftSocialFictionUnique)
-      formdata.append("impact_of_fictional_solution", draftSolutionImpact)
-      formdata.append("type_of_content", draftCategory)
-      formdata.append("submission_type", 'submission')      
+      formdata.append("area_of_focus", draftAreaOfFocusChange);
+      formdata.append("social_problems", draftYourSocialProblem);
+      formdata.append("other_social_problem", draftOtherSocialProblem === "" ? "null" : draftOtherSocialProblem);
+      formdata.append("unique_solutions", draftSocialFictionUnique);
+      formdata.append("impact_of_fictional_solution", draftSolutionImpact);
+      formdata.append("type_of_content", draftCategory || "writing");
+      formdata.append("submission_type", "submission");
 
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
@@ -337,10 +334,24 @@ const SFDCInputs = () => {
         body: formdata,
         redirect: "follow",
         headers: headers,
-      }
-      
-      if(draftName && draftInstitution && draftValidPhoneNumber && draftValidEmail && draftGender && draftDOB && draftCountry && draftAreaOfFocusChange && draftYourSocialProblem && draftYourSocialProblem && draftSocialFictionUnique && draftSolutionImpact && draftCategory && getFiles){
+      };
 
+      if (
+        draftName &&
+        draftInstitution &&
+        draftValidPhoneNumber &&
+        draftValidEmail &&
+        draftGender &&
+        draftDOB &&
+        draftCountry &&
+        draftAreaOfFocusChange &&
+        draftYourSocialProblem &&
+        draftYourSocialProblem &&
+        draftSocialFictionUnique &&
+        draftSolutionImpact &&
+        draftCategory &&
+        getFiles
+      ) {
         fetch(`${baseUrl}/sfdc/create`, requestOptions)
           .then((response) => response.json())
           .then((data) => {
@@ -349,9 +360,9 @@ const SFDCInputs = () => {
               setIsSubmitting(false);
               setIsDisabled(false);
               mainForm.reset();
-              setDraftOtherSocialProblem('')
+              setDraftOtherSocialProblem("");
             }
-            if(data.success === false){
+            if (data.success === false) {
               setIsSubmitting(false);
               setIsDisabled(false);
             }
@@ -359,15 +370,13 @@ const SFDCInputs = () => {
           .catch((error) => {
             console.error(error);
           });
-        
-        
-      }else{
-        alert('Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!')
+      } else {
+        alert("Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!");
         setIsSubmitting(false);
         setIsDisabled(false);
       }
     }
-  }
+  };
 
   return (
     <div className="sfdc-registration-input">
@@ -394,7 +403,7 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="text"
-                  defaultValue={filledForm !== null ? filledForm.name_of_applicant : ''}
+                  defaultValue={filledForm !== null ? filledForm.name_of_applicant : ""}
                   onChange={handleName}
                   required
                 />
@@ -403,56 +412,120 @@ const SFDCInputs = () => {
                 <h5>
                   Name of Institution <span className="red">*</span>
                 </h5>
-                <input 
-                  type="text" 
-                  defaultValue={filledForm !== null ? filledForm.name_of_institution : ''}
+                <input
+                  type="text"
+                  defaultValue={filledForm !== null ? filledForm.name_of_institution : ""}
                   onChange={handleInstitution}
                   required
-                  />
-                  
+                />
               </div>
             </div>
-            <div className="row ">
+            <div className="row mt-5">
               <div className="mt-5 col-lg-6">
                 <h5>
                   Date of Birth of Applicant <span className="red">*</span>
                 </h5>
-                <input type="date" defaultValue={filledForm !== null ? filledForm.date_of_birth : ''} onChange={handleDOB} required/>
-               
+                <input
+                  type="date"
+                  defaultValue={filledForm !== null ? filledForm.date_of_birth : ""}
+                  onChange={handleDOB}
+                  required
+                />
               </div>
+
+              <div className="mt-5 col-lg-6">
+                <h5>
+                  Gender <span className="red">*</span>
+                </h5>
+                <select onChange={handleGender} className="form-select mt-3">
+                  <option>Select gender</option>
+                  {gender.map((gd, index) => (
+                    <option
+                      key={index}
+                      selected={(gd.value === !filledForm) === null && filledForm.gender}
+                      value={gd.value}
+                    >
+                      {gd.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="row mt-5">
               <div className="mt-5 col-lg-6">
                 <h5>
                   Country <span className="red">*</span>
                 </h5>
                 <select className="form-select" onChange={handleCountry} required>
                   <option>Select Country</option>
-                  {countries.map((country, index) => <option key={index} selected={country.name === !filledForm === null && filledForm.country} value={country.name}>{country.name}</option>)}
+                  {countries.map((country, index) => (
+                    <option
+                      key={index}
+                      selected={(country.name === !filledForm) === null && filledForm.country}
+                      value={country.name}
+                    >
+                      {country.name}
+                    </option>
+                  ))}
                 </select>
               </div>
-            </div>
-            <div className="row ">
               <div className="mt-5 col-lg-6">
                 <h5>
                   E-mail <span className="red">*</span>
                 </h5>
-                <input type="email" defaultValue={filledForm !== null ? filledForm.email : ''} onBlur={handleValidEmail} required/>
-              </div>
-              <div className="mt-5 col-lg-6">
-                <h5>
-                  Phone <span className="red">*</span>
-                </h5>
-                <input type="text" defaultValue={filledForm !== null ? filledForm.phone : ''} onChange={HandleValidPhoneNumber} required/>
+                <input
+                  type="email"
+                  defaultValue={filledForm !== null ? filledForm.email : ""}
+                  onBlur={handleValidEmail}
+                  required
+                />
               </div>
             </div>
-            <div className="row register-gender">
-              <div className="mt-5 col-lg-6 pb-5">
+
+            <div className="row mt-5 register-gender">
+              <div className="mt-5 mb-5 col-lg-6">
                 <h5>
-                  Gender <span className="red">*</span>
+                  Phone
+                  <span className="red">
+                    *{" "}
+                    <span>
+                      (We choose to communicate internationally on WhatsApp. Please provide a phone number we can use to
+                      connect with you on Whatsapp.)
+                    </span>
+                  </span>
                 </h5>
-                <select onChange={handleGender} className="form-select mt-3">
-                  <option>Select gender</option>
-                  {gender.map((gd, index) => <option key={index} selected={gd.value === !filledForm === null && filledForm.gender} value={gd.value}>{gd.title}</option>)}
-                </select>
+                <div className="phone-input">
+                  <select
+                    className="form-select"
+                    name=""
+                    id=""
+                    onChange={(e) => {
+                      setCountryCode(e.target.value);
+                      setCountryCodeSelected(e.target.selectedIndex);
+                    }}
+                  >
+                    <option value="none" selected>
+                      Country Code
+                    </option>
+                    {countryCodeList?.map(({ name, dial_code }, index) => {
+                      return (
+                        <option
+                          key={index}
+                          value={dial_code}
+                          style={countryCodeSelected - 1 === index ? { textAlign: "right" } : null}
+                        >
+                          {countryCodeSelected - 1 === index ? dial_code : `${name} (${dial_code})`}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <input
+                    type="text"
+                    defaultValue={filledForm !== null ? filledForm.phone : ""}
+                    onChange={HandleValidPhoneNumber}
+                    required
+                  />
+                </div>
               </div>
             </div>
             <div className="extra-title mt-5">
@@ -461,26 +534,36 @@ const SFDCInputs = () => {
             </div>
             {/* area of focus */}
             <div className="row mt-3 register-focus d-flex align-items-center">
-              <div className="col-lg-4">
+              <div className="col-lg-6">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
-                What key social or environmental issues does this fictional world address? <span className="red">*</span>
+                  What key social or environmental issues does this fictional world of yours address?
+                  <span className="red">*</span>
                 </h5>
               </div>
               <div className="col-lg-4">
-                <select
-                  className="form-select"
-                  onChange={handleAreaOfFocus}
-                >
+                <select className="form-select" onChange={handleAreaOfFocus}>
                   <option>Select Area Of Focus</option>
-                  {areaOfFocus.map((newArea, index) => <option key={index} selected={newArea.title === !filledForm === null && filledForm.area_of_focus} value={newArea.value}>{newArea.title}</option>)}
+                  {areaOfFocus.map((newArea, index) => (
+                    <option
+                      key={index}
+                      selected={(newArea.title === !filledForm) === null && filledForm.area_of_focus}
+                      value={newArea.value}
+                    >
+                      {newArea.title}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="col-lg-4">
                 {draftAreaOfFocusChange === "others" ? (
                   <div>
                     <label>If others, please specify:</label>
-                    <input type="text" defaultValue={filledForm !== null ? filledForm.other_social_problem : ''} onChange={HandleOtherSocialProblem}/>
+                    <input
+                      type="text"
+                      defaultValue={filledForm !== null ? filledForm.other_social_problem : ""}
+                      onChange={HandleOtherSocialProblem}
+                    />
                   </div>
                 ) : (
                   ""
@@ -490,19 +573,13 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                Tell us a bit about the fictional world you have designed for the year 2050.{" "}
-                  <span className="bold">300 words (max)</span>
+                  Tell us a bit about the fictional world you have imagined for the year 2050.
+                  <span className="bold">100 words (max)</span>
                   <span className="red">*</span>
                 </h5>
-                <div className="extra-title">
-                  <p>What does this world look like? .</p>
-                  <p>What makes it different from the world we live in now? </p>
-                  <p>What are some of the innovations and advancements made? </p>
-                  <p>Who are the key players in this fictional world?</p>
-                </div>
                 <textarea
                   type="text"
-                  defaultValue={filledForm !== null ? filledForm.social_problems : ''}
+                  defaultValue={filledForm !== null ? filledForm.social_problems : ""}
                   onBlur={handleYourSocialProblem}
                 ></textarea>
               </div>
@@ -510,33 +587,53 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                What makes your Social Fiction unique?  <span className="red">*</span> <span className="bold">100 words (max)</span>
+                  What makes your solution Social Fiction unique? <span className="red">*</span>{" "}
+                  <span className="bold">100 words (max)</span>
                 </h5>
-                <textarea defaultValue={filledForm !== null ? filledForm.unique_solutions : ''} onChange={handleFictionUnique} ></textarea>
+                <textarea
+                  defaultValue={filledForm !== null ? filledForm.unique_solutions : ""}
+                  onChange={handleFictionUnique}
+                ></textarea>
               </div>
             </div>
             <div className="mt-5">
               <div className="col-lg-12 pt-5">
                 <h5>
-                What impact would your fictional world have on the environment, economy and/or communities? <span className="red">*</span> <span className="bold">200 words (max)</span>
+                  What impact on the environment, economy and/or communities do you see in your fictional world in 2050?
+                  <span className="red">*</span> <span className="bold">100 words (max)</span>
                 </h5>
-                <textarea defaultValue={filledForm !== null ? filledForm.impact_of_fictional_solution : ''} onChange={handleSolutionImpact} ></textarea>
+                <textarea
+                  defaultValue={filledForm !== null ? filledForm.impact_of_fictional_solution : ""}
+                  onChange={handleSolutionImpact}
+                ></textarea>
               </div>
             </div>
             <div className="row mt-5">
-              <div className="col-lg-4 mt-5">
+              <div className="col-lg-8 mt-5">
                 <h5 className="extra-headline">
-                <span className="extra-headline-bold">Visualise</span> and <span className="extra-headline-bold">design</span> this fictional world for young people in the year 2050. <span className="extra-headline-bold">Upload</span> this social fiction in any of the creative categories. <span className="red">*</span>
+                  <strong>
+                    Write 1000-5000 words of a Social Fiction about what this fictional world in 2050 looks like.
+                  </strong>
+                  <div className="extra-title">
+                    <br />
+                    <p>What does this world look like? .</p>
+                    <p>What makes it different from the world we live in now? </p>
+                    <p>What are some of the innovations and advancements made? </p>
+                    <p>Who are the key players in this fictional world?</p>
+                  </div>
+                  <br />
+                  Upload your social fiction<span className="red">*</span>
                 </h5>
               </div>
               <div className="col-lg-4 mt-5">
-                <select
-                  className="form-select"
-                  onChange={handleChange}
-                >
-                  <option>Select Category</option>
-                  {typeOfContent.map((contentType, index) => <option key={index} selected={contentType.value === !filledForm === null && filledForm.type_of_content} value={contentType.value}>{contentType.title}</option>)}
-                </select>
+                {/* <select className="form-select" onChange={handleChange}>
+                  <option selected>Select Category</option>
+                  {typeOfContent.map((contentType, index) => (
+                    <option key={index} value={contentType.value}>
+                      {contentType.title}
+                    </option>
+                  ))}
+                </select> */}
               </div>
               <div className="col-lg-4 mt-5">
                 {showFileUpload && (
@@ -546,7 +643,7 @@ const SFDCInputs = () => {
                         className="form-control"
                         type="file"
                         id="formFile"
-                        accept={formatAccept[fileAcceptStr]}
+                        accept="application/pdf"
                         multiple
                         onChange={handleTestChange}
                       />
@@ -558,17 +655,17 @@ const SFDCInputs = () => {
                 )}
               </div>
             </div>
-            {showFileUpload && <p className="mt-5 text-center">{formatString[fileFormat]}</p>}
+            {showFileUpload && <p className="mt-3 col-lg-4">{formatString.writing}</p>}
 
-            {!showFileUpload && (
+            {/* {!showFileUpload && (
               <div className="row mt-5 file-link-notification">
                 <h5>
-                  Upload your file to a cloud drive (we recommend google drive), then share the link
-                  with us <span className="red">*</span>
+                  Upload your file to a cloud drive (we recommend google drive), then share the link with us{" "}
+                  <span className="red">*</span>
                 </h5>
-                <input className="form-control" type="text" onBlur={handleURL}/>
+                <input className="form-control" type="text" onBlur={handleURL} />
               </div>
-            )}
+            )} */}
             <div className="mt-5 text-center submit-button">
               <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
                 {isSaving ? "Saving..." : "Save Application"}

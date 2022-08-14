@@ -1,228 +1,242 @@
 @import "../../../global";
 
 .sfdc-registration-input {
-    padding: 2% 3%;
+  padding: 2% 3%;
 
-    .form-input-header {
-        padding: 2%;
-        p {
-            color: #505252;
-            font-style: italic;
-            @media screen and (max-width: 680px) {
-                margin-top: 1rem;
-            }
-        }
-        .bold {
-            font-weight: 900;
-            font-style: normal;
-        }
+  .form-input-header {
+    padding: 2%;
+    p {
+      color: #505252;
+      font-style: italic;
+      @media screen and (max-width: 680px) {
+        margin-top: 1rem;
+      }
     }
-    .registration-main-form {
-        @media screen and (max-width: 480px) {
-            padding-inline: 1rem;
-        }
-        .red{
-            color: #ff3333;
-        }
-        input,
-        textarea {
-            outline: 0;
-            border: 0;
-            background-color: inherit;
-            padding: 10px 16px;
-            border-bottom: 1px solid #8bb8e5;
-            width: 100%;
-            &::placeholder {
-                color: #356aa0;
-                opacity: 1;
-                font-weight: 500;
-            }
-        }
-        .registration-radio-top {
-            input {
-                width: fit-content;
-                padding: 10px;
-                border: 1px solid #8bb8e5;
-            }
-            h5 {
-                color: #356aa0;
-            }
-            p {
-                color: #64a0dc;
-                font-style: italic;
-            }
-        }
-        .registration-co-founder {
-            h5 {
-                color: #356aa0;
-            }
-            p {
-                color: #64a0dc;
-                font-style: italic;
-            }
-            input {
-                margin-top: 2rem;
-                &::placeholder {
-                    font-style: italic;
-                }
-            }
-            select,
-            option {
-                outline: none;
-                border: 0;
-                border-bottom: 1px solid #8bb8e5;
-                padding: 10px 16px;
-                margin-top: 2rem;
-                width: 100%;
-                &::placeholder {
-                    color: #64a0dc;
-                }
-            }
-        }
-        .register-gender{
-            select,
-            option {
-                outline: none;
-                border: 0;
-                border: 2px solid #8bb8e5;
-                border-radius: 5px;
-                padding: 10px 20px;
-                width: 100%;
-                background-color: #fff;
-                &::placeholder {
-                    color: #64a0dc;
-                }
-            }
-        }
-        .extra-title{
-            p{
-                font-size: 18px;
-                margin-bottom: 0;
-            }
-        }
-        .extra-headline{
-            font-size: 18px;
-            margin-bottom: 0;
-            font-style: italic;
-            color: #64a0dc;
-        }
-        .extra-headline-bold{
-            font-weight: 900;
-        }
-        .register-focus, .register-gender {
-            select,
-            option {
-                outline: none;
-                border: 0;
-                border: 2px solid #8bb8e5;
-                border-radius: 5px;
-                padding: 10px 20px;
-                width: 100%;
-                &::placeholder {
-                    color: #64a0dc;
-                }
-            }
-            label {
-                font-size: 14px;
-                color: #356aa0;
-            }
-            h5 {
-                color: #356aa0;
-            }
-        }
-        .registration-law {
-            input {
-                width: fit-content;
-                padding: 10px;
-                border: 1px solid #8bb8e5;
-            }
-        }
-        .registration-law-curve {
-            input {
-                &::placeholder {
-                    color: #64a0dc;
-                    font-style: italic;
-                }
-            }
-        }
-        .file-link-notification{
-            input{
-                outline: none;
-            }
-        }
-        button {
-            outline: 0;
-            border: 3px solid $primaryColor;
-            padding: 10px 30px;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 700;
-            color: $primaryColor;
-            background-color: $white;
-            transition: 0.3s;
-            &:hover{
-                background-color: $primaryColor;
-                color: $white;
-            }
-        }
-        h5 {
-            color: #356aa0;
-            font-weight: 400;
-            .bold {
-                color: #64a0dc;
-                font-style: italic;
-            }
-        }
-        select,
-        option {
-            outline: none;
-            border: 0;
-            border: 2px solid #8bb8e5;
-            border-radius: 5px;
-            padding: 10px 20px;
-            width: 100%;
-            &::placeholder {
-                color: #64a0dc;
-            }
-        }
-        p {
-            font-size: 15px;
-            color: #64a0dc;
-            font-style: italic;
-        }
+    .bold {
+      font-weight: 900;
+      font-style: normal;
     }
-    .file-upload {
-        input {
-            border: 2px solid #8bb8e5;
-            padding: 12px;
-            border-radius: 8px;
-            &:focus {
-                box-shadow: none;
-            }
-        }
-        h5 {
-            margin-top: 1rem;
-        }
-        p {
-            color: #505252;
-            margin-top: -1rem;
-            font-weight: 500;
-        }
+  }
+  .registration-main-form {
+    @media screen and (max-width: 480px) {
+      padding-inline: 1rem;
     }
-    .submit-button {
-        .save{
-            background-color: #224b75;
-            color: #fff;
-        }
-        @media screen and (max-width: 600px) {
-            margin-bottom: 2rem;
-        }
+    .red {
+      color: #ff3333;
+      span {
+        font-size: 1rem;
+      }
     }
+    input,
+    textarea {
+      outline: 0;
+      border: 0;
+      background-color: inherit;
+      padding: 10px 16px;
+      border-bottom: 1px solid #8bb8e5;
+      width: 100%;
+      &::placeholder {
+        color: #356aa0;
+        opacity: 1;
+        font-weight: 500;
+      }
+    }
+    .registration-radio-top {
+      input {
+        width: fit-content;
+        padding: 10px;
+        border: 1px solid #8bb8e5;
+      }
+      h5 {
+        color: #356aa0;
+      }
+      p {
+        color: #64a0dc;
+        font-style: italic;
+      }
+    }
+    .registration-co-founder {
+      h5 {
+        color: #356aa0;
+      }
+      p {
+        color: #64a0dc;
+        font-style: italic;
+      }
+      input {
+        margin-top: 2rem;
+        &::placeholder {
+          font-style: italic;
+        }
+      }
+      select,
+      option {
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid #8bb8e5;
+        padding: 10px 16px;
+        margin-top: 2rem;
+        width: 100%;
+        &::placeholder {
+          color: #64a0dc;
+        }
+      }
+    }
+    .register-gender {
+      select,
+      option {
+        outline: none;
+        border: 0;
+        border: 2px solid #8bb8e5;
+        border-radius: 5px;
+        padding: 10px 20px;
+        width: 100%;
+        background-color: #fff;
+        &::placeholder {
+          color: #64a0dc;
+        }
+      }
+    }
+    .extra-title {
+      p {
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+    }
+    .extra-headline {
+      font-size: 18px;
+      margin-bottom: 0;
+      font-style: italic;
+      color: #64a0dc;
+    }
+    .extra-headline-bold {
+      font-weight: 900;
+    }
+    .register-focus,
+    .register-gender {
+      select,
+      option {
+        outline: none;
+        border: 0;
+        border: 2px solid #8bb8e5;
+        border-radius: 5px;
+        padding: 10px 20px;
+        width: 100%;
+        &::placeholder {
+          color: #64a0dc;
+        }
+      }
+      label {
+        font-size: 14px;
+        color: #356aa0;
+      }
+      h5 {
+        color: #356aa0;
+      }
+    }
+    .registration-law {
+      input {
+        width: fit-content;
+        padding: 10px;
+        border: 1px solid #8bb8e5;
+      }
+    }
+    .registration-law-curve {
+      input {
+        &::placeholder {
+          color: #64a0dc;
+          font-style: italic;
+        }
+      }
+    }
+    .file-link-notification {
+      input {
+        outline: none;
+      }
+    }
+    button {
+      outline: 0;
+      border: 3px solid $primaryColor;
+      padding: 10px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: $primaryColor;
+      background-color: $white;
+      transition: 0.3s;
+      &:hover {
+        background-color: $primaryColor;
+        color: $white;
+      }
+    }
+    h5 {
+      color: #356aa0;
+      font-weight: 400;
+      .bold {
+        color: #64a0dc;
+        font-style: italic;
+      }
+    }
+    select,
+    option {
+      outline: none;
+      border: 0;
+      border: 2px solid #8bb8e5;
+      border-radius: 5px;
+      padding: 10px 20px;
+      width: 100%;
+      &::placeholder {
+        color: #64a0dc;
+      }
+    }
+    p {
+      font-size: 15px;
+      color: #64a0dc;
+      font-style: italic;
+    }
+    .phone-input {
+      display: flex;
+      gap: 1rem;
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+      }
+      select {
+        width: 12rem;
+        padding-inline: 2rem;
+      }
+    }
+  }
+  .file-upload {
+    input {
+      border: 2px solid #8bb8e5;
+      padding: 12px;
+      border-radius: 8px;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    h5 {
+      margin-top: 1rem;
+    }
+    p {
+      color: #505252;
+      margin-top: -1rem;
+      font-weight: 500;
+    }
+  }
+  .submit-button {
+    .save {
+      background-color: #224b75;
+      color: #fff;
+    }
+    @media screen and (max-width: 600px) {
+      margin-bottom: 2rem;
+    }
+  }
 }
 
-
 @media screen and (max-width: 600px) {
-    .mx-b{
-        margin: 1rem 0;
-    }
+  .mx-b {
+    margin: 1rem 0;
+  }
 }
