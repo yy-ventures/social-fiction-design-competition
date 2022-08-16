@@ -17,10 +17,16 @@ const Footer = () => {
         <div className="brought-by">
           <h3>Brought to you by</h3>
           <div className="logo-container">
-            <img src={yunusLogo} alt="yunus-logo" />
-            <img src={yyvLogo} alt="yyv-logo" />
+            <a href="/">
+              <img src={yunusLogo} alt="yunus-logo" />
+            </a>
+            <a href="https://yy.ventures/" target="__blank">
+              <img src={yyvLogo} alt="yyv-logo" />
+            </a>
           </div>
-          <span>© 2022 Yunus Centre. All rights reserved.</span>
+          <span className="reserved-1">
+            © 2022 Yunus Centre. All rights reserved.
+          </span>
         </div>
         <div className="find-us">
           <h3>Find us at</h3>
@@ -34,21 +40,27 @@ const Footer = () => {
           <p>E: info@yunuscentre.org</p>
           <p>WhatsApp: +880 1810-061591 </p>
           <div className="media-container">
-            <a href="#">
+            <a href="https://www.facebook.com/YunusCentre" target="__blank">
               <img src={facebookIcon} alt="facebook-icon" />
             </a>
-            <a href="#">
+            <a
+              href="https://api.whatsapp.com/send?phone=8801810061591"
+              target="__blank"
+            >
               <img
                 className="whatsapp-icon"
                 src={whatsappIcon}
                 alt="whatsapp-icon"
               />
             </a>
-            <a href="#">
+            <a href="https://www.muhammadyunus.org/" target="__blank">
               <img src={webIcon} alt="web-icon" />
             </a>
           </div>
         </div>
+        <span className="reserved-2">
+          © 2022 Yunus Centre. All rights reserved.
+        </span>
       </div>
       <div className="main-footer__arrow-container">
         <a href="#">
