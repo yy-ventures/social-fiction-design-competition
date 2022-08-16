@@ -671,16 +671,20 @@ const SFDCInputs = () => {
                   Download
                 </a>
               ))} */}
-              <a
-                href={`https://stage-sbdc-sfdc.yyventures.org/${filledForm?.file_of_idea
-                  ?.replace(/["[]/g, "")
-                  .replace("]", "")}`}
-              >
-                Download
-              </a>
-              {console.log()}
             </div>
             {showFileUpload && <p className="mt-3 col-lg-4">{formatString.writing}</p>}
+
+            {filledForm?.file_of_idea && (
+              <div className="mt-3">
+                <a
+                  href={`https://stage-sbdc-sfdc.yyventures.org/${filledForm?.file_of_idea
+                    ?.replace(/["[]/g, "")
+                    .replace("]", "")}`}
+                >
+                  <button>Download</button>
+                </a>
+              </div>
+            )}
 
             {/* {!showFileUpload && (
               <div className="row mt-5 file-link-notification">
