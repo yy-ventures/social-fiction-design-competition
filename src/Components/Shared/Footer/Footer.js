@@ -25,7 +25,7 @@ const Footer = () => {
             </a>
           </div>
           <span className="reserved-1">
-            © 2022 Yunus Centre. All rights reserved
+            © 2022 Yunus Centre. All rights reserved.
           </span>
         </div>
         <div className="find-us">
