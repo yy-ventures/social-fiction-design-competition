@@ -1,0 +1,28 @@
+@import "../../../global.scss";
+
+.sfdc-home {
+  // background-color: plum;
+
+  //   height: 400vh;
+
+  position: relative;
+
+  .large-circle-layout {
+    position: absolute;
+    top: -100px;
+    left: 1100px;
+
+    @media screen and (max-width: 1440px) {
+      height: 60%;
+      left: 700px;
+    }
+    @media screen and (min-width: 2500px) {
+      left: 1600px;
+    }
+  }
+  .main-content {
+    h1 {
+      margin-bottom: 0 !important;
+    }
+  }
+}

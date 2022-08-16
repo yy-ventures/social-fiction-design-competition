@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap");
 :root {
-  --sfdc-font-color-primary: #f16145;
+  --sfdc-font-color-primary: #223c4d;
   --sfdc-font-color-secondary: #393939;
   --sfdc-heading-color: #f16145;
   --sfdc-heading-border-color: #ffc35a;
@@ -12,33 +12,42 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  align-items: flex-end;
   font-family: "Roboto", sans-serif;
   color: var(--sfdc-heading-color);
   min-height: 30em;
-  padding: 5%;
+  /* padding: 5%; */
 }
 .sfdc-faq-section h1 {
   text-transform: capitalize;
   font-size: 5vmin;
-  padding-bottom: 3%;
+  /* padding-bottom: 3%; */
   font-weight: 900;
-  position: relative;
+  /* position: relative; */
+  align-self: center;
+
+  display: flex;
+  gap: 20px;
 }
 .sfdc-faq-section h1::after {
   content: "";
-  position: absolute;
-  width: 50%;
+  /* position: absolute; */
+  width: 100px;
   height: 5px;
   background-color: var(--sfdc-heading-border-color);
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: auto;
+  /* bottom: 0; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
 }
 .sfdc-faq-wrapper {
   width: 80%;
-  padding: 2em;
+  padding: 80px;
+
+  border-radius: 0 100px 0 100px;
+
+  background-color: #fff7ec;
 }
 .sfdc-faq {
   overflow: hidden;
@@ -51,8 +60,9 @@
   align-items: center;
   cursor: pointer;
   padding: 1em;
-  border-radius: 8px;
-  box-shadow: 10px 5px 5px rgba(255, 245, 228, 0.7);
+  /* border-radius: 8px; */
+  /* box-shadow: 10px 5px 5px rgba(255, 245, 228, 0.7); */
+  border-bottom: 2px solid #ff9a4e;
 }
 .sfdc-faq .question h4 {
   font-size: 1.1em;
