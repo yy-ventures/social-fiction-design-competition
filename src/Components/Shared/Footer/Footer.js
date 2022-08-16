@@ -6,9 +6,6 @@ import facebookIcon from "../../../assets/icon/facebook.png";
 import whatsappIcon from "../../../assets/icon/whatsApp.png";
 import webIcon from "../../../assets/icon/website.png";
 import upArrowIcon from "../../../assets/icon/up-arrow.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
