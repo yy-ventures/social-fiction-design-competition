@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-@import './font/font.scss';
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import "./font/font.scss";
 
 $primaryColor: #224b75;
 $secondaryColor: #df8b48;
@@ -18,54 +18,74 @@ $blue: #356aa0;
 $lightgrey: #707070;
 $bg-light: #fbfbfb;
 $font-collection: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
 $measure: 100px;
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-.button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1.5em;
-    z-index: 5;
-    @media screen and (min-width: 480px) {
-        flex-direction: row;
-    }
-}
-.btn-home {
-    text-decoration: none;
-    padding: 0.6em 0.8em;
-    border-radius: 5px;
-    font-family: $font-collection;
-    font-weight: bold;
-    font-size: 1rem;
-    color: $white;
-    text-transform: uppercase;
-    &:hover {
-        color: $white;
-    }
-}
-.button-blue {
-    background-color: $darkblue;
-    color: $white;
-    border: 3px solid $form;
-}
-.button-skyblue {
-    background-color: $blue;
-    color: $white;
-    border: 3px solid $form;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-a{
-    text-decoration: none;
+// html {
+//     font-size: 62.5%;
+//     box-sizing: border-box;
+// }
+// body {
+//     font-family: $font-collection;
+//     overflow-x: hidden;
+//     scroll-behavior: smooth;
+// }
+
+html,
+body {
+  // width: 100%;
+  // height: 100%;
+  // margin: 0px;
+  // padding: 0px;
+  font-family: $font-collection;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5em;
+  z-index: 5;
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
+}
+.btn-home {
+  text-decoration: none;
+  padding: 0.6em 0.8em;
+  border-radius: 5px;
+  font-family: $font-collection;
+  font-weight: bold;
+  font-size: 1rem;
+  color: $white;
+  text-transform: uppercase;
+  &:hover {
+    color: $white;
+  }
+}
+.button-blue {
+  background-color: $darkblue;
+  color: $white;
+  border: 3px solid $form;
+}
+.button-skyblue {
+  background-color: $blue;
+  color: $white;
+  border: 3px solid $form;
+}
+
+a {
+  text-decoration: none;
 }

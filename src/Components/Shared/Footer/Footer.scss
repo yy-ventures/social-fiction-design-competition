@@ -1,69 +1,129 @@
 @import "../../../global.scss";
 .main-footer {
-    padding: 5% 10%;
-    background-color: $primaryColor;
-    .footer-logo{
-        img{
-            width: 100%;
-        }
-    }
-    .footer-content{
-        color: $white;
-        h5{
-            padding-bottom: 2%;
-            font-weight: 900;
-            font-size: 1.4rem;
-        }
-    }
-    .footer-leaf{
-        color: $white;
-        h5{
-            padding-bottom: 2%;
-            font-weight: 900;
-            font-size: 1.4rem;
-        }
-        p{
-            display: inline-block;
-        }
-        .leaf-para-one{
-            padding-right: 10px;
-            border-right: 2px solid $white;
-        }
-        .leaf-para-two{
-            padding-left: 10px;
-        }
-    }
-}
+  display: flex;
+  &__container {
+    padding: 50px 100px;
+    border-radius: 0 188px 0 0;
+    width: 85%;
+    height: 100%;
+    background-color: #223c4d;
 
-@media screen and (max-width: 500px) {
-    .main-footer {
-        padding: 15% 5%;
-        flex-direction: column;
-        justify-content: center;
-        .footer-logo{
-            text-align: center;
-            margin-top: 10%;
-            img{
-                width: 75%;
-            }
-        }
-        .footer-content{
-            margin-top: 10%;
-            text-align: center;
-        }
-        .footer-leaf{
-            margin-top: 10%;
-            text-align: center;
-            p{
-                display: block;
-            }
-            .leaf-para-one{
-                padding-right: 0;
-                border-right: 0;
-            }
-            .leaf-para-two{
-                padding-left: 0;
-            }
-        }
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @media screen and (max-width: 1000px) {
+      padding: 30px 40px;
     }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      width: 100%;
+      padding: 30px 40px;
+      border-radius: 0;
+    }
+    h3,
+    .logo-container {
+      margin-bottom: 2rem;
+    }
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ff9a4e;
+
+      @media screen and (max-width: 1220px) {
+        font-size: 20px;
+      }
+    }
+    span {
+      font-size: 11px;
+      color: white;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 0;
+      color: white;
+
+      @media screen and (max-width: 1220px) {
+        font-size: 14px;
+      }
+    }
+    .brought-by {
+      display: flex;
+      flex-direction: column;
+      .logo-container {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+
+        @media screen and (max-width: 1000px) {
+          flex-direction: column;
+        }
+
+        @media screen and (max-width: 600px) {
+          flex-direction: column;
+        }
+
+        img {
+          height: 45px;
+          width: 180px;
+        }
+      }
+    }
+
+    .write-us {
+      .media-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 2rem;
+
+        img {
+          @media screen and (max-width: 1220px) {
+            height: 30px;
+          }
+        }
+        .whatsapp-icon {
+          height: 65px;
+          @media screen and (max-width: 1220px) {
+            height: 45px !important;
+          }
+        }
+      }
+    }
+
+    .reserved-1 {
+      margin-top: auto;
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+    .reserved-2 {
+      display: none;
+      @media screen and (max-width: 600px) {
+        display: inline;
+        // margin-top: 30px;
+      }
+    }
+  }
+  &__arrow-container {
+    align-self: center;
+    margin-inline: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
+    img {
+      @media screen and (max-width: 1000px) {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
 }
