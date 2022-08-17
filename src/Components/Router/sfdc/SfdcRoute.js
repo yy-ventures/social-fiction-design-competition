@@ -15,6 +15,7 @@ import "./sfdc.scss";
 const SfdcRoute = () => {
   return (
     <div className="sfdc-home">
+      <div className="sfdc-home__hero-section"></div>
       <SfdcFaq />
       {/* <img className="large-circle-layout" src={largeCircle} alt="layout" /> */}
       {/* <div className="main-content">

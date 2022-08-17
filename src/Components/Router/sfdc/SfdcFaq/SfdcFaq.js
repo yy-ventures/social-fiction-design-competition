@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SfdcFaq.css";
+import "./SfdcFaq.scss";
 
 const SfdcFaq = () => {
   // State value to show or collapse the FAQ answers

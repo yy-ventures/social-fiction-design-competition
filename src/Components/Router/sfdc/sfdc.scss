@@ -1,11 +1,12 @@
 @import "../../../global.scss";
 
+:root {
+  --sfdc-background-color: #fff7ec;
+  --sfdc-layout-color: #ffefda;
+}
+
 .sfdc-home {
-  // background-color: plum;
-
-  //   height: 400vh;
-
-  position: relative;
+  background-color: var(--sfdc-background-color);
 
   .large-circle-layout {
     position: absolute;
