@@ -62,7 +62,7 @@ const SFDCInputs = () => {
         setDraftGender(data.data && data.data.gender);
         setDraftAreaOfFocusChange(data.data && data.data.area_of_focus);
         setDraftOtherSocialProblem(data.data && data.data.other_social_problem);
-        data.data.social_problems !== "undefined" && setDraftYourSocialProblem(data.data?.social_problems);
+        setDraftYourSocialProblem(data.data && data.data.social_problems);
         setDraftSocialFictionUnique(data.data && data.data.unique_solutions);
         setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution);
         setDraftCategory(data.data && data.data.type_of_content);
@@ -238,19 +238,19 @@ const SFDCInputs = () => {
       setIsSaving(true);
       setIsSaveDisabled(true);
 
-      formdata.append("name_of_applicant", draftName || "");
-      formdata.append("name_of_institution", draftInstitution || "");
-      formdata.append("country_code", countryCode || "");
-      formdata.append("phone", draftValidPhoneNumber || "");
-      formdata.append("email", draftValidEmail || "");
-      formdata.append("date_of_birth", draftDOB || "");
-      formdata.append("gender", draftGender || "");
-      formdata.append("country", draftCountry || "");
-      formdata.append("area_of_focus", draftAreaOfFocusChange || "");
-      formdata.append("social_problems", draftYourSocialProblem || "");
-      formdata.append("other_social_problem", draftOtherSocialProblem || "");
-      formdata.append("unique_solutions", draftSocialFictionUnique || "");
-      formdata.append("impact_of_fictional_solution", draftSolutionImpact || "");
+      formdata.append("name_of_applicant", draftName);
+      formdata.append("name_of_institution", draftInstitution);
+      formdata.append("country_code", countryCode);
+      formdata.append("phone", draftValidPhoneNumber);
+      formdata.append("email", draftValidEmail);
+      formdata.append("date_of_birth", draftDOB);
+      formdata.append("gender", draftGender);
+      formdata.append("country", draftCountry);
+      formdata.append("area_of_focus", draftAreaOfFocusChange);
+      formdata.append("social_problems", draftYourSocialProblem);
+      formdata.append("other_social_problem", draftOtherSocialProblem);
+      formdata.append("unique_solutions", draftSocialFictionUnique);
+      formdata.append("impact_of_fictional_solution", draftSolutionImpact);
       formdata.append("type_of_content", draftCategory || "writing");
       formdata.append("submission_type", "draft");
       formdata.append("app_id", newApp_id ? newApp_id : "");
@@ -258,8 +258,8 @@ const SFDCInputs = () => {
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
 
-      if (result) {
-        formdata.append(`file_of_idea`, draftURL);
+      if (fileSizeTest.length <= 0) {
+        formdata.append(`file_of_idea`, "");
       } else {
         for (let i = 0; i < fileSizeTest.length; i++) {
           let getFiles = fileSizeTest[i];
@@ -323,18 +323,24 @@ const SFDCInputs = () => {
       formdata.append("impact_of_fictional_solution", draftSolutionImpact);
       formdata.append("type_of_content", draftCategory || "writing");
       formdata.append("submission_type", "submission");
+      formdata.append("app_id", app_id);
 
       let letters = ["rhetoric", "animation", "cinematography"];
       let result = letters.includes(draftCategory);
 
       let getFiles;
-      if (result) {
-        formdata.append(`file_of_idea`, draftURL);
+      if (fileSizeTest.length <= 0) {
+        // formdata.append(`file_of_idea`, draftURL);
+        formdata.append(`file_of_idea`, "");
       } else {
         for (let i = 0; i < fileSizeTest.length; i++) {
           getFiles = fileSizeTest[i];
           formdata.append(`file_of_idea[${i}]`, getFiles);
         }
+      }
+      let file;
+      if (getFiles || filledForm?.file_of_idea !== "" || filledForm?.file_of_idea?.length > 0) {
+        file = true;
       }
 
       let requestOptions = {
@@ -343,21 +349,6 @@ const SFDCInputs = () => {
         redirect: "follow",
         headers: headers,
       };
-
-      // console.table(
-      //   draftName,
-      //   draftInstitution,
-      //   draftValidPhoneNumber,
-      //   draftValidEmail,
-      //   draftGender,
-      //   draftDOB,
-      //   draftAreaOfFocusChange,
-      //   draftYourSocialProblem,
-      //   draftSocialFictionUnique,
-      //   draftSolutionImpact,
-      //   draftCategory,
-      //   getFiles
-      // );
 
       if (
         draftName &&
@@ -373,7 +364,7 @@ const SFDCInputs = () => {
         draftSocialFictionUnique &&
         draftSolutionImpact &&
         draftCategory &&
-        getFiles
+        file
       ) {
         fetch(`${baseUrl}/sfdc/create`, requestOptions)
           .then((response) => response.json())
@@ -561,7 +552,7 @@ const SFDCInputs = () => {
                 <select className="form-select" onChange={handleAreaOfFocus}>
                   <option>Select Area Of Focus</option>
                   {areaOfFocus.map((newArea, index) => (
-                    <option key={index} selected={newArea.title === filledForm?.area_of_focus} value={newArea.value}>
+                    <option key={index} selected={newArea.value === filledForm?.area_of_focus} value={newArea.value}>
                       {newArea.title}
                     </option>
                   ))}
@@ -674,17 +665,16 @@ const SFDCInputs = () => {
             </div>
             {showFileUpload && <p className="mt-3 col-lg-4">{formatString.writing}</p>}
 
-            {filledForm?.file_of_idea && (
-              <div className="mt-3">
-                <a
-                  href={`https://stage-sbdc-sfdc.yyventures.org/${filledForm?.file_of_idea
-                    ?.replace(/["[]/g, "")
-                    .replace("]", "")}`}
-                >
-                  <button>Download</button>
-                </a>
-              </div>
-            )}
+            {filledForm?.file_of_idea &&
+              filledForm?.file_of_idea?.map((file, index) => {
+                return (
+                  <div key={index} className="mt-3">
+                    <a href={`https://stage-sbdc-sfdc.yyventures.org/${file}`}>
+                      <button type="button">Download</button>
+                    </a>
+                  </div>
+                );
+              })}
 
             {/* {!showFileUpload && (
               <div className="row mt-5 file-link-notification">
