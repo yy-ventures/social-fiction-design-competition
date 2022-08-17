@@ -489,14 +489,16 @@ const SFDCInputs = () => {
             </div>
 
             <div className="row mt-5 register-gender">
-              <div className="mt-5 mb-5 col-lg-6">
+              <div className="mt-5 mb-5 col-lg-8">
                 <h5>
                   Phone
                   <span className="red">
-                    *{" "}
+                    * <br />
                     <span>
-                      (We choose to communicate internationally on WhatsApp. Please provide a phone number we can use to
-                      connect with you on Whatsapp.)
+                      <i>
+                        We choose to communicate internationally on WhatsApp. Please provide a phone number we can use
+                        to connect with you on Whatsapp.
+                      </i>
                     </span>
                   </span>
                 </h5>
@@ -541,11 +543,11 @@ const SFDCInputs = () => {
             </div>
             {/* area of focus */}
             <div className="row mt-3 register-focus d-flex align-items-center">
-              <div className="col-lg-6">
+              <div className="col-lg-8">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
                   What key social or environmental issues does this fictional world of yours address?
-                  <span className="red">*</span>
+                  <span className="red"> *</span>
                 </h5>
               </div>
               <div className="col-lg-4">
@@ -577,8 +579,9 @@ const SFDCInputs = () => {
               <div className="col-lg-12 mt-5">
                 <h5>
                   Tell us a bit about the fictional world you have imagined for the year 2050.
-                  <span className="bold">100 words (max)</span>
-                  <span className="red">*</span>
+                  <span className="red"> *</span>
+                  <br />
+                  <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
                 <textarea
                   type="text"
@@ -590,8 +593,9 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                  What makes your solution Social Fiction unique? <span className="red">*</span>{" "}
-                  <span className="bold">100 words (max)</span>
+                  What makes your solution Social Fiction unique? <span className="red">*</span>
+                  <br />
+                  <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
                 <textarea
                   defaultValue={filledForm !== null ? filledForm.unique_solutions : ""}
@@ -603,7 +607,8 @@ const SFDCInputs = () => {
               <div className="col-lg-12 pt-5">
                 <h5>
                   What impact on the environment, economy and/or communities do you see in your fictional world in 2050?
-                  <span className="red">*</span> <span className="bold">100 words (max)</span>
+                  <span className="red"> *</span> <br />
+                  <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
                 <textarea
                   defaultValue={filledForm !== null ? filledForm.impact_of_fictional_solution : ""}
@@ -625,7 +630,7 @@ const SFDCInputs = () => {
                     <p>Who are the key players in this fictional world?</p>
                   </div>
                   <br />
-                  Upload your social fiction<span className="red">*</span>
+                  Upload your social fiction.<span className="red"> *</span>
                 </h5>
               </div>
               <div className="col-lg-4 mt-5">
@@ -638,7 +643,7 @@ const SFDCInputs = () => {
                   ))}
                 </select> */}
               </div>
-              <div className="col-lg-4 mt-5">
+              <div className="col-lg-4 mt-3">
                 {showFileUpload && (
                   <div className="file-upload">
                     <div>

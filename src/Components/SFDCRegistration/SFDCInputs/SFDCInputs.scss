@@ -25,6 +25,7 @@
       color: #ff3333;
       span {
         font-size: 1rem;
+        color: #64a0dc;
       }
     }
     input,
@@ -106,8 +107,8 @@
     .extra-headline {
       font-size: 18px;
       margin-bottom: 0;
-      font-style: italic;
-      color: #64a0dc;
+      color: #356aa0;
+      white-space: nowrap;
     }
     .extra-headline-bold {
       font-weight: 900;
