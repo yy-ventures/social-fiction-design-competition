@@ -2,19 +2,25 @@ import React from "react";
 
 // components
 import SfdcFaq from "./SfdcFaq/SfdcFaq";
+import Button from "./component/button/Button";
 // images
 import sfdcLogo from "../../../assets/sfdc/logo/logo.png";
 import typeWriter from "../../../assets/sfdc/images/typewriter.png";
 import imagineImage from "../../../assets/sfdc/images/imagine.png";
 import ideaImage from "../../../assets/sfdc/images/idea.png";
 import noteImage from "../../../assets/sfdc/images/note.png";
+import yunusImage from "../../../assets/sfdc/images/yunus.png";
 // icons
 import rightArrow from "../../../assets/sfdc/icons/right-arrow.png";
 import shortArrow from "../../../assets/sfdc/icons/short-arrow.png";
+import earth from "../../../assets/sfdc/icons/earth.png";
+import group from "../../../assets/sfdc/icons/group.png";
+import speaker from "../../../assets/sfdc/icons/speaker.png";
 // layouts
 import layoutBlue from "../../../assets/sfdc/layout/layout-blue.png";
 import layoutOrange from "../../../assets/sfdc/layout/layout-orange.png";
 import layoutLightBlue from "../../../assets/sfdc/layout/layout-light-blue.png";
+import verticalLine from "../../../assets/sfdc/layout/vertical-line.png";
 
 import "./sfdc.scss";
 
@@ -42,10 +48,7 @@ const SfdcRoute = () => {
               imagination.
             </p>
           </div>
-          <button className="hero-btn">
-            Complete Now{" "}
-            <img className="arrow-icon" src={rightArrow} alt="right arrow" />
-          </button>
+          <Button />
         </div>
         <div className="hero-section__typewriter">
           <div className="typewriter-container">
@@ -141,6 +144,104 @@ const SfdcRoute = () => {
         </div>
       </div>
       {/* THINK SECTION END */}
+
+      {/* WELCOME SECTION START */}
+      <div className="welcome-section">
+        <div className="heading-container">
+          <h1 className="heading">
+            <span>Everyone is welcome</span>
+            <span>to participate</span>
+          </h1>
+        </div>
+        <div className="limit-container">
+          <div className="restriction">
+            <img src={group} alt="group icon" />
+            <span>
+              No age
+              <br />
+              restrictions
+            </span>
+          </div>
+          <img
+            className="vertical-line"
+            src={verticalLine}
+            alt="vertical layout"
+          />
+          <div className="limitation">
+            <img src={earth} alt="earth icon" />
+            <span>
+              No geographical
+              <br />
+              limitations
+            </span>
+          </div>
+        </div>
+        <div className="yunus-container">
+          <div className="text-container">
+            <h3 className="text">
+              <span>“If we do not imagine,</span>
+              <span>it will not be done.</span>
+              <span className="bold">If we imagine,</span>
+              <span className="bold">someday it will</span>
+              <span className="bold">happen.”</span>
+            </h3>
+            <img src={layoutOrange} alt="layout" />
+            <p>
+              <span>Professor Muhammad Yunus</span>
+              <span>2006 Nobel Peace Laureate</span>
+            </p>
+          </div>
+          <div className="img-container">
+            <img src={yunusImage} alt="yunus" />
+          </div>
+        </div>
+      </div>
+      {/* WELCOME SECTION END */}
+
+      {/* SOCIAL SECTION START */}
+      <div className="social-section">
+        <div className="header-container">
+          <div className="heading">
+            <h1>
+              <span>Still wondering what</span>
+              <span>Social Fiction</span>
+              <span>is?</span>
+            </h1>
+          </div>
+          <div className="text">
+            <p>
+              If we start thinking about social fiction, like science fiction,
+              we will trigger social innovation that will help us create the
+              economy, the society and the world we want to live in. If we
+              imagine it, one day reality will follow.
+            </p>
+          </div>
+        </div>
+        <div className="body-container">
+          <iframe
+            width="1500"
+            height="800"
+            src="https://www.youtube.com/embed/NnPm-otbt04"
+            title="Concept of social business"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <div className="share-container">
+            <div className="icon-container">
+              <img src={speaker} alt="speaker icon" />
+            </div>
+            <div className="text-container">
+              <span>Want to share</span>
+              <span>your words</span>
+              <span>for a new world?</span>
+              <span>Submit your Social Fiction Writing</span>
+              <Button />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* SOCIAL SECTION END */}
       <SfdcFaq />
     </div>
   );

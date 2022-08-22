@@ -1,0 +1,41 @@
+@import "../../../../../global.scss";
+
+.hero-btn {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px 50px;
+  color: white;
+  background-color: var(--sfdc-secondary-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  @media screen and (max-width: 1600px) {
+    font-size: 25px;
+    padding: 15px 40px;
+  }
+  @media screen and (max-width: 1440px) {
+    font-size: 20px;
+    padding: 10px 30px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  .arrow-icon {
+    @media screen and (max-width: 1440px) {
+      width: 25px;
+    }
+    @media screen and (max-width: 600px) {
+      width: 20px;
+    }
+  }
+}
