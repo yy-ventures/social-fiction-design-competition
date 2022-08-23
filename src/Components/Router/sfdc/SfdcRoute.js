@@ -3,6 +3,7 @@ import React from "react";
 // components
 import SfdcFaq from "./SfdcFaq/SfdcFaq";
 import Button from "./component/button/Button";
+import Media from "./component/media/media";
 // images
 import sfdcLogo from "../../../assets/sfdc/logo/logo.png";
 import typeWriter from "../../../assets/sfdc/images/typewriter.png";
@@ -10,6 +11,7 @@ import imagineImage from "../../../assets/sfdc/images/imagine.png";
 import ideaImage from "../../../assets/sfdc/images/idea.png";
 import noteImage from "../../../assets/sfdc/images/note.png";
 import yunusImage from "../../../assets/sfdc/images/yunus.png";
+import canvas from "../../../assets/sfdc/images/canvas.png";
 // icons
 import rightArrow from "../../../assets/sfdc/icons/right-arrow.png";
 import shortArrow from "../../../assets/sfdc/icons/short-arrow.png";
@@ -21,6 +23,9 @@ import layoutBlue from "../../../assets/sfdc/layout/layout-blue.png";
 import layoutOrange from "../../../assets/sfdc/layout/layout-orange.png";
 import layoutLightBlue from "../../../assets/sfdc/layout/layout-light-blue.png";
 import verticalLine from "../../../assets/sfdc/layout/vertical-line.png";
+import verticalLineLightBlue from "../../../assets/sfdc/layout/layout-light-blue-v.png";
+// typewriter
+import Typewriter from "typewriter-effect";
 
 import "./sfdc.scss";
 
@@ -54,6 +59,23 @@ const SfdcRoute = () => {
           <div className="typewriter-container">
             <img className="layout-top" src={layoutBlue} alt="layout" />
             <div className="img-container">
+              <span className="typewriter-text">
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString(
+                        "Imagine the life of a young person in the world of 2050"
+                      )
+                      .start();
+                  }}
+                  options={{
+                    autoStart: true,
+                    delay: 75,
+                    loop: true,
+                    cursor: "",
+                  }}
+                />
+              </span>
               <img
                 className="typesriter-img"
                 src={typeWriter}
@@ -217,32 +239,96 @@ const SfdcRoute = () => {
             </p>
           </div>
         </div>
+        <img className="layoutLightBlue" src={layoutLightBlue} alt="layout" />
         <div className="body-container">
-          <iframe
-            width="1500"
-            height="800"
-            src="https://www.youtube.com/embed/NnPm-otbt04"
-            title="Concept of social business"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-          <div className="share-container">
-            <div className="icon-container">
-              <img src={speaker} alt="speaker icon" />
+          <div className="layout"></div>
+          <div className="box">
+            <iframe
+              src="https://www.youtube.com/embed/NnPm-otbt04"
+              title="Concept of social business"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <div className="share-container">
+              <div className="icon-container">
+                <img src={speaker} alt="speaker icon" />
+              </div>
+              <div className="text-container">
+                <span>Want to share</span>
+                <span>your words</span>
+                <span>for a new world?</span>
+                <span>Submit your Social Fiction Writing</span>
+                <div className="btn-container">
+                  <Button />
+                </div>
+              </div>
             </div>
-            <div className="text-container">
-              <span>Want to share</span>
-              <span>your words</span>
-              <span>for a new world?</span>
-              <span>Submit your Social Fiction Writing</span>
-              <Button />
+            <div className="canvas-container">
+              <div className="heading-container">
+                <img src={layoutLightBlue} alt="layout" />
+                <h3 className="heading">Help us fill the canvas!</h3>
+              </div>
+              <div className="img-container">
+                <div className="container">
+                  <img className="canvas-img" src={canvas} alt="canvas note" />
+                  <img
+                    className="vertical-layout"
+                    src={verticalLineLightBlue}
+                    alt="layout"
+                  />
+                </div>
+              </div>
+              <div className="engage-container">
+                <h3>Engage with us!</h3>
+                <p>
+                  <span>Comment how you imagine the life</span>
+                  <span>of a young person in the world of 2050</span>
+                </p>
+                <Media />
+              </div>
+              <div className="ideas-from">
+                <div className="list-container">
+                  <span>Social Fiction ideas from</span>
+                  <span>&gt;</span>
+                  <span>Mazbahul Islam</span>
+                  <span>&gt;</span>
+                  <span>Inshirah Ali</span>
+                  <span>&gt;</span>
+                  <span>Maisha Ahmed</span>
+                  <span>&gt;</span>
+                  <span>Rifah Nanziba</span>
+                  <span>&gt;</span>
+                  <span>Ozair Ahmad</span>
+                  <span>&gt;</span>
+                  <span>Mostafezur Rahaman</span>
+                  <span>&gt;</span>
+                </div>
+                <div className="list-container list2">
+                  <span>Social Fiction ideas from</span>
+                  <span>&gt;</span>
+                  <span>Mazbahul Islam</span>
+                  <span>&gt;</span>
+                  <span>Inshirah Ali</span>
+                  <span>&gt;</span>
+                  <span>Maisha Ahmed</span>
+                  <span>&gt;</span>
+                  <span>Rifah Nanziba</span>
+                  <span>&gt;</span>
+                  <span>Ozair Ahmad</span>
+                  <span>&gt;</span>
+                  <span>Mostafezur Rahaman</span>
+                  <span>&gt;</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       {/* SOCIAL SECTION END */}
       <SfdcFaq />
+
+      <button className="submit">Submit by 30 November!</button>
     </div>
   );
 };

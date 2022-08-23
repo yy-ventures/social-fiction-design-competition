@@ -42,7 +42,7 @@
     p {
       font-size: 18px;
       line-height: 1.5;
-      margin-bottom: 0;
+      // margin-bottom: 0;
       color: white;
 
       @media screen and (max-width: 1220px) {
@@ -68,27 +68,6 @@
         img {
           height: 45px;
           width: 180px;
-        }
-      }
-    }
-
-    .write-us {
-      .media-container {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        margin-top: 2rem;
-
-        img {
-          @media screen and (max-width: 1220px) {
-            height: 30px;
-          }
-        }
-        .whatsapp-icon {
-          height: 65px;
-          @media screen and (max-width: 1220px) {
-            height: 45px !important;
-          }
         }
       }
     }
