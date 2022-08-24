@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // components
 import SfdcFaq from "./SfdcFaq/SfdcFaq";
@@ -15,6 +15,7 @@ import canvas from "../../../assets/sfdc/images/canvas.png";
 // icons
 import rightArrow from "../../../assets/sfdc/icons/right-arrow.png";
 import shortArrow from "../../../assets/sfdc/icons/short-arrow.png";
+import pointIcon from "../../../assets/sfdc/icons/point.png";
 import earth from "../../../assets/sfdc/icons/earth.png";
 import group from "../../../assets/sfdc/icons/group.png";
 import speaker from "../../../assets/sfdc/icons/speaker.png";
@@ -26,17 +27,22 @@ import verticalLine from "../../../assets/sfdc/layout/vertical-line.png";
 import verticalLineLightBlue from "../../../assets/sfdc/layout/layout-light-blue-v.png";
 // typewriter
 import Typewriter from "typewriter-effect";
+import AOS from "aos";
 
 import "./sfdc.scss";
+import "aos/dist/aos.css";
 
 const SfdcRoute = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="sfdc-home">
       {/* HERO SECTION START */}
       <div className="hero-section">
         <div className="layout-1"></div>
         <div className="hero-section__content">
-          <div className="img-container">
+          <div className="img-container" data-aos="fade-right">
             <img className="sfdc-logo" src={sfdcLogo} alt="sfdc logo" />
           </div>
           <div className="content">
@@ -53,12 +59,17 @@ const SfdcRoute = () => {
               imagination.
             </p>
           </div>
-          <Button />
+          <div className="btn-container">
+            <Button link="https://competitions.yunuscentre.org/sfdc-registration" />
+          </div>
         </div>
         <div className="hero-section__typewriter">
+          <div className="logo-container">
+            <img className="sfdc-logo" src={sfdcLogo} alt="sfdc logo" />
+          </div>
           <div className="typewriter-container">
             <img className="layout-top" src={layoutBlue} alt="layout" />
-            <div className="img-container">
+            <div className="img-container" data-aos="fade-left">
               <span className="typewriter-text">
                 <Typewriter
                   onInit={(typewriter) => {
@@ -90,15 +101,29 @@ const SfdcRoute = () => {
 
       {/* IDEA SECTION START */}
       <div className="idea-section">
-        <div className="layout-2"></div>
-        <div className="image-container">
+        <div className="layout-2" data-aos="fade-right"></div>
+        <a
+          href="https://competitions.yunuscentre.org/sfdc-registration"
+          target="__blank"
+          className="submit"
+        >
+          Submit by 30 November!
+        </a>
+        <div className="image-container" data-aos="fade-right">
+          <div className="prize-pool">
+            <p className="text">
+              {" "}
+              <span>Compete and get</span> <span>a chance to win</span>
+            </p>
+            <span className="price">USD 10,000</span>
+          </div>
           <img className="layout-top" src={layoutOrange} alt="layout" />
           <div className="img-container">
             <img src={imagineImage} alt="note" />
           </div>
           <img className="layout-bottom" src={layoutBlue} alt="layout" />
         </div>
-        <div className="content-container">
+        <div className="content-container" data-aos="fade-left">
           <div className="prize-pool">
             <p className="text">
               {" "}
@@ -117,7 +142,7 @@ const SfdcRoute = () => {
               <span> young person in the year 2050?</span>
             </p>
           </div>
-          <div className="img-container">
+          <div className="img-container" data-aos="fade-left">
             <img src={ideaImage} alt="idea" />
           </div>
         </div>
@@ -126,7 +151,7 @@ const SfdcRoute = () => {
 
       {/* THINK SECTION START */}
       <div className="think-section">
-        <div className="heading-container">
+        <div className="heading-container" data-aos="fade-right">
           <h1 className="heading">
             <span>Think fun,</span>
             <span>Think innovative.</span>
@@ -136,14 +161,14 @@ const SfdcRoute = () => {
             <img src={noteImage} alt="note" />
           </div>
         </div>
-        <div className="text-container">
+        <div className="text-container" data-aos="fade-left">
           <p>
-            <img src={shortArrow} alt="arrow icon" />
+            <img src={pointIcon} alt="arrow icon" />
             In min 1000 - max 5000 words, write a Social Fiction, taking the
             readers on a tour of what this fictional world in 2050 looks like.
           </p>
           <p>
-            <img src={shortArrow} alt="arrow icon" />
+            <img src={pointIcon} alt="arrow icon" />
             Address one or more social and environmental focus areas in your
             writing:
           </p>
@@ -153,13 +178,13 @@ const SfdcRoute = () => {
             Tourism, WASH, Employment, Sports, Health & Well-being etc.
           </p>
           <p>
-            <img src={shortArrow} alt="arrow icon" />
+            <img src={pointIcon} alt="arrow icon" />
             Tell us how key players in the government, corporate houses,
             educational institutions, local businesses and/or community members
             are contributing to this new world.
           </p>
           <p>
-            <img src={shortArrow} alt="arrow icon" />
+            <img src={pointIcon} alt="arrow icon" />
             Fill up the online application form and submit your Social Fiction
             writing!
           </p>
@@ -175,7 +200,7 @@ const SfdcRoute = () => {
             <span>to participate</span>
           </h1>
         </div>
-        <div className="limit-container">
+        <div className="limit-container" data-aos="fade-right">
           <div className="restriction">
             <img src={group} alt="group icon" />
             <span>
@@ -198,7 +223,7 @@ const SfdcRoute = () => {
             </span>
           </div>
         </div>
-        <div className="yunus-container">
+        <div className="yunus-container" data-aos="fade-left">
           <div className="text-container">
             <h3 className="text">
               <span>“If we do not imagine,</span>
@@ -223,14 +248,14 @@ const SfdcRoute = () => {
       {/* SOCIAL SECTION START */}
       <div className="social-section">
         <div className="header-container">
-          <div className="heading">
+          <div className="heading" data-aos="fade-right">
             <h1>
               <span>Still wondering what</span>
               <span>Social Fiction</span>
               <span>is?</span>
             </h1>
           </div>
-          <div className="text">
+          <div className="text" data-aos="fade-left">
             <p>
               If we start thinking about social fiction, like science fiction,
               we will trigger social innovation that will help us create the
@@ -244,6 +269,7 @@ const SfdcRoute = () => {
           <div className="layout"></div>
           <div className="box">
             <iframe
+              data-aos="fade-right"
               src="https://www.youtube.com/embed/NnPm-otbt04"
               title="Concept of social business"
               frameborder="0"
@@ -251,27 +277,36 @@ const SfdcRoute = () => {
               allowfullscreen
             ></iframe>
             <div className="share-container">
-              <div className="icon-container">
+              <div className="icon-container" data-aos="fade-right">
                 <img src={speaker} alt="speaker icon" />
               </div>
               <div className="text-container">
-                <span>Want to share</span>
-                <span>your words</span>
-                <span>for a new world?</span>
-                <span>Submit your Social Fiction Writing</span>
-                <div className="btn-container">
-                  <Button />
+                <span data-aos="fade-left">Want to share</span>
+                <span data-aos="fade-left">your words</span>
+                <span data-aos="fade-left">for a new world?</span>
+                <span data-aos="fade-left">
+                  Submit your Social Fiction Writing
+                </span>
+                <div className="btn-container" data-aos="fade-right">
+                  <Button link="https://competitions.yunuscentre.org/sfdc-registration" />
                 </div>
               </div>
             </div>
             <div className="canvas-container">
               <div className="heading-container">
-                <img src={layoutLightBlue} alt="layout" />
-                <h3 className="heading">Help us fill the canvas!</h3>
+                <img src={layoutLightBlue} alt="layout" data-aos="fade-right" />
+                <h3 className="heading" data-aos="fade-left">
+                  Help us fill the canvas!
+                </h3>
               </div>
               <div className="img-container">
                 <div className="container">
-                  <img className="canvas-img" src={canvas} alt="canvas note" />
+                  <img
+                    className="canvas-img"
+                    src={canvas}
+                    alt="canvas note"
+                    data-aos="fade-right"
+                  />
                   <img
                     className="vertical-layout"
                     src={verticalLineLightBlue}
@@ -288,8 +323,23 @@ const SfdcRoute = () => {
                 <Media />
               </div>
               <div className="ideas-from">
+                <div className="sf-ideas-from">
+                  <span>Social Fiction ideas from</span>
+                </div>
                 <div className="list-container">
-                  <span>Social Fiction ideas from</span>
+                  <span>Mazbahul Islam</span>
+                  <span>&gt;</span>
+                  <span>Inshirah Ali</span>
+                  <span>&gt;</span>
+                  <span>Maisha Ahmed</span>
+                  <span>&gt;</span>
+                  <span>Rifah Nanziba</span>
+                  <span>&gt;</span>
+                  <span>Ozair Ahmad</span>
+                  <span>&gt;</span>
+                  <span>Mostafezur Rahaman</span>
+                </div>
+                {/* <div className="list-container list2">
                   <span>&gt;</span>
                   <span>Mazbahul Islam</span>
                   <span>&gt;</span>
@@ -303,23 +353,7 @@ const SfdcRoute = () => {
                   <span>&gt;</span>
                   <span>Mostafezur Rahaman</span>
                   <span>&gt;</span>
-                </div>
-                <div className="list-container list2">
-                  <span>Social Fiction ideas from</span>
-                  <span>&gt;</span>
-                  <span>Mazbahul Islam</span>
-                  <span>&gt;</span>
-                  <span>Inshirah Ali</span>
-                  <span>&gt;</span>
-                  <span>Maisha Ahmed</span>
-                  <span>&gt;</span>
-                  <span>Rifah Nanziba</span>
-                  <span>&gt;</span>
-                  <span>Ozair Ahmad</span>
-                  <span>&gt;</span>
-                  <span>Mostafezur Rahaman</span>
-                  <span>&gt;</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -327,8 +361,6 @@ const SfdcRoute = () => {
       </div>
       {/* SOCIAL SECTION END */}
       <SfdcFaq />
-
-      <button className="submit">Submit by 30 November!</button>
     </div>
   );
 };

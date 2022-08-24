@@ -6,6 +6,8 @@
   padding: 20px 50px;
   color: white;
   background-color: var(--sfdc-secondary-color);
+  text-decoration: none;
+  width: max-content;
 
   display: flex;
   align-items: center;
@@ -29,8 +31,16 @@
     font-size: 16px;
     padding: 8px 20px;
   }
+  &:hover {
+    color: white;
+  }
+
+  &:hover .arrow-icon {
+    margin-left: 10px;
+  }
 
   .arrow-icon {
+    transition: all 0.2s;
     @media screen and (max-width: 1440px) {
       width: 25px;
     }
