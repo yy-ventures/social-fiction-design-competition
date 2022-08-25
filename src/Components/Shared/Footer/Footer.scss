@@ -4,16 +4,16 @@
   &__container {
     padding: 50px 100px;
     border-radius: 0 188px 0 0;
-    width: 85%;
+    width: max-content;
     height: 100%;
     background-color: #223c4d;
 
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 5rem;
 
-    @media screen and (max-width: 1000px) {
-      padding: 30px 40px;
+    @media screen and (max-width: 1024px) {
+      padding: 50px;
     }
 
     @media screen and (max-width: 600px) {
@@ -21,6 +21,10 @@
       width: 100%;
       padding: 30px 40px;
       border-radius: 0;
+      gap: 0;
+    }
+    @media screen and (min-width: 1921px) {
+      width: 70%;
     }
     h3,
     .logo-container {
@@ -33,6 +37,10 @@
 
       @media screen and (max-width: 1220px) {
         font-size: 20px;
+      }
+      @media screen and (max-width: 600px) {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
       }
     }
     span {
@@ -57,38 +65,18 @@
         display: flex;
         gap: 1rem;
 
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: 1024px) {
           flex-direction: column;
         }
 
         @media screen and (max-width: 600px) {
           flex-direction: column;
+          margin-bottom: 0;
         }
 
         img {
           height: 45px;
           width: 180px;
-        }
-      }
-    }
-
-    .write-us {
-      .media-container {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        margin-top: 2rem;
-
-        img {
-          @media screen and (max-width: 1220px) {
-            height: 30px;
-          }
-        }
-        .whatsapp-icon {
-          height: 65px;
-          @media screen and (max-width: 1220px) {
-            height: 45px !important;
-          }
         }
       }
     }
@@ -103,6 +91,7 @@
       display: none;
       @media screen and (max-width: 600px) {
         display: inline;
+        margin-top: 20px;
         // margin-top: 30px;
       }
     }
@@ -120,10 +109,8 @@
     }
 
     img {
-      @media screen and (max-width: 1000px) {
-        height: 50px;
-        width: 50px;
-      }
+      height: 50px;
+      width: 50px;
     }
   }
 }

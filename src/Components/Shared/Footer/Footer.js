@@ -1,14 +1,15 @@
 import React from "react";
 import "./Footer.scss";
+// COMPONENTS
+import Media from "../../Router/sfdc/component/media/media";
+// LOGO
 import yunusLogo from "../../../assets/images/logos/yc-white.png";
 import yyvLogo from "../../../assets/images/logos/yyv-white.png";
+// ICONS
 import facebookIcon from "../../../assets/icon/facebook.png";
 import whatsappIcon from "../../../assets/icon/whatsApp.png";
 import webIcon from "../../../assets/icon/website.png";
 import upArrowIcon from "../../../assets/icon/up-arrow.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -39,24 +40,7 @@ const Footer = () => {
           <h3>Write to us</h3>
           <p>E: info@yunuscentre.org</p>
           <p>WhatsApp: +880 1810-061591 </p>
-          <div className="media-container">
-            <a href="https://www.facebook.com/YunusCentre" target="__blank">
-              <img src={facebookIcon} alt="facebook-icon" />
-            </a>
-            <a
-              href="https://api.whatsapp.com/send?phone=8801810061591"
-              target="__blank"
-            >
-              <img
-                className="whatsapp-icon"
-                src={whatsappIcon}
-                alt="whatsapp-icon"
-              />
-            </a>
-            <a href="https://www.muhammadyunus.org/" target="__blank">
-              <img src={webIcon} alt="web-icon" />
-            </a>
-          </div>
+          <Media />
         </div>
         <span className="reserved-2">
           © 2022 Yunus Centre. All rights reserved.

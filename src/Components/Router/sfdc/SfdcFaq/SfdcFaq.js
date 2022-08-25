@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SfdcFaq.css";
+import "./SfdcFaq.scss";
 
 const SfdcFaq = () => {
   // State value to show or collapse the FAQ answers
@@ -8,7 +8,7 @@ const SfdcFaq = () => {
   const [faqData, setFaqData] = useState([]);
   // Base Url
   const baseUrl = process.env.REACT_APP_BASE_URL;
-  
+
   // Toggle FAQ answers
   const toggle = (index) => {
     if (show === index) {
