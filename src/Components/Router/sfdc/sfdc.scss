@@ -93,6 +93,7 @@
       .content {
         font-size: 24px;
         color: var(--sfdc-secondary-color);
+        text-align: justify;
 
         @media screen and (max-width: 1600px) {
           font-size: 20px;
@@ -194,6 +195,7 @@
             width: 350px;
             font-size: 40px;
             font-weight: 700;
+            font-family: Elegant-typewriter;
             position: absolute;
             top: 50px;
             left: 250px;
@@ -278,7 +280,7 @@
       position: fixed;
       top: 50%;
       z-index: 11111111;
-      left: -170px;
+      left: -160px;
       transform: rotate(90deg);
       // translateY(80px)
       padding: 20px 40px;
@@ -294,7 +296,7 @@
       @media screen and (max-width: 1600px) {
         font-size: 25px;
         padding: 10px 20px;
-        left: -130px;
+        left: -120px;
       }
       @media screen and (max-width: 600px) {
         display: none;
@@ -457,7 +459,8 @@
           }
         }
         .price {
-          font-size: 60px;
+          font-size: 64px;
+          font-weight: 900;
           color: var(--sfdc-layout-4-color);
 
           @media screen and (max-width: 1600px) {
@@ -596,7 +599,7 @@
           }
           span:nth-child(3) {
             color: #ff6600;
-            font-weight: 700;
+            font-weight: 900;
           }
           span:nth-child(2) {
             display: flex;
@@ -728,6 +731,7 @@
         }
         span:nth-child(3) {
           color: var(--sfdc-secondary-color);
+          font-weight: 900;
 
           display: flex;
           align-items: center;
@@ -780,6 +784,7 @@
     .text-container {
       flex: 1;
       padding-right: 20px;
+      text-align: justify;
 
       @media screen and (max-width: 900px) {
         margin-left: 80px;
@@ -787,6 +792,7 @@
       @media screen and (max-width: 600px) {
         margin-left: 100px;
         padding-right: 50px;
+        text-align: start;
       }
 
       p {
@@ -873,6 +879,7 @@
         }
         span:nth-child(2) {
           color: var(--sfdc-secondary-color);
+          font-weight: 900;
 
           display: flex;
           align-items: center;
@@ -1149,7 +1156,7 @@
 
           span:nth-child(2) {
             font-size: 90px;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--sfdc-secondary-color);
 
             @media screen and (max-width: 1440px) {
@@ -1199,6 +1206,7 @@
       .text {
         flex: 1;
         font-size: 24px;
+        text-align: justify;
 
         @media screen and (max-width: 1440px) {
           font-size: 20px;
@@ -1252,7 +1260,7 @@
         }
         @media screen and (max-width: 600px) {
           width: 270px;
-          bottom: 510px;
+          bottom: 310px;
           border-radius: 30px;
         }
       }
@@ -1371,6 +1379,7 @@
             &:nth-child(3) {
               font-size: 72px;
               font-weight: 700;
+              line-height: 1.2;
               color: white;
 
               @media screen and (max-width: 1600px) {
@@ -1411,13 +1420,13 @@
       }
       .canvas-container {
         .heading-container {
-          padding: 100px 300px;
+          padding: 100px 300px 0 300px;
 
           @media screen and (max-width: 1024px) {
             padding: 100px 150px;
           }
           @media screen and (max-width: 600px) {
-            padding: 50px;
+            padding: 50px 50px 0 50px;
           }
           img {
             margin-left: -100px;
@@ -1449,7 +1458,7 @@
             @media screen and (max-width: 600px) {
               font-size: 22px;
               gap: 5px;
-              justify-content: space-between;
+              justify-content: center;
             }
 
             &::after {
@@ -1514,6 +1523,7 @@
           @media screen and (max-width: 600px) {
             margin-top: -50px;
             margin-left: auto;
+            margin-bottom: 30px;
             padding: 50px 20px 20px 20px;
             gap: 10px;
             border-bottom-left-radius: 67px;
@@ -1562,6 +1572,10 @@
           gap: 10px;
           align-items: center;
 
+          @media screen and (max-width: 600px) {
+            margin-block: 30px;
+          }
+
           .sf-ideas-from {
             background-color: var(--sfdc-layout-4-color);
             padding-inline: 20px;
@@ -1572,8 +1586,9 @@
             padding-left: 100px;
 
             @media screen and (max-width: 600px) {
-              background-color: var(--sfdc-background-color);
+              background-color: var(--sfdc-layout-4-color);
               font-size: 10px;
+              padding-left: 50px;
             }
           }
           // background-color: #fbe771;
@@ -1600,7 +1615,8 @@
             }
           }
           .list2 {
-            animation-delay: 105s;
+            animation-delay: 25s;
+            background-color: var(--sfdc-primary-color);
           }
         }
         @keyframes list {

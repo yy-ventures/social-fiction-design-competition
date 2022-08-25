@@ -75,15 +75,17 @@ const SfdcRoute = () => {
                   onInit={(typewriter) => {
                     typewriter
                       .typeString(
-                        "Imagine the life of a young person in the world of 2050"
+                        "Imagine the life of a young person in the world of 2050."
                       )
-                      .start();
+                      .start()
+                      .pauseFor(3000);
                   }}
                   options={{
                     autoStart: true,
                     delay: 75,
                     loop: true,
                     cursor: "",
+                    // pauseFor: 1500,
                   }}
                 />
               </span>
@@ -107,7 +109,7 @@ const SfdcRoute = () => {
           target="__blank"
           className="submit"
         >
-          Submit by 30 November!
+          Submit by 22 October!
         </a>
         <div className="image-container" data-aos="fade-right">
           <div className="prize-pool">
@@ -269,9 +271,8 @@ const SfdcRoute = () => {
           <div className="layout"></div>
           <div className="box">
             <iframe
-              data-aos="fade-right"
-              src="https://www.youtube.com/embed/NnPm-otbt04"
-              title="Concept of social business"
+              src="https://www.youtube.com/embed/L4kU97gXWj0"
+              title="Muhammad Yunus: Create Social Fiction"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -299,6 +300,37 @@ const SfdcRoute = () => {
                   Help us fill the canvas!
                 </h3>
               </div>
+              <div className="ideas-from">
+                <div className="sf-ideas-from">
+                  <span>Social Fiction ideas from</span>
+                </div>
+                <div className="list-container">
+                  <span>Mazbahul Islam</span>
+                  <span>&gt;</span>
+                  <span>Inshirah Ali</span>
+                  <span>&gt;</span>
+                  <span>Maisha Ahmed</span>
+                  <span>&gt;</span>
+                  <span>Rifah Nanziba</span>
+                  <span>&gt;</span>
+                  <span>Ozair Ahmad</span>
+                  <span>&gt;</span>
+                  <span>Mostafezur Rahaman</span>
+                </div>
+                {/* <div className="list-container list2">
+                  <span>Mazbahul Islam</span>
+                  <span>&gt;</span>
+                  <span>Inshirah Ali</span>
+                  <span>&gt;</span>
+                  <span>Maisha Ahmed</span>
+                  <span>&gt;</span>
+                  <span>Rifah Nanziba</span>
+                  <span>&gt;</span>
+                  <span>Ozair Ahmad</span>
+                  <span>&gt;</span>
+                  <span>Mostafezur Rahaman</span>
+                </div> */}
+              </div>
               <div className="img-container">
                 <div className="container">
                   <img
@@ -322,7 +354,7 @@ const SfdcRoute = () => {
                 </p>
                 <Media />
               </div>
-              <div className="ideas-from">
+              {/* <div className="ideas-from">
                 <div className="sf-ideas-from">
                   <span>Social Fiction ideas from</span>
                 </div>
@@ -339,22 +371,7 @@ const SfdcRoute = () => {
                   <span>&gt;</span>
                   <span>Mostafezur Rahaman</span>
                 </div>
-                {/* <div className="list-container list2">
-                  <span>&gt;</span>
-                  <span>Mazbahul Islam</span>
-                  <span>&gt;</span>
-                  <span>Inshirah Ali</span>
-                  <span>&gt;</span>
-                  <span>Maisha Ahmed</span>
-                  <span>&gt;</span>
-                  <span>Rifah Nanziba</span>
-                  <span>&gt;</span>
-                  <span>Ozair Ahmad</span>
-                  <span>&gt;</span>
-                  <span>Mostafezur Rahaman</span>
-                  <span>&gt;</span>
-                </div> */}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
