@@ -300,7 +300,7 @@ const SfdcRoute = () => {
                   Help us fill the canvas!
                 </h3>
               </div>
-              <div className="ideas-from">
+              {/* <div className="ideas-from">
                 <div className="sf-ideas-from">
                   <span>Social Fiction ideas from</span>
                 </div>
@@ -317,7 +317,7 @@ const SfdcRoute = () => {
                   <span>&gt;</span>
                   <span>Mostafezur Rahaman</span>
                 </div>
-                {/* <div className="list-container list2">
+                <div className="list-container list2">
                   <span>Mazbahul Islam</span>
                   <span>&gt;</span>
                   <span>Inshirah Ali</span>
@@ -329,8 +329,8 @@ const SfdcRoute = () => {
                   <span>Ozair Ahmad</span>
                   <span>&gt;</span>
                   <span>Mostafezur Rahaman</span>
-                </div> */}
-              </div>
+                </div>
+              </div> */}
               <div className="img-container">
                 <div className="container">
                   <img
