@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SFDCRegistration.scss";
 import socialFictionLogo from "../../assets/sfdc_logo.png";
 import SFDCInputs from "./SFDCInputs/SFDCInputs";
@@ -17,6 +17,9 @@ const SFDCRegistration = () => {
     localStorage.removeItem("name");
     localStorage.removeItem("token");
   };
+
+  const [draftPopup, setDraftPopup] = useState(false);
+
   return (
     <section className="sfdc-registration" id="sfdcRegId">
       <div className="sfdc-registration-header position-relative">
@@ -102,7 +105,7 @@ const SFDCRegistration = () => {
           <p>application form</p>
         </div>
       </div>
-      <SFDCInputs />
+      <SFDCInputs draftPopup={setDraftPopup} />
     </section>
   );
 };

@@ -6,7 +6,7 @@ import gender from "../../../assets/Data/gender";
 import typeOfContent from "../../../assets/Data/typeOfContent";
 import "./SFDCInputs.scss";
 
-const SFDCInputs = () => {
+const SFDCInputs = ({ draftPopup }) => {
   // Form state
   const [draftName, setDraftName] = useState("");
   const [draftInstitution, setDraftInstitution] = useState("");
@@ -64,7 +64,9 @@ const SFDCInputs = () => {
         setDraftOtherSocialProblem(data.data && data.data.other_social_problem);
         setDraftYourSocialProblem(data.data && data.data.social_problems);
         setDraftSocialFictionUnique(data.data && data.data.unique_solutions);
-        setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution);
+        setDraftSolutionImpact(
+          data.data && data.data.impact_of_fictional_solution
+        );
         setDraftCategory(data.data && data.data.type_of_content);
       });
   }, [app_id]);
@@ -119,7 +121,11 @@ const SFDCInputs = () => {
     let getLimit = 2097152;
     for (let j = 0; j < files.length; j++) {
       if (files[j].size > getLimit) {
-        alert(`Please upload your file between 2MB, your file is ${Math.round(files[j].size / 1048576)}MB`);
+        alert(
+          `Please upload your file between 2MB, your file is ${Math.round(
+            files[j].size / 1048576
+          )}MB`
+        );
         e.target.value = "";
       } else {
         setFileSizeTest(files);
@@ -148,7 +154,9 @@ const SFDCInputs = () => {
   };
 
   const handleValidEmail = (e) => {
-    let emailFilter = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
+    let emailFilter = new RegExp(
+      "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
+    );
     if (emailFilter.test(e.target.value) && e.target.value !== "") {
       setDraftValidEmail(e.target.value);
     } else {
@@ -274,15 +282,19 @@ const SFDCInputs = () => {
         headers: headers,
       };
 
+      console.log(draftPopup);
+
       fetch(`${baseUrl}/sfdc/create`, requestOptions)
         .then((response) => response.json())
         .then((data) => {
+          // console.log((draftPopup = false));
           if (data.success) {
-            console.log(data.responses);
+            // console.log(data.responses);
+            // console.log((draftPopup = false));
             alert(
-              `Your Application Saved! Your User ID is : ${data.responses.app_id} and password is: ${
-                data.responses?.generated_password || ""
-              }`
+              `Your Application Saved! Your User ID is : ${
+                data.responses.app_id
+              } and password is: ${data.responses?.generated_password || ""}`
             );
             localStorage.setItem("app_id", data.responses.app_id);
             setIsSaving(false);
@@ -318,7 +330,10 @@ const SFDCInputs = () => {
       formdata.append("country", draftCountry);
       formdata.append("area_of_focus", draftAreaOfFocusChange);
       formdata.append("social_problems", draftYourSocialProblem);
-      formdata.append("other_social_problem", draftOtherSocialProblem === "" ? "null" : draftOtherSocialProblem);
+      formdata.append(
+        "other_social_problem",
+        draftOtherSocialProblem === "" ? "null" : draftOtherSocialProblem
+      );
       formdata.append("unique_solutions", draftSocialFictionUnique);
       formdata.append("impact_of_fictional_solution", draftSolutionImpact);
       formdata.append("type_of_content", draftCategory || "writing");
@@ -339,7 +354,11 @@ const SFDCInputs = () => {
         }
       }
       let file;
-      if (getFiles || filledForm?.file_of_idea !== "" || filledForm?.file_of_idea?.length > 0) {
+      if (
+        getFiles ||
+        filledForm?.file_of_idea !== "" ||
+        filledForm?.file_of_idea?.length > 0
+      ) {
         file = true;
       }
 
@@ -369,23 +388,34 @@ const SFDCInputs = () => {
         fetch(`${baseUrl}/sfdc/create`, requestOptions)
           .then((response) => response.json())
           .then((data) => {
+            console.log(data);
             if (data.success) {
               alert("Thank you for the application!");
               setIsSubmitting(false);
               setIsDisabled(false);
               mainForm.reset();
               setDraftOtherSocialProblem("");
+
+              console.log("success");
+              // history.push("/");
+              localStorage.removeItem("app_id");
+              localStorage.removeItem("name");
+              localStorage.removeItem("token");
             }
             if (data.success === false) {
               setIsSubmitting(false);
               setIsDisabled(false);
+
+              console.log("fail");
             }
           })
           .catch((error) => {
             console.error(error);
           });
       } else {
-        alert("Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!");
+        alert(
+          "Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!"
+        );
         setIsSubmitting(false);
         setIsDisabled(false);
       }
@@ -417,7 +447,9 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="text"
-                  defaultValue={filledForm !== null ? filledForm.name_of_applicant : ""}
+                  defaultValue={
+                    filledForm !== null ? filledForm.name_of_applicant : ""
+                  }
                   onChange={handleName}
                   required
                 />
@@ -428,7 +460,9 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="text"
-                  defaultValue={filledForm !== null ? filledForm.name_of_institution : ""}
+                  defaultValue={
+                    filledForm !== null ? filledForm.name_of_institution : ""
+                  }
                   onChange={handleInstitution}
                   required
                 />
@@ -441,7 +475,9 @@ const SFDCInputs = () => {
                 </h5>
                 <input
                   type="date"
-                  defaultValue={filledForm !== null ? filledForm.date_of_birth : ""}
+                  defaultValue={
+                    filledForm !== null ? filledForm.date_of_birth : ""
+                  }
                   onChange={handleDOB}
                   required
                 />
@@ -454,7 +490,11 @@ const SFDCInputs = () => {
                 <select onChange={handleGender} className="form-select mt-3">
                   <option>Select gender</option>
                   {gender.map((gd, index) => (
-                    <option key={index} selected={gd.value === filledForm?.gender} value={gd.value}>
+                    <option
+                      key={index}
+                      selected={gd.value === filledForm?.gender}
+                      value={gd.value}
+                    >
                       {gd.title}
                     </option>
                   ))}
@@ -466,10 +506,18 @@ const SFDCInputs = () => {
                 <h5>
                   Country <span className="red">*</span>
                 </h5>
-                <select className="form-select" onChange={handleCountry} required>
+                <select
+                  className="form-select"
+                  onChange={handleCountry}
+                  required
+                >
                   <option>Select Country</option>
                   {countryCodeList.map((country, index) => (
-                    <option key={index} selected={country.name === filledForm?.country} value={country.name}>
+                    <option
+                      key={index}
+                      selected={country.name === filledForm?.country}
+                      value={country.name}
+                    >
                       {country.name}
                     </option>
                   ))}
@@ -496,8 +544,9 @@ const SFDCInputs = () => {
                     * <br />
                     <span>
                       <i>
-                        We choose to communicate internationally on WhatsApp. Please provide a phone number we can use
-                        to connect with you on Whatsapp.
+                        We choose to communicate internationally on WhatsApp.
+                        Please provide a phone number we can use to connect with
+                        you on Whatsapp.
                       </i>
                     </span>
                   </span>
@@ -520,10 +569,19 @@ const SFDCInputs = () => {
                         <option
                           key={index}
                           value={dial_code}
-                          style={countryCodeSelected - 1 === index ? { textAlign: "right" } : null}
-                          selected={filledForm?.country_code === dial_code || name === draftCountry}
+                          style={
+                            countryCodeSelected - 1 === index
+                              ? { textAlign: "right" }
+                              : null
+                          }
+                          selected={
+                            filledForm?.country_code === dial_code ||
+                            name === draftCountry
+                          }
                         >
-                          {countryCodeSelected - 1 === index ? dial_code : `${name} (${dial_code})`}
+                          {countryCodeSelected - 1 === index
+                            ? dial_code
+                            : `${name} (${dial_code})`}
                         </option>
                       );
                     })}
@@ -539,14 +597,18 @@ const SFDCInputs = () => {
             </div>
             <div className="extra-title mt-5">
               <p>Imagine the life of a young person in the world of 2050.</p>
-              <p>Visualise how this fictional world of the future is different from the world we live in now.</p>
+              <p>
+                Visualise how this fictional world of the future is different
+                from the world we live in now.
+              </p>
             </div>
             {/* area of focus */}
             <div className="row mt-3 register-focus d-flex align-items-center">
               <div className="col-lg-8">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
-                  What key social or environmental issues does this fictional world of yours address?
+                  What key social or environmental issues does this fictional
+                  world of yours address?
                   <span className="red"> *</span>
                 </h5>
               </div>
@@ -554,7 +616,11 @@ const SFDCInputs = () => {
                 <select className="form-select" onChange={handleAreaOfFocus}>
                   <option>Select Area Of Focus</option>
                   {areaOfFocus.map((newArea, index) => (
-                    <option key={index} selected={newArea.value === filledForm?.area_of_focus} value={newArea.value}>
+                    <option
+                      key={index}
+                      selected={newArea.value === filledForm?.area_of_focus}
+                      value={newArea.value}
+                    >
                       {newArea.title}
                     </option>
                   ))}
@@ -566,7 +632,11 @@ const SFDCInputs = () => {
                     <label>If others, please specify:</label>
                     <input
                       type="text"
-                      defaultValue={filledForm !== null ? filledForm.other_social_problem : ""}
+                      defaultValue={
+                        filledForm !== null
+                          ? filledForm.other_social_problem
+                          : ""
+                      }
                       onChange={HandleOtherSocialProblem}
                     />
                   </div>
@@ -578,14 +648,19 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                  Tell us a bit about the fictional world you have imagined for the year 2050.
+                  Tell us a bit about the fictional world you have imagined for
+                  the year 2050.
                   <span className="red"> *</span>
                   <br />
                   <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
                 <textarea
                   type="text"
-                  defaultValue={filledForm.social_problems !== "undefined" ? filledForm?.social_problems : ""}
+                  defaultValue={
+                    filledForm.social_problems !== "undefined"
+                      ? filledForm?.social_problems
+                      : ""
+                  }
                   onBlur={handleYourSocialProblem}
                 ></textarea>
               </div>
@@ -593,12 +668,15 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                  What makes your solution Social Fiction unique? <span className="red">*</span>
+                  What makes your solution Social Fiction unique?{" "}
+                  <span className="red">*</span>
                   <br />
                   <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
                 <textarea
-                  defaultValue={filledForm !== null ? filledForm.unique_solutions : ""}
+                  defaultValue={
+                    filledForm !== null ? filledForm.unique_solutions : ""
+                  }
                   onChange={handleFictionUnique}
                 ></textarea>
               </div>
@@ -606,12 +684,17 @@ const SFDCInputs = () => {
             <div className="mt-5">
               <div className="col-lg-12 pt-5">
                 <h5>
-                  What impact on the environment, economy and/or communities do you see in your fictional world in 2050?
+                  What impact on the environment, economy and/or communities do
+                  you see in your fictional world in 2050?
                   <span className="red"> *</span> <br />
                   <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
                 <textarea
-                  defaultValue={filledForm !== null ? filledForm.impact_of_fictional_solution : ""}
+                  defaultValue={
+                    filledForm !== null
+                      ? filledForm.impact_of_fictional_solution
+                      : ""
+                  }
                   onChange={handleSolutionImpact}
                 ></textarea>
               </div>
@@ -620,13 +703,18 @@ const SFDCInputs = () => {
               <div className="col-lg-8 mt-5">
                 <h5 className="extra-headline">
                   <strong>
-                    Write 1000-5000 words of a Social Fiction about what this fictional world in 2050 looks like.
+                    Write 1000-5000 words of a Social Fiction about what this
+                    fictional world in 2050 looks like.
                   </strong>
                   <div className="extra-title">
                     <br />
                     <p>What does this world look like? .</p>
-                    <p>What makes it different from the world we live in now? </p>
-                    <p>What are some of the innovations and advancements made? </p>
+                    <p>
+                      What makes it different from the world we live in now?{" "}
+                    </p>
+                    <p>
+                      What are some of the innovations and advancements made?{" "}
+                    </p>
                     <p>Who are the key players in this fictional world?</p>
                   </div>
                   <br />
@@ -668,7 +756,9 @@ const SFDCInputs = () => {
                 </a>
               ))} */}
             </div>
-            {showFileUpload && <p className="mt-3 col-lg-4">{formatString.writing}</p>}
+            {showFileUpload && (
+              <p className="mt-3 col-lg-4">{formatString.writing}</p>
+            )}
 
             {filledForm?.file_of_idea &&
               filledForm?.file_of_idea?.map((file, index) => {
@@ -691,10 +781,20 @@ const SFDCInputs = () => {
               </div>
             )} */}
             <div className="mt-5 text-center submit-button">
-              <button type="save" disabled={isSaveDisabled} onClick={handleSaveTitle} className="mx-1 save mx-b">
+              <button
+                type="save"
+                disabled={isSaveDisabled}
+                onClick={handleSaveTitle}
+                className="mx-1 save mx-b"
+              >
                 {isSaving ? "Saving..." : "Save Application"}
               </button>
-              <button type="submit" disabled={isDisabled} onClick={handleSubmitTitle} className="mx-1 mx-b">
+              <button
+                type="submit"
+                disabled={isDisabled}
+                onClick={handleSubmitTitle}
+                className="mx-1 mx-b"
+              >
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>
             </div>
