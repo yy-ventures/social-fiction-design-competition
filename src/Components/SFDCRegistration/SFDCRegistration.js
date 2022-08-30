@@ -20,6 +20,8 @@ const SFDCRegistration = () => {
 
   const [draftPopup, setDraftPopup] = useState(false);
 
+  console.log(draftPopup);
+
   return (
     <section className="sfdc-registration" id="sfdcRegId">
       <div className="sfdc-registration-header position-relative">
@@ -77,12 +79,18 @@ const SFDCRegistration = () => {
                 )
               </p>
 
-              {!username && (
-                <div className="mt-5 login-btn">
-                  <Link to="/login">Login</Link>
+              {!app_id && (
+                <div>
+                  <div className="mt-5 login-btn">
+                    <Link to="/login">Login</Link>
+                  </div>
+                  <p className="mt-5">
+                    <b>Note: </b>You only need to login if you have previously
+                    saved an incomplete submission.
+                  </p>
                 </div>
               )}
-              {username && (
+              {app_id && (
                 <div className="mt-5 login-btn">
                   <button onClick={handleLogout}>Logout</button>
                 </div>
@@ -105,7 +113,7 @@ const SFDCRegistration = () => {
           <p>application form</p>
         </div>
       </div>
-      <SFDCInputs draftPopup={setDraftPopup} />
+      <SFDCInputs />
     </section>
   );
 };

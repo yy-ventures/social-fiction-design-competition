@@ -6,7 +6,12 @@ import gender from "../../../assets/Data/gender";
 import typeOfContent from "../../../assets/Data/typeOfContent";
 import "./SFDCInputs.scss";
 
-const SFDCInputs = ({ draftPopup }) => {
+// components
+import DraftPopup from "../components/draft-popup/DraftPopup";
+
+import { useHistory } from "react-router-dom";
+
+const SFDCInputs = () => {
   // Form state
   const [draftName, setDraftName] = useState("");
   const [draftInstitution, setDraftInstitution] = useState("");
@@ -24,6 +29,12 @@ const SFDCInputs = ({ draftPopup }) => {
   const [draftSolutionImpact, setDraftSolutionImpact] = useState("");
   const [draftURL, setDraftURL] = useState("");
   const [draftCategory, setDraftCategory] = useState("");
+
+  // user state
+  const [userID, setUserID] = useState("");
+  const [userPass, setUserPass] = useState("");
+  const [draftSuccess, setDraftSuccess] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   // App Id
   const app_id = localStorage.getItem("app_id");
@@ -46,7 +57,7 @@ const SFDCInputs = ({ draftPopup }) => {
 
   // Base Url
   const baseUrl = process.env.REACT_APP_BASE_URL;
-
+  let history = useHistory();
   useEffect(() => {
     fetch(`${baseUrl}/get-app-draft-data?app_id=${app_id}`)
       .then((res) => res.json())
@@ -79,7 +90,7 @@ const SFDCInputs = ({ draftPopup }) => {
     rhetoric: "Format: .mp3, .mp4, or .avi",
     animation: "Format: .mp4 and .mov",
     poster_presentation: "Format: .pdf, .jpeg, .jpg and, .png",
-    writing: "Format: .docx or .pdf",
+    writing: "Format: .pdf",
     illustration: "Format: .jpeg, jpg and .png",
     cinematography: "Format: .mp4 and .mov",
   };
@@ -282,21 +293,22 @@ const SFDCInputs = ({ draftPopup }) => {
         headers: headers,
       };
 
-      console.log(draftPopup);
-
       fetch(`${baseUrl}/sfdc/create`, requestOptions)
         .then((response) => response.json())
         .then((data) => {
           // console.log((draftPopup = false));
           if (data.success) {
             // console.log(data.responses);
-            // console.log((draftPopup = false));
-            alert(
-              `Your Application Saved! Your User ID is : ${
-                data.responses.app_id
-              } and password is: ${data.responses?.generated_password || ""}`
-            );
-            localStorage.setItem("app_id", data.responses.app_id);
+            setUserID(data.responses.app_id);
+            setUserPass(data.responses.generated_password);
+            setDraftSuccess(true);
+            // <DraftPopup userID={userID} userPass={userPass} />;
+            // alert(
+            //   `Your Application Saved! Your User ID is : ${
+            //     data.responses.app_id
+            //   } and password is: ${data.responses?.generated_password || ""}`
+            // );
+            // localStorage.setItem("app_id", data.responses.app_id);
             setIsSaving(false);
             setIsSaveDisabled(false);
             setDraftOtherSocialProblem("");
@@ -390,13 +402,14 @@ const SFDCInputs = ({ draftPopup }) => {
           .then((data) => {
             console.log(data);
             if (data.success) {
-              alert("Thank you for the application!");
+              // alert("Thank you for the application!");
+              setSubmitSuccess(true);
               setIsSubmitting(false);
               setIsDisabled(false);
               mainForm.reset();
               setDraftOtherSocialProblem("");
 
-              console.log("success");
+              // console.log("success");
               // history.push("/");
               localStorage.removeItem("app_id");
               localStorage.removeItem("name");
@@ -802,6 +815,14 @@ const SFDCInputs = ({ draftPopup }) => {
         </div>
         <div className="col-lg-2"></div>
       </div>
+      {draftSuccess && (
+        <DraftPopup
+          text="Your Submission is saved!"
+          userID={userID}
+          userPass={userPass}
+        />
+      )}
+      {submitSuccess && <DraftPopup text="Thank you for your submission!" />}
     </div>
   );
 };
