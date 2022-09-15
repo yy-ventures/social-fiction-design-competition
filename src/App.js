@@ -3,7 +3,12 @@ import "./App.css";
 import SbdcRoute from "./Components/Router/sbdc/SbdcRoute";
 import SfdcRoute from "./Components/Router/sfdc/SfdcRoute";
 import Navigation from "./Components/Shared/Navigation/Navigation";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Footer from "./Components/Shared/Footer/Footer";
 import SbdcRegistration from "./Components/Router/sbdc/SbdcRegistration/SbdcRegistration";
 import SFDCRegistration from "./Components/SFDCRegistration/SFDCRegistration";
@@ -51,7 +56,7 @@ function App() {
             </PrivateRoute>
             <Route exact path="/">
               <Home />
-              <InfoBar />
+              {/* <InfoBar /> */}
               <LogoBar />
               <HomePartnersForm />
             </Route>

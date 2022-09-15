@@ -1,99 +1,99 @@
 @import "../../global.scss";
 
 .home-partners-form {
-    .row {
-        z-index: 3;
+  .row {
+    z-index: 3;
+  }
+  .come-up {
+    z-index: 6;
+  }
+  padding: 10%;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .blue-rectangle {
+    position: absolute;
+    width: 700px;
+    height: 400px;
+    border-radius: 10000px;
+    background-color: $darkblue;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    z-index: 1;
+    @media screen and (max-width: 990px) {
+      background-color: $form;
+      width: 500px;
+      height: 300px;
     }
-    .come-up {
-        z-index: 6;
+    @media screen and (max-width: 450px) {
+      display: none;
     }
-    padding: 10%;
-    background-color: #fbfbfb;
-    position: relative;
-    overflow: hidden;
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
+  }
+  .form-rectangle {
+    position: absolute;
+    width: 400px;
+    height: 800px;
+    border-radius: 10000px;
+    background-color: $form;
+    left: 0;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    z-index: 1;
+    @media screen and (max-width: 990px) {
+      background-color: $darkblue;
+      width: 250px;
+      height: 600px;
     }
-    .blue-rectangle {
-        position: absolute;
-        width: 700px;
-        height: 400px;
-        border-radius: 10000px;
-        background-color: $darkblue;
-        right: 0;
-        top: 0;
-        transform: translate(50%, -50%);
-        z-index: 1;
-        @media screen and (max-width: 990px) {
-            background-color: $form;
-            width: 500px;
-            height: 300px;
-        }
-        @media screen and (max-width: 450px) {
-            display: none;
-        }
+    @media screen and (max-width: 450px) {
+      display: none;
     }
-    .form-rectangle {
-        position: absolute;
-        width: 400px;
-        height: 800px;
-        border-radius: 10000px;
-        background-color: $form;
-        left: 0;
-        bottom: 0;
-        transform: translate(-50%, 50%);
-        z-index: 1;
-        @media screen and (max-width: 990px) {
-            background-color: $darkblue;
-            width: 250px;
-            height: 600px;
-        }
-        @media screen and (max-width: 450px) {
-            display: none;
-        }
+  }
+  .home-partners-form-header {
+    z-index: 5;
+    h2 {
+      color: $blue;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 2.4rem;
     }
-    .home-partners-form-header {
-        z-index: 5;
-        h2 {
-            color: $blue;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 2.4rem;
-        }
-        p {
-            color: $darkblue;
-            font-weight: 500;
-        }
+    p {
+      color: $darkblue;
+      font-weight: 500;
     }
-    .home-partners-form-body {
-        z-index: 5;
-        input,
-        textarea {
-            padding: 10px 16px;
-            outline: none;
-            border: none;
-            width: 100%;
-            background-color: inherit;
-            color: $form;
-            border-bottom: 1px solid $form;
-            margin-top: 2rem;
-            &::placeholder {
-                color: $form;
-                opacity: 1;
-                font-weight: 500;
-            }
-        }
-        button {
-            outline: 0;
-            border: 2px solid $darkblue;
-            background-color: $white;
-            color: $darkblue;
-            border-radius: 5px;
-            padding: 8px 32px;
-            text-transform: capitalize;
-            font-weight: 700;
-        }
+  }
+  .home-partners-form-body {
+    z-index: 5;
+    input,
+    textarea {
+      padding: 10px 16px;
+      outline: none;
+      border: none;
+      width: 100%;
+      background-color: inherit;
+      color: $form;
+      border-bottom: 1px solid $form;
+      margin-top: 2rem;
+      &::placeholder {
+        color: $form;
+        opacity: 1;
+        font-weight: 500;
+      }
     }
+    button {
+      outline: 0;
+      border: 2px solid $darkblue;
+      background-color: $white;
+      color: $darkblue;
+      border-radius: 5px;
+      padding: 8px 32px;
+      text-transform: capitalize;
+      font-weight: 700;
+    }
+  }
 }

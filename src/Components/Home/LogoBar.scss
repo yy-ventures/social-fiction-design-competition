@@ -1,48 +1,67 @@
 @import "../../global.scss";
 
 .logobar {
-    background-color: $white;
+  background-color: #dfe9f3;
+  text-align: center;
+  font-family: $font-collection;
+  position: relative;
+  padding: 10% 10%;
+
+  .color-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .color-one {
+      background-color: #3fbbcc;
+    }
+    .color-two {
+      background-color: #f28b8f;
+    }
+    .color-three {
+      background-color: #abce75;
+    }
+    .color-four {
+      background-color: #d97534;
+    }
+  }
+  h4 {
+    font-size: 3.5vmin;
+    color: $blue;
     text-align: center;
-    font-family: $font-collection;
-    position: relative;
-    // height: auto;
-    // min-height: 30vh;
-    // width: 80%;
-    // margin: 0 auto;
-    padding: 10% 10%;
+    font-weight: 300;
+  }
+  @media screen and (min-width: 380px) {
     h4 {
-        font-size: 4.5vmin;
-        font-weight: 900;
-        color: $blue;
-        text-align: center;
+      font-size: 4vmin;
     }
-    @media screen and (min-width: 380px) {
-        h4{
-            font-size: 5vmin;
-        }
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10em;
+    grid-row-gap: 0;
+    place-items: center;
+    margin-top: 2%;
+    @media screen and (max-width: 4280px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(200px, auto);
+      grid-column-gap: 2em;
+      grid-row-gap: 0;
     }
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 10em;
-        grid-row-gap: 0;
-        place-items: center;
-        margin-top: 2%;
-        @media screen and (min-width: 380px) {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: minmax(100px, auto);
-            grid-column-gap: 2em;
-            grid-row-gap: 0;
-        }
-        @media screen and (min-width: 1080px) {
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(100px, auto);
-        }
-        img {
-            object-fit: contain;
-            width: 90%;
-            @media screen and (min-width: 480px) {
-            }
-        }
+    @media screen and (min-width: 1080px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(100px, auto);
     }
+    img {
+      //   height: 10vmin;
+      width: 90%;
+      object-fit: contain;
+    }
+  }
 }
