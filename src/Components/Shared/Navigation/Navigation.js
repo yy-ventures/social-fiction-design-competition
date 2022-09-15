@@ -49,7 +49,7 @@ const Navigation = () => {
           <div>
             <Link to="/">Home</Link>
           </div>
-          <div className="sbdc-dropdown">
+          {/* <div className="sbdc-dropdown">
             <a href="#sbdcRoute" className="sbdc-dropbtn">
               sbdc <i className="fas fa-chevron-down"></i>
             </a>
@@ -57,7 +57,7 @@ const Navigation = () => {
               <Link to="/sbdc">Explore</Link>
               <Link to="/sbdc-registration">Apply</Link>
             </div>
-          </div>
+          </div> */}
           <div className="sbdc-dropdown">
             <a href="#sfdcRoute">
               sfdc <i className="fas fa-chevron-down"></i>
