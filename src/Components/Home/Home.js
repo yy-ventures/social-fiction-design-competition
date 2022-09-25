@@ -87,9 +87,10 @@ export default function Home() {
             </p>
           </div>
           <div className="btn-container">
-            <HashLink to="/sbdc#sdbcHeaderId" className="btn-home button-blue">
+            {/* temporary close */}
+            {/* <HashLink to="/sbdc#sdbcHeaderId" className="btn-home button-blue">
               Read More
-            </HashLink>
+            </HashLink> */}
             <HashLink to="#" className="btn-home button-skyblue">
               Application Closed
             </HashLink>
