@@ -109,7 +109,7 @@ const SfdcRoute = () => {
           target="__blank"
           className="submit"
         >
-          Submit by 15 December!
+          Submit by Jan 31, 2023!
         </a>
         <div className="image-container" data-aos="fade-right">
           <div className="prize-pool">
