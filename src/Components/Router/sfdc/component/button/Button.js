@@ -7,7 +7,7 @@ import "./button.scss";
 export default function Button({ link }) {
   return (
     <a href={link} className="hero-btn" target="__blank">
-      Complete Now{" "}
+      Compete Now{" "}
       <img className="arrow-icon" src={rightArrow} alt="right arrow" />
     </a>
   );
