@@ -44,7 +44,10 @@ function App() {
               <Redirect to="/" />
             </Route>
             <Route exact path="/sfdc-registration">
-              <SFDCRegistration />
+              {/* <SFDCRegistration /> */}
+              <div className="application-closed">
+                <h1>Application is closed</h1>
+              </div>
               {/* <Redirect to="/" /> */}
             </Route>
             <Route exact path="/login">

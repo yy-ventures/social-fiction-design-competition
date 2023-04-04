@@ -2,3 +2,11 @@ body{
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
 }
+
+.application-closed{
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

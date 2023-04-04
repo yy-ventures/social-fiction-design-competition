@@ -31,6 +31,7 @@ import AOS from "aos";
 
 import "./sfdc.scss";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const SfdcRoute = () => {
   useEffect(() => {
@@ -60,7 +61,9 @@ const SfdcRoute = () => {
             </p>
           </div>
           <div className="btn-container">
-            <Button link="https://competitions.yunuscentre.org/sfdc-registration" />
+            <Link to='/sfdc-registration'>
+              <Button />
+            </Link>
           </div>
         </div>
         <div className="hero-section__typewriter">
@@ -104,13 +107,13 @@ const SfdcRoute = () => {
       {/* IDEA SECTION START */}
       <div className="idea-section">
         <div className="layout-2" data-aos="fade-right"></div>
-        <a
+        {/* <a
           href="https://competitions.yunuscentre.org/sfdc-registration"
           target="__blank"
           className="submit"
         >
           Submit by Jan 31, 2023!
-        </a>
+        </a> */}
         <div className="image-container" data-aos="fade-right">
           <div className="prize-pool">
             <p className="text">
@@ -289,7 +292,9 @@ const SfdcRoute = () => {
                   Submit your Social Fiction Writing
                 </span>
                 <div className="btn-container" data-aos="fade-right">
-                  <Button link="https://competitions.yunuscentre.org/sfdc-registration" />
+                  <Link to='/sfdc-registration'>
+                    <Button />
+                  </Link>
                 </div>
               </div>
             </div>
