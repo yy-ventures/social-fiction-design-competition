@@ -55,12 +55,12 @@ export default function Home() {
             <HashLink to="/sfdc#sdbcHeaderId" className="btn-home button-blue">
               Explore
             </HashLink>
-            {/* <HashLink
+            <HashLink
               to="/sfdc-registration#sfdcRegId"
               className="btn-home button-skyblue"
             >
               Apply Now
-            </HashLink> */}
+            </HashLink>
             <HashLink to="#" className="btn-home button-skyblue">
               Application Closed
             </HashLink>
