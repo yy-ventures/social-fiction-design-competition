@@ -84,24 +84,25 @@ const SbdcWhoCanApply = () => {
         </div>
       </section>
       <section className="quote-section">
-  <div className="quote-section__container">
-    <div className="quote-section__text">
-      <p className="quote">
-        “I'm encouraging young people to become Social Business entrepreneurs
-        and contribute to the world, rather than just making money.”
-      </p>
-      <p className="author">
-        <strong>Professor Muhammad Yunus</strong>
-        <br />
-        2006 Nobel Peace Laureate
-      </p>
-    </div>
+        <div className="quote-section__container">
+          <div className="quote-section__text">
+            <p className="quote">
+              “I'm encouraging young people to become Social Business
+              entrepreneurs and contribute to the world, rather than just making
+              money.”
+            </p>
+            <p className="author">
+              <strong>Professor Muhammad Yunus</strong>
+              <br />
+              2006 Nobel Peace Laureate
+            </p>
+          </div>
 
-    <div className="quote-section__image">
-      <img src={YunusImg} alt="Muhammad Yunus" />
-    </div>
-  </div>
-</section>
+          <div className="quote-section__image">
+            <img src={YunusImg} alt="Muhammad Yunus" />
+          </div>
+        </div>
+      </section>
     </>
   );
 };
