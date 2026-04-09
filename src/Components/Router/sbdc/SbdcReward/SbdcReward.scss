@@ -1,231 +1,108 @@
-@import "../../../../global.scss";
-.sbdc-reward{
-    .sbdc-reward-header{
-        height: 500px;
-        padding: 10%;
-        background-color: $primaryColor;
-        position: relative;
-        .winning-head{
-            font-size: 7vmin;
-            color: $deepSkyBlue;
-            font-weight: 900;
-            text-transform: capitalize;
-        }
-        .reward-head{
-            font-size: 7vmin;
-            color: $white;
-            font-weight: 900;
-            text-transform: capitalize;
-        }
-        hr{
-            opacity: 1;
-            height: 5px;
-            width: 50%;
-            color: $deepSkyBlue;
-        }
-        .reward-coin{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            img{
-                height: 25vmin;
-            }
-        }
-    }
-    .sbdc-reward-body{
-        height: 500px;
-        padding: 7.5% 10%;
-        background-color: $lightBlue;
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        position: relative;
-        @media screen and (max-width: 600px) {
-            height: auto;
-            grid-template-columns: 1fr;
-        }
-        .reward-body-top{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            @media screen and (max-width:600px){
-                height: 300px;
-            }
-            h3{
-                color: #1C4065;
-                font-size: 24px;
-            }
-            .marked{
-                color: #1C4065;
-                font-weight: 900;
-            }
-            .reward-prize{
-                padding: 2% 4%;
-                background-color: #1C4065;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                max-width: 300px;
-                border-radius: 10px;
-                margin-top: 2.5%;
-                box-shadow: 10px 10px 0 #48c9d8;
-                h2{
-                    font-weight: 900;
-                    color: #fff;
-                    text-transform: uppercase;
-                    font-size: 42px;
-                    margin-bottom: 0;
-                }
-            }
-            p{
-                color: #1C4065;
-                font-size: 18px;
-            }
-            h2{
-                color: #1C4065;
-                font-weight: 900;
-                font-size: 36px;
-            }
-        }
-        .reward-body-bottom{
-            @media screen and (max-width: 600px) {
-                height: 400px;
-            }
-            .reward-cup{
-                height: 400px;
-                position: absolute;
-                width: 50%;
-                top: 0;
-                right: 0;
-                @media screen and (max-width: 600px) {
-                    position: relative;
-                }
-                img{
-                    position: absolute;
-                    height: 300px;
-                    bottom: 0;
-                    left: 25%;
-                    @media screen and (max-width: 600px) {
-                        height: 350px;
-                        left: 0;
-                    }
-                    @media screen and (min-width: 1441px) {
-                        height: 350px;
-                        left: 50%;
-                    }
-                }
-            }
-            .reward-date{
-                height: 100px;
-                padding: 3% 4%;
-                background-color: #ACE08A;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                border-top-left-radius: 50px;
-                h2{
-                    color: #1C4065;
-                    font-size: 42px;
-                    font-weight: 900;
-                    margin-bottom: 0;
-                }
-            }
-        }
-    }
-}
+.sbdc-reward {
+  background: #eef2f4;
+  padding: 80px 0;
 
-// @media screen and (min-width: 1441px){
-//     .sbdc-reward{
-//         .sbdc-reward-header{
-//             min-height: 600px;
-//             .winning-head{
-//                 font-size: 6vmin;
-//             }
-//             .reward-head{
-//                 font-size: 6vmin;
-//             }
-//             .reward-coin{
-//                 img{
-//                     height: 30vmin;
-//                 }
-//             }
-//         }
-//         .sbdc-reward-body{
-//             min-height: 600px;
-//             padding: 10%;
-//             background-color: $lightBlue;
-//             .reward-list{
-//                 ul{
-//                     width: 100%;
-//                     li {
-//                         padding: 0rem 0 1rem 3em;
-//                         font-size: 3vmin;
-//                         background: url("../../../../assets/list-arrow.svg")
-//                             no-repeat 7px 0px transparent;
-//                         @media screen and (max-width: 700px) {
-//                             background: url("../../../../assets/list-arrow.svg")
-//                                 no-repeat 2px 2px transparent;
-//                         }
-//                         list-style-type: none;
-//                         margin-top: 1rem;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+  .reward-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: auto;
+    position: relative;
+  }
 
-@media screen and (max-width: 900px) {
-    .sbdc-reward{
-        .sbdc-reward-header{
-            .winning-head{
-                font-size: 3rem;
-            }
-            .reward-head{
-                font-size: 3rem;
-            }
-            .reward-coin{
-                img{
-                    height: 25vmin;
-                }
-            }
-        }
-        .sbdc-reward-body{
-            .reward-list{
-                ul{
-                    li{
-                        font-size: 2vmin;
-                    }
-                }
-            }
-            .reward-art{
-                display: none;
-            }
-        }
-    }
-}
+  .reward-left {
+    position: relative;
+    width: 50%;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-@media screen and (max-width: 500px) {
-    .sbdc-reward{
-        .sbdc-reward-header{
-            .reward-coin{
-                img{
-                    height: 50vmin;
-                }
-            }
-        }
-        .sbdc-reward-body{
-            .reward-list{
-                ul{
-                    li{
-                        font-size: 1.2rem;
-                        padding-left: 5rem;
-                    }
-                }
-            }
-        }
+  .beige-shape {
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    background: #FFEFDA;
+    top: 0;
+    left: 0;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    margin-top: 69px;
+    margin-bottom: 147px;
+    img {
+      width: 80%;
+      height: 420px;
+      display: block;
     }
+  }
+
+  .reward-right {
+    width: 50%;
+    padding-left: 80px;
+    position: relative;
+
+    .pill {
+      display: inline-block;
+      background: #46b4be;
+      color: white;
+      padding: 14px 35px;
+      border-radius: 80px;
+      font-weight: 500;
+      margin-bottom: 30px;
+      font-size: 20px;;
+      width: 300px;
+      text-align: center;
+    }
+
+    .badge {
+      position: absolute;
+      top: -58px;
+      right: 188px;
+      width: 180px;
+      height: 180px;
+      background: #d9d93f;
+      border-radius: 50%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        font-weight: 700;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 900;
+      }
+
+      small {
+        font-size: 14px;
+      }
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: #5d7b8c;
+      line-height: 1.3;
+      margin-bottom: 25px;
+      max-width: 600px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #5d6f7a;
+      max-width: 520px;
+    }
+  }
 }
