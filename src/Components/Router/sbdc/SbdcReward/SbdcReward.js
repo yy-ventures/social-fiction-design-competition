@@ -1,7 +1,7 @@
 import React from "react";
 import "./SbdcReward.scss";
 
-// import RewardBackground from "../../../../assets/award/award-left-bg.png";
+
 import Reward from "../../../../assets/award/award-left.png";
 
 const SbdcReward = () => {
