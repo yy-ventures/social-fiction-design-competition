@@ -1,8 +1,7 @@
 @import "../../../../global.scss";
 
 .hero {
-  background: #eef3f5;
-
+  margin-top:62px;
   &__content {
     max-width: 1440px;
     display: flex;
@@ -71,6 +70,7 @@
   }
 }
 .apply-bottom {
+ margin-top:125px;
   background: #eef3f5;
 ;
   &__container {
@@ -130,7 +130,7 @@
 }
 .quote-section {
   padding: 86px 92px;
-
+ margin-top: 280px;
 
   &__container {
     position: relative;
