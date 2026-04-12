@@ -3,6 +3,7 @@ import "./SbdcRegistration.scss";
 import socialFictionLogo from "../../../../assets/sbdc_logo.svg";
 import SbdcInputs from "./SbdcInputs/SbdcInputs";
 import listArrow from '../../../../assets/list-arrow.svg'
+import Link from "react-router-dom/Link";
 
 const SbdcRegistration = () => {
     return (
@@ -12,16 +13,56 @@ const SbdcRegistration = () => {
                     <div className="col-lg-6 sbdc-registration-header-left d-flex align-items-center justify-content-center">
                         <div>
                             <p>
-                            The Social Business Design Competition is a global competition looking for youth-driven entrepreneurial solutions to combat some of the most pressing challenges of our time. Design your very own social business idea to solve a social or environmental issue in your community or around the world!
+                                The{" "}
+                                <span className="deepblue">
+                                  Social Business Design Competition
+                                </span>{" "}
+                                invites innovators, problem-solvers, and aspiring entrepreneurs from all over the world to design impactful solutions that address pressing social and environmental challenges.
                             </p>
-                            <ol>
-                                <li>Fill up the Social Business Design Competition online application.</li>
-                                <li>Submit your personal information and answer all relevant questions.</li>
-                                <li>Upload your Social Business pitch in the PPT, PDF, DOC, MP4 format.
-                                    Visit the online application form to learn more about the pitch requirements we are accepting for the file format. If you have trouble submitting, try resizing your file to upload or contact <span className="highlight-left">info@yunuscentre.org</span>, <span className="highlight-left">info@yy.ventures</span>, or <span className="highlight-left">maisha@yy.ventures</span>.</li>
-                                <li>Click Submit and wait for the submission confirmation pop-up on top of the page.</li>
-                                <li>Receive a confirmation email in your inbox.</li>
-                            </ol>
+                            <strong>Think bold, Think impactful.</strong>
+                            <br />
+                            <strong>Think sustainable.</strong>
+                            <br /><br />
+                            <p>Look around you and identify a challenge that matters. How would you design a business that solves a real problem and improves people’s lives?</p>
+                            <i>
+                                <ul>
+                                    <li>
+                                        Create a Social Business that addresses a real-world problem and contributes to building a better future.
+                                    </li>
+
+                                    <li>
+                                        You can submit your Social Business idea by submitting:
+                                    </li>
+
+                                    <li>
+                                        A presentation slide deck outlining:
+                                        <ul>
+                                            <li>What the business is about</li>
+                                            <li>The problem it is solving</li>
+                                            <li>The proposed solution</li>
+                                            <li>Revenue model</li>
+                                            <li>Financial sustainability approach</li>
+                                            <li>Expected social impact</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        Address one or more of the goals of building a World of Three Zeros: Zero Net Carbon Emissions, Zero Wealth Concentration to End Poverty, Zero Unemployment by Unleashing Entrepreneurship for All
+                                    </li>
+
+                                    <li>
+                                        Fill up the online application form and submit your Social Business idea!
+                                    </li>
+                                </ul>
+                            </i>
+                            <p className="mb-0">
+                                (Before filling up the form, please go through our FAQ section
+                                in this link: <br />
+                                <Link to="/sbdc">
+                                    https://competitions.yunuscentre.org/sbdc
+                                </Link>
+                                )
+                            </p>
                         </div>
                     </div>
                     <div className="col-lg-6 sbdc-registration-header-right">
