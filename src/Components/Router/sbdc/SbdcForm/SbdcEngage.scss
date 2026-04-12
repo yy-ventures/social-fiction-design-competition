@@ -2,30 +2,30 @@
 
 .sbdc-engage {
   background: #DF8B48; 
-  padding: 40px 60px;
-
+  padding: 127px 60px;
+  margin:99px 0;
   .engage-container {
-    max-width: 1400px;
-    margin: auto;
+    max-width: 1440px;
+    margin-left: 181px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+   
+    gap: 50px;
     flex-wrap: wrap;
   }
 
   h2 {
     color: #fff;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 800;
     margin: 0;
     white-space: nowrap;
+    width:319px
   }
 
   p {
     color: #fff;
-    font-size: 18px;
-    max-width: 500px;
+    font-size: 20px;
+    max-width: 367px;
     margin: 0;
     line-height: 1.5;
   }
