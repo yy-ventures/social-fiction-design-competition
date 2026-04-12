@@ -1,6 +1,8 @@
 import "./SbdcWhoCanApply.scss";
 import Apply from "../../../../assets/apply/apply.png";
 import YunusImg from "../../../../assets/dr-yunus.png";
+import GroupImage from "../../../../assets/group-people.png"
+import Globe from "../../../../assets/globe.png"
 
 const SbdcWhoCanApply = () => {
   return (
@@ -60,7 +62,7 @@ const SbdcWhoCanApply = () => {
         <div className="apply-bottom__container">
           <div className="apply-bottom__left">
             <div className="benefit-item">
-              <div className="icon">👥</div>
+              <div className="icon"><img src={GroupImage} alt="Group of people" /></div>
               <p>
                 <strong>No age</strong> <br />
                 restrictions
@@ -68,7 +70,7 @@ const SbdcWhoCanApply = () => {
             </div>
 
             <div className="benefit-item">
-              <div className="icon">🌍</div>
+              <div className="icon"><img src={Globe} alt="" /></div>
               <p>
                 <strong>No geographical</strong> <br />
                 limitations
