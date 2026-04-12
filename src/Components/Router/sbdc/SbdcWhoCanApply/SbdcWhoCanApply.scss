@@ -1,114 +1,373 @@
 @import "../../../../global.scss";
 
-.who-can-apply {
-    position: relative;
-    padding-top: 5%;
-    .fictionOne {
-        position: absolute;
-        height: auto;
-        right: 0;
-        top: 5%;
-        height: 50%;
+.hero {
+  margin-top:62px;
+  &__content {
+    max-width: 1440px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  &__text {
+    flex: 1;
+    margin-left: 181px;
+    h1 {
+      font-size: 50px;
+      font-weight: 800;
+      color: #638394;
+      line-height: 1.3;
+      margin-bottom: 30px;
     }
-    .fictionTwo {
-        position: absolute;
-        height: auto;
-        left: 0;
-        bottom: 0;
-        height: 50%;
-    }
-    .who-can-apply-header {
-        width: 85%;
-        margin: 0 auto;
-        @media screen and (max-width: 600px) {
-            margin: 0;
-        }
-        h2 {
-            color: $primaryColor;
-            font-size: 2.4rem;
-            font-weight: 900;
-        }
-        h3 {
-            color: $secondaryColor;
-            font-size: 2.4rem;
-            font-weight: 700;
-        }
-    }
-    .who-can-apply-body {
-        padding: 2rem 2rem 2rem 2rem;
-        width: 50%;
-        background-color: $skyBlue;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        z-index: 10000;
+    .main-list {
+      list-style: none;
+      padding-left: 0;
+
+      li {
         position: relative;
-        .who-can-apply-body-container {
-            width: 85%;
-            // height: 120vh;
-            margin: 0 auto;
-            ul {
-                margin-top: 2rem;
-                li {
-                    padding: 0.5rem 0 0.5rem 2.5em;
-                    color: $primaryColor;
-                    font-weight: 600;
-                    vertical-align: middle;
-                    background: url("../../../../assets/list-style.svg")
-                        no-repeat 7px 7px transparent;
-                    list-style-type: none;
-                    margin: 0;
-                }
-            }
+        padding-left: 22px;
+        margin-bottom: 18px;
+        font-size: 20px;
+        color: #505050;
+        line-height: 1.6;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 8px;
+
+          width: 6px;
+          height: 6px;
+          background: #2aa6b1;
+          border-radius: 50%;
         }
+      }
     }
-    .who-can-apply-footer {
-        .who-can-apply-list {
-            height: auto;
-            ul {
-                margin-left: -2rem;
-                margin-top: 5rem;
-                li {
-                    padding: 1rem 0 1rem 5em;
-                    color: $primaryColor;
-                    font-weight: 600;
-                    vertical-align: middle;
-                    background: url("../../../../assets/list-arrow.svg")
-                        no-repeat 7px 0px transparent;
-                    @media screen and (max-width: 700px) {
-                        background: url("../../../../assets/list-arrow.svg")
-                            no-repeat 2px 2px transparent;
-                    }
-                    list-style-type: none;
-                    margin-top: 1rem;
-                }
-            }
-        }
+    .sub-list {
+      margin-top: 8px;
+      padding-left: 18px;
+
+      list-style: none;
+
+      li {
+        margin-bottom: 4px;
+        font-size: 13px;
+        color: #5a666b;
+      }
     }
+  }
+  &__image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 601px;
+      height: 601px;
+      object-fit: contain;
+    }
+  }
+}
+.apply-bottom {
+ margin-top:125px;
+  background: #eef3f5;
+;
+  &__container {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+   
+  }
+
+  &__left {
+    width:807px ;
+    background: #FBE771;
+    padding: 24px 40px;
+    border-radius: 14px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .icon {
+      font-size: 26px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 26px;
+      color: #638394;
+      font-weight:800;
+      line-height: 1.4;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__right {
+    width: 505px;
+    text-align: right;
+
+    h2 {
+      font-size: 46px;
+      font-weight: 800;
+      color: #5f7f8a;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0;
+    }
+  }
+}
+.quote-section {
+  padding: 86px 92px;
+ margin-top: 280px;
+
+  &__container {
+    position: relative;
+    max-width: 869px;
+    height:512px;
+   
+  }
+
+  &__text {
+    background: #6f8f9b;
+    color: #fff;
+    padding: 40px 60px;
+    border-radius: 30px;
+    padding-right: 220px;
+  }
+
+  .quote {
+    font-size: 35px;
+    line-height: 1.6;
+    max-width: 422px;
+  }
+
+  .author {
+    margin-top: 20px;
+    font-size: 22px;
+    color: #dce6ea;
+  }
+
+  &__image {
+    position: absolute;
+    right: -270px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__image img {
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+/* ================== TABLET (≤ 1200px) ================== */
+@media (max-width: 1200px) {
+  .hero__text {
+    margin-left: 60px;
+
+    h1 {
+      font-size: 42px;
+    }
+  }
+
+  .hero__image img {
+    width: 480px;
+    height: auto;
+  }
+
+  .apply-bottom__left {
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .apply-bottom__right {
+    width: auto;
+
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .quote-section {
+    margin-top: 160px;
+    padding: 60px 40px;
+  }
+
+  .quote-section__image img {
+    width: 420px;
+    height: 420px;
+  }
+
+  .quote-section__image {
+    right: -120px;
+  }
 }
 
-@media screen and (max-width: 900px) {
-    .who-can-apply {
-        img {
-            display: none;
-        }
-        .who-can-apply-body {
-            width: 100%;
-            padding: 3rem 2rem 3rem 0;
-            border-radius: 0;
-            .who-can-apply-body-container {
-                width: 100%;
-            }
-        }
-        .who-can-apply-footer {
-            .who-can-apply-list {
-                padding: 0 1rem;
-                ul {
-                    margin-top: 3rem;
-                    li {
-                        font-size: 15px;
-                    }
-                }
-            }
-        }
+@media (max-width: 992px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__text {
+    margin: 0 10px;
+
+    h1 {
+      font-size: 34px;
+      text-align: center;
     }
+
+    .main-list li {
+      font-size: 18px;
+    }
+  }
+
+  .hero__image img {
+    width: 360px;
+  }
+
+  .apply-bottom {
+    margin-top: 80px;
+  }
+
+  .apply-bottom__container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .apply-bottom__left {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .benefit-item p {
+    font-size: 20px;
+  }
+
+  .apply-bottom__right {
+    text-align: center;
+
+    h2 {
+      font-size: 30px;
+    }
+  }
+
+  .quote-section {
+    margin-top: 120px;
+    padding: 40px 20px;
+  }
+
+  .quote-section__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .quote-section__text {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .quote {
+    font-size: 26px;
+    max-width: 100%;
+  }
+
+  .author {
+    font-size: 18px;
+  }
+
+  .quote-section__image {
+    position: static;
+    transform: none;
+    margin-top: 30px;
+  }
+
+  .quote-section__image img {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    margin-top: 30px;
+  }
+
+  .hero__text {
+    h1 {
+      font-size: 26px;
+      line-height: 1.4;
+    }
+
+    .main-list li {
+      font-size: 16px;
+    }
+
+    .sub-list li {
+      font-size: 12px;
+    }
+  }
+
+  .hero__image img {
+    width: 260px;
+  }
+
+  .apply-bottom {
+    margin-top: 60px;
+  }
+
+  .apply-bottom__left {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .benefit-item {
+    flex-direction: column;
+    text-align: center;
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .apply-bottom__right h2 {
+    font-size: 24px;
+  }
+
+  .quote-section {
+    margin-top: 80px;
+    padding: 30px 15px;
+  }
+
+  .quote {
+    font-size: 20px;
+  }
+
+  .author {
+    font-size: 16px;
+  }
+
+  .quote-section__image img {
+    width: 180px;
+    height: 180px;
+  }
 }

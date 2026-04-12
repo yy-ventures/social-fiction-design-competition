@@ -1,0 +1,103 @@
+@import "../../../../global.scss";
+
+.sbdc-engage {
+  background: #DF8B48;
+  padding: 127px 60px;
+  margin: 99px 0;
+
+  .engage-container {
+    max-width: 1440px;
+    margin-left: 181px;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 800;
+    margin: 0;
+    white-space: nowrap;
+    width: 319px;
+  }
+
+  p {
+    color: #fff;
+    font-size: 20px;
+    max-width: 367px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .engage-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .sbdc-engage {
+    padding: 80px 40px;
+
+    .engage-container {
+      margin-left: 0;              
+      justify-content: center;
+      text-align: center;
+    }
+
+    h2 {
+      white-space: normal;        
+      width: auto;
+      font-size: 36px;
+    }
+
+    p {
+      max-width: 100%;
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .sbdc-engage {
+    padding: 40px 20px;
+
+    .engage-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    h2 {
+      font-size: 26px;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .engage-icons {
+      justify-content: center;
+
+      img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
