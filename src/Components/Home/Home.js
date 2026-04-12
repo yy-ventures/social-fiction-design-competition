@@ -78,23 +78,17 @@ export default function Home() {
           </div>
         </div>
         <div className="content-container">
-          <h2>
-            <span>PAST</span>
-            <span>COMPETITIONS</span>
-          </h2>
-          <div className="text-container">
-            <p>
-              Unleash your entrepreneurial potential to create a world of three
-              zeros by designing sustainable Social Business models that combat
-              real challenges.
-            </p>
-          </div>
+          <h4 className="sfdc-home-description">
+            Unleash your entrepreneurial potential to create a world of three
+            zeros by designing sustainable Social Business models that combat
+            real challenges.
+          </h4>
           <div className="btn-container">
             {/* temporary close */}
             {/* <HashLink to="/sbdc#sdbcHeaderId" className="btn-home button-blue">
               Read More
             </HashLink> */}
-             <HashLink to="/sfdc#sfdcHeaderId" className="btn-home button-blue">
+             <HashLink to="/sbdc#sbdcHeaderId" className="btn-home button-blue">
               EXPLORE
             </HashLink>
             <HashLink
