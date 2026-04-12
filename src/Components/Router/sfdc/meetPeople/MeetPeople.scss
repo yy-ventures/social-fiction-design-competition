@@ -41,26 +41,30 @@
     }
   }
 
-  &__card {
-    position: relative;
-    background-color: #FBE771;
-    overflow: hidden;
+ &__card {
+  position: relative;
+  background-color: #FBE771;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;   // horizontal center
+  align-items: center;       // vertical center (if needed)
+
+  img {
+    width: 355px;
+    height: 370px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &--winner {
+    width: 347px;
 
     img {
-      width: 355px;
-      height: 370px;
-      object-fit: cover;
-      display: block;
-    }
-
-    &--winner {
-      width: 347px;
-
-      img {
-        height: 320px;
-      }
+      height: 320px;
     }
   }
+}
 
   &__info {
     position: absolute;
