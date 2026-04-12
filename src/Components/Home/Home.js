@@ -61,9 +61,9 @@ export default function Home() {
             >
               Apply Now
             </HashLink>
-            <HashLink to="#" className="btn-home button-skyblue">
-              Application Closed
-            </HashLink>
+            {/*<HashLink to="#" className="btn-home button-skyblue">*/}
+            {/*  Application Closed*/}
+            {/*</HashLink>*/}
           </div>
         </div>
         <div id="sfdc-lightblue-circle-deco" />
@@ -98,14 +98,14 @@ export default function Home() {
               EXPLORE
             </HashLink>
             <HashLink
-              to="/sfdc-registration#sfdcRegId"
+              to="/sbdc-registration#sbdcRegId"
               className="btn-home button-skyblue"
             >
               APPLY NOW
             </HashLink>
-            <HashLink to="#" className="btn-home button-skyblue">
-              Application Closed
-            </HashLink>
+            {/*<HashLink to="#" className="btn-home button-skyblue">*/}
+            {/*  Application Closed*/}
+            {/*</HashLink>*/}
           </div>
         </div>
       </section>
