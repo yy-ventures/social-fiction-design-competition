@@ -1,7 +1,6 @@
 import React from "react";
 import "./SbdcReward.scss";
 
-
 import Reward from "../../../../assets/award/award-left.png";
 
 const SbdcReward = () => {
@@ -15,20 +14,28 @@ const SbdcReward = () => {
           </div>
         </div>
         <div className="reward-right">
-          <div className="pill">Compete and get  a chance to win</div>
+          <div className="pill">
+            Compete and get <br /> a chance to win
+          </div>
 
           <div className="badge">
             <span>USD</span>
             <h2>10,000</h2>
-            <small>to implement your idea!</small>
+            <small>
+              to implement <br /> your idea!
+            </small>
           </div>
 
-          <h1>Look around you and identify a challenge that matters.</h1>
+          <section className="challenge-section">
+            <div className="challenge-container">
+              <h1>Look around you and identify a challenge that matters.</h1>
 
-          <p>
-            How would you design a business that solves a real problem and
-            improves people's lives?
-          </p>
+              <p>
+                How would you design a business that solves a real problem and
+                improves people's lives?
+              </p>
+            </div>
+          </section>
         </div>
       </div>
     </section>

@@ -6,16 +6,15 @@
   .reward-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
     max-width: 1440px;
     position: relative;
-    gap: 40px;
+    // gap: 40px;
   }
 
   .reward-left {
     position: relative;
-    width: 50%;
-    height: 650px;
+    // width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,8 +22,8 @@
 
   .beige-shape {
     position: absolute;
-    width: 75%;
-    height: 100%;
+    width: 532px;
+    height: 817px;
     background: #FFEFDA;
     top: 0;
     left: 0;
@@ -40,37 +39,38 @@
     margin-bottom: 147px;
 
     img {
-      width: 80%;
-      height: 450px;
+      width: 601px;
+      height: 601px;
       display: block;
       object-fit: cover;
     }
   }
 
   .reward-right {
-    width: 50%;
-    padding-left: 80px;
+    // width: 50%;
+    margin-left: 134px;;
     position: relative;
 
     .pill {
       display: inline-block;
       background: #46b4be;
       color: white;
-      padding: 14px 35px;
+      padding: 15px 5px;
       border-radius: 80px;
-      font-weight: 500;
+      font-weight: 400;
       margin-bottom: 30px;
-      font-size: 20px;
-      width: 300px;
+      font-size: 29px;
+      width: 380px;
       text-align: center;
+       margin-bottom:106px;
     }
 
     .badge {
       position: absolute;
-      top: -58px;
-      right: 168px;
-      width: 180px;
-      height: 180px;
+      top: -48px;
+      right: 18px;
+      width: 207px;
+      height: 207px;
       background: #d9d93f;
       border-radius: 50%;
       text-align: center;
@@ -78,35 +78,42 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+     
 
       span {
-        font-weight: 700;
+        font-weight: 800;
+         font-size: 40px;
+        color: #638394
       }
 
       h2 {
         margin: 0;
-        font-size: 32px;
+        font-size: 40px;
         font-weight: 900;
+         color: #638394
       }
 
       small {
-        font-size: 14px;
+        font-size: 24px;
+         color: #638394
       }
     }
 
     h1 {
-      font-size: 42px;
+      font-size: 52px;
       font-weight: 800;
       color: #5d7b8c;
       line-height: 1.3;
-      margin-bottom: 25px;
-      max-width: 600px;
+      margin-bottom: 45px;
+      max-width: 540px;
+      text-align: right;
     }
 
     p {
-      font-size: 18px;
+      font-size: 28px;
       color: #5d6f7a;
-      max-width: 520px;
+      max-width: 498px;
+      text-align: right;
     }
   }
 
