@@ -6,16 +6,12 @@ import SbdcTrack from "./SbdcTrack/SbdcTrack";
 import SbdcWhoCanApply from "./SbdcWhoCanApply/SbdcWhoCanApply";
 
 const SbdcRoute = () => {
-  // const title = document.getElementsByTagName
   return (
     <div>
       <SbdcHeader />
       <SbdcReward />
       <SbdcWhoCanApply />
       <SbdcTrack />
-      {/* <SbdcTimeline />
-      <SbdcSubmitIdea />
-      <SbdcFaq /> */}
       <SbdcEngage />
     </div>
   );
