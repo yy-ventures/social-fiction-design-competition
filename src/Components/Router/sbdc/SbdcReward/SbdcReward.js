@@ -1,4 +1,3 @@
-import React from "react";
 import "./SbdcReward.scss";
 
 import Reward from "../../../../assets/award/award-left.png";
