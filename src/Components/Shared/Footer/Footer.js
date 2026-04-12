@@ -1,6 +1,6 @@
 import "./Footer.scss";
 import Media from "../../Router/sfdc/component/media/media";
-import yunusLogo from "../../../assets/images/logos/yc-white.png";
+// import yunusLogo from "../../../assets/images/logos/yc-white.png";
 import yyvLogo from "../../../assets/images/logos/yyv-white.png";
 
 
@@ -11,9 +11,9 @@ const Footer = () => {
         <div className="brought-by">
           <h3>Brought to you by</h3>
           <div className="logo-container">
-            <a href="/">
+            {/* <a href="/">
               <img src={yunusLogo} alt="yunus-logo" />
-            </a>
+            </a> */}
             <a href="https://yy.ventures/" target="__blank">
               <img src={yyvLogo} alt="yyv-logo" />
             </a>
