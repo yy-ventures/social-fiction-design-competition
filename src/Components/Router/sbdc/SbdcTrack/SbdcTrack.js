@@ -1,6 +1,9 @@
 import "./SbdcTrack.scss";
 import Light from "../../../../assets/light.png";
 import UpperBg from "../../../../assets/solution-bg.png"
+import RightArrow from "../../../../assets/sbdc/right-arrow.png";
+import {Link} from "react-router-dom";
+import React from "react";
 
 const SbdcTrack = () => {
   return (
@@ -10,9 +13,11 @@ const SbdcTrack = () => {
           <p>Want to build</p>
           <h2>a solution for</h2>
           <p>a better world?</p>
-          <button>
-            Complete Now <span>→</span>
-          </button>
+          <Link to="/sbdc-registration">
+            <button>
+              Complete Now <span>→</span>
+            </button>
+          </Link>
         </div>
       </div>
 
