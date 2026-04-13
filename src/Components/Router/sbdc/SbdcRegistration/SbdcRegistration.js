@@ -25,7 +25,7 @@ const SbdcRegistration = () => {
                             <br /><br />
                             <p>Look around you and identify a challenge that matters. How would you design a business that solves a real problem and improves people’s lives?</p>
                             <i>
-                                <ul>
+                                <ol>
                                     <li>
                                         Create a Social Business that addresses a real-world problem and contributes to building a better future.
                                     </li>
@@ -53,7 +53,7 @@ const SbdcRegistration = () => {
                                     <li>
                                         Fill up the online application form and submit your Social Business idea!
                                     </li>
-                                </ul>
+                                </ol>
                             </i>
                             <p className="mb-0">
                                 (Before filling up the form, please go through our FAQ section
