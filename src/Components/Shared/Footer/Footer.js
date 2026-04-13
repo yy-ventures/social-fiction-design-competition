@@ -1,15 +1,8 @@
-import React from "react";
 import "./Footer.scss";
-// COMPONENTS
 import Media from "../../Router/sfdc/component/media/media";
-// LOGO
-import yunusLogo from "../../../assets/images/logos/yc-white.png";
+// import yunusLogo from "../../../assets/images/logos/yc-white.png";
 import yyvLogo from "../../../assets/images/logos/yyv-white.png";
-// ICONS
-import facebookIcon from "../../../assets/icon/facebook.png";
-import whatsappIcon from "../../../assets/icon/whatsApp.png";
-import webIcon from "../../../assets/icon/website.png";
-import upArrowIcon from "../../../assets/icon/up-arrow.png";
+
 
 const Footer = () => {
   return (
@@ -18,9 +11,9 @@ const Footer = () => {
         <div className="brought-by">
           <h3>Brought to you by</h3>
           <div className="logo-container">
-            <a href="/">
+            {/* <a href="/">
               <img src={yunusLogo} alt="yunus-logo" />
-            </a>
+            </a> */}
             <a href="https://yy.ventures/" target="__blank">
               <img src={yyvLogo} alt="yyv-logo" />
             </a>
@@ -45,11 +38,6 @@ const Footer = () => {
         <span className="reserved-2">
           © 2022 Yunus Centre. All rights reserved.
         </span>
-      </div>
-      <div className="main-footer__arrow-container">
-        <a href="#">
-          <img src={upArrowIcon} alt="arrow icon" />
-        </a>
       </div>
     </footer>
   );

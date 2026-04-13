@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 // components
 import SfdcFaq from "./SfdcFaq/SfdcFaq";
+import MeetPeople from "./meetPeople/MeetPeople";
 import Button from "./component/button/Button";
 import Media from "./component/media/media";
 // images
@@ -13,8 +14,7 @@ import noteImage from "../../../assets/sfdc/images/note.png";
 import yunusImage from "../../../assets/sfdc/images/yunus.png";
 import canvas from "../../../assets/sfdc/images/canvas.png";
 // icons
-import rightArrow from "../../../assets/sfdc/icons/right-arrow.png";
-import shortArrow from "../../../assets/sfdc/icons/short-arrow.png";
+
 import pointIcon from "../../../assets/sfdc/icons/point.png";
 import earth from "../../../assets/sfdc/icons/earth.png";
 import group from "../../../assets/sfdc/icons/group.png";
@@ -382,7 +382,8 @@ const SfdcRoute = () => {
         </div>
       </div>
       {/* SOCIAL SECTION END */}
-      <SfdcFaq />
+      {/* <SfdcFaq /> */}
+      <MeetPeople />
     </div>
   );
 };

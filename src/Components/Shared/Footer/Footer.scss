@@ -1,19 +1,19 @@
 @import "../../../global.scss";
 .main-footer {
   display: flex;
+   background-color: #638394;
   &__container {
-    padding: 50px 100px;
-    border-radius: 0 188px 0 0;
-    width: max-content;
+    padding: 50px 0;
+    width: 1440px;
     height: 100%;
-    background-color: #223c4d;
-
+    margin-left: 181px;
     display: flex;
     justify-content: space-between;
     gap: 5rem;
 
     @media screen and (max-width: 1024px) {
       padding: 50px;
+       margin-left:10px;
     }
 
     @media screen and (max-width: 600px) {
@@ -22,6 +22,7 @@
       padding: 30px 40px;
       border-radius: 0;
       gap: 0;
+      margin-left:10px;
     }
     @media screen and (min-width: 1921px) {
       width: 70%;
@@ -33,7 +34,7 @@
     h3 {
       font-size: 24px;
       font-weight: 700;
-      color: #ff9a4e;
+      color: #fff;
 
       @media screen and (max-width: 1220px) {
         font-size: 20px;
