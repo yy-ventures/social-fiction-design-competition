@@ -90,7 +90,7 @@ const SFDCInputs = () => {
     rhetoric: "Format: .mp3, .mp4, or .avi",
     animation: "Format: .mp4 and .mov",
     poster_presentation: "Format: .pdf, .jpeg, .jpg and, .png",
-    writing: "Format: .pdf",
+    writing: "",
     illustration: "Format: .jpeg, jpg and .png",
     cinematography: "Format: .mp4 and .mov",
   };
@@ -620,7 +620,7 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                  Tell us bit more about the 3zero goal you wish to address and your fictional pathway to achieve it
+                  Tell us bit more about the 3ZERO goal you wish to address and your fictional pathway to achieve it
                   <span className="red"> *</span>
                   <br />
                   <span className="bold"> In maximum 10 sentences.</span>
@@ -746,7 +746,7 @@ const SFDCInputs = () => {
                         className="form-control"
                         type="file"
                         id="formFile"
-                        accept="application/pdf"
+                        accept="*"
                         multiple
                         onChange={handleTestChange}
                       />
