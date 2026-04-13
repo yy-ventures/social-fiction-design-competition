@@ -33,41 +33,52 @@ const SFDCRegistration = () => {
                 <span className="deepblue">
                   Social Fiction Design Competition
                 </span>{" "}
-                invites visionaries and dreamers all over the world with a knack
-                for creative writing to share how they wish to see the world and
-                the lives of young people in the year 2050.
+                invites visionaries and dreamers all over the world with a knack for creative writing to share how they wish to see the world and the lives of young people in the year 2050.
               </p>
               <strong>Think fun, Think innovative.</strong>
               <br />
               <strong>Be Optimistic.</strong>
               <p></p>
               <p>
-                Sit back and imagine a world in 2050. <br /> How do you wish to
-                see the life of a young person in the year 2050?
+                Sit back and imagine a world in 2050. <br />How do you wish to see the life of a young person in the year 2050?
               </p>
 
               <ol>
                 <li>
-                  In min 1000 - max 5000 words, write a Social Fiction, taking
-                  the readers on a tour of what this fictional world in 2050
-                  looks like.
+                  Create a Social Fiction that takes us on a journey into the world of 2050.
                 </li>
+
                 <li>
-                  Address one or more social and environmental focus areas in
-                  your writing: <br />
-                  Climate Change, Micro-credit, Agriculture, Technology and
-                  Innovation, Transport, Literature, Music, Waste, Circular
-                  Economy, Tourism, WASH, Employment, Sports, Health &
-                  Well-being etc
+                  You can submit your Social Fiction in any of the following formats:
+                  <ul>
+                    <li>Written stories / essays (1000–5000 words)</li>
+                    <li>Short films / video stories</li>
+                    <li>Reels / short-form video content</li>
+                    <li>Animation (2D / 3D / motion graphics)</li>
+                    <li>Photography series</li>
+                    <li>Digital illustrations / artwork</li>
+                    <li>Paintings / visual art</li>
+                    <li>Graphic novels / comics</li>
+                    <li>Audio storytelling / podcasts / spoken word</li>
+                    <li>Interactive media (web-based storytelling, digital experiences)</li>
+                  </ul>
                 </li>
+
+                <li>
+                  Address one or more of the goals of building a World of Three Zeros:
+                  <br />
+                  Zero Net Carbon Emissions, Zero Wealth Concentration to End Poverty,
+                  Zero Unemployment by Unleashing Entrepreneurship for All.
+                </li>
+
                 <li>
                   Tell us how key players in the government, corporate houses,
-                  educational institutions, local businesses and/or community
-                  members are contributing to this new world.
+                  educational institutions, local businesses and/or community members
+                  are contributing to this new world.
                 </li>
+
                 <li>
-                  Fill up the online application form. Upload and submit your
-                  Social Fiction writing!
+                  Fill up the online application form. Upload and submit your Social Fiction!
                 </li>
               </ol>
               <p className="mb-0">

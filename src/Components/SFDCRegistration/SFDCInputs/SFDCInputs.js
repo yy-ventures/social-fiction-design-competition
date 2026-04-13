@@ -27,6 +27,7 @@ const SFDCInputs = () => {
   const [draftYourSocialProblem, setDraftYourSocialProblem] = useState("");
   const [draftSocialFictionUnique, setDraftSocialFictionUnique] = useState("");
   const [draftSolutionImpact, setDraftSolutionImpact] = useState("");
+  const [draftPlanToUtilization, setPlanToUtilization] = useState("");
   const [draftURL, setDraftURL] = useState("");
   const [draftCategory, setDraftCategory] = useState("");
 
@@ -76,6 +77,7 @@ const SFDCInputs = () => {
         setDraftYourSocialProblem(data.data && data.data.social_problems);
         setDraftSocialFictionUnique(data.data && data.data.unique_solutions);
         setDraftSolutionImpact(data.data && data.data.impact_of_fictional_solution);
+        setPlanToUtilization(data.data && data.data.plan_to_utilization);
         setDraftCategory(data.data && data.data.type_of_content);
       });
   }, [app_id]);
@@ -88,7 +90,7 @@ const SFDCInputs = () => {
     rhetoric: "Format: .mp3, .mp4, or .avi",
     animation: "Format: .mp4 and .mov",
     poster_presentation: "Format: .pdf, .jpeg, .jpg and, .png",
-    writing: "Format: .pdf",
+    writing: "",
     illustration: "Format: .jpeg, jpg and .png",
     cinematography: "Format: .mp4 and .mov",
   };
@@ -219,6 +221,14 @@ const SFDCInputs = () => {
     }
   };
 
+  const handlePlanToUtilization = (e) => {
+    if (e.target.value.split(" ").length - 1 > 99) {
+      alert("Please Describe in 100 words");
+    } else {
+      setPlanToUtilization(e.target.value);
+    }
+  }
+
   const handleSolutionImpact = (e) => {
     if (e.target.value.split(" ").length - 1 > 99) {
       alert("Please Describe in 100 words");
@@ -266,6 +276,7 @@ const SFDCInputs = () => {
       formdata.append("other_social_problem", draftOtherSocialProblem);
       formdata.append("unique_solutions", draftSocialFictionUnique);
       formdata.append("impact_of_fictional_solution", draftSolutionImpact);
+      formdata.append("plan_to_utilization", draftPlanToUtilization);
       formdata.append("type_of_content", draftCategory || "writing");
       formdata.append("submission_type", "draft");
       formdata.append("app_id", newApp_id ? newApp_id : "");
@@ -341,6 +352,7 @@ const SFDCInputs = () => {
       formdata.append("other_social_problem", draftOtherSocialProblem === "" ? "null" : draftOtherSocialProblem);
       formdata.append("unique_solutions", draftSocialFictionUnique);
       formdata.append("impact_of_fictional_solution", draftSolutionImpact);
+      formdata.append("plan_to_utilization", draftPlanToUtilization);
       formdata.append("type_of_content", draftCategory || "writing");
       formdata.append("submission_type", "submission");
       formdata.append("app_id", app_id);
@@ -375,12 +387,12 @@ const SFDCInputs = () => {
         draftInstitution &&
         draftValidPhoneNumber &&
         draftValidEmail &&
-        draftGender &&
+        // draftGender &&
         draftDOB &&
         draftCountry &&
         draftAreaOfFocusChange &&
         draftYourSocialProblem &&
-        draftYourSocialProblem &&
+        draftPlanToUtilization &&
         draftSocialFictionUnique &&
         draftSolutionImpact &&
         draftCategory &&
@@ -415,7 +427,7 @@ const SFDCInputs = () => {
             console.error(error);
           });
       } else {
-        alert("Some form Fields are Missing! Please re  select your Country, Gender, Fictional World Address Field!");
+        alert("Some form Fields are Missing! Please re  select your Country, Fictional World Address Field!");
         setIsSubmitting(false);
         setIsDisabled(false);
       }
@@ -476,20 +488,30 @@ const SFDCInputs = () => {
                   required
                 />
               </div>
-
               <div className="mt-5 col-lg-6">
                 <h5>
-                  Gender <span className="red">*</span>
+                  E-mail <span className="red">*</span>
                 </h5>
-                <select onChange={handleGender} className="form-select mt-3">
-                  <option>Select gender</option>
-                  {gender.map((gd, index) => (
-                    <option key={index} selected={gd.value === filledForm?.gender} value={gd.value}>
-                      {gd.title}
-                    </option>
-                  ))}
-                </select>
+                <input
+                    type="email"
+                    defaultValue={filledForm !== null ? filledForm.email : ""}
+                    onChange={handleValidEmail}
+                    required
+                />
               </div>
+              {/*<div className="mt-5 col-lg-6">*/}
+              {/*  <h5>*/}
+              {/*    Gender <span className="red">*</span>*/}
+              {/*  </h5>*/}
+              {/*  <select onChange={handleGender} className="form-select mt-3">*/}
+              {/*    <option>Select gender</option>*/}
+              {/*    {gender.map((gd, index) => (*/}
+              {/*      <option key={index} selected={gd.value === filledForm?.gender} value={gd.value}>*/}
+              {/*        {gd.title}*/}
+              {/*      </option>*/}
+              {/*    ))}*/}
+              {/*  </select>*/}
+              {/*</div>*/}
             </div>
             <div className="row mt-5">
               <div className="mt-5 col-lg-6">
@@ -505,17 +527,7 @@ const SFDCInputs = () => {
                   ))}
                 </select>
               </div>
-              <div className="mt-5 col-lg-6">
-                <h5>
-                  E-mail <span className="red">*</span>
-                </h5>
-                <input
-                  type="email"
-                  defaultValue={filledForm !== null ? filledForm.email : ""}
-                  onBlur={handleValidEmail}
-                  required
-                />
-              </div>
+
             </div>
 
             <div className="row mt-5 register-gender">
@@ -567,22 +579,22 @@ const SFDCInputs = () => {
                 </div>
               </div>
             </div>
-            <div className="extra-title mt-5">
-              <p>Imagine the life of a young person in the world of 2050.</p>
-              <p>Visualise how this fictional world of the future is different from the world we live in now.</p>
-            </div>
+            {/*<div className="extra-title mt-5">*/}
+            {/*  <p>Imagine the life of a young person in the world of 2050.</p>*/}
+            {/*  <p>Visualise how this fictional world of the future is different from the world we live in now.</p>*/}
+            {/*</div>*/}
             {/* area of focus */}
             <div className="row mt-3 register-focus d-flex align-items-center">
               <div className="col-lg-8">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
-                  What key social or environmental issues does this fictional world of yours address?
+                  Which of the following 3 Zero goal you are addressing?
                   <span className="red"> *</span>
                 </h5>
               </div>
               <div className="col-lg-4">
                 <select className="form-select" onChange={handleAreaOfFocus}>
-                  <option>Select Area Of Focus</option>
+                  <option>Select Goal</option>
                   {areaOfFocus.map((newArea, index) => (
                     <option key={index} selected={newArea.value === filledForm?.area_of_focus} value={newArea.value}>
                       {newArea.title}
@@ -590,25 +602,25 @@ const SFDCInputs = () => {
                   ))}
                 </select>
               </div>
-              <div className="col-lg-4">
-                {draftAreaOfFocusChange === "others" ? (
-                  <div>
-                    <label>If others, please specify:</label>
-                    <input
-                      type="text"
-                      defaultValue={filledForm !== null ? filledForm.other_social_problem : ""}
-                      onChange={HandleOtherSocialProblem}
-                    />
-                  </div>
-                ) : (
-                  ""
-                )}
-              </div>
+              {/*<div className="col-lg-4">*/}
+              {/*  {draftAreaOfFocusChange === "others" ? (*/}
+              {/*    <div>*/}
+              {/*      <label>If others, please specify:</label>*/}
+              {/*      <input*/}
+              {/*        type="text"*/}
+              {/*        defaultValue={filledForm !== null ? filledForm.other_social_problem : ""}*/}
+              {/*        onChange={HandleOtherSocialProblem}*/}
+              {/*      />*/}
+              {/*    </div>*/}
+              {/*  ) : (*/}
+              {/*    ""*/}
+              {/*  )}*/}
+              {/*</div>*/}
             </div>
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                  Tell us a bit about the fictional world you have imagined for the year 2050.
+                  Tell us bit more about the 3ZERO goal you wish to address and your fictional pathway to achieve it
                   <span className="red"> *</span>
                   <br />
                   <span className="bold"> In maximum 10 sentences.</span>
@@ -623,7 +635,7 @@ const SFDCInputs = () => {
             <div className="row mt-5">
               <div className="col-lg-12 mt-5">
                 <h5>
-                  What makes your solution Social Fiction unique? <span className="red">*</span>
+                  What makes your solution unique? <span className="red">*</span>
                   <br />
                   <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
@@ -636,7 +648,7 @@ const SFDCInputs = () => {
             <div className="mt-5">
               <div className="col-lg-12 pt-5">
                 <h5>
-                  What impact on the environment, economy and/or communities do you see in your fictional world in 2050?
+                  What impact can your fictional pathway bring to environment, economy and communities?
                   <span className="red"> *</span> <br />
                   <span className="bold"> In maximum 10 sentences.</span>
                 </h5>
@@ -646,21 +658,74 @@ const SFDCInputs = () => {
                 ></textarea>
               </div>
             </div>
+            <div className="mt-5">
+              <div className="col-lg-12 pt-5">
+                <h5>
+                  If selected as the winner, how do you plan to utilize the USD 10,000 grant to bring your Social Fiction vision to life?
+                  <i>Please describe how the funds will be used to translate your idea into real-world outcomes. This could include developing projects, producing creative outputs (e.g., film, multimedia, storytelling), building prototypes, or initiating activities that bring your envisioned future closer to reality and create tangible impact. Provide a financial breakdown with key outputs.</i>
+                  <span className="red"> *</span> <br />
+                  <span className="bold"> In maximum 10 sentences.</span>
+                </h5>
+                <textarea
+                    defaultValue={filledForm !== null ? filledForm.plan_to_utilization : ""}
+                    onChange={handlePlanToUtilization}
+                ></textarea>
+              </div>
+            </div>
             <div className="row mt-5">
               <div className="col-lg-8 mt-5">
                 <h5 className="extra-headline">
                   <strong>
-                    Write 1000-5000 words of a Social Fiction about what this fictional world in 2050 looks like.
+                    Upload your idea in any of the creative category:
                   </strong>
-                  <div className="extra-title">
+
+                  <div className="extra-title mt-3">
+                    <ul>
+                      <li>Written stories / essays (1000–5000 words)</li>
+                      <li>Short films / video stories</li>
+                      <li>Reels / short-form video content</li>
+                      <li>Animation (2D / 3D / motion graphics)</li>
+                      <li>Photography series</li>
+                      <li>Digital illustrations / artwork</li>
+                      <li>Paintings / visual art</li>
+                      <li>Graphic novels / comics</li>
+                      <li>Audio storytelling / podcasts / spoken word</li>
+                      <li>Interactive media (web-based storytelling, digital experiences)</li>
+                    </ul>
+
                     <br />
-                    <p>What does this world look like? .</p>
-                    <p>What makes it different from the world we live in now? </p>
-                    <p>What are some of the innovations and advancements made? </p>
-                    <p>Who are the key players in this fictional world?</p>
+
+                    <ul>
+                      <li>
+                        In 1000 words, share your area of writing about a re-imagined future without social problems.
+                        <br />Format: .docx or .pdf
+                      </li>
+
+                      <li>
+                        In maximum 15 minutes, submit your short film about a re-imagined future without social problems.
+                        <br />Format: .mp4
+                      </li>
+
+                      <li>
+                        Submit a maximum of 5 photographs for the photography series.
+                        <br />Format: .jpeg or .pdf
+                      </li>
+
+                      <li>
+                        Submit a maximum of 5 digital illustrations for the artwork segment.
+                        <br />Format: .jpeg or .pdf
+                      </li>
+
+                      <li>
+                        Submit a maximum of 5 paintings.
+                        <br />Format: .jpeg or .pdf
+                      </li>
+                    </ul>
                   </div>
+
                   <br />
-                  Upload your social fiction.<span className="red"> *</span>
+
+                  Choose File<span className="red"> *</span>
                 </h5>
               </div>
               <div className="col-lg-4 mt-5">
@@ -681,7 +746,7 @@ const SFDCInputs = () => {
                         className="form-control"
                         type="file"
                         id="formFile"
-                        accept="application/pdf"
+                        accept="*"
                         multiple
                         onChange={handleTestChange}
                       />

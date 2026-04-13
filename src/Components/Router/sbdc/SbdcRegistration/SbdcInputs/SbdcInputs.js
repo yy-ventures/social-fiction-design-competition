@@ -30,13 +30,13 @@ const SbdcInputs = () => {
 
   const handleTestChange = (e) => {
     const file = e.target.files[0];
-    const limit = 2 * 1024 * 1024;
+    const limit = 10 * 1024 * 1024; // 10MB
 
     if (!file) return;
 
     if (file.size > limit) {
       alert(
-          `Please upload file under 2MB. Your file is ${Math.round(
+          `Please upload file under 10MB. Your file is ${Math.round(
               file.size / 1048576
           )}MB`
       );
@@ -182,12 +182,12 @@ const SbdcInputs = () => {
 
   return (
     <div className="sbdc-registration-input">
-      <div className="form-input-header text-center mt-5">
-        <p>
-          *Please fill up this form to submit your idea if you are of{" "}
-          <span className="bold">age 12 to 35.</span>
-        </p>
-      </div>
+      {/*<div className="form-input-header text-center mt-5">*/}
+      {/*  <p>*/}
+      {/*    *Please fill up this form to submit your idea if you are of{" "}*/}
+      {/*    <span className="bold">age 12 to 35.</span>*/}
+      {/*  </p>*/}
+      {/*</div>*/}
       <div className="row">
         <div className="col-lg-2"></div>
         <div className="col-lg-8">
@@ -646,7 +646,8 @@ const SbdcInputs = () => {
                   className="form-select"
                   onChange={handleAreaOfFocus}
                 >
-                  <option selected defaultValue="zerounemployment">
+                  <option>Select sector</option>
+                  <option defaultValue="zerounemployment">
                     Zero unemployment if the business creates jobs, skills, or entrepreneurship.
                   </option>
                   <option defaultValue="zeropoverty">Zero poverty if it improves income, access, or livelihoods.</option>
@@ -672,7 +673,8 @@ const SbdcInputs = () => {
               </div>
               <div className="col-lg-4">
                 <select required {...register("StageOfVentures")} className="form-select">
-                  <option selected defaultValue="ideaconcept">
+                  <option>Select stage</option>
+                  <option defaultValue="ideaconcept">
                     Ideation/Concept
                   </option>
                   <option defaultValue="prototype">Prototype/MVP Pilot/Testing</option>
@@ -848,8 +850,8 @@ const SbdcInputs = () => {
               <div className="row">
                 <div className="col-lg-7">
                   <h5>
-                    Please upload your Pitch Deck
-                    <span>Make sure to include slides on <i className="bold">What the business is about; The problem it is solving; The proposed solution; Revenue model; Financial sustainability approach; Expected social impact.</i></span>
+                    Please upload your Pitch Deck.
+                    <span> Make sure to include slides on <i className="bold">What the business is about; The problem it is solving; The proposed solution; Revenue model; Financial sustainability approach; Expected social impact.</i></span>
                     <span className="red">*</span>
                   </h5>
                 </div>
@@ -874,14 +876,14 @@ const SbdcInputs = () => {
                 {/*</div>*/}
               </div>
             </div>
-            <div className="registration-footer mt-2">
-              <p>
-                ***Submit an introduction to your team and Social Business idea. Mention the problem
-                you aim to address and the proposed solution. <br /> Briefly highlight any relevant
-                information regarding Beneficiaries, Value Proposition, Achievements, Financial
-                forecasts etc.{" "}
-              </p>
-            </div>
+            {/*<div className="registration-footer mt-2">*/}
+            {/*  <p>*/}
+            {/*    ***Submit an introduction to your team and Social Business idea. Mention the problem*/}
+            {/*    you aim to address and the proposed solution. <br /> Briefly highlight any relevant*/}
+            {/*    information regarding Beneficiaries, Value Proposition, Achievements, Financial*/}
+            {/*    forecasts etc.{" "}*/}
+            {/*  </p>*/}
+            {/*</div>*/}
             <div className="mt-5 text-center">
               <button type="submit" disabled={isDisabled}>
                 {" "}
