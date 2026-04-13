@@ -19,25 +19,25 @@ const Footer = () => {
             </a>
           </div>
           <span className="reserved-1">
-            © 2022 Yunus Centre. All rights reserved.
+            © 2026 Yunus Centre. All rights reserved.
           </span>
         </div>
         <div className="find-us">
           <h3>Find us at</h3>
-          <p>A: 16th Floor,</p>
+          <p>A: 9th Floor,</p>
           <p>Grameen Bank Bhaban,</p>
           <p>Mirpur - 2, Dhaka - 1216,</p>
           <p>Bangladesh</p>
         </div>
         <div className="write-us">
           <h3>Write to us</h3>
-          <p>E: info@yunuscentre.org</p>
-          <p>WhatsApp: +880 1810-061591 </p>
+          <p>E: info@yy.ventures</p>
+          <p>WhatsApp: +880 1648-397420 </p>
           <Media />
         </div>
-        <span className="reserved-2">
-          © 2022 Yunus Centre. All rights reserved.
-        </span>
+        {/* <span className="reserved-2">
+          © 2026 Yunus Centre. All rights reserved.
+        </span> */}
       </div>
     </footer>
   );

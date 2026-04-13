@@ -103,7 +103,7 @@
 
   .track-right {
     position: absolute;
-    right: 8%;
+    right: 35%;
     top: 50%;
     transform: translateY(-50%);
 
@@ -245,11 +245,11 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .sbdc-track {
     .track-right {
       position: absolute;
-      right: 35%;
+      right: 18%;
       top: 50%;
       transform: translateY(-50%);
 
