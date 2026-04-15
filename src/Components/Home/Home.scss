@@ -332,7 +332,18 @@
         object-fit: contain;
       }
     }
-
+    h4.sbdc-home-description {
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 100%;
+      display: block;
+      line-height: 1.8rem;
+      max-width: 35ch;
+      @media screen and (min-width: 1200px) {
+        font-size: 3.5vmin;
+        line-height: 5vmin;
+      }
+    }
     .logo-container {
       display: flex;
       align-items: center;

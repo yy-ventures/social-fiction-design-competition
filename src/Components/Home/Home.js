@@ -82,7 +82,7 @@ export default function Home() {
           </div>
         </div>
         <div className="content-container">
-          <h4 className="sfdc-home-description">
+          <h4 className="sbdc-home-description">
             Unleash your entrepreneurial potential to create a world of three
             zeros by designing sustainable Social Business models that combat
             real challenges.
