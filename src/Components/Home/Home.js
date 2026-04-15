@@ -1,5 +1,5 @@
 import "./Home.scss";
-import headerimage from "../../assets/images/header2x.jpg";
+import headerimage from "../../assets/PMY.png";
 import sbdclogo from "../../assets/sbdc/logo/sbdc.png";
 import sfdclogo from "../../assets/sfdc/logo/logo.png";
 import randomlightbluedecoleft from "../../assets/images/fiction_el_2.png";
@@ -10,7 +10,7 @@ export default function Home() {
     <section className="home-main-section" id="aboutRoute">
       <section className="home-header">
         <div className="home-header-text">
-          <h2>Imagine the Future</h2>
+          <h1>Imagine the Future</h1>
           <h1>Build the Future</h1>
         </div>
         <p className="home-header-description">
