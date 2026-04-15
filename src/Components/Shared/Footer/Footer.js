@@ -16,9 +16,9 @@ const Footer = () => {
         </div>
         <div className="find-us">
           <h3>Find us at</h3>
-          <p>A: Level 9,</p>
-          <p>Grameen Telecom, Trust Bhaban,</p>
-          <p>Zoo Road, Dhaka 1216,</p>
+          <p>A: 9th Floor,</p>
+          <p>Grameen Bank Bhaban,</p>
+          <p>Mirpur-2, Dhaka 1216,</p>
           <p>Bangladesh</p>
         </div>
         <div className="write-us">
@@ -27,9 +27,9 @@ const Footer = () => {
           <p>WhatsApp: +880 1648-397420 </p>
          
         </div>
-        <span className="reserved-2">
+        {/* <span className="reserved-2">
           © 2026 YY Ventures. All rights reserved.
-        </span>
+        </span> */}
       </div>
     </footer>
   );

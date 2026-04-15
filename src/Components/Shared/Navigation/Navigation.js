@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import "./Navigation.scss";
-import yunusLogo from "../../../assets/yunus_center.png";
+import yunusLogo from "../../../assets/yyventurelogo.png";
 import { Link } from "react-router-dom";
 
 import HamburgerMenu from "react-hamburger-menu";

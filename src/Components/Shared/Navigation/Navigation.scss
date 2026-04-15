@@ -5,8 +5,8 @@
 }
 .navigation {
   padding: 1em 0;
-  background-image: linear-gradient(to right, $primaryColor, #356aa0);
-  border-bottom: 8px solid $form;
+  // background-image: linear-gradient(to right, $primaryColor, #356aa0);
+  border-bottom: 8px solid #CB255D;
   position: sticky;
   top: 0;
   z-index: 1000000;
@@ -39,7 +39,7 @@
       margin-left: 0.5em;
       a {
         text-decoration: none;
-        color: $white;
+        color: #638394;
         flex-shrink: 1;
         font-weight: 900;
         text-transform: uppercase;
