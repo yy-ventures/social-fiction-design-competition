@@ -1,5 +1,7 @@
 import "./Home.scss";
-import headerimage from "../../assets/PMY.png";
+import headerimage from "../../assets/images/header2x.jpg";
+import inverted from "../../assets/hero-inverted.png";
+import drYunus from "../../assets/PMY.png";
 import sbdclogo from "../../assets/sbdc/logo/sbdc.png";
 import sfdclogo from "../../assets/sfdc/logo/logo.png";
 import randomlightbluedecoleft from "../../assets/images/fiction_el_2.png";
@@ -27,11 +29,18 @@ export default function Home() {
           they move forward and change the world with their innovative ideas.
         </p>
         <p className="home-header-description">
-          Get a chance to be rewarded US $10,000 by submitting your idea to create the world you want to live in!
+          Get a chance to be rewarded US $10,000 by submitting your idea to
+          create the world you want to live in!
         </p>
       </section>
       <section className="home-main-image">
-        <img src={headerimage} alt="header" />
+         <div className="quote">
+          <img src={inverted} alt="inverted" />
+        <h2>“All human beings are born entrepreneurs”</h2>
+        <p>Professor Muhammad Yunus 2006 Nobel Peace Laureate</p>
+         </div>
+        {/* <img src={headerimage} alt="header" /> */}
+        <img src={drYunus} alt="Dr. Yunus" />
       </section>
       <section className="sfdc-home-image">
         <div id="blue-triangle-deco"></div>
