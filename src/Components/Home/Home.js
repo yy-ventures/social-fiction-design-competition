@@ -3,27 +3,23 @@ import headerimage from "../../assets/images/header2x.jpg";
 import sbdclogo from "../../assets/sbdc/logo/sbdc.png";
 import sfdclogo from "../../assets/sfdc/logo/logo.png";
 import randomlightbluedecoleft from "../../assets/images/fiction_el_2.png";
-import randomlightbluedecoright from "../../assets/images/fiction_el_1.png";
 import { HashLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <section className="home-main-section" id="aboutRoute">
       <section className="home-header">
         <div className="home-header-text">
-          <h2>Introducing</h2>
-          <h1>
-            Competi<span>t</span>ions
-          </h1>
+          <h2>Imagine the Future</h2>
+          <h1>Build the Future</h1>
         </div>
         <p className="home-header-description">
-          Yunus Centre, in collaboration with YY Ventures, introduces the Social
-          Business Design Competition and the Social Fiction Design Competition
-          to nurture social innovation and entrepreneurship among the next
-          generation of young talent. Our mission is to create a world of three
-          zeros - zero net carbon emission, zero wealth concentration for ending
-          poverty, and zero unemployment by unleashing entrepreneurship in all.
+          YY Ventures and Yunus Centre introduces the Social Business Design
+          Competition and the Social Fiction Design Competition to nurture
+          social innovation and entrepreneurship among the next generation of
+          young talent. Our mission is to create a world of three zeros; zero
+          net carbon emission, zero wealth concentration for ending poverty, and
+          zero unemployment by unleashing entrepreneurship in all.
         </p>
         <p className="home-header-description">
           Our competitions are designed with the goal to enhance the momentum to
@@ -31,8 +27,7 @@ export default function Home() {
           they move forward and change the world with their innovative ideas.
         </p>
         <p className="home-header-description">
-          Get a chance to be rewarded US $10,000 by submitting your idea to
-          create the world you want to live in!
+          Get a chance to be rewarded US $10,000 by submitting your idea to create the world you want to live in!
         </p>
       </section>
       <section className="home-main-image">
@@ -88,7 +83,7 @@ export default function Home() {
             {/* <HashLink to="/sbdc#sdbcHeaderId" className="btn-home button-blue">
               Read More
             </HashLink> */}
-             <HashLink to="/sbdc#sbdcHeaderId" className="btn-home button-blue">
+            <HashLink to="/sbdc#sbdcHeaderId" className="btn-home button-blue">
               EXPLORE
             </HashLink>
             <HashLink

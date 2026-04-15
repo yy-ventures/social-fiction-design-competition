@@ -19,7 +19,7 @@ const Footer = () => {
             </a>
           </div>
           <span className="reserved-1">
-            © 2026 Yunus Centre. All rights reserved.
+            © 2026 YY Ventures. All rights reserved.
           </span>
         </div>
         <div className="find-us">
@@ -35,9 +35,9 @@ const Footer = () => {
           <p>WhatsApp: +880 1648-397420 </p>
           <Media />
         </div>
-        {/* <span className="reserved-2">
-          © 2026 Yunus Centre. All rights reserved.
-        </span> */}
+        <span className="reserved-2">
+          © 2026 YY Ventures. All rights reserved.
+        </span>
       </div>
     </footer>
   );
