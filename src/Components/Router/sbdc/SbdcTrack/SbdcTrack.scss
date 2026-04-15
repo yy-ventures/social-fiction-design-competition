@@ -103,7 +103,7 @@
 
   .track-right {
     position: absolute;
-    right: 16%;
+    right: 15%;
     top: 50%;
     transform: translateY(-50%);
 
@@ -117,7 +117,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1365px) {
   .sbdc-track {
     .track-banner {
       padding: 90px 20px;
@@ -134,11 +134,11 @@
     }
 
     .track-left {
-      width: 70%;
+      width: 50%;
 
       h3 {
         font-size: 42px;
-        padding: 200px 120px 200px 80px; 
+        padding: 424px 120px 425px 80px; 
       }
     }
 
