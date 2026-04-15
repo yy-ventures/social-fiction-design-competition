@@ -9,15 +9,15 @@ const Footer = () => {
     <footer className="main-footer" id="contactRoute">
       <div className="main-footer__container">
         <div className="brought-by">
-          <h3>Brought to you by</h3>
-          <div className="logo-container">
-            {/* <a href="/">
+          {/* <h3>Brought to you by</h3> */}
+          {/* <div className="logo-container">
+            <a href="/">
               <img src={yunusLogo} alt="yunus-logo" />
-            </a> */}
+            </a>
             <a href="https://yy.ventures/" target="__blank">
               <img src={yyvLogo} alt="yyv-logo" />
             </a>
-          </div>
+          </div> */}
           <span className="reserved-1">
             © 2026 YY Ventures. All rights reserved.
           </span>
