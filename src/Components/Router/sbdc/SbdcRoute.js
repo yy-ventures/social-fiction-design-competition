@@ -4,6 +4,7 @@ import SbdcHeader from "./SbdcHeader/SbdcHeader";
 import SbdcReward from "./SbdcReward/SbdcReward";
 import SbdcTrack from "./SbdcTrack/SbdcTrack";
 import SbdcWhoCanApply from "./SbdcWhoCanApply/SbdcWhoCanApply";
+import SbdcFaq from "./SbdcFaq/SbdcFaq";
 
 const SbdcRoute = () => {
   return (
@@ -13,6 +14,7 @@ const SbdcRoute = () => {
       <SbdcWhoCanApply />
       <SbdcTrack />
       <SbdcEngage />
+      <SbdcFaq />
     </div>
   );
 };
