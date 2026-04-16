@@ -88,16 +88,17 @@
   }
 }
 .sbdc-faq .question span {
+  background:#FF9A4E;
   font-family: "Poppins";
-  font-size: 1.1em;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5em;
   width: 1em;
   height: 1em;
-  border: 1.5px solid;
-  border-radius: 50%;
+  /* border: 1.5px solid; */
+  /* border-radius: 50%; */
 }
 .sbdc-faq .question .open {
   animation: faqOpen 0.25s ease-in-out;

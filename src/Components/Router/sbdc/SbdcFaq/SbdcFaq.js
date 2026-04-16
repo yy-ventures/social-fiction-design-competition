@@ -63,7 +63,7 @@ const SbdcFaq = () => {
               <div className="question" onClick={() => toggle(index)}>
                 <h4>{title}</h4>
                 <span className={show === index ? "close" : "open"}>
-                  {show === index ? "-" : "+"}
+                 {show === index ? "⌃" : "⌄"}
                 </span>
               </div>
 
