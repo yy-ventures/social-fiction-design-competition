@@ -29,6 +29,7 @@
     }
     @media screen and (max-width: 900px) {
       flex-direction: column-reverse;
+       margin-left:0px
     }
     @media screen and (max-width: 600px) {
       padding: 20px 40px;
@@ -338,7 +339,7 @@
       flex: 1;
 
       @media screen and (max-width: 900px) {
-        width: max-content;
+        // width: max-content;
         margin-inline: auto;
       }
 
