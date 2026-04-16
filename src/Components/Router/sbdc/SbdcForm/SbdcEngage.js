@@ -1,7 +1,5 @@
 import "./SbdcEngage.scss";
-import FbIcon from "../../../../assets/fb-icon.png";
-import WhatsAppIcon from "../../../../assets/whats-icon.png";
-import WebIcon from "../../../../assets/web-icon.png";
+
 import Media from "../../sfdc/component/media/media";
 
 const SbdcEngage = () => {
