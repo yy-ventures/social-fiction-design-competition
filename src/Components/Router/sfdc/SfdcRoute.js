@@ -384,6 +384,7 @@ const SfdcRoute = () => {
       {/* SOCIAL SECTION END */}
       {/* <SfdcFaq /> */}
       <MeetPeople />
+      <SfdcFaq/>
     </div>
   );
 };
