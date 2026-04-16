@@ -10,21 +10,22 @@
 //     return null;
 // }
 
-import { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useEffect } from "react";
+import { withRouter } from "react-router-dom";
 
-function ScrollToTop({ history }) {
+const ScrollToTop = ({ location }) => {
   useEffect(() => {
-    const unlisten = history.listen(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
       window.scrollTo(0, 0);
-    });
-    return () => {
-      unlisten();
     }
-  }, [history]);
-  
-  return (null);
-    
-}
+  }, [location]);
+
+  return null;
+};
 
 export default withRouter(ScrollToTop);
