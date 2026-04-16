@@ -115,9 +115,9 @@ const SFDCRegistration = () => {
             <div className="image-container2">
               <img src={sfdcUSD} alt="" />
             </div>
-            <div className="image-container3">
+            {/* <div className="image-container3">
               <img src={yyLogos} alt="" />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="sfdc-registration-header-headline">
