@@ -17,7 +17,7 @@ const Footer = () => {
           <h3>Find us at</h3>
           <p>Level 9</p>
           <p> Grameen Telecom, Trust Bhaban, </p>
-          <p>Mirpur-2, Dhaka 1216,</p>
+          <p> Zoo Road, Dhaka 1216,</p>
           <p>Bangladesh</p>
         </div>
         <div className="write-us">
