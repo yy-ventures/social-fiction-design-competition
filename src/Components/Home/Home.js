@@ -1,5 +1,4 @@
 import "./Home.scss";
-import headerimage from "../../assets/images/header2x.jpg";
 import inverted from "../../assets/hero-inverted.png";
 import drYunus from "../../assets/PMY.png";
 import sbdclogo from "../../assets/sbdc/logo/sbdc.png";
@@ -39,7 +38,6 @@ export default function Home() {
         <h2>“All human beings are born entrepreneurs”</h2>
         <p>Professor Muhammad Yunus 2006 Nobel Peace Laureate</p>
          </div>
-        {/* <img src={headerimage} alt="header" /> */}
         <img src={drYunus} alt="Dr. Yunus" />
       </section>
       <section className="sfdc-home-image">
