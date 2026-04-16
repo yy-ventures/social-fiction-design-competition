@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SbdcFaq.css";
 
 const SbdcFaq = () => {
@@ -54,25 +54,27 @@ const SbdcFaq = () => {
   ];
 
   return (
-    <section className="sbdc-faq-section">
-      <h1>Frequently Asked Questions</h1>
-      <div className="sbdc-faq-wrapper">
-        {faqData.map(({ id, title, content }, index) => (
-          <div className="sbdc-faq" key={id}>
-            <div className="question" onClick={() => toggle(index)}>
-              <h4>{title}</h4>
-              <span className={show === index ? "close" : "open"}>
-                {show === index ? "-" : "+"}
-              </span>
-            </div>
+    <div className="sbdc-faq-container">
+      <h1>Frequently Asked Questions</h1>{" "}
+      <section className="sbdc-faq-section">
+        <div className="sbdc-faq-wrapper">
+          {faqData.map(({ id, title, content }, index) => (
+            <div className="sbdc-faq" key={id}>
+              <div className="question" onClick={() => toggle(index)}>
+                <h4>{title}</h4>
+                <span className={show === index ? "close" : "open"}>
+                  {show === index ? "-" : "+"}
+                </span>
+              </div>
 
-            <div className={show === index ? "answer show" : "answer"}>
-              <p>{content}</p>
+              <div className={show === index ? "answer show" : "answer"}>
+                <p>{content}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

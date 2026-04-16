@@ -1,4 +1,3 @@
-import React from "react";
 import SbdcEngage from "./SbdcForm/SbdcEngage";
 import SbdcHeader from "./SbdcHeader/SbdcHeader";
 import SbdcReward from "./SbdcReward/SbdcReward";
@@ -8,7 +7,7 @@ import SbdcFaq from "./SbdcFaq/SbdcFaq";
 
 const SbdcRoute = () => {
   return (
-    <div>
+    <div style={{ background: "#e9eff1", minHeight: "100vh" }}>
       <SbdcHeader />
       <SbdcReward />
       <SbdcWhoCanApply />
