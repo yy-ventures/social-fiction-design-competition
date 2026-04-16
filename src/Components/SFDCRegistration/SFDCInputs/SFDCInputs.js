@@ -588,7 +588,7 @@ const SFDCInputs = () => {
               <div className="col-lg-8">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
-                  Which of the following 3 Zero goal you are addressing?
+                  Which of the following 3Zero goal you are addressing?
                   <span className="red"> *</span>
                 </h5>
               </div>
@@ -680,7 +680,7 @@ const SFDCInputs = () => {
                   </strong>
 
                   <div className="extra-title mt-3">
-                    <ul>
+                    <ul className="mb-0">
                       <li>Written stories / essays (1000–5000 words)</li>
                       <li>Short films / video stories</li>
                       <li>Reels / short-form video content</li>
@@ -692,9 +692,6 @@ const SFDCInputs = () => {
                       <li>Audio storytelling / podcasts / spoken word</li>
                       <li>Interactive media (web-based storytelling, digital experiences)</li>
                     </ul>
-
-                    <br />
-
                     <ul>
                       <li>
                         In 1000 words, share your area of writing about a re-imagined future without social problems.

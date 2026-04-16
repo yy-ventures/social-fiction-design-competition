@@ -1,4 +1,4 @@
-import {  useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Navigation.scss";
 import yunusLogo from "../../../assets/yyventurelogo.png";
 import { Link } from "react-router-dom";
@@ -68,7 +68,7 @@ const Navigation = () => {
             </div>
           </div>
           <div>
-            <a href="#partners-section">partners</a>
+            <Link to="/#partners-section">Partners</Link>
           </div>
           <div>
             <a href="#contactRoute">contact</a>
