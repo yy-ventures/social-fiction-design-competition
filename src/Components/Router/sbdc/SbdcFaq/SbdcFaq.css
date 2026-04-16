@@ -109,7 +109,7 @@
 }
 .sbdc-faq .answer {
   font-family: "Roboto", sans-serif;
-  color: var(--sbdc-font-color-secondary);
+  color: #000;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
   max-height: 0;
   overflow: hidden;
