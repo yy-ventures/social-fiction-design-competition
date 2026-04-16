@@ -36,7 +36,7 @@ export default function Home() {
          <div className="quote">
           <img src={inverted} alt="inverted" />
         <h2>“All human beings are born entrepreneurs”</h2>
-        <p>Professor Muhammad Yunus 2006<br/> Nobel Peace Laureate</p>
+        <p>Professor Muhammad Yunus <br/> 2006 Nobel Peace Laureate</p>
          </div>
         <img src={drYunus} alt="Dr. Yunus" />
       </section>

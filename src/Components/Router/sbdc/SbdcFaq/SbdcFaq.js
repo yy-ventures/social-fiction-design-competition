@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./SbdcFaq.css";
+import UpArrow from  "../../../../assets/up-arrow.png"
+import DownArrow from  "../../../../assets/down-arrow.png"
 
 const SbdcFaq = () => {
   const [show, setShow] = useState(null);
@@ -63,7 +65,7 @@ const SbdcFaq = () => {
               <div className="question" onClick={() => toggle(index)}>
                 <h4>{title}</h4>
                 <span className={show === index ? "close" : "open"}>
-                 {show === index ? "⌃" : "⌄"}
+                 {show === index ? <img src={UpArrow} alt="Up Arrow" /> : <img src={DownArrow} alt="Down Arrow" />}
                 </span>
               </div>
 
