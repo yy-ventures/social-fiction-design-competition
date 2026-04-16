@@ -1,7 +1,6 @@
 import "./Footer.scss";
 import Media from "../../Router/sfdc/component/media/media";
-// import yunusLogo from "../../../assets/images/logos/yc-white.png";
-import yyvLogo from "../../../assets/images/logos/yyv-white.png";
+
 
 
 const Footer = () => {
