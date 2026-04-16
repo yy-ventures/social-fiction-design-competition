@@ -7,11 +7,7 @@
   --sbdc-shadow-color: #ebfdff;
 }
 
-.sbdc-faq-container{
- background:#e9eff1;
 
-
-}
 .sbdc-faq-container  h1 {
    margin-left:181px;
   text-transform: capitalize;
@@ -20,6 +16,25 @@
   font-weight: 900;
   position: relative;
   color:#FF9A4E;
+}
+@media (max-width: 1024px) {
+  .sbdc-faq-container h1 {
+    margin-left: 60px;
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sbdc-faq-container h1 {
+    margin-left: 20px;
+    font-size: 26px;
+  }
+}
+@media (max-width: 480px) {
+  .sbdc-faq-container h1 {
+    margin-left: 16px;
+    font-size: 22px;
+  }
 }
 .sbdc-faq-section {
 
