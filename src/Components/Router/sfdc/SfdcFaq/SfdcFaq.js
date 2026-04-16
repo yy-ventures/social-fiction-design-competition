@@ -69,27 +69,28 @@ const SfdcFaq = () => {
   ];
 
   return (
-    <section className="sfdc-faq-section">
-      <h1>Frequently Asked Questions</h1>
+    <div className="sfdc-faq-container">
+      <h1>FAQ</h1>
+      <section className="sfdc-faq-section">
+        <div className="sfdc-faq-wrapper">
+          {faqData.map(({ id, title, content }, index) => (
+            <div className="sfdc-faq" key={id}>
+              <div className="question" onClick={() => toggle(index)}>
+                <h4>{title}</h4>
+                <span className={show === index ? "arrow open" : "arrow"}>
+                  ▼
+                </span>
+              </div>
 
-      <div className="sfdc-faq-wrapper">
-        {faqData.map(({ id, title, content }, index) => (
-          <div className="sfdc-faq" key={id}>
-            <div className="question" onClick={() => toggle(index)}>
-              <h4>{title}</h4>
-              <span className={show === index ? "close" : "open"}>
-                {show === index ? "−" : "+"}
-              </span>
+              <div
+                className={show === index ? "answer show" : "answer"}
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
             </div>
-
-            <div
-              className={show === index ? "answer show" : "answer"}
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 
