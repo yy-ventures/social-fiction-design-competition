@@ -15,8 +15,8 @@ const Footer = () => {
         </div>
         <div className="find-us">
           <h3>Find us at</h3>
-          <p>A: 9th Floor,</p>
-          <p>Grameen Bank Bhaban,</p>
+          <p>Level 9</p>
+          <p> Grameen Telecom, Trust Bhaban, </p>
           <p>Mirpur-2, Dhaka 1216,</p>
           <p>Bangladesh</p>
         </div>

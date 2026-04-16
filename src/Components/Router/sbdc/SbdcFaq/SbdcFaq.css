@@ -7,7 +7,37 @@
   --sbdc-shadow-color: #ebfdff;
 }
 
+
+.sbdc-faq-container  h1 {
+   margin-left:181px;
+  text-transform: capitalize;
+  font-size: 45px;
+  padding: 1% 0;
+  font-weight: 900;
+  position: relative;
+  color:#FF9A4E;
+}
+@media (max-width: 1024px) {
+  .sbdc-faq-container h1 {
+    margin-left: 60px;
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sbdc-faq-container h1 {
+    margin-left: 20px;
+    font-size: 26px;
+  }
+}
+@media (max-width: 480px) {
+  .sbdc-faq-container h1 {
+    margin-left: 16px;
+    font-size: 22px;
+  }
+}
 .sbdc-faq-section {
+
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,25 +46,9 @@
   font-family: "Roboto", sans-serif;
   color: #224b75;
   min-height: 30em;
-  padding: 5%;
 }
-.sbdc-faq-section h1 {
-  text-transform: capitalize;
-  font-size: 5vmin;
-  padding-bottom: 3%;
-  font-weight: 900;
-  position: relative;
-}
-.sbdc-faq-section h1::after {
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 5px;
-  background-color: #df8b48;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
+
+
 .sbdc-faq-wrapper {
   width: 80%;
   padding: 2em;
@@ -43,8 +57,9 @@
   overflow: hidden;
 }
 .sbdc-faq .question {
+  background:#BEE9EE;
   font-family: "Roboto", sans-serif;
-  color: var(--sbdc-font-color-primary);
+  color: #505050;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,16 +88,17 @@
   }
 }
 .sbdc-faq .question span {
+  background:#FF9A4E;
   font-family: "Poppins";
-  font-size: 1.1em;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5em;
   width: 1em;
   height: 1em;
-  border: 1.5px solid;
-  border-radius: 50%;
+  /* border: 1.5px solid; */
+  /* border-radius: 50%; */
 }
 .sbdc-faq .question .open {
   animation: faqOpen 0.25s ease-in-out;
@@ -93,7 +109,7 @@
 }
 .sbdc-faq .answer {
   font-family: "Roboto", sans-serif;
-  color: var(--sbdc-font-color-secondary);
+  color: #000;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
   max-height: 0;
   overflow: hidden;
