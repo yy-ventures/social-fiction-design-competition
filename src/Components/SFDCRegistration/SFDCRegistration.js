@@ -82,8 +82,7 @@ const SFDCRegistration = () => {
                 </li>
               </ol>
               <p className="mb-0">
-                (Before filling up the form, please go through our FAQ section
-                in this link: <br />
+                (Before filling up the form, please go through our FAQ section: <br />
                 <Link to="/sfdc">
                   https://competitions.yunuscentre.org/sfdc
                 </Link>

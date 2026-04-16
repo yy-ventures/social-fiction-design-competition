@@ -588,7 +588,7 @@ const SFDCInputs = () => {
               <div className="col-lg-8">
                 {/* <h5>What social problem are you addressing?</h5> */}
                 <h5>
-                  Which of the following 3Zero goal you are addressing?
+                  Which of the following 3ZERO goal you are addressing?
                   <span className="red"> *</span>
                 </h5>
               </div>
