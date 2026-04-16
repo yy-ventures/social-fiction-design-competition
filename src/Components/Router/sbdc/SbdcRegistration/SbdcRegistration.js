@@ -56,12 +56,7 @@ const SbdcRegistration = () => {
                                 </ol>
                             </i>
                             <p className="mb-0">
-                                (Before filling up the form, please go through our FAQ section
-                                in this link: <br />
-                                <Link to="/sbdc">
-                                    https://competitions.yunuscentre.org/sbdc
-                                </Link>
-                                )
+                                (Before filling up the form, please go through our FAQ section)
                             </p>
                         </div>
                     </div>
