@@ -641,17 +641,24 @@ const SbdcInputs = () => {
               </div>
               <div className="col-lg-4">
                 <select
-                  required
-                  {...register("AreaOfFocus")}
-                  className="form-select"
-                  onChange={handleAreaOfFocus}
+                    required
+                    {...register("AreaOfFocus")}
+                    className="form-select"
+                    onChange={handleAreaOfFocus}
                 >
-                  <option>Select sector</option>
-                  <option defaultValue="zerounemployment">
+                  <option value="">Select sector</option>
+
+                  <option value="zerounemployment">
                     Zero unemployment if the business creates jobs, skills, or entrepreneurship.
                   </option>
-                  <option defaultValue="zeropoverty">Zero poverty if it improves income, access, or livelihoods.</option>
-                  <option defaultValue="zeronetcarbon">Zero net carbon emissions if it reduces waste, energy use, emissions, or promotes sustainability.</option>
+
+                  <option value="zeropoverty">
+                    Zero poverty if it improves income, access, or livelihoods.
+                  </option>
+
+                  <option value="zeronetcarbon">
+                    Zero net carbon emissions if it reduces waste, energy use, emissions, or promotes sustainability.
+                  </option>
                 </select>
               </div>
               {/*<div className="col-lg-4">*/}
@@ -674,12 +681,12 @@ const SbdcInputs = () => {
               <div className="col-lg-4">
                 <select required {...register("StageOfVentures")} className="form-select">
                   <option>Select stage</option>
-                  <option defaultValue="ideaconcept">
+                  <option value="ideaconcept">
                     Ideation/Concept
                   </option>
-                  <option defaultValue="prototype">Prototype/MVP Pilot/Testing</option>
-                  <option defaultValue="earlyoperations">Early Operations</option>
-                  <option defaultValue="scaledImplementation">Scaled Implementation</option>
+                  <option value="prototype">Prototype/MVP Pilot/Testing</option>
+                  <option value="earlyoperations">Early Operations</option>
+                  <option value="scaledImplementation">Scaled Implementation</option>
                 </select>
               </div>
             </div>
@@ -723,50 +730,44 @@ const SbdcInputs = () => {
               <textarea required {...register("ProjectedImpact")}></textarea>
             </div>
             <div className="row mt-5 registration-law">
-                            <div className="col-lg-6">
-                                <h5>
-                                    Is the Social Business registered as an
-                                    entity under the law?
-                                </h5>
-                            </div>
-                            <div className="col-lg-2">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        value="yes"
-                                        id="flexCheckDefault"
-                                        {...register("UnderTheLaw")}
-                                        onChange={handleUnderLawYes}
-                                        defaultChecked={true}
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="flexCheckDefault"
-                                    >
-                                        Yes
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="col-lg-2">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        value="no"
-                                        id="flexCheckDefault"
-                                        {...register("UnderTheLaw")}
-                                        onChange={handleUnderLawNo}
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="flexCheckDefault"
-                                    >
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+              <div className="col-lg-6">
+                <h5>
+                  Is the Social Business registered as an entity under the law?
+                </h5>
+              </div>
+
+              <div className="col-lg-2">
+                <div className="form-check">
+                  <input
+                      className="form-check-input"
+                      type="radio"
+                      value="yes"
+                      id="underLawYes"
+                      {...register("UnderTheLaw")}
+                      onChange={() => handleUnderLawYes()}
+                  />
+                  <label className="form-check-label" htmlFor="underLawYes">
+                    Yes
+                  </label>
+                </div>
+              </div>
+
+              <div className="col-lg-2">
+                <div className="form-check">
+                  <input
+                      className="form-check-input"
+                      type="radio"
+                      value="no"
+                      id="underLawNo"
+                      {...register("UnderTheLaw")}
+                      onChange={() => handleUnderLawNo()}
+                  />
+                  <label className="form-check-label" htmlFor="underLawNo">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
             {isUnderLaw && (
                 <div className="mt-5 registration-law-curve">
                     <input
