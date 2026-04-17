@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import "./SbdcInputs.scss";
 
 const SbdcInputs = () => {
-  const [areaOfFocusChange, setAreaOfFocusChange] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [pitchDeckFile, setPitchDeckFile] = useState(null);
@@ -11,22 +10,28 @@ const SbdcInputs = () => {
   const [isCheckedOne, setIsCheckedOne] = useState(false);
   const [isCheckedTwo, setIsCheckedTwo] = useState(false);
 
-  const [additionalLinkArray, setArray] = useState([]);
-  const [additionalLink, setAdditionalLink] = useState(0);
-  const [isUnderLaw, setIsUnderLaw] = useState(false);
-
   const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      UnderTheLaw: "",
+      AreaOfFocus: "",
+      StageOfVentures: "",
+      FounderType: "",
+    },
+  });
 
-  const handleAreaOfFocus = (e) => {
-    setAreaOfFocusChange(e.target.value);
-  };
+  const underLaw = watch("UnderTheLaw");
+
+  // const handleAreaOfFocus = (e) => {
+  //   setAreaOfFocusChange(e.target.value);
+  // };
 
   const handleTestChange = (e) => {
     const file = e.target.files[0];
@@ -57,41 +62,41 @@ const SbdcInputs = () => {
     setIsCheckedTwo(true);
   };
 
-  const handleUnderLawYes = () => {
-    setIsUnderLaw(true);
-  };
-
-  const handleUnderLawNo = () => {
-    setIsUnderLaw(false);
-  };
-
-  const addMoreLinks = (e) => {
-    e.preventDefault();
-
-    if (additionalLink === 2) return;
-
-    setAdditionalLink((p) => p + 1);
-
-    setArray((prev) => [
-      ...prev,
-      <>
-        <div className="row">
-          <div className="col-lg-1">
-            <h5>{"Link " + parseInt(3 + additionalLink)}</h5>
-          </div>
-          <div className="col-lg-6">
-            <input type="text" {...register("OptionalLink" + additionalLink)} />
-          </div>
-        </div>
-      </>,
-    ]);
-  };
-
-  const deleteLink = (e) => {
-    e.preventDefault();
-    setAdditionalLink((p) => p - 1);
-    setArray((prev) => prev.slice(0, -1));
-  };
+  // const handleUnderLawYes = () => {
+  //   setIsUnderLaw(true);
+  // };
+  //
+  // const handleUnderLawNo = () => {
+  //   setIsUnderLaw(false);
+  // };
+  //
+  // const addMoreLinks = (e) => {
+  //   e.preventDefault();
+  //
+  //   if (additionalLink === 2) return;
+  //
+  //   setAdditionalLink((p) => p + 1);
+  //
+  //   setArray((prev) => [
+  //     ...prev,
+  //     <>
+  //       <div className="row">
+  //         <div className="col-lg-1">
+  //           <h5>{"Link " + parseInt(3 + additionalLink)}</h5>
+  //         </div>
+  //         <div className="col-lg-6">
+  //           <input type="text" {...register("OptionalLink" + additionalLink)} />
+  //         </div>
+  //       </div>
+  //     </>,
+  //   ]);
+  // };
+  //
+  // const deleteLink = (e) => {
+  //   e.preventDefault();
+  //   setAdditionalLink((p) => p - 1);
+  //   setArray((prev) => prev.slice(0, -1));
+  // };
 
   const onSubmit = async (data) => {
     try {
@@ -136,7 +141,7 @@ const SbdcInputs = () => {
         revenue_model: data.RevenueStreams,
         impact_metrics: data.ProjectedImpact,
 
-        is_registered: isUnderLaw === true ? 1 : 0,
+        is_registered: data.UnderTheLaw === "yes" ? 1 : 0,
         registration_law: data.YesUnderTheLaw || null,
         //
         // reference_links: [
@@ -505,7 +510,6 @@ const SbdcInputs = () => {
                     type="radio"
                     value="team"
                     {...register("FounderType")}
-                    name="FounderType"
                     id="flexCheckDefault"
                     onChange={handleCheckBoxOne}
                     defaultChecked={false}
@@ -524,11 +528,11 @@ const SbdcInputs = () => {
                     type="radio"
                     {...register("FounderType")}
                     value="individual"
-                    id="flexCheckDefault"
+                    id="flexCheckIndividual"
                     onChange={handleCheckBoxTwo}
                     required
                   />
-                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                  <label className="form-check-label" htmlFor="flexCheckIndividual">
                     Individual
                   </label>
                 </div>
@@ -577,7 +581,7 @@ const SbdcInputs = () => {
                     <div>
                       <input
                         type="number"
-                        placeholder="Number"
+                        placeholder="Contact Number"
                         required
                         {...register("CoFounderOneNumber")}
                       ></input>
@@ -623,7 +627,7 @@ const SbdcInputs = () => {
                     <div>
                       <input
                         type="number"
-                        placeholder="Number"
+                        placeholder="Contact Number"
                         required
                         {...register("CoFounderTwoNumber")}
                       ></input>
@@ -644,7 +648,6 @@ const SbdcInputs = () => {
                     required
                     {...register("AreaOfFocus")}
                     className="form-select"
-                    onChange={handleAreaOfFocus}
                 >
                   <option value="">Select sector</option>
 
@@ -680,13 +683,11 @@ const SbdcInputs = () => {
               </div>
               <div className="col-lg-4">
                 <select required {...register("StageOfVentures")} className="form-select">
-                  <option>Select stage</option>
-                  <option value="ideaconcept">
-                    Ideation/Concept
-                  </option>
-                  <option value="prototype">Prototype/MVP Pilot/Testing</option>
-                  <option value="earlyoperations">Early Operations</option>
-                  <option value="scaledImplementation">Scaled Implementation</option>
+                  <option value="">Select stage</option>
+                  <option value="ideation">Ideation / Concept</option>
+                  <option value="prototype">Prototype / MVP</option>
+                  <option value="early_operations">Early Operations</option>
+                  <option value="scaled">Scaled Implementation</option>
                 </select>
               </div>
             </div>
@@ -744,7 +745,6 @@ const SbdcInputs = () => {
                       value="yes"
                       id="underLawYes"
                       {...register("UnderTheLaw")}
-                      onChange={() => handleUnderLawYes()}
                   />
                   <label className="form-check-label" htmlFor="underLawYes">
                     Yes
@@ -760,7 +760,6 @@ const SbdcInputs = () => {
                       value="no"
                       id="underLawNo"
                       {...register("UnderTheLaw")}
-                      onChange={() => handleUnderLawNo()}
                   />
                   <label className="form-check-label" htmlFor="underLawNo">
                     No
@@ -768,12 +767,13 @@ const SbdcInputs = () => {
                 </div>
               </div>
             </div>
-            {isUnderLaw && (
+            {underLaw === "yes" && (
                 <div className="mt-5 registration-law-curve">
-                    <input
-                        placeholder="If yes, please specify which law your Social Business is registered under."
-                        {...register("YesUnderTheLaw")}
-                    ></input>
+                  <input
+                      type="text"
+                      placeholder="If yes, please specify which law your Social Business is registered under."
+                      {...register("YesUnderTheLaw")}
+                  />
                 </div>
             )}
 
