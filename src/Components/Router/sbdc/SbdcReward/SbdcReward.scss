@@ -292,4 +292,33 @@
     
   }
 }
+.reward-left {
+  animation: rewardSlideLeft 0.5s ease-out forwards;
+}
+
+.reward-right {
+  animation: rewardSlideRight 0.5s ease-out forwards;
+}
+}
+
+@keyframes rewardSlideLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rewardSlideRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
