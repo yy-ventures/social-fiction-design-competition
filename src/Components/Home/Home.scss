@@ -1,6 +1,8 @@
 @import "../../global.scss";
 
 .home-main-section {
+  background: #fff7ec;
+
   display: grid;
   grid-template-columns: 1fr;
   font-family: $font-collection;
@@ -35,7 +37,6 @@
   }
 
   .home-header {
-    background: #fff7ec;
     padding: 6% 8%;
     display: flex;
     flex-direction: column;
@@ -51,7 +52,7 @@
         color: #223c4d;
         line-height: 1.1;
         margin: 0;
-        white-space: normal; // IMPORTANT
+        white-space: normal;
       }
 
       h1 + h1 {
@@ -64,6 +65,14 @@
         }
         h1 + h1 {
           margin-left: 8rem;
+        }
+      }
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 24px;
+        }
+        h1 + h1 {
+          margin-left: 4rem;
         }
       }
     }
@@ -81,6 +90,10 @@
       @media (min-width: 1400px) {
         font-size: 18px;
       }
+      @media (max-width: 1024px) {
+        font-size: 18px;
+        text-align: center;
+      }
     }
   }
 
@@ -92,16 +105,17 @@
     align-items: center;
     padding: 4% 8%;
     min-height: 720px;
+    margin-bottom: 100px;
     @media (max-width: 1024px) {
       padding: 0;
+      margin-bottom: 0;
     }
-    /* QUOTE BLOCK */
     .quote {
       position: relative;
       z-index: 2;
       color: #fff;
-      max-width: 320px;
-      margin-top: 310px;
+      max-width: 276px;
+      margin-top: 155px;
       img {
         width: 70px;
         margin-bottom: 2rem;
@@ -115,7 +129,7 @@
         margin-bottom: 10px;
 
         @media (min-width: 1400px) {
-          font-size: 44px;
+          font-size: 34px;
         }
       }
 
@@ -130,18 +144,17 @@
     img[alt="Dr. Yunus"] {
       position: absolute;
       right: 0;
-      bottom: -114px;
-      height: 100%;
+      bottom: 0;
+      height: 90%;
       max-height: 720px;
-      width: 60%;
-      object-fit: contain;
+      width: 100%;
+      // object-fit: contain;
       z-index: 1;
     }
 
     /* Tablet */
     @media (max-width: 991px) {
       min-height: 600px;
-
       img[alt="Dr. Yunus"] {
         height: 80%;
       }
@@ -150,26 +163,32 @@
     /* Mobile */
     @media (max-width: 1024px) {
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      text-align: left;
-      padding: 0 2rem;
+      text-align: center;
+      padding: 2rem 0 0;
       min-height: auto;
 
+      /* Quote on top */
       .quote {
+        order: 1;
         max-width: 100%;
-        margin-top: 20px;
+        margin: 0 1.5rem 2rem 1.5rem;
 
         h2 {
           font-size: 28px;
         }
       }
 
+      /* Full width image */
       img[alt="Dr. Yunus"] {
         position: relative;
-        height: auto;
+        order: 2;
         width: 100%;
-        align-self: center;
-        bottom: -10px;
+        height: auto;
+        max-height: none;
+        right: unset;
+        bottom: unset;
       }
     }
   }
@@ -408,97 +427,15 @@
       }
     }
   }
+  @media (max-width: 991px) {
+    .home-main-image {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
 
-  //   .sfdc-home-image {
-  //     background-color: $white;
-  //     position: relative;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     height: 100%;
-  //     img[alt="sfdc-logo"] {
-  //       max-width: 60%;
-  //       max-height: 60%;
-  //       object-fit: contain;
-  //     }
-  //     #lightblue-triangle-deco {
-  //       border: 40px solid transparent;
-  //       border-right: 40px solid $blue;
-  //       position: absolute;
-  //       top: 50%;
-  //       right: 0;
-  //     }
-  //   }
-  //   .sfdc-home-section {
-  //     background-color: $blue;
-  //     position: relative;
-  //     text-align: left;
-  //     overflow: hidden;
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: center;
-  //     height: 100vh;
-  //     @media screen and (max-width: 780px) {
-  //       padding-inline: 1em;
-  //     }
-  //     @media screen and (max-width: 350px) {
-  //       padding-inline: 1.5em;
-  //     }
-  //     .flex-container {
-  //       z-index: 3;
-  //       width: fit-content;
-  //       height: 70%;
-  //       z-index: 4;
-  //       padding-top: 2em;
-  //       display: flex;
-  //       flex-direction: column;
-  //       justify-content: center;
-  //       margin: 0 auto;
-  //     }
-  //     h4.home-description {
-  //       font-size: 1.1rem;
-  //       font-weight: bold;
-  //       width: 100%;
-  //       display: block;
-  //       line-height: 1.8rem;
-  //       color: $white;
-  //       max-width: 35ch;
-  //       @media screen and (min-width: 1200px) {
-  //         font-size: 1.6em;
-  //         line-height: 3rem;
-  //       }
-  //     }
-
-  //     .button-container {
-  //       width: 100%;
-  //       text-decoration: none;
-  //       color: $white;
-  //       margin-top: 5rem;
-  //       @media screen and (max-width: 550px) {
-  //         align-items: center;
-  //       }
-  //     }
-  //     #sfdc-blue-deco {
-  //       position: absolute;
-  //       width: 600px;
-  //       height: 270px;
-  //       border-radius: 9000px;
-  //       background-color: $darkblue;
-  //       right: 0;
-  //       top: 0;
-  //       transform: translate(50%, -50%) rotate(90deg);
-  //       z-index: 1;
-  //     }
-  //     #sfdc-skyblue-circle-deco {
-  //       position: absolute;
-  //       width: 350px;
-  //       height: 350px;
-  //       border-radius: 50%;
-  //       background-color: $form;
-  //       left: 0;
-  //       bottom: 0;
-  //       transform: translate(-50%, 50%);
-  //       z-index: 1;
-  //     }
-  //   }
+    .home-header {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
 }

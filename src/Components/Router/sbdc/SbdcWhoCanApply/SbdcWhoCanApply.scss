@@ -370,3 +370,37 @@
     height: 180px;
   }
 }
+.animate-left,
+.animate-right {
+  opacity: 0;
+}
+
+.animate-left.active {
+  animation: slideLeft 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.animate-right.active {
+  animation: slideRight 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

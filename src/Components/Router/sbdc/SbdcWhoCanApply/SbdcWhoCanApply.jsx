@@ -3,13 +3,35 @@ import Apply from "../../../../assets/apply/apply.png";
 import YunusImg from "../../../../assets/dr-yunus.png";
 import GroupImage from "../../../../assets/group-people.png"
 import Globe from "../../../../assets/globe.png"
+import useScrollAnimation from "./useScrollAnimation";
+import { useEffect, useRef, useState } from "react";
+
 
 const SbdcWhoCanApply = () => {
+const [heroTextRef, heroTextActive] = useScrollAnimation();
+const [heroImgRef, heroImgActive] = useScrollAnimation();
+const sectionRef = useRef(null);
+const [visible, setVisible] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setVisible(entry.isIntersecting);
+    },
+    { threshold: 0.3 }
+  );
+
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
+
+  return () => observer.disconnect();
+}, []);
   return (
     <>
       <section className="hero">
         <div className="hero__content">
-          <div className="hero__text">
+          <div className={`hero__text animate-left ${heroTextActive ? "active" : ""}`}  ref={heroTextRef}>
             <h1>
               Think bold <br />
               Think impactful <br />
@@ -52,15 +74,18 @@ const SbdcWhoCanApply = () => {
             </ul>
           </div>
 
-          <div className="hero__image">
+          <div ref={heroImgRef} className={`hero__image animate-right ${heroImgActive ? "active" : ""}`}>
             <img src={Apply} alt="Apply illustration" />
           </div>
         </div>
       </section>
 
-      <section className="apply-bottom">
+      <section className="apply-bottom" ref={sectionRef}>
         <div className="apply-bottom__container">
-          <div className="apply-bottom__left">
+          <div className={`apply-bottom__left animate-left ${
+        visible ? "active" : ""
+      }`}
+>
             <div className="benefit-item">
               <div className="icon"><img src={GroupImage} alt="Group of people" /></div>
               <p>
@@ -77,7 +102,9 @@ const SbdcWhoCanApply = () => {
               </p>
             </div>
           </div>
-          <div className="apply-bottom__right">
+          <div className={`apply-bottom__right animate-right ${
+        visible ? "active" : ""
+      }`}>
             <h2>
               Everyone is welcome <br />
               to participate

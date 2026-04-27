@@ -64,6 +64,8 @@
       max-width: 150px;
     }
   }
+
+ 
 }
 
 @media screen and (max-width: 900px) {
@@ -117,5 +119,26 @@
         font-size: 28px;
       }
     }
+  }
+}
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
