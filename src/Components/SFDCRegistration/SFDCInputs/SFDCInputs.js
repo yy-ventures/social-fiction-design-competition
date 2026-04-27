@@ -495,7 +495,7 @@ const SFDCInputs = () => {
                 <input
                     type="email"
                     defaultValue={filledForm !== null ? filledForm.email : ""}
-                    onChange={handleValidEmail}
+                    onBlur={handleValidEmail}
                     required
                 />
               </div>
