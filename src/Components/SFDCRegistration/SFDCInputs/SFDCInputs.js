@@ -269,7 +269,7 @@ const SFDCInputs = () => {
       formdata.append("phone", draftValidPhoneNumber);
       formdata.append("email", draftValidEmail);
       formdata.append("date_of_birth", draftDOB);
-      formdata.append("gender", draftGender);
+      // formdata.append("gender", draftGender);
       formdata.append("country", draftCountry);
       formdata.append("area_of_focus", draftAreaOfFocusChange);
       formdata.append("social_problems", draftYourSocialProblem);
@@ -427,7 +427,7 @@ const SFDCInputs = () => {
             console.error(error);
           });
       } else {
-        alert("Some form Fields are Missing! Please re  select your Country, Fictional World Address Field!");
+        alert("Some form Fields are Missing! Please reselect!");
         setIsSubmitting(false);
         setIsDisabled(false);
       }

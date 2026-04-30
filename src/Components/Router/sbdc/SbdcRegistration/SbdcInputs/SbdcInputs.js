@@ -131,7 +131,7 @@ const SbdcInputs = () => {
         name_of_business: data.NameOfSocialBusiness,
         application_type: data.FounderType, // team | individual
         stage_of_ventures: data.StageOfVentures,
-        country: data.ApplicantCountry || null,
+        // country: data.ApplicantCountry || null,
 
         sectors: data.AreaOfFocus ? [data.AreaOfFocus] : [],
 
