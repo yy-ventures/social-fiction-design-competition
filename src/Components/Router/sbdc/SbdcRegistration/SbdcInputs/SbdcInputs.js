@@ -580,7 +580,7 @@ const SbdcInputs = () => {
                     </div>
                     <div>
                       <input
-                        type="number"
+                        type="text"
                         placeholder="Contact Number"
                         required
                         {...register("CoFounderOneNumber")}
@@ -626,7 +626,7 @@ const SbdcInputs = () => {
                     </div>
                     <div>
                       <input
-                        type="number"
+                        type="text"
                         placeholder="Contact Number"
                         required
                         {...register("CoFounderTwoNumber")}
