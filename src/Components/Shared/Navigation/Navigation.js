@@ -55,7 +55,9 @@ const Navigation = () => {
             </a>
             <div className="sbdc-dropdown-content">
               <Link to="/sbdc">Explore</Link>
-              <Link to="/sbdc-registration">Apply</Link>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeq913c1cLkp3N5A73O85mtYUZ0-1E57sJ0VFbUAYHI0CYNQA/viewform" target="_blank" rel="noopener noreferrer">
+                Apply
+              </a>
             </div>
           </div>
           <div className="sbdc-dropdown">
@@ -64,7 +66,9 @@ const Navigation = () => {
             </a>
             <div className="sbdc-dropdown-content">
               <Link to="/sfdc">Explore</Link>
-              <Link to="/sfdc-registration">Apply</Link>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScFo_mXAxunpkZ9yHDk5aDHeHI4mtMd9OLkKBb1A4XTmx74ZQ/viewform" target="_blank" rel="noopener noreferrer">
+                Apply
+              </a>
             </div>
           </div>
           <div>

@@ -58,12 +58,14 @@ export default function Home() {
             <HashLink to="/sfdc#sdbcHeaderId" className="btn-home button-blue">
               Explore
             </HashLink>
-            <HashLink
-              to="/sfdc-registration#sfdcRegId"
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScFo_mXAxunpkZ9yHDk5aDHeHI4mtMd9OLkKBb1A4XTmx74ZQ/viewform#sfdcRegId"
               className="btn-home button-skyblue"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Apply Now
-            </HashLink>
+            </a>
             {/*<HashLink to="#" className="btn-home button-skyblue">*/}
             {/*  Application Closed*/}
             {/*</HashLink>*/}
@@ -94,12 +96,14 @@ export default function Home() {
             <HashLink to="/sbdc#sbdcHeaderId" className="btn-home button-blue">
               EXPLORE
             </HashLink>
-            <HashLink
-              to="/sbdc-registration#sbdcRegId"
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeq913c1cLkp3N5A73O85mtYUZ0-1E57sJ0VFbUAYHI0CYNQA/viewform#sbdcRegId"
               className="btn-home button-skyblue"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               APPLY NOW
-            </HashLink>
+            </a>
             {/*<HashLink to="#" className="btn-home button-skyblue">*/}
             {/*  Application Closed*/}
             {/*</HashLink>*/}

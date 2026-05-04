@@ -26,14 +26,14 @@ const SbdcHeader = () => {
               injustices that plague our communities.
             </p>
 
-            <Link to="/sbdc-registration">
-              <button className="complete-btn">
+           
+              <button className="complete-btn" type="button" onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeq913c1cLkp3N5A73O85mtYUZ0-1E57sJ0VFbUAYHI0CYNQA/viewform", "_blank")}>
                 <span className="btn-text">Complete Now</span>
                 <span className="btn-icon">
                   <img src={RightArrow} alt="right-arrow" />
                 </span>
               </button>
-            </Link>
+          
           </div>
         </div>
 

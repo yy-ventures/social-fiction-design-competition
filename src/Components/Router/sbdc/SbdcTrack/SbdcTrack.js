@@ -1,13 +1,13 @@
 import "./SbdcTrack.scss";
 import Light from "../../../../assets/light.png";
 import UpperBg from "../../../../assets/solution-bg.png";
-import RightArrow from "../../../../assets/sbdc/right-arrow.png";
+
 import { Link } from "react-router-dom";
 import React from "react";
 import useScrollAnimation from "../SbdcWhoCanApply/useScrollAnimation";
 
 const SbdcTrack = () => {
-  const [ref, active] = useScrollAnimation();
+
   const [leftRef, leftActive] = useScrollAnimation();
   const [rightRef, rightActive] = useScrollAnimation();
   return (
@@ -20,11 +20,15 @@ const SbdcTrack = () => {
           <p>Want to build</p>
           <h2>a solution for</h2>
           <p>a better world?</p>
-          <Link to="/sbdc-registration">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeq913c1cLkp3N5A73O85mtYUZ0-1E57sJ0VFbUAYHI0CYNQA/viewform#sbdcRegId"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <button>
               Complete Now <span>→</span>
             </button>
-          </Link>
+          </a>
         </div>
       </div>
 

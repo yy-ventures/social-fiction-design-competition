@@ -61,9 +61,9 @@ const SfdcRoute = () => {
             </p>
           </div>
           <div className="btn-container">
-            <Link to='/sfdc-registration'>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLScFo_mXAxunpkZ9yHDk5aDHeHI4mtMd9OLkKBb1A4XTmx74ZQ/viewform' target="_blank" rel="noopener noreferrer">
               <Button />
-            </Link>
+            </a>
           </div>
         </div>
         <div className="hero-section__typewriter">
@@ -292,9 +292,13 @@ const SfdcRoute = () => {
                   Submit your Social Fiction Writing
                 </span>
                 <div className="btn-container" data-aos="fade-right">
-                  <Link to='/sfdc-registration'>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScFo_mXAxunpkZ9yHDk5aDHeHI4mtMd9OLkKBb1A4XTmx74ZQ/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
