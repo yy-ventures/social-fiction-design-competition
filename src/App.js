@@ -40,11 +40,13 @@ function App() {
               <SfdcRoute />
             </Route>
             <Route exact path="/sbdc-registration">
-               <SbdcRegistration />
+            <SbdcRoute />
+               {/* <SbdcRegistration /> */}
               {/*<Redirect to="/" />*/}
             </Route>
             <Route exact path="/sfdc-registration">
-               <SFDCRegistration />
+              <SfdcRoute />
+               {/* <SFDCRegistration /> */}
               {/*<div className="application-closed">*/}
               {/*  <h1>Application is closed</h1>*/}
               {/*</div>*/}
