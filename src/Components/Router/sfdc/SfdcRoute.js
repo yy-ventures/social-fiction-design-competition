@@ -37,10 +37,7 @@ const SfdcRoute = () => {
   useEffect(() => {
     AOS.init();
   }, []);
-      useEffect(() => {
-    window.location.href =
-      "https://docs.google.com/forms/d/e/1FAIpQLScFo_mXAxunpkZ9yHDk5aDHeHI4mtMd9OLkKBb1A4XTmx74ZQ/viewform";
-  }, []);
+  
   return (
     <div className="sfdc-home">
       {/* HERO SECTION START */}
